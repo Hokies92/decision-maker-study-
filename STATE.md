@@ -1,10 +1,10 @@
 # Project State
 
 ## Current
-**Phase:** 0 — Ingest source materials   **Gate:** open
-**Step:** P0.S06 — Generate and verify integrity manifest
+**Phase:** 0 — Ingest source materials   **Gate:** under review (S6 stop — awaiting Scott)
+**Step:** P0.S07 — Draft Phase 0 gate review
 **Status:** done (awaiting Scott's merge)
-**Branch:** phase-0/step-06-manifest
+**Branch:** phase-0/step-07-gate-review
 **Updated:** 2026-10-27 by Claude session
 
 ## Step plan — Phase 0
@@ -16,8 +16,8 @@
 | P0.S03 | Record survey instrument as `MISSING` | Scott's confirmation (2026-10-27) | Register row for instrument; `00_source/instrument/README.md` stating it is unavailable | Register states no questionnaire, screener, or programming spec exists; Phase 1 reconstruction basis documented as data-only | done | `2f3e201` (PR #4) |
 | P0.S04 | Ingest response data + respondent-identity scan | Two Excel files from Scott: structured responses; open-ended responses | `00_source/data/*`, register rows, `scripts/p0_scan_identifiers.py`, scan output | Register rows complete; scan run by committed script **before** the data files are committed; any identifying fields → stop (S8), Scott decides case by case | done | `22b00d3`, renamed `d412158` (PR #5) |
 | P0.S05 | Record published report as `MISSING` | Scott's confirmation (2026-10-27) | Register row for report; `00_source/report/README.md` stating it is unavailable | Register states no report or deck exists | done | `6305dc0` (PR #6) |
-| P0.S06 | Generate and verify integrity manifest | All `00_source/` files | `00_source/MANIFEST.sha256` | `sha256sum -c` passes; every file in `00_source/` listed | done | `bec88eb` |
-| P0.S07 | Draft Phase 0 gate review | All P0 outputs | Gate review block in `STATE.md` | Every §5 P0 criterion checked with evidence; stop for Scott's confirmation and tag | not started | — |
+| P0.S06 | Generate and verify integrity manifest | All `00_source/` files | `00_source/MANIFEST.sha256` | `sha256sum -c` passes; every file in `00_source/` listed | done | `bec88eb` (PR #7) |
+| P0.S07 | Draft Phase 0 gate review | All P0 outputs | Gate review block in `STATE.md` | Every §5 P0 criterion checked with evidence; stop for Scott's confirmation and tag | done — awaiting Scott | this branch |
 
 ## Source intake checklist
 - [x] Survey instrument — does not exist; to be reconstructed in Phase 1 (`MISSING`)
@@ -26,7 +26,24 @@
 
 ## Gate reviews
 <!-- one dated block per closed phase, with criteria checklist and tag -->
-- (none yet)
+
+### Phase 0 — Ingest source materials
+**Drafted:** 2026-10-27 by Claude (P0.S07) · **Reviewed against:** `main` @ `9aa51d1`
+**Recommendation:** PASS — close Phase 0 · **Decision:** pending Scott · **Tag:** `phase-0-complete` (Scott creates)
+
+| # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
+|---|---|---|---|
+| 1 | Every source file present in `00_source/{instrument,data,report}/`, filename preserved as received | PASS, with override | `data/survey.xlsx`, `data/open_ended.xlsx` present; `instrument/` and `report/` hold unavailability notes (no files exist). Filenames changed by Scott's explicit override; received names kept in register (`d412158`). |
+| 2 | `SOURCE_REGISTER.md` lists each file with all fields | PASS | 4 rows, SRC-001…SRC-004, all 12 fields populated (`2f3e201`, `22b00d3`, `d412158`, `6305dc0`) |
+| 3 | `MANIFEST.sha256` generated and committed | PASS | `bec88eb`; `sha256sum -c` 2/2 OK; script `--check` PASS; covers every evidence file; tamper test caught |
+| 4 | No respondent-identifying fields committed in clear text | PASS | Scan run before commit (`IDENTITY_SCAN.md`): 0 HIGH, 30 REVIEW. No respondent named; IDs anonymous. Staff names in metadata and vendor names in free text committed by Scott's decision. |
+| 5 | Scott confirms the source set is complete | PASS | Scott, 2026-10-27: the two Excel files are the only data; no instrument, methodology, or report exists (decisions log). |
+
+**Carried into Phase 1 (not blockers):**
+- No respondent-level structured data: individual answers cannot be linked to role level or stakeholder type. Phases 3–5 need re-planning; README phase table is protected, so this comes to Scott as a proposal with the Phase 1 plan.
+- Instrument must be reconstructed from data only: all items `RECON_DATA` or `INFERRED`; Scott's recollection is the only other source (`RECALL_DESIGNER` tag proposal in parking lot).
+- `open_ended.xlsx`: 359 rows vs 319 respids; one possible vendor-employee surname in Q24.
+- Governance wording fixes parked (§4.2 step numbering, B4 reset wording).
 
 ## Decisions log
 <!-- append-only, dated; supersede, never edit -->
