@@ -38,6 +38,7 @@
 - 2026-10-27: Q3 resolved (Scott): no questionnaire, screener, methodology document, or report exists. The instrument and methodology are reconstructed in Phase 1 from the two data files only; every item will carry `RECON_DATA` or `INFERRED`, with no `VERBATIM` or `RECON_REPORT` sources available.
 - 2026-10-27: Phase 0 step plan approved (PR #2, merge `0505d45`).
 - 2026-10-27: Manifest scope is evidence files only. `*.md` (register, unavailability notes), `.gitkeep`, and the manifest itself are excluded, so appending register rows never breaks integrity checks. A recorded file whose hash changes fails both build and check; the script never rewrites an entry.
+- 2026-10-27: Source data is final (Scott): the two Excel files are the only data that exist. No respondent-level structured export is available. Verified at intake: the structured file is a tabulated report (N=319, column percentages with significance tests, broken out by ITDM/BDM and seniority); the open-ended file and the "Other" sheet are respondent-level (respid) but carry no role-level or stakeholder-type value per respondent. Consequence: individual answers cannot be linked to level or stakeholder type; level × stakeholder analysis is limited to the breakouts in the tables. Scope of Phases 3–5 to be re-planned at the Phase 1 plan.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
@@ -50,6 +51,8 @@
 - (P0.S01) GOVERNANCE B4 wording bans `git reset --hard` on any pushed branch, which also catches a harmless local fast-forward to `origin/main`. Consider narrowing to "any reset that discards commits or uncommitted work." Proposal only.
 
 - (P0.S01) With no instrument on file, Scott's own recollection as the study's designer is the only non-data source. Consider a provenance tag `RECALL_DESIGNER` so facts Scott supplies are distinguished from Claude's `INFERRED` items. Proposal only — `gov/` branch on request.
+
+- (P0.S04) Re-plan Phases 3–5 for table-level data: schema to hold group-level results (cell = question × answer × breakout group), with respondent-level elements reserved but empty; Phase 4 limited to techniques valid on aggregates; Phase 5 coding unlinked to level/stakeholder. Requires a README phase-table change (protected) — proposal at the Phase 1 plan.
 
 ## Governance incidents
 <!-- append-only -->
