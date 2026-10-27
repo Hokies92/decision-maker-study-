@@ -2,7 +2,7 @@
 
 **Status:** Binding. Applies to every Claude session (claude.ai, Claude Code, any agent) that reads or writes this repository.
 **Owner:** Scott Santucci. Only Scott may amend this file (see §12).
-**Version:** 1.0.0 — 2026-10-27
+**Version:** 1.1.0 — 2026-10-27 (D1 re-scope, D2 `RECALL_DESIGNER`)
 
 ---
 
@@ -146,11 +146,13 @@ A phase closes only when **every** criterion passes, the gate review is recorded
 - [ ] `variable_dictionary.csv`: every variable with name, label, source question ID, type, valid values, status ∈ {`collected`, `derivable`, `missing`}.
 - [ ] Every `derivable` variable has an explicit derivation rule.
 - [ ] `data_quality.md`: n, missing rate, out-of-range counts per variable — produced by a committed script, not by hand.
-- [ ] `coverage_matrix.csv`: respondent counts by role level × stakeholder type.
+- [ ] `coverage_matrix.csv`: respondent counts (bases) for every breakout group, including role level × stakeholder type.
 
 ### Phase 3 — Design the new schema (`03_schema/`)
 - [ ] `decision-maker-study.xsd` validates (`xmllint --noout --schema`).
-- [ ] Role level and stakeholder type are first-class, referenced entities — every response is linkable to both.
+- [ ] Role level and stakeholder type are first-class, referenced entities attached to breakout groups — every result cell is linkable to both through its group.
+- [ ] Every question is a thread element; thread-to-thread links (from the P1 linkage inventory) are first-class edges.
+- [ ] Respondent-level elements are defined but optional, so respondent data can be added without breaking existing instances.
 - [ ] Namespace carries the major version (`.../dms/v1`).
 - [ ] ≥3 sample instance documents in `03_schema/examples/` validate against the XSD.
 - [ ] `schema_mapping.csv`: every P2 variable → XPath, or explicit `EXCLUDED` with reason.
@@ -159,12 +161,13 @@ A phase closes only when **every** criterion passes, the gate review is recorded
 
 ### Phase 4 — Analytics library (`04_analytics_library/`)
 - [ ] One file per technique: question it answers, required XPaths, assumptions, minimum n, output form.
+- [ ] Every technique is valid on group-level percentages, or states the respondent-level data it would need. Techniques that link threads statistically state the ecological caveat: they describe groups, not individuals.
 - [ ] Automated check: every referenced XPath exists in the current XSD.
 - [ ] `catalog.md` index.
 
 ### Phase 5 — Open-ended responses (`05_open_ended/`)
 - [ ] `coding_frame.md`: each code with definition, include/exclude rules, ≥1 example.
-- [ ] Coded output links respondent ID → role level → stakeholder type.
+- [ ] Coded output links respondent ID → question thread. (No per-respondent level or stakeholder exists in source; do not infer one.)
 - [ ] Raw verbatims untouched; codes stored separately.
 - [ ] Consistency check documented (re-code a sample; report agreement).
 
@@ -222,6 +225,7 @@ Every reconstructed fact carries exactly one tag:
 | `VERBATIM` | Copied exactly from a source file. Cite file + page/row. |
 | `RECON_DATA` | Reconstructed from the response data (e.g., scale inferred from observed values). |
 | `RECON_REPORT` | Reconstructed from the published report or deck. |
+| `RECALL_DESIGNER` | Supplied by Scott from memory of the survey's design: business logic and intent. Scott designed the logic; a contractor fielded it, so implementation (programming, routing as fielded) may differ. Where recall and data conflict, record the data as fielded and log the conflict. Cite date stated. |
 | `INFERRED` | Claude's reasoned inference with no direct source. Requires a one-line rationale and Scott's review. |
 | `MISSING` | Not recoverable. Stated, not filled. |
 
@@ -319,7 +323,7 @@ Outputs:
   - <path> (<sha of last commit touching it>)
 Verification:
   - <check> → PASS/FAIL (evidence)
-Provenance: VERBATIM n / RECON_DATA n / RECON_REPORT n / INFERRED n / MISSING n
+Provenance: VERBATIM n / RECON_DATA n / RECON_REPORT n / RECALL_DESIGNER n / INFERRED n / MISSING n
 Parking lot added: <items or none>
 Open questions for Scott: <items or none>
 Next step: P<N>.S<NN+1> — <objective>  (not started)
