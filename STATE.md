@@ -1,13 +1,30 @@
 # Project State
 
 ## Current
-**Phase:** 0 — Ingest source materials   **Gate:** under review (S6 stop — awaiting Scott)
-**Step:** P0.S07 — Draft Phase 0 gate review
-**Status:** done (awaiting Scott's merge)
-**Branch:** phase-0/step-07-gate-review
+**Phase:** 1 — Reconstruct the instrument   **Gate:** open
+**Step:** P1.S00 — Propose the Phase 1 step plan
+**Status:** done (awaiting Scott's merge = plan approval; decisions D1–D2 below)
+**Branch:** phase-1/step-00-plan
 **Updated:** 2026-10-27 by Claude session
 
-## Step plan — Phase 0
+## Step plan — Phase 1
+
+Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance tag. Every derived file is produced by a committed script in `scripts/`.
+
+| ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
+|----|-----------|--------|---------|-----------|--------|--------|
+| P1.S00 | Propose the Phase 1 step plan | Phase 0 outputs; read-only structure survey of SRC-002/003 | `STATE.md` | Plan merged by Scott; D1–D2 answered | done — awaiting Scott | this branch |
+| P1.S01 | Build the table parser: locate every question block in SRC-002 (stem, answer options, banner columns, row/column positions) | `00_source/data/survey.xlsx` | `scripts/p1_parse_tables.py`; `01_instrument_reconstruction/derived/table_blocks.csv` | All 116 tabulated items found on the 4 breakout sheets; 104 on Main Page; parser output reproducible; no values altered | not started | — |
+| P1.S02 | Question map: every item S1–S12, Q1–Q25 with ID, wording, type, options link, provenance | `table_blocks.csv`; SRC-002 "Other" sheet; SRC-003 | `question_map.csv` + `question_map.md`; `scripts/p1_build_question_map.py` | All 37 base questions and every sub-item listed; wording tagged `VERBATIM` with file/sheet/cell, or `INFERRED` with rationale; piping placeholders (e.g., `hS5Piping`) recorded, not "fixed" | not started | — |
+| P1.S03 | Response scales: every answer list with ID, points, labels, direction | `table_blocks.csv` | `response_scales.csv`; script | Every question maps to one scale ID; shared scales deduplicated; labels `VERBATIM` | not started | — |
+| P1.S04 | Routing and bases: who was asked what, reconstructed from screener structure and table bases | `table_blocks.csv`; `question_map.csv` | `skip_logic.md` (explicit `IF … THEN ASK`) | Every routed item has a rule tagged `RECON_DATA` (base evidence) or `INFERRED`; unresolvable routing marked `MISSING` | not started | — |
+| P1.S05 | Sampling frame and core definitions: screener criteria, role-level and stakeholder-type definitions, breakout groups and their sizes | Screener items S1–S12; banner headers on all sheets | `sampling_frame.md` | Role level (C-level / VP / Director / Manager) and stakeholder type (ITDM / BDM; decision-stage roles) defined `VERBATIM` from source; group sizes cited | not started | — |
+| P1.S06 | Gaps and anomalies: Main Page missing Q11_2–7 and Q15_1–7; `Sheet1` fragment; S1 untabulated; open-ended 359 rows vs 319 respids | All P1 outputs | `anomalies.md` | Each anomaly described with evidence and disposition; none silently resolved | not started | — |
+| P1.S07 | Cross-check and provenance count | All P1 outputs | `scripts/p1_crosscheck.py`; `crosscheck_report.md` | Every table block and data column maps to ≥1 question; every question maps to data or is flagged `NO_DATA`; provenance counts reported | not started | — |
+| P1.S08 | Designer review: Scott confirms or rejects every `INFERRED` item | Open questions list | Updated outputs; decisions log | No `INFERRED` item left unreviewed | not started | — |
+| P1.S09 | Draft Phase 1 gate review | All P1 outputs | Gate review block | Every §5 P1 criterion checked with evidence; stop for Scott's merge and tag | not started | — |
+
+## Step plan — Phase 0 (closed — tag `phase-0-complete` on `1c066db`)
 
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
@@ -17,7 +34,7 @@
 | P0.S04 | Ingest response data + respondent-identity scan | Two Excel files from Scott: structured responses; open-ended responses | `00_source/data/*`, register rows, `scripts/p0_scan_identifiers.py`, scan output | Register rows complete; scan run by committed script **before** the data files are committed; any identifying fields → stop (S8), Scott decides case by case | done | `22b00d3`, renamed `d412158` (PR #5) |
 | P0.S05 | Record published report as `MISSING` | Scott's confirmation (2026-10-27) | Register row for report; `00_source/report/README.md` stating it is unavailable | Register states no report or deck exists | done | `6305dc0` (PR #6) |
 | P0.S06 | Generate and verify integrity manifest | All `00_source/` files | `00_source/MANIFEST.sha256` | `sha256sum -c` passes; every file in `00_source/` listed | done | `bec88eb` (PR #7) |
-| P0.S07 | Draft Phase 0 gate review | All P0 outputs | Gate review block in `STATE.md` | Every §5 P0 criterion checked with evidence; stop for Scott's confirmation and tag | done — awaiting Scott | this branch |
+| P0.S07 | Draft Phase 0 gate review | All P0 outputs | Gate review block in `STATE.md` | Every §5 P0 criterion checked with evidence; stop for Scott's confirmation and tag | done | `1f25e02` (PR #8) |
 
 ## Source intake checklist
 - [x] Survey instrument — does not exist; to be reconstructed in Phase 1 (`MISSING`)
@@ -29,7 +46,7 @@
 
 ### Phase 0 — Ingest source materials
 **Drafted:** 2026-10-27 by Claude (P0.S07) · **Reviewed against:** `main` @ `9aa51d1`
-**Recommendation:** PASS — close Phase 0 · **Decision:** pending Scott · **Tag:** `phase-0-complete` (Scott creates)
+**Recommendation:** PASS — close Phase 0 · **Decision:** APPROVED by Scott (PR #8 merged 2026-10-27) · **Tag:** `phase-0-complete` on `1c066db` (created by Scott)
 
 | # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
 |---|---|---|---|
@@ -60,11 +77,15 @@
 - 2026-10-27: Upload-system prefixes (`1be1a22d-`, `cd05d1e9-`) dropped; files stored under the names Scott created, prefixes recorded in the register.
 - 2026-10-27: Supersedes the entry above. Scott renamed the data files: `survey.xlsx` (structured) and `open_ended.xlsx`. Explicit override of the GOVERNANCE §5 P0 criterion "filename preserved as received"; the received names are kept in the register, and contents are unchanged.
 - 2026-10-27: Scan rule refined after real-data false positives: cells that are a decimal or an integer under 10 digits are excluded from value-pattern checks.
+- 2026-10-27: Phase 0 closed. Gate review merged (PR #8, `1c066db`); Scott created tag `phase-0-complete`.
+- 2026-10-27: Correction (supersedes the `00_source/instrument/README.md` statement that no item can be `VERBATIM`): SRC-002 table labels carry full question wording in quotes, so wording copied from the data file is `VERBATIM`, cited by file, sheet, and cell. Only wording with no source text is `INFERRED`. The README is protected; this entry is the correction of record.
+- 2026-10-27: Structure survey (read-only, P1.S00): SRC-002 tabulates 31 base questions (S2–S12, Q1–Q20), 116 items. Main Page breaks every item out by seniority (C-level / VP / Director / Manager) within ITDM, within BDM, and combined, plus country and region. Other sheets break out by industry, company size, revenue, sales-contact frequency, customer type, and decision-stage role. Level × stakeholder therefore exists at group level for every structured item.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
 <!-- includes all INFERRED items awaiting review -->
-- (none open)
+- D1 (P1.S00): Re-plan of Phases 3–5. Given group-level data with level × stakeholder breakouts, proposed README phase-table change: Phase 3 schema stores results as cells (question × option × breakout group), with level and stakeholder as referenced entities on the group, and respondent-level elements reserved but empty; Phase 4 limited to techniques valid on group percentages; Phase 5 coding by respondent but not linked to level/stakeholder. README is protected — needs Scott's approval; Claude would then make the change on a `gov/` branch.
+- D2 (P1.S00): Adopt provenance tag `RECALL_DESIGNER` for facts Scott supplies from memory as the study's designer (distinct from Claude's `INFERRED`)? Amends GOVERNANCE §7 — needs Scott's approval; `gov/` branch.
 
 ## Parking lot
 <!-- out-of-scope ideas, one line each, with the step they were noticed in -->
