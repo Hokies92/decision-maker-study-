@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 1 — Reconstruct the instrument   **Gate:** open
-**Step:** P1.S00 — Propose the Phase 1 step plan
-**Status:** done (awaiting Scott's merge = plan approval; decisions D1–D2 below)
-**Branch:** phase-1/step-00-plan
+**Step:** P1.S01 — Build the table parser
+**Status:** done (awaiting Scott's merge)
+**Branch:** phase-1/step-01-table-parser
 **Updated:** 2026-10-27 by Claude session
 
 ## Step plan — Phase 1
@@ -13,8 +13,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
-| P1.S00 | Propose the Phase 1 step plan | Phase 0 outputs; read-only structure survey of SRC-002/003 | `STATE.md` | Plan merged by Scott; D1–D2 answered | done — awaiting Scott | this branch |
-| P1.S01 | Build the table parser: locate every question block in SRC-002 (stem, answer options, banner columns, row/column positions) | `00_source/data/survey.xlsx` | `scripts/p1_parse_tables.py`; `01_instrument_reconstruction/derived/table_blocks.csv` | All 116 tabulated items found on the 4 breakout sheets; 104 on Main Page; parser output reproducible; no values altered | not started | — |
+| P1.S00 | Propose the Phase 1 step plan | Phase 0 outputs; read-only structure survey of SRC-002/003 | `STATE.md` | Plan merged by Scott; D1–D2 answered | done | `2e58562` (PR #9); gov `b788b0e` (PR #10) |
+| P1.S01 | Build the table parser: locate every question block in SRC-002 (stem, answer options, banner columns, row/column positions) | `00_source/data/survey.xlsx` | `scripts/p1_parse_tables.py`; `01_instrument_reconstruction/derived/table_blocks.csv` | All 116 tabulated items found on the 4 breakout sheets; 104 on Main Page; parser output reproducible; no values altered | done — 578 blocks (see decisions log for count reconciliation) | `77a75f6` |
 | P1.S02 | Question map: every item S1–S12, Q1–Q25 with ID, **thread ID** (one thread per base question), construct, wording, type, options link, provenance | `table_blocks.csv`; SRC-002 "Other" sheet; SRC-003 | `question_map.csv` + `question_map.md`; `scripts/p1_build_question_map.py` | All 37 base questions and every sub-item listed; wording tagged `VERBATIM` with file/sheet/cell, or `INFERRED` with rationale; piping placeholders (e.g., `hS5Piping`) recorded, not "fixed" | not started | — |
 | P1.S03 | Response scales: every answer list with ID, points, labels, direction | `table_blocks.csv` | `response_scales.csv`; script | Every question maps to one scale ID; shared scales deduplicated; labels `VERBATIM` | not started | — |
 | P1.S04 | Routing and bases: who was asked what, reconstructed from screener structure and table bases | `table_blocks.csv`; `question_map.csv` | `skip_logic.md` (explicit `IF … THEN ASK`) | Every routed item has a rule tagged `RECON_DATA` (base evidence) or `INFERRED`; unresolvable routing marked `MISSING` | not started | — |
@@ -84,6 +84,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-27: D1 approved (Scott): re-scope Phases 3–5 to group-level data with level × stakeholder on the breakout group; respondent-level slots reserved. README change to follow on a `gov/` branch.
 - 2026-10-27: D1 extension (Scott): find more linkages. Each question becomes its own **thread**; links between threads form a graph that can be iterated into network and topology maps, serving both reductionist analysis (decompose by thread, scale, group) and synthetic holism (recombine threads into structures). Added P1.S07 linkage inventory (structural links defined by the instrument). Statistical links between threads belong to Phase 4.
 - 2026-10-27: D2 approved (Scott): add provenance tag `RECALL_DESIGNER`. Scope per Scott: he designed the survey's business logic; a contractor executed it. The tag therefore covers design intent and business logic; implementation details (programming, routing as fielded) may differ, so where recall and data conflict, the data is recorded as fielded and the conflict is logged. GOVERNANCE §7 change to follow on a `gov/` branch.
+- 2026-10-27: P1.S01 count reconciliation. The plan's targets (116 items per breakout sheet, 104 on Main Page) came from a header scan that started one row late and only matched S/Q-prefixed headers. The parser finds 118 and 106: the extra two on every sheet are S1 (department; it **is** tabulated — correcting the P1.S00 note that S1 was untabulated) and the "ITDM or BDM" summary table (no source ID). Independent check: every labeled row on all five sheets is covered, 0 stray.
+- 2026-10-27: Layout differences found by the parser, for P1.S06: Main Page shows Q11 as one condensed table headed "Q11_1" with 7 statements and no base row, where breakout sheets show Q11_1–Q11_7 separately; Main Page shows Q15 as one 7-option table plus Q15_8, where breakout sheets show Q15_1–Q15_7. "S2 and S3 combined" is a merged table, given ID `S2_S3_combined`.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
