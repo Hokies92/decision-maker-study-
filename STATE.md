@@ -2,17 +2,17 @@
 
 ## Current
 **Phase:** 0 — Ingest source materials   **Gate:** open
-**Step:** P0.S01 — Restructure STATE.md and propose the Phase 0 step plan
-**Status:** in progress (awaiting Scott's merge = plan approval)
-**Branch:** phase-0/step-01-plan
+**Step:** P0.S02 — Build intake tooling: source register template + manifest script
+**Status:** done (awaiting Scott's merge)
+**Branch:** phase-0/step-02-intake-tooling
 **Updated:** 2026-10-27 by Claude session
 
 ## Step plan — Phase 0
 
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
-| P0.S01 | Restructure STATE.md to GOVERNANCE Appendix A; propose Phase 0 steps | `STATE.md`, `GOVERNANCE.md` | `STATE.md` | Matches Appendix A; prior log entries preserved; Scott merges PR | in progress | — |
-| P0.S02 | Build intake tooling: source register template + manifest script | `GOVERNANCE.md` §5 P0, §9 | `00_source/SOURCE_REGISTER.md` (empty template), `scripts/p0_build_manifest.sh` | Script runs on empty tree without error; register has all required columns | not started | — |
+| P0.S01 | Restructure STATE.md to GOVERNANCE Appendix A; propose Phase 0 steps | `STATE.md`, `GOVERNANCE.md` | `STATE.md` | Matches Appendix A; prior log entries preserved; Scott merges PR | done | `0505d45` (PR #2) |
+| P0.S02 | Build intake tooling: source register template + manifest script | `GOVERNANCE.md` §5 P0, §9 | `00_source/SOURCE_REGISTER.md` (empty template), `scripts/p0_build_manifest.sh` | Script runs on empty tree without error; register has all required columns | done | `60a619b` |
 | P0.S03 | Record survey instrument as `MISSING` | Scott's confirmation (2026-10-27) | Register row for instrument; `00_source/instrument/README.md` stating it is unavailable | Register states no questionnaire, screener, or programming spec exists; Phase 1 reconstruction basis documented as data-only | not started | — |
 | P0.S04 | Ingest response data + respondent-identity scan | Two Excel files from Scott: structured responses; open-ended responses | `00_source/data/*`, register rows, `scripts/p0_scan_identifiers.py`, scan output | Register rows complete; scan run by committed script **before** the data files are committed; any identifying fields → stop (S8), Scott decides case by case | not started (needs files) | — |
 | P0.S05 | Record published report as `MISSING` | Scott's confirmation (2026-10-27) | Register row for report; `00_source/report/README.md` stating it is unavailable | Register states no report or deck exists | not started | — |
@@ -36,6 +36,8 @@
 - 2026-10-27: Q1 resolved (Scott): source is two small Excel files — structured responses and open-ended responses. No Git LFS; commit directly.
 - 2026-10-27: Q2 resolved (Scott): option (b). If respondent-identifying fields are found, Claude stops (S8) and Scott decides case by case. The identity scan runs before any data file is committed.
 - 2026-10-27: Q3 resolved (Scott): no questionnaire, screener, methodology document, or report exists. The instrument and methodology are reconstructed in Phase 1 from the two data files only; every item will carry `RECON_DATA` or `INFERRED`, with no `VERBATIM` or `RECON_REPORT` sources available.
+- 2026-10-27: Phase 0 step plan approved (PR #2, merge `0505d45`).
+- 2026-10-27: Manifest scope is evidence files only. `*.md` (register, unavailability notes), `.gitkeep`, and the manifest itself are excluded, so appending register rows never breaks integrity checks. A recorded file whose hash changes fails both build and check; the script never rewrites an entry.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
