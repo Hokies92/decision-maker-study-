@@ -25,3 +25,4 @@ One row per source item, including items confirmed as unavailable. Rows are appe
 
 | ID | Path | Category | Content | Format | Size | Extent | Origin | Received | Status | Identity scan | Known gaps / notes |
 |----|------|----------|---------|--------|------|--------|--------|----------|--------|---------------|--------------------|
+| SRC-001 | — | instrument | Questionnaire, screener, programming spec, skip logic, methodology | — | — | — | Scott Santucci, in chat | 2026-10-27 | MISSING | n/a | Confirmed not to exist. Instrument and methodology reconstructed from data in Phase 1. See `00_source/instrument/README.md`. |
