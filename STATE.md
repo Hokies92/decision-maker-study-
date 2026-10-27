@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 0 — Ingest source materials   **Gate:** open
-**Step:** P0.S02 — Build intake tooling: source register template + manifest script
+**Step:** P0.S03 — Record survey instrument as `MISSING`
 **Status:** done (awaiting Scott's merge)
-**Branch:** phase-0/step-02-intake-tooling
+**Branch:** phase-0/step-03-instrument-missing
 **Updated:** 2026-10-27 by Claude session
 
 ## Step plan — Phase 0
@@ -12,8 +12,8 @@
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
 | P0.S01 | Restructure STATE.md to GOVERNANCE Appendix A; propose Phase 0 steps | `STATE.md`, `GOVERNANCE.md` | `STATE.md` | Matches Appendix A; prior log entries preserved; Scott merges PR | done | `0505d45` (PR #2) |
-| P0.S02 | Build intake tooling: source register template + manifest script | `GOVERNANCE.md` §5 P0, §9 | `00_source/SOURCE_REGISTER.md` (empty template), `scripts/p0_build_manifest.sh` | Script runs on empty tree without error; register has all required columns | done | `60a619b` |
-| P0.S03 | Record survey instrument as `MISSING` | Scott's confirmation (2026-10-27) | Register row for instrument; `00_source/instrument/README.md` stating it is unavailable | Register states no questionnaire, screener, or programming spec exists; Phase 1 reconstruction basis documented as data-only | not started | — |
+| P0.S02 | Build intake tooling: source register template + manifest script | `GOVERNANCE.md` §5 P0, §9 | `00_source/SOURCE_REGISTER.md` (empty template), `scripts/p0_build_manifest.sh` | Script runs on empty tree without error; register has all required columns | done | `60a619b` (PR #3) |
+| P0.S03 | Record survey instrument as `MISSING` | Scott's confirmation (2026-10-27) | Register row for instrument; `00_source/instrument/README.md` stating it is unavailable | Register states no questionnaire, screener, or programming spec exists; Phase 1 reconstruction basis documented as data-only | done | `2f3e201` |
 | P0.S04 | Ingest response data + respondent-identity scan | Two Excel files from Scott: structured responses; open-ended responses | `00_source/data/*`, register rows, `scripts/p0_scan_identifiers.py`, scan output | Register rows complete; scan run by committed script **before** the data files are committed; any identifying fields → stop (S8), Scott decides case by case | not started (needs files) | — |
 | P0.S05 | Record published report as `MISSING` | Scott's confirmation (2026-10-27) | Register row for report; `00_source/report/README.md` stating it is unavailable | Register states no report or deck exists | not started | — |
 | P0.S06 | Generate and verify integrity manifest | All `00_source/` files | `00_source/MANIFEST.sha256` | `sha256sum -c` passes; every file in `00_source/` listed | not started | — |
