@@ -48,6 +48,9 @@ VALUE_RULES: list[tuple[str, str, re.Pattern]] = [
     ("HIGH", "value: URL", re.compile(r"https?://|www\.", re.I)),
 ]
 
+# Decimals, or integers too short to be a phone number (<10 digits).
+PURE_NUMBER = r"-?\d*\.\d+(?:[eE]-?\d+)?|-?\d{1,9}"
+
 FREE_TEXT_MIN_MEAN_LEN = 25   # mean characters per non-empty cell
 FREE_TEXT_MIN_UNIQUE = 0.5    # share of non-empty cells that are distinct
 
@@ -107,8 +110,11 @@ def scan_frame(fname: str, sheet: str, df: pd.DataFrame) -> list[Finding]:
         values = values[values != ""]
         if values.empty:
             continue
+        # Cells that are a single number (e.g., 0.3243243243 percentages in tabulated
+        # reports) cannot be phone numbers or IPs; excluding them stops false positives.
+        non_numeric = values[~values.str.fullmatch(PURE_NUMBER)]
         for sev, label, rx in VALUE_RULES:
-            n = int(values.map(lambda v, rx=rx: bool(rx.search(v))).sum())
+            n = sum(1 for v in non_numeric if rx.search(v))
             if n:
                 out.append(Finding(fname, sheet, header, sev, label, n))
         mean_len = values.str.len().mean()
