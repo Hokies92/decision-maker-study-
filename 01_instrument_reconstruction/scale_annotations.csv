@@ -1,0 +1,35 @@
+representative_item,scale_id,scale_type,direction,family,provenance,rationale
+S1,SC-DEPT9,nominal,none,department,INFERRED,Departments have no order
+DM_TYPE,SC-DMTYPE2,nominal,none,function,INFERRED,IT vs business — categories with no order
+S2,SC-LEVEL4-IT,ordinal,descending,level,INFERRED,Listed from C-level down to Manager (seniority decreasing)
+S3,SC-LEVEL4-BUS,ordinal,descending,level,INFERRED,Listed from C-level down to Manager (seniority decreasing); same tiers as SC-LEVEL4-IT with business wording
+S2_S3_combined,SC-LEVEL4-ALL,ordinal,descending,level,INFERRED,Combined IT + business tiers; same four levels
+S4,SC-ITROLE9,nominal,none,it role,INFERRED,IT roles have no order
+S7_Revenue,SC-REVENUE8,numeric_bins,ascending,firm size,RECON_DATA,Dollar ranges in increasing order
+S8_Bucketed,SC-EMPLOYEES3,numeric_bins,ascending,firm size,RECON_DATA,Employee ranges in increasing order (first label reads '1,0000' in source)
+S9_Country,SC-COUNTRY5,nominal,none,geography,INFERRED,Countries listed alphabetically; no order
+S9_Region,SC-REGION2,nominal,none,geography,INFERRED,Regions; no order
+S10,SC-CONTACTFREQ3,ordinal,ascending,frequency,INFERRED,From once a quarter up to once a week or more
+S11,SC-SELLSTO5,ordinal,ascending,customer type,INFERRED,Bipolar: exclusively consumers → exclusively businesses
+S12,SC-INDUSTRY39,nominal,none,industry,INFERRED,Industries have no order
+S12_Industry7,SC-INDUSTRY8,nominal,none,industry,INFERRED,Seven industry groups plus 'Other or don't know'
+Q2,SC-SPEND6,ordinal,descending,spend,INFERRED,From 'significantly more' down to 'moderately or significantly less'
+Q3_1,SC-FREQ4,ordinal,ascending,frequency,INFERRED,Never → Rarely → Occasionally → Frequently; no midpoint
+Q5,SC-PCT5,numeric_bins,ascending,percentage,RECON_DATA,Percentage ranges in increasing order
+Q6,SC-APPTS-OBSERVED,numeric_observed,ascending,count,RECON_DATA,Values are the counts respondents entered (gaps such as 6 and 11 show these are observed values not designed options)
+Q6_bucketed,SC-APPTS-BINS5,numeric_bins,ascending,count,RECON_DATA,Ranges in increasing order
+Q12_1,SC-AGREE4,ordinal,ascending,agreement,INFERRED,Strongly disagree → Strongly agree; no midpoint
+Q13_1,SC-DIFF3,ordinal,ascending,importance-differentiation,INFERRED,Not important → Important but not a differentiator → Important and a differentiator
+Q14,SC-AGENDA5,ordinal,ascending,salesperson orientation,INFERRED,From 'only want to tell' (vendor-centered) to 'genuinely interested' (customer-centered)
+Q17,SC-CASEEASE6,ordinal,ascending,difficulty,INFERRED,From 'very easy' to 'extremely challenging'; 'don't have the capability' and 'don't know' sit outside the order
+Q18,SC-MATERIALS7,ordinal,descending,usefulness,INFERRED,From 'simple to build a case' down to 'limited materials'; 'other' and 'don't know' sit outside the order
+Q19_1,SC-IMPORT4,ordinal,descending,importance,INFERRED,Very important → Not at all important; no midpoint; listed high to low (opposite direction to SC-FREQ4 and SC-AGREE4)
+Q20_PurchaseLimit,SC-LIMIT4,nominal,none,authority,INFERRED,No limit / limit and will share / limit and won't share / don't know
+Q20_2,SC-LIMITAMT-OBSERVED,numeric_observed,ascending,amount,RECON_DATA,Values are the amounts respondents entered
+S5_1,SC-SEL-S5,selection_list,none,decision stage,RECON_DATA,Pick all that apply — each choice is selected or not
+S6_1,SC-SEL-S6,selection_list,none,decision stage,RECON_DATA,Pick all that apply — each choice is selected or not
+Q1_1,SC-SEL-Q1,selection_list,none,vendor qualities,RECON_DATA,Pick all that apply — each choice is selected or not
+Q7_1,SC-SEL-Q7,selection_list,none,appointment reasons,RECON_DATA,Pick all that apply — each choice is selected or not
+Q11_1,SC-SEL-Q11,selection_list,none,meeting value,RECON_DATA,Pick all that apply — each choice is selected or not
+Q15_1,SC-SEL-Q15,selection_list,none,pull-back reasons,RECON_DATA,Pick all that apply — each choice is selected or not
+Q21,SC-OPEN,open_text,none,open,RECON_DATA,Free text
