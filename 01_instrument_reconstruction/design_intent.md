@@ -72,33 +72,19 @@ REF-1 defines four verifiable objectives every salesperson must achieve, each va
 
 Consequence for the schema (`INFERRED`): one stakeholder hierarchy, not two parallel dimensions — function (IT / business) at the top; level and purchase-process role (S2–S6) beneath it. Role definitions and hierarchy depth stay configurable, not fixed to this survey's categories.
 
-## 3. How the survey maps to the gates (`INFERRED` — for Scott's review)
+## 3. How the survey maps to the gates
 
-**Authoritative item-level map:** `gate_map.md` / `gate_map.csv` (all 136 items, generated from the authored rules in `gate_rules.csv`). Scott asked for a mapping of every question (2026-10-28: "You'd have to create a mapping for me with every question and how they map to the sales objectives."). The thread-level table below is the summary.
+**Scott groups the questions himself** (2026-10-28: "your gate mapping is not intuitive to me. I'd rather you just give me a list of the questions in order and let me group them.").
 
-The survey measures the gates from the customer's side: what the decision-maker experienced at each gate, in their words. Thread-level summary (question IDs as in `question_map.csv`):
+- Input for Scott: `question_list.md` / `question_list.xlsx` — all 37 questions in survey order, wording as asked, with a blank "Scott's group" column.
+- Scott's grouping will be recorded here, tagged `RECALL_DESIGNER`, and becomes the gate assignment used by later steps.
+- Claude's draft mapping is withdrawn and not used. It remains in git history only (commit `88d0801`).
 
-| Gate | Threads | Why (wording) |
-|---|---|---|
-| **Target** — the right people | S1–S12 | Who the decision-maker is: department, IT vs business, level, IT role, decision stages (S5/S6), company, industry, frequency of contact |
-| **Target** — the right message | Q1, Q2, Q12, Q21 | What qualities make a vendor strategic; whether material is relevant and "written for people like me"; what differentiates a vendor |
-| **Access** | Q3, Q4, Q5, Q6, Q7 | Channels responded to, referrals acted on, requests screened out, appointments accepted, reasons to accept |
-| **Agree** | Q8, Q9, Q10, Q11, Q13, Q14 | Salesperson preparedness; meetings valuable; Q10 "how often do you accept follow-on meetings?" (= agree to explore further); what makes a meeting valuable; salesperson's agenda |
-| **Vision** | Q16, Q19 | Q16 "choose a vendor who has worked with you to turn a vision into a clear path to value"; attributes for shaping a vision into a program plan |
-| **Case** | Q17, Q18, Q20 | Difficulty of building a business case; whether vendor materials help "develop convincing reasons to invest"; purchase authority |
-| **Gate failures** | Q15 | Each Q15 option reads as a 0 at a gate — see 3.1 |
-| **Relationship outcomes** (open) | Q22–Q25 | Best/worst sales teams and points of contact — the decision-maker's account of where gates were passed or failed |
+### 3.1 Scott's grouping, as received
 
-3.1 Q15 ("…you changed your mind and did not make a purchase. What were some of the reasons why you pulled back…") as gate failures:
+**Screener S1–S12** — `RECALL_DESIGNER` (Scott, 2026-10-28): "This is demographic information. Think if this as "metadata" for context and it's an input to "target" if you organized this information in a structured way that allows a user to create cohorts based on choices from this information." Asked that the structure carry "tags to preserve relationships of down stream topics."
 
-| Q15 option (VERBATIM, abbreviated) | Gate that returned 0 |
-|---|---|
-| Q15_2 "I could not envision how the value would be delivered." | Vision |
-| Q15_3 "It became too risky of a purchase." | Case |
-| Q15_4 "Others internally got involved and the effort to keep the momentum…" | Target / Agree (agreement network widened) |
-| Q15_5 "I struggled to get others on board internally." | Vision (shared across the network) |
-| Q15_6 "I didn't have a clear path in my mind on who I'd delegate this…" | Vision → Case (path to value) |
-| Q15_1 "I pursued the opportunity with a different vendor." | Competitive loss — gates passed by another vendor |
+Status of other questions (Q1–Q25): not yet grouped by Scott.
 
 ## 4. Methodology as published (`RECON_REPORT`, REF-1 "Methodology") checked against the data
 
