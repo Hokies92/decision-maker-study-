@@ -31,8 +31,8 @@ T-Q17,Q17,Shared Vision,Vision,RECALL_DESIGNER,2026-10-28
 T-Q18,Q18,Business Case,Case,RECALL_DESIGNER,2026-10-28
 T-Q19,Q19,Business Case,Case,RECALL_DESIGNER,2026-10-28
 T-Q20,Q20,Business Case,Case,RECALL_DESIGNER,2026-10-28
-T-Q21,Q21,Baseline; Business Case (listed twice),PENDING,RECALL_DESIGNER,"Listed under Baseline and again in the open-ended block under Business Case — clarification pending (Q-S04a)"
-T-Q22,Q22,Business Case (open-ended block),PENDING,RECALL_DESIGNER,"Listed after a blank line under Business Case — own group or Business Case? Clarification pending (Q-S04b)"
-T-Q23,Q23,Business Case (open-ended block),PENDING,RECALL_DESIGNER,same as Q22
-T-Q24,Q24,Business Case (open-ended block),PENDING,RECALL_DESIGNER,same as Q22
-T-Q25,Q25,Business Case (open-ended block),PENDING,RECALL_DESIGNER,same as Q22
+T-Q21,Q21,Baseline,Baseline,RECALL_DESIGNER,"2026-10-28: ""Baseline only"" (resolves Q-S04a)"
+T-Q22,Q22,Relationship accounts (open-ended),Cross-gate,RECALL_DESIGNER,"2026-10-28: ""Own group"" (resolves Q-S04b); spans all gates — Phase 5 coding tags each answer to the gate it describes"
+T-Q23,Q23,Relationship accounts (open-ended),Cross-gate,RECALL_DESIGNER,"2026-10-28: ""Own group"" (resolves Q-S04b); spans all gates — Phase 5 coding tags each answer to the gate it describes"
+T-Q24,Q24,Relationship accounts (open-ended),Cross-gate,RECALL_DESIGNER,"2026-10-28: ""Own group"" (resolves Q-S04b); spans all gates — Phase 5 coding tags each answer to the gate it describes"
+T-Q25,Q25,Relationship accounts (open-ended),Cross-gate,RECALL_DESIGNER,"2026-10-28: ""Own group"" (resolves Q-S04b); spans all gates — Phase 5 coding tags each answer to the gate it describes"

@@ -93,11 +93,11 @@ Consequence for the schema (`INFERRED`): one stakeholder hierarchy, not two para
 | Successful meeting ("I call it agree to explore now") | Agree | Q8, Q9, Q10, Q11 |
 | Shared Vision | Vision | Q12, Q13, Q14, Q15, Q16, Q17 |
 | Business Case | Case | Q18, Q19, Q20 |
-| (listed after a blank line under Business Case) | pending | Q21, Q22, Q23, Q24, Q25 |
+| Relationship accounts (open-ended) — own group, name proposed by Claude, accepted as "Own group" | Cross-gate; Phase 5 tags each answer to the gate it describes | Q22, Q23, Q24, Q25 |
 
 Scott on scales (2026-10-28): "The scale structures were very intentional."
 
-Pending clarification: Q21 is listed twice (Baseline, and in the open-ended block); Q22–Q25 may form their own open-ended group rather than belong to Business Case. Target has no Q-questions in Scott's grouping; its input is the screener (above).
+Resolved (Scott, 2026-10-28): Q21 — "Baseline only." Q22–Q25 — "Own group." Target has no Q-questions in Scott's grouping; its input is the screener (above).
 
 ## 4. Methodology as published (`RECON_REPORT`, REF-1 "Methodology") checked against the data
 
