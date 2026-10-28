@@ -1,0 +1,38 @@
+thread_id,question,scott_group,gate,provenance,note
+T-S01,S1,Screener metadata,Target (input),RECALL_DESIGNER,"2026-10-28: ""demographic information... 'metadata' for context and it's an input to 'target'"""
+T-S02,S2,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S03,S3,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S04,S4,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S05,S5,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S06,S6,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S07,S7,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S08,S8,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S09,S9,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S10,S10,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S11,S11,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-S12,S12,Screener metadata,Target (input),RECALL_DESIGNER,same as S1
+T-Q01,Q1,Baseline,Baseline,RECALL_DESIGNER,2026-10-28
+T-Q02,Q2,Baseline,Baseline,RECALL_DESIGNER,2026-10-28
+T-Q03,Q3,Access,Access,RECALL_DESIGNER,2026-10-28
+T-Q04,Q4,Access,Access,RECALL_DESIGNER,2026-10-28
+T-Q05,Q5,Access,Access,RECALL_DESIGNER,2026-10-28
+T-Q06,Q6,Access,Access,RECALL_DESIGNER,2026-10-28
+T-Q07,Q7,Access,Access,RECALL_DESIGNER,2026-10-28
+T-Q08,Q8,Successful meeting (I call it agree to explore now),Agree,RECALL_DESIGNER,2026-10-28
+T-Q09,Q9,Successful meeting (I call it agree to explore now),Agree,RECALL_DESIGNER,2026-10-28
+T-Q10,Q10,Successful meeting (I call it agree to explore now),Agree,RECALL_DESIGNER,2026-10-28
+T-Q11,Q11,Successful meeting (I call it agree to explore now),Agree,RECALL_DESIGNER,2026-10-28
+T-Q12,Q12,Shared Vision,Vision,RECALL_DESIGNER,2026-10-28
+T-Q13,Q13,Shared Vision,Vision,RECALL_DESIGNER,2026-10-28
+T-Q14,Q14,Shared Vision,Vision,RECALL_DESIGNER,2026-10-28
+T-Q15,Q15,Shared Vision,Vision,RECALL_DESIGNER,2026-10-28
+T-Q16,Q16,Shared Vision,Vision,RECALL_DESIGNER,2026-10-28
+T-Q17,Q17,Shared Vision,Vision,RECALL_DESIGNER,2026-10-28
+T-Q18,Q18,Business Case,Case,RECALL_DESIGNER,2026-10-28
+T-Q19,Q19,Business Case,Case,RECALL_DESIGNER,2026-10-28
+T-Q20,Q20,Business Case,Case,RECALL_DESIGNER,2026-10-28
+T-Q21,Q21,Baseline; Business Case (listed twice),PENDING,RECALL_DESIGNER,"Listed under Baseline and again in the open-ended block under Business Case — clarification pending (Q-S04a)"
+T-Q22,Q22,Business Case (open-ended block),PENDING,RECALL_DESIGNER,"Listed after a blank line under Business Case — own group or Business Case? Clarification pending (Q-S04b)"
+T-Q23,Q23,Business Case (open-ended block),PENDING,RECALL_DESIGNER,same as Q22
+T-Q24,Q24,Business Case (open-ended block),PENDING,RECALL_DESIGNER,same as Q22
+T-Q25,Q25,Business Case (open-ended block),PENDING,RECALL_DESIGNER,same as Q22

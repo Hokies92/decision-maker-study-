@@ -84,7 +84,20 @@ Consequence for the schema (`INFERRED`): one stakeholder hierarchy, not two para
 
 **Screener S1–S12** — `RECALL_DESIGNER` (Scott, 2026-10-28): "This is demographic information. Think if this as "metadata" for context and it's an input to "target" if you organized this information in a structured way that allows a user to create cohorts based on choices from this information." Asked that the structure carry "tags to preserve relationships of down stream topics."
 
-Status of other questions (Q1–Q25): not yet grouped by Scott.
+**Q1–Q25** — `RECALL_DESIGNER` (Scott, 2026-10-28). Group names as Scott wrote them; machine-readable copy in `scott_grouping.csv`.
+
+| Scott's group | Gate | Questions |
+|---|---|---|
+| Baseline | — (new; not one of the five gates) | Q1, Q2, Q21 |
+| Access | Access | Q3, Q4, Q5, Q6, Q7 |
+| Successful meeting ("I call it agree to explore now") | Agree | Q8, Q9, Q10, Q11 |
+| Shared Vision | Vision | Q12, Q13, Q14, Q15, Q16, Q17 |
+| Business Case | Case | Q18, Q19, Q20 |
+| (listed after a blank line under Business Case) | pending | Q21, Q22, Q23, Q24, Q25 |
+
+Scott on scales (2026-10-28): "The scale structures were very intentional."
+
+Pending clarification: Q21 is listed twice (Baseline, and in the open-ended block); Q22–Q25 may form their own open-ended group rather than belong to Business Case. Target has no Q-questions in Scott's grouping; its input is the screener (above).
 
 ## 4. Methodology as published (`RECON_REPORT`, REF-1 "Methodology") checked against the data
 
