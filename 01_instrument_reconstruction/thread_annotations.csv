@@ -1,0 +1,38 @@
+thread_id,base_question,construct,section,provenance,rationale
+T-S01,S1,Department of respondent,Screener: respondent,INFERRED,Label condensed from S1 wording; ITDM/BDM split appears derived from this item
+T-S02,S2,Seniority (IT decision-makers),Screener: respondent,INFERRED,Label condensed from S2 wording and options; base = ITDM only
+T-S03,S3,Seniority (business decision-makers),Screener: respondent,INFERRED,Label condensed from S3 wording and options; base = BDM only
+T-S04,S4,IT role (IT decision-makers),Screener: respondent,INFERRED,Label condensed from S4 wording; base = ITDM only
+T-S05,S5,Decision stages involved in,Screener: respondent,INFERRED,Label condensed from S5 wording; stage list is a candidate second stakeholder dimension (purchase-process role)
+T-S06,S6,IT decision stages involved in (business decision-makers),Screener: respondent,INFERRED,Label condensed from S6 wording; base = BDM only
+T-S07,S7,Company revenue,Screener: company,INFERRED,Label condensed from S7 wording
+T-S08,S8,Company size (employees),Screener: company,INFERRED,Label condensed from S8 wording
+T-S09,S9,Company headquarters location,Screener: company,INFERRED,Label condensed from S9 wording
+T-S10,S10,Frequency of contact with salespeople,Screener: respondent,INFERRED,Label condensed from S10 wording
+T-S11,S11,Company's customer type (B2B vs B2C),Screener: company,INFERRED,Label condensed from S11 wording
+T-S12,S12,Company industry,Screener: company,INFERRED,Label condensed from S12 wording
+T-Q01,Q1,Qualities of a strategic value-added vendor,What makes a vendor strategic,INFERRED,Label condensed from Q1 wording; topical partner of Q21
+T-Q02,Q2,Spend concentration with strategic providers,What makes a vendor strategic,INFERRED,Label condensed from Q2 wording
+T-Q03,Q3,Responsiveness by contact channel,Access: getting the meeting,INFERRED,Label condensed from Q3 wording and sub-items
+T-Q04,Q4,Meetings initiated by referral source,Access: getting the meeting,INFERRED,Label condensed from Q4 wording and sub-items
+T-Q05,Q5,Share of meeting requests screened out,Access: getting the meeting,INFERRED,Label condensed from Q5 wording
+T-Q06,Q6,Salesperson appointments accepted per week,Access: getting the meeting,INFERRED,Label condensed from Q6 wording
+T-Q07,Q7,Reasons for accepting an appointment,Access: getting the meeting,INFERRED,Label condensed from Q7 wording and sub-items
+T-Q08,Q8,Salesperson preparedness by dimension,Meeting quality,INFERRED,Label condensed from Q8 wording and sub-items
+T-Q09,Q9,Meetings that are valuable and meet expectations,Meeting quality,INFERRED,Label condensed from Q9 wording
+T-Q10,Q10,Initial meeting outcome,Meeting quality,INFERRED,Label condensed from Q10 wording; full stem truncated in some headers
+T-Q11,Q11,What makes a meeting valuable,Meeting quality,INFERRED,Label condensed from Q11 wording
+T-Q12,Q12,Attitudes toward vendor materials,Materials,INFERRED,Label condensed from Q12 wording and sub-items
+T-Q13,Q13,Meeting attributes: importance vs differentiation,Meeting quality,INFERRED,Label condensed from Q13 wording; scale separates table stakes from differentiators
+T-Q14,Q14,Characterization of salesperson orientation,Meeting quality,INFERRED,Label condensed from Q14 wording and options
+T-Q15,Q15,Reasons for pulling back from a purchase,Why deals stall,INFERRED,Label condensed from Q15 wording and sub-items
+T-Q16,Q16,Choosing vendors who turn vision into a plan,Vision to plan to business case,INFERRED,Label condensed from Q16 wording
+T-Q17,Q17,Difficulty of building a business case,Vision to plan to business case,INFERRED,Label condensed from Q17 wording
+T-Q18,Q18,Usefulness of vendor materials for quantifying value,Materials,INFERRED,Label condensed from Q18 wording and options
+T-Q19,Q19,Attributes for shaping a vision into a program plan,Vision to plan to business case,INFERRED,Label condensed from Q19 wording; Q19_4 is an attention check
+T-Q20,Q20,Purchase authority limit,Purchase authority,INFERRED,Label condensed from Q20 wording
+T-Q21,Q21,What differentiates a vendor (open),Open-ended,INFERRED,Label condensed from Q21 wording; topical partner of Q1
+T-Q22,Q22,Most effective sales teams and why (open),Open-ended,INFERRED,Label condensed from Q22 wording; mirror of Q23
+T-Q23,Q23,Least effective sales teams and why (open),Open-ended,INFERRED,Label condensed from Q23 wording; mirror of Q22
+T-Q24,Q24,Primary contact in best relationships (open),Open-ended,INFERRED,Label condensed from Q24 wording; mirror of Q25
+T-Q25,Q25,Primary contact in worst relationships (open),Open-ended,INFERRED,Label condensed from Q25 wording; mirror of Q24
