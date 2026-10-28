@@ -9,7 +9,9 @@ Why the survey exists and what it was built to measure. Authored record (not gen
 | `RECON_DATA` | The source data files (SRC-002, SRC-003), checked by script or by direct reading. |
 | `INFERRED` | Claude's reading. Pending Scott's review. |
 
-Context-only references (lineage, not evidence about this study's fielding): REF-2 "Engineering Valuable Sales Conversations" (Forrester, Nov 12, 2008); REF-3 "Sales Enablement Defined" (Forrester, Aug 3, 2010). The three reference documents are Forrester-copyrighted and are **not** stored in this repository; they are cited only.
+Context-only references (lineage, not evidence about this study's fielding): REF-2 "Engineering Valuable Sales Conversations" (Forrester, Nov 12, 2008); REF-3 "Sales Enablement Defined" (Forrester, Aug 3, 2010).
+
+**Scott's decision (2026-10-28):** REF-1–3 are context only. They are not added to the source register and not stored in this repository. "You may extract the context you need from it. I want to keep your focus as pure to extracting essence from the data provided." The data files remain the only evidence; this file is the only place the references are used.
 
 ---
 
@@ -64,9 +66,17 @@ REF-1 defines four verifiable objectives every salesperson must achieve, each va
 - The Case gate closes when the client **accepts the business case**, not when the contract is executed; the contract is a terminal state outside the value communication process.
 - Time is relational and event-ordered (gate transitions), not clock time; kairos marks the moments where coaching can change a choice.
 
+### 2.4 Stakeholder hierarchy (`RECALL_DESIGNER`)
+
+"No, the role played in purchase is subordinate to IT or Business in this model. However there are many ways we can define roles and role hierarchies so lets not that and make sure we are flexible."
+
+Consequence for the schema (`INFERRED`): one stakeholder hierarchy, not two parallel dimensions — function (IT / business) at the top; level and purchase-process role (S2–S6) beneath it. Role definitions and hierarchy depth stay configurable, not fixed to this survey's categories.
+
 ## 3. How the survey maps to the gates (`INFERRED` — for Scott's review)
 
-The survey measures the gates from the customer's side: what the decision-maker experienced at each gate, in their words. Proposed assignment of threads (question IDs as in `question_map.csv`):
+**Authoritative item-level map:** `gate_map.md` / `gate_map.csv` (all 136 items, generated from the authored rules in `gate_rules.csv`). Scott asked for a mapping of every question (2026-10-28: "You'd have to create a mapping for me with every question and how they map to the sales objectives."). The thread-level table below is the summary.
+
+The survey measures the gates from the customer's side: what the decision-maker experienced at each gate, in their words. Thread-level summary (question IDs as in `question_map.csv`):
 
 | Gate | Threads | Why (wording) |
 |---|---|---|
@@ -99,12 +109,14 @@ The survey measures the gates from the customer's side: what the decision-maker 
 | M3 | All respondents screened for significant involvement in IT decision-making, IT purchasing processes, and authorization | "Don't know / not involved" options (S5_6, S6_6, S6_7) are 0% | **agrees** — confirms these were screen-outs |
 | M4 | Fielded online by Research Now; small monetary incentive; panel of volunteers; contact info and firm basics required for quality assurance | Header cell names "Research N…"; attention check Q19_4 present | **agrees** |
 | M5 | 50% business side, 50% IT role | ITDM 160 / BDM 159 | **agrees** |
-| M6 | Business side 29% C-suite or VP; IT role 30% C-suite or VP | IT 28.75% (C-level 21.25 + VP 7.5); business 30.19% (11.32 + 18.87) | **conflict** — figures appear swapped between IT and business |
-| M7 | Companies with annual revenues of at least $500 million | 9.7% report revenue under $500M (2.5 + 2.5 + 4.7) | **conflict** |
-| M8 | A figure base in REF-1 reads "319 executive-level buyers at global companies with 100 or more employees" | Smallest employee bucket is labeled "1,0000 to 4,999 employees" (source typo; reads as 1,000) | **conflict** — 100 vs 1,000 |
+| M6 | Business side 29% C-suite or VP; IT role 30% C-suite or VP | IT 28.75% (C-level 21.25 + VP 7.5); business 30.19% (11.32 + 18.87) | **conflict → resolved:** report editing error; data stands |
+| M7 | Companies with annual revenues of at least $500 million | 9.7% report revenue under $500M (2.5 + 2.5 + 4.7) | **conflict → resolved:** report editing error; data stands |
+| M8 | A figure base in REF-1 reads "319 executive-level buyers at global companies with 100 or more employees" | Smallest employee bucket is labeled "1,0000 to 4,999 employees" (source typo; reads as 1,000) | **conflict → resolved:** report editing error; data stands |
 | M9 | Statistical data intended to be descriptive, not inferential | — | carries into Phase 4 assumptions |
 
 Per GOVERNANCE §7: where a published statement and the data conflict, the data is recorded as fielded; the conflict is logged in `STATE.md`.
+
+M6–M8 resolved, `RECALL_DESIGNER` (Scott, 2026-10-28): "Its just sloppy editing on our part at Forrester." The sample is one consistent sample; the data's figures are authoritative.
 
 ## 5. Lineage (`RECON_REPORT`, REF-1 and REF-3) — context, not analysis
 
