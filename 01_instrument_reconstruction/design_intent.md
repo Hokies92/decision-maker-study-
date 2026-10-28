@@ -80,6 +80,12 @@ Consequence for the schema (`INFERRED`): one stakeholder hierarchy, not two para
 - Scott's grouping will be recorded here, tagged `RECALL_DESIGNER`, and becomes the gate assignment used by later steps.
 - Claude's draft mapping is withdrawn and not used. It remains in git history only (commit `88d0801`).
 
+### 3.1 Scott's grouping, as received
+
+**Screener S1–S12** — `RECALL_DESIGNER` (Scott, 2026-10-28): "This is demographic information. Think if this as "metadata" for context and it's an input to "target" if you organized this information in a structured way that allows a user to create cohorts based on choices from this information." Asked that the structure carry "tags to preserve relationships of down stream topics."
+
+Status of other questions (Q1–Q25): not yet grouped by Scott.
+
 ## 4. Methodology as published (`RECON_REPORT`, REF-1 "Methodology") checked against the data
 
 | # | REF-1 states (paraphrased) | Data (`RECON_DATA`) | Status |
