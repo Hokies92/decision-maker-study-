@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 1 — Reconstruct the instrument   **Gate:** open
-**Step:** P1.S01 — Build the table parser
+**Step:** P1.S02 — Question map with thread IDs
 **Status:** done (awaiting Scott's merge)
-**Branch:** phase-1/step-01-table-parser
+**Branch:** phase-1/step-02-question-map
 **Updated:** 2026-10-27 by Claude session
 
 ## Step plan — Phase 1
@@ -14,8 +14,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
 | P1.S00 | Propose the Phase 1 step plan | Phase 0 outputs; read-only structure survey of SRC-002/003 | `STATE.md` | Plan merged by Scott; D1–D2 answered | done | `2e58562` (PR #9); gov `b788b0e` (PR #10) |
-| P1.S01 | Build the table parser: locate every question block in SRC-002 (stem, answer options, banner columns, row/column positions) | `00_source/data/survey.xlsx` | `scripts/p1_parse_tables.py`; `01_instrument_reconstruction/derived/table_blocks.csv` | All 116 tabulated items found on the 4 breakout sheets; 104 on Main Page; parser output reproducible; no values altered | done — 578 blocks (see decisions log for count reconciliation) | `77a75f6` |
-| P1.S02 | Question map: every item S1–S12, Q1–Q25 with ID, **thread ID** (one thread per base question), construct, wording, type, options link, provenance | `table_blocks.csv`; SRC-002 "Other" sheet; SRC-003 | `question_map.csv` + `question_map.md`; `scripts/p1_build_question_map.py` | All 37 base questions and every sub-item listed; wording tagged `VERBATIM` with file/sheet/cell, or `INFERRED` with rationale; piping placeholders (e.g., `hS5Piping`) recorded, not "fixed" | not started | — |
+| P1.S01 | Build the table parser: locate every question block in SRC-002 (stem, answer options, banner columns, row/column positions) | `00_source/data/survey.xlsx` | `scripts/p1_parse_tables.py`; `01_instrument_reconstruction/derived/table_blocks.csv` | All 116 tabulated items found on the 4 breakout sheets; 104 on Main Page; parser output reproducible; no values altered | done — 578 blocks (see decisions log for count reconciliation) | `77a75f6` (PR #11) |
+| P1.S02 | Question map: every item S1–S12, Q1–Q25 with ID, **thread ID** (one thread per base question), construct, wording, type, options link, provenance | `table_blocks.csv`; SRC-002 "Other" sheet; SRC-003 | `question_map.csv` + `question_map.md`; `scripts/p1_build_question_map.py` | All 37 base questions and every sub-item listed; wording tagged `VERBATIM` with file/sheet/cell, or `INFERRED` with rationale; piping placeholders (e.g., `hS5Piping`) recorded, not "fixed" | done — 37 threads, 136 items | `ad69ab3` |
 | P1.S03 | Response scales: every answer list with ID, points, labels, direction | `table_blocks.csv` | `response_scales.csv`; script | Every question maps to one scale ID; shared scales deduplicated; labels `VERBATIM` | not started | — |
 | P1.S04 | Routing and bases: who was asked what, reconstructed from screener structure and table bases | `table_blocks.csv`; `question_map.csv` | `skip_logic.md` (explicit `IF … THEN ASK`) | Every routed item has a rule tagged `RECON_DATA` (base evidence) or `INFERRED`; unresolvable routing marked `MISSING` | not started | — |
 | P1.S05 | Sampling frame and core definitions: screener criteria, role-level and stakeholder-type definitions, breakout groups and their sizes | Screener items S1–S12; banner headers on all sheets | `sampling_frame.md` | Role level (C-level / VP / Director / Manager) and stakeholder type (ITDM / BDM; decision-stage roles) defined `VERBATIM` from source; group sizes cited | not started | — |
@@ -86,10 +86,18 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-27: D2 approved (Scott): add provenance tag `RECALL_DESIGNER`. Scope per Scott: he designed the survey's business logic; a contractor executed it. The tag therefore covers design intent and business logic; implementation details (programming, routing as fielded) may differ, so where recall and data conflict, the data is recorded as fielded and the conflict is logged. GOVERNANCE §7 change to follow on a `gov/` branch.
 - 2026-10-27: P1.S01 count reconciliation. The plan's targets (116 items per breakout sheet, 104 on Main Page) came from a header scan that started one row late and only matched S/Q-prefixed headers. The parser finds 118 and 106: the extra two on every sheet are S1 (department; it **is** tabulated — correcting the P1.S00 note that S1 was untabulated) and the "ITDM or BDM" summary table (no source ID). Independent check: every labeled row on all five sheets is covered, 0 stray.
 - 2026-10-27: Layout differences found by the parser, for P1.S06: Main Page shows Q11 as one condensed table headed "Q11_1" with 7 statements and no base row, where breakout sheets show Q11_1–Q11_7 separately; Main Page shows Q15 as one 7-option table plus Q15_8, where breakout sheets show Q15_1–Q15_7. "S2 and S3 combined" is a merged table, given ID `S2_S3_combined`.
+- 2026-10-28: P1.S02 question map built. 37 threads (S1–S12, Q1–Q25), 136 items: 118 tabulated (canonical sheet "Industry 7"), 13 "Other, please specify"/follow-up text items, 5 open-ended. Types from evidence (option shares sum to 1.0 → single choice or grid row; one-row tables → multi-select options): grid 45, multi-select 47, single 26, open 18.
+- 2026-10-28: Q19_4 is an attention check (wording: "For quality control, please select 'Somewhat important'…"). Role `attention_check`; to be excluded from substantive analysis.
+- 2026-10-28: Six derived items identified and kept in their parent threads: DM_TYPE (ITDM/BDM, from S1 — INFERRED), S2_S3_combined, S9_Region, S12_Industry7, Q6_bucketed (RECON_DATA), S8_Bucketed (raw S8 not in source — INFERRED).
+- 2026-10-28: Interpretive labels (construct, section) kept in an authored input file `thread_annotations.csv`, separate from data-derived output, all `INFERRED` pending Scott's review.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
 <!-- includes all INFERRED items awaiting review -->
+- Q-S02a (P1.S02 → review in P1.S09): 37 thread constructs and 37 section assignments in `01_instrument_reconstruction/thread_annotations.csv` — all `INFERRED`.
+- Q-S02b (P1.S02): DM_TYPE derived from S1 (IT/IS department → ITDM) — `INFERRED` from matching shares; confirm the ITDM/BDM classification rule.
+- Q-S02c (P1.S02): S8_Bucketed — was S8 asked as a number and bucketed afterward? — `INFERRED`.
+- Q-S02d (chat 2026-10-28, for `RECALL_DESIGNER`): Scott's view on five design readings — (1) survey follows the sales-encounter arc; (2) study is about IT purchasing; (3) country quotas (54/54/54); (4) four-point scales chosen to force a side; (5) stakeholder type is two dimensions: functional (ITDM/BDM, department, IT role) and purchase-process role (S5/S6 stages). #5 affects the Phase 3 schema.
 - (resolved — see decisions log) D1 (P1.S00): Re-plan of Phases 3–5. Given group-level data with level × stakeholder breakouts, proposed README phase-table change: Phase 3 schema stores results as cells (question × option × breakout group), with level and stakeholder as referenced entities on the group, and respondent-level elements reserved but empty; Phase 4 limited to techniques valid on group percentages; Phase 5 coding by respondent but not linked to level/stakeholder. README is protected — needs Scott's approval; Claude would then make the change on a `gov/` branch.
 - (resolved — see decisions log) D2 (P1.S00): Adopt provenance tag `RECALL_DESIGNER` for facts Scott supplies from memory as the study's designer (distinct from Claude's `INFERRED`)? Amends GOVERNANCE §7 — needs Scott's approval; `gov/` branch.
 
