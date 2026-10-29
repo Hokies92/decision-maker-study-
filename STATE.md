@@ -3,13 +3,13 @@
 ## Current
 **Phase:** 4 — Analytics library   **Gate:** open
 **Step:** P4.S00 — Propose the Phase 4 step plan
-**Status:** proposed — awaiting Scott's approval and answers to D4-1…D4-3
+**Status:** proposed — D4-1…D4-3 answered; awaiting Scott's merge
 **Branch:** phase-4/step-00-plan
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 4
 
-Outputs go to `04_analytics_library/`. A technique is one file that states the question it answers, the schema fields it reads (XPaths), its assumptions, its minimum n, and its output form (GOVERNANCE §5 P4). Every technique works on group-level percentages, or states the respondent-level data it would need. Techniques that link threads statistically carry the ecological caveat: they describe groups, not individuals. Cohorts below n = 25 are shown but never used for comparisons. Proposed (D4-1): each technique also has a reference script that runs on `03_schema/examples/full_study.xml` and commits its output, so every specification is proven on real data.
+Outputs go to `04_analytics_library/`. A technique is one file that states the question it answers, the schema fields it reads (XPaths), its assumptions, its minimum n, and its output form (GOVERNANCE §5 P4). Every technique works on group-level percentages, or states the respondent-level data it would need. Techniques that link threads statistically carry the ecological caveat: they describe groups, not individuals. Cohorts below n = 25 are shown but never used for comparisons. Approved (D4-1): each technique also has a reference script that runs on `03_schema/examples/full_study.xml` and commits its output, so every specification is proven on real data.
 
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
@@ -297,6 +297,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P3.S06 Phase 3 gate review drafted — criteria 1–8 PASS, 9 pending Scott's tags. Recommendation: close Phase 3.
 - 2026-10-29: Phase 3 closed. ADR fix merged (PR #35, `4e57d4d`), gate review merged (PR #36, `87ec9e0`); Scott created tags `phase-3-complete` (`87ec9e0`) and `schema-v1.0.0` (`4e57d4d` — differs from `87ec9e0` only in STATE.md).
 - 2026-10-29: Phase 4 plan proposed (P4.S00): S01 Scott's review of inputs (Q-P2a, Q-P3a); S02 library conventions; S03 descriptive; S04 gap; S05 network; S06 topology; S07 cross-check; S08 gate review. Design questions D4-1 (reference scripts and outputs, or specifications only), D4-2 (technique list), D4-3 (output form).
+- 2026-10-29: D4-1, D4-2, D4-3 answered (Scott): "yes, yes, and yes." — each technique ships with a reference script and committed output; T01–T09 approved as listed; files now, interactive dashboard later.
+- 2026-10-29: Direction (Scott, RECALL_DESIGNER): "We need to start thinking about creative ways to visualize the data so that users can experience and see the assymetry and be able to process it." Consequence for Phase 4: every technique's output is shaped so it can feed a visualization (tidy tables keyed by gate, cohort, item); visualization concepts proposed to Scott before any build (parking lot).
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
@@ -306,9 +308,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - (superseded) D3-1 (P3.S00): Gates as first-class elements — five gates (Target, Access, Agree, Vision, Case) with states 1 = yes / 0 = not yes, and every thread assigned to a gate through an editable link taken from `scott_grouping.csv`?
 - (superseded) D3-2 (P3.S00): Order model for future individual records — each decision-maker's path stored as an ordered sequence of gate events (gate, state, reasons linked to threads), ordered by sequence number; clock time an optional field, absent here?
 - (superseded) D3-3 (P3.S00): Add one clearly marked synthetic test record (not data, not in `examples/`) to prove the individual layer validates?
-- D4-1 (P4.S00): Does each technique include a runnable reference script with committed output on the study data, or only a specification?
-- D4-2 (P4.S00): Approve the nine techniques T01–T09 (add, drop, or reorder)?
-- D4-3 (P4.S00): Output form — CSV + markdown + static charts in the repo now; an interactive dashboard later (parking lot)?
+- (resolved — see decisions log) D4-1, D4-2, D4-3.
 - Q-P3a (now P4.S01): attribute the SRC-003 Q21 row-6 answer (blank respid) to respondent 112, by row alignment across the five sheets (INFERRED)? Would change one link weight (Q21∩Q23 318 → 319) via a `fix/` branch.
 - Open inferences: none from Phase 1 (85 of 85 decided — `review_summary.md`).
 - Q-P2a (now P4.S01): confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
@@ -330,7 +330,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 - (P0.S04) Public-facing derived version of the data (de-identified, cleaned) — Scott's idea for later; not part of the current phase plan.
 
-- (P4.S00) Interactive dashboard of Phase 4 outputs (gate × cohort explorer) — after the library exists (D4-3).
+- (P4.S00) Visualizing the asymmetry so users can experience it (Scott, 2026-10-29) — concepts to Scott first, then build after the library exists (D4-3). Includes the interactive gate × cohort explorer.
 - (P1.S00) Phase 4 statistical linkages between threads: correlation of group profiles across the ~40 breakout groups, similarity clustering, network/topology maps. Caveat to carry: links computed on group percentages are ecological — they describe groups, not individuals.
 
 - (P1.S03) Cross-wave lineage: REF-3 shows an earlier wave with identical Q1, Q2, Q9 and part of Q8 wording, and a closed-ended form of Q21. A "prior-wave wording" link type could enter the linkage inventory as structure only; earlier-wave results are not in source and study dates are excluded from analysis.
