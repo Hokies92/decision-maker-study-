@@ -213,7 +213,9 @@
     <xs:attribute name="type" type="d:ScaleKind" use="required"/>
     <xs:attribute name="direction" type="xs:string" use="required"/>
     <xs:attribute name="family" type="xs:string"/>
-    <xs:attribute name="labelProvenance" type="g:Provenance" use="required"/>
+    <xs:attribute name="labelProvenance" type="g:Provenance">
+      <xs:annotation><xs:documentation>Provenance of the option labels; absent when the scale has no options (open text).</xs:documentation></xs:annotation>
+    </xs:attribute>
     <xs:attribute name="provenance" type="g:Provenance" use="required">
       <xs:annotation><xs:documentation>Provenance of the scale's type and direction.</xs:documentation></xs:annotation>
     </xs:attribute>
@@ -433,7 +435,10 @@
 
   <xs:complexType name="FlagType">
     <xs:sequence><xs:element name="Comment" type="xs:string" minOccurs="0"/></xs:sequence>
-    <xs:attribute name="item" type="d:Ref" use="required"/>
+    <xs:attribute name="item" type="d:Ref">
+      <xs:annotation><xs:documentation>The tested question block. When the block is a condensed table covering several items (Main Page Q15), the flag names its thread instead. Exactly one of item / thread (cross-check).</xs:documentation></xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="thread" type="d:Ref"/>
     <xs:attribute name="dimension" type="d:Ref" use="required"/>
     <xs:attribute name="state" type="d:SignificanceState" use="required"/>
     <xs:attribute name="tableSize" type="xs:string"/>
@@ -622,6 +627,7 @@
     <xs:keyref name="resultCohortRef" refer="d:cohortKey"><xs:selector xpath="d:Results/d:ItemResults/d:Result"/><xs:field xpath="@cohort"/></xs:keyref>
     <xs:keyref name="resultOptionRef" refer="d:optionKey"><xs:selector xpath="d:Results/d:ItemResults/d:Result"/><xs:field xpath="@scale"/><xs:field xpath="@option"/></xs:keyref>
     <xs:keyref name="flagItemRef" refer="d:itemKey"><xs:selector xpath="d:Results/d:SignificanceFlags/d:Flag"/><xs:field xpath="@item"/></xs:keyref>
+    <xs:keyref name="flagThreadRef" refer="d:threadKey"><xs:selector xpath="d:Results/d:SignificanceFlags/d:Flag"/><xs:field xpath="@thread"/></xs:keyref>
     <xs:keyref name="flagDimensionRef" refer="d:dimensionKey"><xs:selector xpath="d:Results/d:SignificanceFlags/d:Flag"/><xs:field xpath="@dimension"/></xs:keyref>
     <xs:keyref name="variableItemRef" refer="d:itemKey"><xs:selector xpath="d:Variables/d:Variable"/><xs:field xpath="@item"/></xs:keyref>
     <xs:keyref name="variableScaleRef" refer="d:scaleKey"><xs:selector xpath="d:Variables/d:Variable"/><xs:field xpath="@scale"/></xs:keyref>
