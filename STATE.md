@@ -2,8 +2,8 @@
 
 ## Current
 **Phase:** 4 — Analytics library   **Gate:** open
-**Step:** P4.S04 — Gap techniques (batch S03–S07)
-**Status:** in progress — S03 done
+**Step:** P4.S05 — Network techniques (batch S03–S07)
+**Status:** in progress — S03–S04 done
 **Branch:** phase-4/steps-03-07-techniques
 **Updated:** 2026-10-29 by Claude session
 
@@ -17,7 +17,7 @@ Outputs go to `04_analytics_library/`. A technique is one file that states the q
 | P4.S01 | **Scott's review of the inputs Phase 4 computes from:** the 47 INFERRED variable definitions (Q-P2a) and the Q21 blank respid (Q-P3a) | `variable_dictionary.csv`; Q-P3a evidence | `02_data_inventory/variable_review.csv` (on a `fix/` branch for P2 outputs); decisions log | Every one of the 47 definitions approved, changed, or dropped by Scott; Q-P3a answered and applied or closed | done — 65 definitions reviewed; Q21 → 112 | PR #38 (`b53c5d4`) |
 | P4.S02 | **Library conventions:** technique template, `catalog.md`, shared reader for the schema, and the XPath check | XSD; `schema_mapping.csv` | `04_analytics_library/TEMPLATE.md`, `catalog.md`; `scripts/p4_lib.py`; `scripts/p4_check_xpaths.py` | Template has every §5 P4 field; the check fails on an XPath that names an element or attribute not in the XSD (negative test) | done — template, catalog, reader, check | PR #39 (`e7ffd98`) |
 | P4.S03 | **Descriptive techniques:** T01 gate profile (answers by gate and cohort); T02 summary measures (top-two box and the other approved definitions); T03 where groups differ (significance flags by gate and dimension) | `full_study.xml`; approved definitions (S01) | `04_analytics_library/T01…T03-*.md`; scripts; outputs | Each technique file complete; script runs; n = 25 enforced; outputs reproducible | done — T01–T03 | batch branch |
-| P4.S04 | **Gap techniques:** T04 value vs experience (pairs of items: what decision-makers value against what they report receiving — pairs proposed by Claude, INFERRED, for Scott's review); T05 not-yes reasons by cohort (Q15) | `full_study.xml`; authored pair list | T04, T05 files; scripts; outputs; `pairs.csv` | Every pair cites both items and is tagged INFERRED until reviewed; Q15 reasons by every usable cohort | not started | — |
+| P4.S04 | **Gap techniques:** T04 value vs experience (pairs of items: what decision-makers value against what they report receiving — pairs proposed by Claude, INFERRED, for Scott's review); T05 not-yes reasons by cohort (Q15) | `full_study.xml`; authored pair list | T04, T05 files; scripts; outputs; `pairs.csv` | Every pair cites both items and is tagged INFERRED until reviewed; Q15 reasons by every usable cohort | done — T04–T05 | batch branch |
 | P4.S05 | **Network techniques:** T06 thread network (degree, centrality, communities on the structural links); T07 statistical thread links (correlation of answer profiles across cohorts — new link type, ecological) | `full_study.xml` Graph and Results | T06, T07 files; scripts; outputs (incl. GraphML) | Ecological caveat stated in T07 and in its output; only cohorts with n ≥ 25 enter correlations | not started | — |
 | P4.S06 | **Topology techniques:** T08 cohort similarity and clusters; T09 map of cohorts × items (correspondence analysis or equivalent) | `full_study.xml` | T08, T09 files; scripts; outputs | Method and its limits stated; reproducible with fixed seeds | not started | — |
 | P4.S07 | Cross-check | All P4 outputs | `scripts/p4_crosscheck.py`; `04_analytics_library/crosscheck_report.md` | Every referenced XPath exists in the XSD; every technique has all fields; n = 25 never breached in a comparison; scripts byte-identical; source checksums OK | not started | — |
@@ -308,6 +308,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P4.S02 merged (PR #39, `e7ffd98`). Batch S03–S07 approved by Scott by name ("Run S03–S07 as one batch") — BT1.
 - 2026-10-29: P4.S02 extended during S03 (separate fix commit): `p4_lib.measures()` — one table of named measures per cohort (63 summary, 47 selection, 179 option), so every technique computes from one definition.
 - 2026-10-29: P4.S03 T01–T03 built with scripts and outputs. T03 on the source's own significance flags: share of tests where groups differ — Baseline 12%, Access 26%, Agree 13%, Vision 9%, Case 9% (chance ≈ 5%).
+- 2026-10-29: P4.S04 T04–T05 built. T04 (pairs INFERRED, for Scott's review — `04_analytics_library/pairs.csv`): understands my business issues — valued 0.61, received 0.22, gap negative in all 50 usable cohorts; equipped to make the case — 0.86 vs 0.40, negative in all 50; the pitch — valued 0.16, delivered 0.60, positive in all 50 (oversupply); prepared on themselves 0.62 vs on my issues 0.22, in all 50. T05: losing to another vendor ranks first in 42 of 50 cohorts; 'could not envision how the value would be delivered' in 10 (ties counted for each); Q15 differs significantly in 2 of 52 tests.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
@@ -319,6 +320,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - (superseded) D3-3 (P3.S00): Add one clearly marked synthetic test record (not data, not in `examples/`) to prove the individual layer validates?
 - (resolved — see decisions log) D4-1, D4-2, D4-3.
 - (resolved P4.S01 — see decisions log) Q-P3a: attribute the SRC-003 Q21 row-6 answer (blank respid) to respondent 112, by row alignment across the five sheets (INFERRED)? Would change one link weight (Q21∩Q23 318 → 319) via a `fix/` branch.
+- Q-P4a (not blocking): review the 9 T04 pairs in `04_analytics_library/pairs.csv` (INFERRED) — keep, change, or drop each.
 - Open inferences: none from Phase 1 (85 of 85 decided — `review_summary.md`).
 - (resolved P4.S01 — see decisions log) Q-P2a: confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
 - Q-S10a (not blocking): name the 6 lexicon gaps (`asymmetry_lexicon.md`, column `gap_name_by_scott`) — L02 being mis-targeted; L05 the cost of being pursued; L10 the meeting that was not worth it; L16 material that never reaches the decision; L17 the decision-maker selling internally on the vendor's behalf; L18 more people joining the decision than the vendor targeted.
