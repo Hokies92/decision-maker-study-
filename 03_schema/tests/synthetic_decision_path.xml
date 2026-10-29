@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Study xmlns="https://growthenablement.com/ns/dms/v1" xmlns:g="https://growthenablement.com/ns/gates/v1" id="DMS-SYNTHETIC-TEST" schemaVersion="1.0.0" recordKind="syntheticTest" provenance="SYNTHETIC">
+  <Title>Synthetic test record — not data</Title>
+  <Note>One invented decision-maker's path through the five gates, used only to prove the decision-path layer validates (ADR-013). Excluded from every count and analysis. The instrument elements are copied from the study so reasons can point to real questions.</Note>
+  <g:GateModel id="VCP-GATES" version="1.0.0" author="Scott Santucci" provenance="RECALL_DESIGNER">
+    <g:Definition>My NEW version of this a series of binary gates that are designed to track choices (which is the foundational source of reality) and to measure state change</g:Definition>
+    <g:Gate id="TARGET" order="1" label="Target" provenance="RECALL_DESIGNER">
+      <g:Question>Did the vendor and then the salesperson target the right message to the right people (Target 1 or 0)</g:Question>
+    </g:Gate>
+    <g:Gate id="ACCESS" order="2" label="Access" provenance="RECALL_DESIGNER">
+      <g:Question>Did the vendor and then the salesperson gain access to the right people (Access 1 or 0)</g:Question>
+    </g:Gate>
+    <g:Gate id="AGREE" order="3" label="Agree" provenance="RECALL_DESIGNER">
+      <g:Question>Did the vendor and then the salesperson gain agreement with the right people to explore the idea further (Agree 1 or 0)</g:Question>
+    </g:Gate>
+    <g:Gate id="VISION" order="4" label="Vision" provenance="RECALL_DESIGNER">
+      <g:Question>Did the vendor and then the salesperson gain a shared vision of success with the right people (Vision 1 or 0)</g:Question>
+    </g:Gate>
+    <g:Gate id="CASE" order="5" label="Case" provenance="RECALL_DESIGNER">
+      <g:Question>Did the vendor and then the salesperson provide a business case for the idea the client accepts (case 1 or 0)</g:Question>
+    </g:Gate>
+  </g:GateModel>
+  <Instrument>
+    <Scales>
+      <Scale id="SC-OPEN" type="open_text" direction="none" family="open" provenance="RECON_DATA">
+        <Rationale>Free text</Rationale>
+      </Scale>
+      <Scale id="SC-SEL-Q15" type="selection_list" direction="none" family="pull-back reasons" labelProvenance="VERBATIM" provenance="RECON_DATA">
+        <Rationale>Pick all that apply — each choice is selected or not</Rationale>
+        <Option scale="SC-SEL-Q15" seq="1" substantive="true">I pursued the opportunity with a different vendor.</Option>
+        <Option scale="SC-SEL-Q15" seq="2" substantive="true">I could not envision how the value would be delivered.</Option>
+        <Option scale="SC-SEL-Q15" seq="3" substantive="true">It became too risky of a purchase.</Option>
+        <Option scale="SC-SEL-Q15" seq="4" substantive="true">Others internally got involved and the effort to keep the momentum became too great.</Option>
+        <Option scale="SC-SEL-Q15" seq="5" substantive="true">I struggled to get others on board internally.</Option>
+        <Option scale="SC-SEL-Q15" seq="6" substantive="true">I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.</Option>
+        <Option scale="SC-SEL-Q15" seq="7" substantive="false">Other (Please specify)</Option>
+        <Option scale="SC-SEL-Q15" seq="8" substantive="false">Don’t know/Not applicable</Option>
+      </Scale>
+      <Scale id="SC-MATERIALS7" type="ordinal" direction="descending" family="usefulness" labelProvenance="VERBATIM" provenance="INFERRED" reviewed="confirmedByScott">
+        <Rationale>From 'simple to build a case' down to 'limited materials'; 'other' and 'don't know' sit outside the order</Rationale>
+        <Option scale="SC-MATERIALS7" seq="1" substantive="true">It would be a simple task for me to develop convincing business justification for the purchase.</Option>
+        <Option scale="SC-MATERIALS7" seq="2" substantive="true">I can quantify specific impacts and how they change for different environments. Limited customization necessary.</Option>
+        <Option scale="SC-MATERIALS7" seq="3" substantive="true">I can quantify specific impacts, but not how they change for different environments. Significant customization necessary</Option>
+        <Option scale="SC-MATERIALS7" seq="4" substantive="true">I can identify potential impact, but not quantify them. We had to do most of the business justification ourselves.</Option>
+        <Option scale="SC-MATERIALS7" seq="5" substantive="true">Limited materials were provided. We had to do all of the business justification ourselves.</Option>
+        <Option scale="SC-MATERIALS7" seq="6" substantive="false">Other, please specify:</Option>
+        <Option scale="SC-MATERIALS7" seq="7" substantive="false">Don't know/Not applicable</Option>
+      </Scale>
+    </Scales>
+    <Threads>
+      <Thread id="T-Q15" question="Q15" construct="Reasons for pulling back from a purchase" section="Why deals stall" constructProvenance="INFERRED" reviewed="confirmedByScott" provenance="RECON_DATA">
+        <Item id="Q15_1" seq="1" role="asked" type="multi_select_option" scale="SC-SEL-Q15" base="319" stemComplete="true" cite="SRC-002 Industry 7!A538" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons why...</Stem>
+          <Label>I pursued the opportunity with a different vendor.</Label>
+          <PipingToken/>
+        </Item>
+        <Item id="Q15_2" seq="2" role="asked" type="multi_select_option" scale="SC-SEL-Q15" base="319" stemComplete="true" cite="SRC-002 Industry 7!A541" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons...</Stem>
+          <Label>I could not envision how the value would be delivered.</Label>
+          <PipingToken/>
+        </Item>
+        <Item id="Q15_3" seq="3" role="asked" type="multi_select_option" scale="SC-SEL-Q15" base="319" stemComplete="true" cite="SRC-002 Industry 7!A544" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons why you pulled back...</Stem>
+          <Label>It became too risky of a purchase.</Label>
+          <PipingToken/>
+        </Item>
+        <Item id="Q15_4" seq="4" role="asked" type="multi_select_option" scale="SC-SEL-Q15" base="319" stemComplete="true" cite="SRC-002 Industry 7!A547" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase...</Stem>
+          <Label>Others internally got involved and the effort to keep the momentum became too great.</Label>
+          <PipingToken/>
+        </Item>
+        <Item id="Q15_5" seq="5" role="asked" type="multi_select_option" scale="SC-SEL-Q15" base="319" stemComplete="true" cite="SRC-002 Industry 7!A550" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons why you...</Stem>
+          <Label>I struggled to get others on board internally.</Label>
+          <PipingToken/>
+        </Item>
+        <Item id="Q15_6" seq="6" role="asked" type="multi_select_option" scale="SC-SEL-Q15" base="319" stemComplete="true" cite="SRC-002 Industry 7!A553" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not...</Stem>
+          <Label>I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.</Label>
+          <PipingToken/>
+        </Item>
+        <Item id="Q15_7" seq="7" role="asked" type="multi_select_option" scale="SC-SEL-Q15" base="319" stemComplete="true" cite="SRC-002 Industry 7!A556" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons why you pulled back on the...</Stem>
+          <Label>Other (Please specify)</Label>
+          <PipingToken/>
+        </Item>
+        <Item id="Q15_8" seq="8" role="asked" type="multi_select_option" scale="SC-SEL-Q15" base="319" stemComplete="true" cite="SRC-002 Industry 7!A559" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons why you pulled back on...</Stem>
+          <Label>Don’t know/Not applicable</Label>
+          <PipingToken/>
+        </Item>
+        <Item id="Q15_Other" seq="9" role="asked" type="open_text_specify" scale="SC-OPEN" stemComplete="true" cite="SRC-002 &quot;Other&quot; Text Answers!J1" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons why you pulled back on...</Stem>
+          <Label>Other (Please specify)</Label>
+          <PipingToken/>
+        </Item>
+      </Thread>
+      <Thread id="T-Q18" question="Q18" construct="Usefulness of vendor materials for quantifying value" section="Materials" constructProvenance="INFERRED" reviewed="confirmedByScott" provenance="RECON_DATA">
+        <Item id="Q18" seq="1" role="asked" type="single_select" scale="SC-MATERIALS7" base="319" stemComplete="true" cite="SRC-002 Industry 7!A576" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Considering the materials that vendors typically provide you with, which of the following best describe how well those materials helps you develop convincing reasons to invest?</Stem>
+          <Label/>
+          <PipingToken/>
+        </Item>
+        <Item id="Q18_Other" seq="2" role="asked" type="open_text_specify" scale="SC-OPEN" stemComplete="true" cite="SRC-002 &quot;Other&quot; Text Answers!K1" textProvenance="VERBATIM" typeProvenance="RECON_DATA" provenance="RECON_DATA">
+          <Stem>Considering the materials that vendors typically provide you with, which of the following best describe how well those materials helps you develop convincing reasons to invest?</Stem>
+          <Label/>
+          <PipingToken/>
+        </Item>
+      </Thread>
+    </Threads>
+    <RoutingRules>
+      <Rule id="R13-Q15" kind="specify" check="PASS" provenance="RECON_DATA">
+        <Condition>Q15 "Other (Please specify)" selected</Condition>
+        <Action>ASK Q15_Other (text)</Action>
+        <AppliesTo>Q15_Other</AppliesTo>
+        <Target item="Q15_Other"/>
+        <Evidence>selected = 15; text entries = 15</Evidence>
+        <Note/>
+      </Rule>
+      <Rule id="R13-Q18" kind="specify" check="PASS" provenance="RECON_DATA">
+        <Condition>Q18 = "Other, please specify"</Condition>
+        <Action>ASK Q18_Other (text)</Action>
+        <AppliesTo>Q18_Other</AppliesTo>
+        <Target item="Q18_Other"/>
+        <Evidence>selected = 1; text entries = 1</Evidence>
+        <Note/>
+      </Rule>
+    </RoutingRules>
+  </Instrument>
+  <Respondents source="synthetic">
+    <Respondent respid="SYN-0001" provenance="SYNTHETIC">
+      <DecisionPath id="SYN-PATH-1" provenance="SYNTHETIC">
+        <Context>Invented opportunity used to exercise every rule: all five gates, a not-yes with reasons, recovery at the same gate, one event with clock time and the rest without.</Context>
+        <GateEvent seq="1" gate="TARGET" state="1" actor="vendor" provenance="SYNTHETIC"/>
+        <GateEvent seq="2" gate="ACCESS" state="1" observedAt="2000-01-03T09:00:00" actor="salesperson" provenance="SYNTHETIC"/>
+        <GateEvent seq="3" gate="AGREE" state="1" actor="salesperson" provenance="SYNTHETIC"/>
+        <GateEvent seq="4" gate="VISION" state="0" actor="decisionMaker" provenance="SYNTHETIC">
+          <Reason thread="T-Q15" item="Q15_2" provenance="SYNTHETIC"/>
+          <Reason thread="T-Q15" item="Q15_4" provenance="SYNTHETIC"/>
+        </GateEvent>
+        <GateEvent seq="5" gate="VISION" state="1" actor="salesperson" provenance="SYNTHETIC"/>
+        <GateEvent seq="6" gate="CASE" state="0" actor="decisionMaker" provenance="SYNTHETIC">
+          <Reason thread="T-Q18" item="Q18" option="4" provenance="SYNTHETIC"/>
+        </GateEvent>
+        <GateEvent seq="7" gate="CASE" state="1" actor="decisionMaker" provenance="SYNTHETIC"/>
+      </DecisionPath>
+    </Respondent>
+  </Respondents>
+</Study>
