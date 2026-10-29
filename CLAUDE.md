@@ -20,7 +20,7 @@ You are working in a gated, stepwise reconstruction project. **`GOVERNANCE.md` i
 ## While working
 
 - Work only on the **current step** in `STATE.md`. Before every write, run the scope lock (GOVERNANCE §4.3).
-- One step → one branch `phase-<N>/step-<NN>-<slug>` → one PR. Never commit to `main`.
+- One step → one branch `phase-<N>/step-<NN>-<slug>` → one PR — or an approved batch of consecutive no-input steps on `phase-<N>/steps-<NN>-<MM>-<slug>` (GOVERNANCE §3.4). Never commit to `main`.
 - Tag every reconstructed fact: `VERBATIM` · `RECON_DATA` · `RECON_REPORT` · `RECALL_DESIGNER` · `INFERRED` · `MISSING`. Never fill a gap silently.
 - Anything out of scope → `STATE.md` *Parking lot*. Do not act on it.
 - Artifacts derived from data are produced by committed scripts. Never hand-edit generated output.

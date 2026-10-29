@@ -26,7 +26,7 @@ Order of authority: (1) Scott's explicit instruction in chat that names what it 
 
 ## Non-negotiables
 
-- **One step at a time.** Work only on the current step in `STATE.md`. Out-of-scope ideas go to the *Parking lot*; do not act on them.
+- **One step at a time.** Work only on the current step in `STATE.md`. Out-of-scope ideas go to the *Parking lot*; do not act on them. Consecutive steps that need no input from Scott may run as one batch on one PR, only when Scott approves the batch by name (GOVERNANCE §3.4).
 - **Gates are hard.** A phase is not closed until every exit criterion in `GOVERNANCE.md` §5 passes and Scott tags it. Never start the next phase on your own.
 - **Never commit to `main`.** Work on `phase-<N>/step-<NN>-<slug>` branches. If you cannot push, deliver a patch and say so plainly.
 - **Source is immutable.** Never modify anything in `00_source/`.
