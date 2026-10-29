@@ -1,0 +1,13 @@
+source,target_thread,link_type,provenance,rationale
+D-CONTACTFREQ,T-Q03,relates_to,INFERRED,How often the decision-maker meets salespeople bears on how they respond to contact channels (Access)
+D-CONTACTFREQ,T-Q06,relates_to,INFERRED,Contact frequency bears on appointments accepted per week (Access)
+D-CONTACTFREQ,T-Q07,relates_to,INFERRED,Contact frequency bears on reasons for accepting an appointment (Access)
+D-LEVEL,T-Q05,relates_to,INFERRED,Senior decision-makers are more likely to have staff who screen meeting requests (Access)
+D-LEVEL,T-Q20,relates_to,INFERRED,Seniority bears on purchase authority (Business Case)
+D-STAGE:Authorizing purchases,T-Q20,relates_to,INFERRED,Those who authorize purchases are the ones a purchase limit applies to (Business Case)
+D-STAGE:Setting or managing budgets,T-Q17,relates_to,INFERRED,Budget owners build or judge the business case (Shared Vision)
+D-STAGE:Choosing/recommending vendors,T-Q01,relates_to,INFERRED,Those who choose vendors define what a strategic vendor is (Baseline)
+D-STAGE:Requirements definition,T-Q16,relates_to,INFERRED,Requirements owners shape the path from vision to value (Shared Vision)
+D-ITROLE:Sourcing and vendor management,T-Q05,relates_to,INFERRED,Sourcing roles act as gatekeepers for vendor meetings (Access)
+D-ITROLE:Chief information officer,T-Q20,relates_to,INFERRED,CIOs hold purchase authority (Business Case)
+D-SELLSTO,T-Q12,relates_to,INFERRED,Whether the company itself sells B2B or B2C may shape how vendor materials are judged (Shared Vision)
