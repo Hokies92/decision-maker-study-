@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 3 — Design the new schema   **Gate:** open
-**Step:** P3.S00 — Propose the Phase 3 step plan
-**Status:** proposed — awaiting Scott's approval and answers to D3-1…D3-3
-**Branch:** phase-3/step-00-plan
+**Step:** P3.S01 — Design brief and decision records
+**Status:** done — awaiting Scott's review and merge
+**Branch:** phase-3/step-01-design-brief
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 3
@@ -13,8 +13,8 @@ Outputs go to `03_schema/`. The schema stores what the source holds — each res
 
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
-| P3.S00 | Propose the Phase 3 step plan | Phase 2 outputs; `GOVERNANCE.md` §5 P3; README | `STATE.md` | Plan merged by Scott; D3-1…D3-3 answered | proposed | this branch |
-| P3.S01 | **Design brief and decision records:** the entity model (study, instrument, population, results, graph, gates, respondents, provenance) and one ADR per non-obvious choice | `design_intent.md`; `cohort_model.md`; `linkages.md`; `variable_dictionary.csv`; Scott's answers to D3-1…D3-3 | `03_schema/design_brief.md`; `03_schema/decisions/ADR-001…` | Every entity named with its source file; ADRs cover at least: namespace and versioning; result cell = item × option × cohort; role level and stakeholder type as referenced entities in one configurable hierarchy (Scott, 2026-10-28); threads and links as edges; gates and an editable thread → gate assignment; optional respondent layer and its order model; provenance on every element; significance as a flag. Each ADR: context, options, decision, consequences. Scott's answers recorded `RECALL_DESIGNER` | not started | — |
+| P3.S00 | Propose the Phase 3 step plan | Phase 2 outputs; `GOVERNANCE.md` §5 P3; README | `STATE.md` | Plan merged by Scott; D3-1…D3-3 answered | done | `f44c992` (PR #32) |
+| P3.S01 | **Design brief and decision records:** the entity model (study, instrument, population, results, graph, gates, respondents, provenance) and one ADR per non-obvious choice | `design_intent.md`; `cohort_model.md`; `linkages.md`; `variable_dictionary.csv`; Scott's answers to D3-1…D3-3 | `03_schema/design_brief.md`; `03_schema/decisions/ADR-001…` | Every entity named with its source file; ADRs cover at least: namespace and versioning; result cell = item × option × cohort; role level and stakeholder type as referenced entities in one configurable hierarchy (Scott, 2026-10-28); threads and links as edges; gates and an editable thread → gate assignment; optional respondent layer and its order model; provenance on every element; significance as a flag. Each ADR: context, options, decision, consequences. Scott's answers recorded `RECALL_DESIGNER` | done — brief + 13 ADRs | this branch |
 | P3.S02 | **XSD v1** | `design_brief.md`; ADRs | `03_schema/decision-maker-study.xsd` | Namespace ends `/dms/v1`; every entity in the brief is a type; every reference enforced by key/keyref (result → item, option, cohort; cohort → dimension; link → thread; gate assignment → thread and gate); respondent elements optional; provenance attribute restricted to the six tags; the schema itself loads in `xmllint` | not started | — |
 | P3.S03 | **Instance generator and examples** | P1 and P2 outputs; SRC-003 (respondent text) | `scripts/p3_build_instances.py`; `03_schema/examples/full_study.xml`, `thread_q15.xml`, `respondents_open_ended.xml` | All three validate against the XSD; `full_study.xml` holds every result (24,552), flag (1,686), cohort (115), item (136), and link (381) exactly once; `full_study.xml` validates with no respondent layer (proves it optional); respondent example carries the real respid-keyed answers unchanged; generator re-runs byte-identical | not started | — |
 | P3.S04 | **Schema mapping** | `variable_dictionary.csv`; XSD; `full_study.xml` | `03_schema/schema_mapping.csv`; `scripts/p3_build_schema_mapping.py` | All 189 variables → an XPath, or `EXCLUDED` with reason; every XPath checked by script to resolve in `full_study.xml` or to name an optional respondent slot | not started | — |
@@ -232,14 +232,20 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P2.S08 Phase 2 gate review drafted — all four §5 criteria PASS (criterion 3 with notes: group-level missingness only; three empty text columns). Recommendation: close Phase 2. Awaiting Scott's merge and tag.
 - 2026-10-29: Phase 2 closed. P2.S07 re-run merged (PR #30), gate review merged (PR #31, `61c8b2b`); Scott created tag `phase-2-complete`.
 - 2026-10-29: Phase 3 plan proposed (P3.S00): S01 design brief + ADRs, S02 XSD, S03 instance generator + 3 examples, S04 schema mapping, S05 cross-check, S06 gate review. Design questions D3-1 (gates in the schema), D3-2 (order model for individual choices), D3-3 (test record for the individual layer) put to Scott.
+- 2026-10-29: Phase 3 plan approved (PR #32, `cd5f980`).
+- 2026-10-29: D3-1 answered (Scott, RECALL_DESIGNER): "Yes. I want the gates to be a way we interface with other research and work." Consequence: gates become a stand-alone module (`gates/v1`) with permanent IDs and a crosswalk for outside items (ADR-002).
+- 2026-10-29: D3-2 answered (Scott, RECALL_DESIGNER): "Yes. I agree." — decision paths are ordered gate events (seq, gate, state 1/0, reasons linked to threads); clock time optional (ADR-009, ADR-010).
+- 2026-10-29: D3-3 answered (Scott): "Yes." — one synthetic test record in `03_schema/tests/`, tagged SYNTHETIC, excluded from every count (ADR-008, ADR-013).
+- 2026-10-29: P3.S01 design brief and 13 ADRs drafted (`03_schema/design_brief.md`, `03_schema/decisions/`). Choices proposed by Claude (INFERRED), accepted or changed by Scott at merge: two namespaces `https://growthenablement.com/ns/dms/v1` and `…/ns/gates/v1`; named, editable assignment sets for thread → group → gate; result = item × option × cohort; one configurable stakeholder hierarchy with facets, attached to cohorts; links with typed endpoints (incl. one link to the missing variable S8_raw); provenance required everywhere, `SYNTHETIC` allowed only in tests; derived variables stored as rules, not values; one root element, optional sections, all references enforced by key/keyref.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
 <!-- includes all INFERRED items awaiting review -->
 - (resolved in P1.S10 — see decisions log) Q-S02a, Q-S02b, Q-S02c, Q-S02d #1–#4.
-- D3-1 (P3.S00, blocks S01): Gates as first-class elements — five gates (Target, Access, Agree, Vision, Case) with states 1 = yes / 0 = not yes, and every thread assigned to a gate through an editable link taken from `scott_grouping.csv`?
-- D3-2 (P3.S00, blocks S01): Order model for future individual records — each decision-maker's path stored as an ordered sequence of gate events (gate, state, reasons linked to threads), ordered by sequence number; clock time an optional field, absent here?
-- D3-3 (P3.S00, blocks S03): Add one clearly marked synthetic test record (not data, not in `examples/`) to prove the individual layer validates?
+- (resolved — see decisions log) D3-1, D3-2, D3-3.
+- (superseded) D3-1 (P3.S00): Gates as first-class elements — five gates (Target, Access, Agree, Vision, Case) with states 1 = yes / 0 = not yes, and every thread assigned to a gate through an editable link taken from `scott_grouping.csv`?
+- (superseded) D3-2 (P3.S00): Order model for future individual records — each decision-maker's path stored as an ordered sequence of gate events (gate, state, reasons linked to threads), ordered by sequence number; clock time an optional field, absent here?
+- (superseded) D3-3 (P3.S00): Add one clearly marked synthetic test record (not data, not in `examples/`) to prove the individual layer validates?
 - Open inferences: none from Phase 1 (85 of 85 decided — `review_summary.md`).
 - Q-P2a (not blocking the gate; needed before Phase 4): confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
 - Q-S10a (not blocking): name the 6 lexicon gaps (`asymmetry_lexicon.md`, column `gap_name_by_scott`) — L02 being mis-targeted; L05 the cost of being pursued; L10 the meeting that was not worth it; L16 material that never reaches the decision; L17 the decision-maker selling internally on the vendor's behalf; L18 more people joining the decision than the vendor targeted.
@@ -263,6 +269,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - (P1.S00) Phase 4 statistical linkages between threads: correlation of group profiles across the ~40 breakout groups, similarity clustering, network/topology maps. Caveat to carry: links computed on group percentages are ecological — they describe groups, not individuals.
 
 - (P1.S03) Cross-wave lineage: REF-3 shows an earlier wave with identical Q1, Q2, Q9 and part of Q8 wording, and a closed-ended form of Q21. A "prior-wave wording" link type could enter the linkage inventory as structure only; earlier-wave results are not in source and study dates are excluded from analysis.
+- (P3.S01) Asymmetry lexicon as schema elements (concepts linked to gates and threads) — fits the gate interface; not in the Phase 3 plan.
 - (P1.S03) Time model for later phases: gates as event-ordered state changes (Leibnizian/Bergsonian time) with kairos moments — relevant to Phase 3 schema design (state transitions, not timestamps).
 
 - (P1.S03) Instrument coverage gap (Vision and Case thinly measured) — based on Claude's withdrawn draft map; re-check once Scott's grouping exists.
