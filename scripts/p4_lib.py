@@ -146,3 +146,80 @@ def write_csv(df, path):
     path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(path, index=False, lineterminator="\n", float_format="%.4f")
     return path
+
+
+# ---------------------------------------------------------------- measures
+# Option labels counted by each approved summary definition (variable_review_decisions.csv, P4.S01).
+# measures() checks every label against the Variable/Rule text in the instance and stops on a mismatch.
+SUMMARY_OPTIONS = {
+    ("SC-FREQ4", "topbox"): ["Frequently"],
+    ("SC-FREQ4", "top2"): ["Occasionally", "Frequently"],
+    ("SC-AGREE4", "top2"): ["Agree", "Strongly agree"],
+    ("SC-IMPORT4", "top2"): ["Very important", "Somewhat important"],
+    ("SC-DIFF3", "differentiator"): ["Important, and a differentiator"],
+    ("SC-MATERIALS7", "self_built"): [4, 5],          # option seqs; labels quoted in the rule
+}
+
+
+@lru_cache(maxsize=1)
+def _measures_cached():
+    return _build_measures(load())
+
+
+def measures(doc=None):
+    """Long table of measures per cohort.
+
+    kind = summary    an approved summary variable (role headline / secondary)
+           selection  share selecting a multi-select item
+           option     share choosing one option of a single-choice item (measure id 'ITEM=seq')
+    Columns: measure, kind, role, item, thread, gate, cohort, dimension, value, base, n, usable, label
+    A measure is computed only where every result it needs is a value (not 'notAsked').
+    """
+    return _measures_cached() if doc is None else _build_measures(doc)
+
+
+def _build_measures(doc):
+    r = results(doc)
+    it = items(doc).set_index("item")
+    opts = options(doc)
+    v = variables(doc)
+    rows = []
+    key = ["item", "cohort"]
+    by = {k: g for k, g in r.groupby(key, sort=False)}
+    for s in v[v.kind == "summary"].itertuples():
+        item, suffix = s.id.split("__")
+        spec = SUMMARY_OPTIONS[(s.scale, suffix)]
+        labels = [opts[s.scale][o - 1] if isinstance(o, int) else o for o in spec]
+        for lab, o in zip(labels, spec):
+            probe = f"options {o}" if isinstance(o, int) else lab
+            if probe not in s.rule and not (isinstance(o, int) and str(o) in s.rule):
+                raise SystemExit(f"{s.id}: rule text does not name {lab!r}")
+        seqs = [opts[s.scale].index(l) + 1 for l in labels]
+        for (i, c), g in by.items():
+            if i != item:
+                continue
+            g2 = g[g.option.isin(seqs)]
+            if len(g2) != len(seqs) or (g2.status != "value").any():
+                continue
+            rows.append({"measure": s.id, "kind": "summary", "role": s.role, "item": item, "label": s.id,
+                         "values": g2.share.sum(), "first": g2.iloc[0]})
+    for (i, c), g in by.items():
+        t = it.loc[i, "type"]
+        if t == "multi_select_option":
+            x = g.iloc[0]
+            if x.status == "value":
+                rows.append({"measure": i, "kind": "selection", "role": "", "item": i, "label": x.option_label,
+                             "values": x.share, "first": x})
+        elif t == "single_select":
+            for x in g.itertuples():
+                if x.status == "value":
+                    rows.append({"measure": f"{i}={int(x.option)}", "kind": "option", "role": "", "item": i,
+                                 "label": x.option_label, "values": x.share, "first": pd.Series(x._asdict())})
+    out = []
+    for m in rows:
+        f = m["first"]
+        out.append({"measure": m["measure"], "kind": m["kind"], "role": m["role"], "item": m["item"],
+                    "thread": f["thread"], "gate": f["gate"], "cohort": f["cohort"], "dimension": f["dimension"],
+                    "value": round(float(m["values"]), 6), "base": f["base"], "n": f["n"], "usable": bool(f["usable"]),
+                    "label": m["label"]})
+    return pd.DataFrame(out)
