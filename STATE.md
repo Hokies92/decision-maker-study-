@@ -1,13 +1,31 @@
 # Project State
 
 ## Current
-**Phase:** 3 — Design the new schema   **Gate:** open
-**Step:** P3.S06 — Draft Phase 3 gate review
-**Status:** drafted — awaiting Scott's merge and tags `schema-v1.0.0` + `phase-3-complete`
-**Branch:** phase-3/step-06-gate-review
+**Phase:** 4 — Analytics library   **Gate:** open
+**Step:** P4.S00 — Propose the Phase 4 step plan
+**Status:** proposed — awaiting Scott's approval and answers to D4-1…D4-3
+**Branch:** phase-4/step-00-plan
 **Updated:** 2026-10-29 by Claude session
 
-## Step plan — Phase 3
+## Step plan — Phase 4
+
+Outputs go to `04_analytics_library/`. A technique is one file that states the question it answers, the schema fields it reads (XPaths), its assumptions, its minimum n, and its output form (GOVERNANCE §5 P4). Every technique works on group-level percentages, or states the respondent-level data it would need. Techniques that link threads statistically carry the ecological caveat: they describe groups, not individuals. Cohorts below n = 25 are shown but never used for comparisons. Proposed (D4-1): each technique also has a reference script that runs on `03_schema/examples/full_study.xml` and commits its output, so every specification is proven on real data.
+
+| ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
+|----|-----------|--------|---------|-----------|--------|--------|
+| P4.S00 | Propose the Phase 4 step plan | Phase 3 outputs; `GOVERNANCE.md` §5 P4; README | `STATE.md` | Plan merged by Scott; D4-1…D4-3 answered | proposed | this branch |
+| P4.S01 | **Scott's review of the inputs Phase 4 computes from:** the 47 INFERRED variable definitions (Q-P2a) and the Q21 blank respid (Q-P3a) | `variable_dictionary.csv`; Q-P3a evidence | `02_data_inventory/variable_review.csv` (on a `fix/` branch for P2 outputs); decisions log | Every one of the 47 definitions approved, changed, or dropped by Scott; Q-P3a answered and applied or closed | not started | — |
+| P4.S02 | **Library conventions:** technique template, `catalog.md`, shared reader for the schema, and the XPath check | XSD; `schema_mapping.csv` | `04_analytics_library/TEMPLATE.md`, `catalog.md`; `scripts/p4_lib.py`; `scripts/p4_check_xpaths.py` | Template has every §5 P4 field; the check fails on an XPath that names an element or attribute not in the XSD (negative test) | not started | — |
+| P4.S03 | **Descriptive techniques:** T01 gate profile (answers by gate and cohort); T02 summary measures (top-two box and the other approved definitions); T03 where groups differ (significance flags by gate and dimension) | `full_study.xml`; approved definitions (S01) | `04_analytics_library/T01…T03-*.md`; scripts; outputs | Each technique file complete; script runs; n = 25 enforced; outputs reproducible | not started | — |
+| P4.S04 | **Gap techniques:** T04 value vs experience (pairs of items: what decision-makers value against what they report receiving — pairs proposed by Claude, INFERRED, for Scott's review); T05 not-yes reasons by cohort (Q15) | `full_study.xml`; authored pair list | T04, T05 files; scripts; outputs; `pairs.csv` | Every pair cites both items and is tagged INFERRED until reviewed; Q15 reasons by every usable cohort | not started | — |
+| P4.S05 | **Network techniques:** T06 thread network (degree, centrality, communities on the structural links); T07 statistical thread links (correlation of answer profiles across cohorts — new link type, ecological) | `full_study.xml` Graph and Results | T06, T07 files; scripts; outputs (incl. GraphML) | Ecological caveat stated in T07 and in its output; only cohorts with n ≥ 25 enter correlations | not started | — |
+| P4.S06 | **Topology techniques:** T08 cohort similarity and clusters; T09 map of cohorts × items (correspondence analysis or equivalent) | `full_study.xml` | T08, T09 files; scripts; outputs | Method and its limits stated; reproducible with fixed seeds | not started | — |
+| P4.S07 | Cross-check | All P4 outputs | `scripts/p4_crosscheck.py`; `04_analytics_library/crosscheck_report.md` | Every referenced XPath exists in the XSD; every technique has all fields; n = 25 never breached in a comparison; scripts byte-identical; source checksums OK | not started | — |
+| P4.S08 | Draft Phase 4 gate review | All P4 outputs | Gate review block | Every §5 P4 criterion checked with evidence; stop for Scott's merge and tag | not started | — |
+
+Candidate batch (needs Scott's approval by name): **S02–S07**, after S01 — none needs Scott's input (T04 pairs stay INFERRED until reviewed).
+
+## Step plan — Phase 3 (closed — tags `phase-3-complete` on `87ec9e0`, `schema-v1.0.0` on `4e57d4d`)
 
 Outputs go to `03_schema/`. The schema stores what the source holds — each result as item × option × cohort, with role level and stakeholder type on the cohort — and reserves slots for what it does not yet hold: individual decision-makers' choices at each gate, in order. Purpose of record (Scott, 2026-10-29): "this cohort's experience at this gate," in a structure that later holds individual choices over time, for new data and for coaching. Every instance file is generated by a committed script; the XSD and ADRs are authored.
 
@@ -19,7 +37,7 @@ Outputs go to `03_schema/`. The schema stores what the source holds — each res
 | P3.S03 | **Instance generator and examples** | P1 and P2 outputs; SRC-003 (respondent text) | `scripts/p3_build_instances.py`; `03_schema/examples/full_study.xml`, `thread_q15.xml`, `respondents_open_ended.xml` | All three validate against the XSD; `full_study.xml` holds every result (24,552), flag (1,686), cohort (115), item (136), and link (381) exactly once; `full_study.xml` validates with no respondent layer (proves it optional); respondent example carries the real respid-keyed answers unchanged; generator re-runs byte-identical | done — 4 instances validate | PR #34 (`6d06df8`) |
 | P3.S04 | **Schema mapping** | `variable_dictionary.csv`; XSD; `full_study.xml` | `03_schema/schema_mapping.csv`; `scripts/p3_build_schema_mapping.py` | All 189 variables → an XPath, or `EXCLUDED` with reason; every XPath checked by script to resolve in `full_study.xml` or to name an optional respondent slot | done — 189 variables mapped | PR #34 (`6d06df8`) |
 | P3.S05 | Cross-check | All P3 outputs | `scripts/p3_crosscheck.py`; `03_schema/crosscheck_report.md` | `xmllint` passes on every example; counts reconcile to Phase 2; negative tests fail as expected (broken reference, bad provenance tag, wrong namespace); generators byte-identical; source checksums OK | done — 13/13 pass | PR #34 (`6d06df8`) |
-| P3.S06 | Draft Phase 3 gate review | All P3 outputs | Gate review block | Every §5 P3 criterion checked with evidence; stop for Scott's merge and tags `schema-v1.0.0` and `phase-3-complete` | done — recommendation PASS | this branch |
+| P3.S06 | Draft Phase 3 gate review | All P3 outputs | Gate review block | Every §5 P3 criterion checked with evidence; stop for Scott's merge and tags `schema-v1.0.0` and `phase-3-complete` | done — recommendation PASS | `78a318e` (PR #36) |
 
 Batch **S02–S05** approved by Scott by name ("Run S02–S05 as one batch.") — branch `phase-3/steps-02-05-schema-build`.
 
@@ -83,7 +101,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 ### Phase 3 — Design the new schema
 **Drafted:** 2026-10-29 by Claude (P3.S06) · **Reviewed against:** `main` @ `6d06df8` + `fix/p3-adr-implementation-notes` (`5606c35`)
-**Recommendation:** PASS — close Phase 3 · **Decision:** pending Scott · **Tags:** `schema-v1.0.0` and `phase-3-complete` (Scott creates)
+**Recommendation:** PASS — close Phase 3 · **Decision:** APPROVED by Scott (PRs #35, #36 merged 2026-10-29) · **Tags:** `phase-3-complete` on `87ec9e0`, `schema-v1.0.0` on `4e57d4d` (created by Scott; schema files identical at both)
 
 | # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
 |---|---|---|---|
@@ -95,7 +113,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 | 6 | ≥3 sample instances in `examples/` validate | PASS | `full_study.xml`, `thread_q15.xml`, `respondents_open_ended.xml` (C01) |
 | 7 | `schema_mapping.csv`: every P2 variable → XPath or `EXCLUDED` with reason | PASS | 189 of 189: results 118, respondent text 18, rule only 45, respondent slot 2, EXCLUDED 6 with reasons; every XPath evaluated by script (`0f9af95`) |
 | 8 | `decisions/ADR-NNN-*.md` for each non-obvious design choice | PASS | 13 ADRs (`9019d92`); choices made while building recorded as implementation notes in 7 of them (`5606c35`, fix branch — merge before this review) |
-| 9 | Scott tags `schema-v1.0.0` alongside `phase-3-complete` | pending | Scott's action after merge |
+| 9 | Scott tags `schema-v1.0.0` alongside `phase-3-complete` | PASS | Both tags created by Scott, 2026-10-29 |
 
 **Cross-check (P3.S05):** 13 of 13 pass on `main` — full reconciliation to Phases 1–2 (24,552 cells, 1,686 flags, 0 mismatches); gate module validates alone; 11 of 11 broken copies rejected; generators byte-identical; source checksums OK; no date field.
 
@@ -277,6 +295,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: Batch S02–S05 merged (PR #34, `6d06df8`).
 - 2026-10-29: ADR implementation notes added on `fix/p3-adr-implementation-notes` (`5606c35`) so criterion 8 holds: four choices made during the build (multi-select results without option and AlsoAt citations; Carries as a node list; flags on a thread; Respondent/Answer) were recorded only in STATE.md.
 - 2026-10-29: P3.S06 Phase 3 gate review drafted — criteria 1–8 PASS, 9 pending Scott's tags. Recommendation: close Phase 3.
+- 2026-10-29: Phase 3 closed. ADR fix merged (PR #35, `4e57d4d`), gate review merged (PR #36, `87ec9e0`); Scott created tags `phase-3-complete` (`87ec9e0`) and `schema-v1.0.0` (`4e57d4d` — differs from `87ec9e0` only in STATE.md).
+- 2026-10-29: Phase 4 plan proposed (P4.S00): S01 Scott's review of inputs (Q-P2a, Q-P3a); S02 library conventions; S03 descriptive; S04 gap; S05 network; S06 topology; S07 cross-check; S08 gate review. Design questions D4-1 (reference scripts and outputs, or specifications only), D4-2 (technique list), D4-3 (output form).
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
@@ -286,9 +306,12 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - (superseded) D3-1 (P3.S00): Gates as first-class elements — five gates (Target, Access, Agree, Vision, Case) with states 1 = yes / 0 = not yes, and every thread assigned to a gate through an editable link taken from `scott_grouping.csv`?
 - (superseded) D3-2 (P3.S00): Order model for future individual records — each decision-maker's path stored as an ordered sequence of gate events (gate, state, reasons linked to threads), ordered by sequence number; clock time an optional field, absent here?
 - (superseded) D3-3 (P3.S00): Add one clearly marked synthetic test record (not data, not in `examples/`) to prove the individual layer validates?
-- Q-P3a (not blocking): attribute the SRC-003 Q21 row-6 answer (blank respid) to respondent 112, by row alignment across the five sheets (INFERRED)? Would change one link weight (Q21∩Q23 318 → 319) via a `fix/` branch.
+- D4-1 (P4.S00): Does each technique include a runnable reference script with committed output on the study data, or only a specification?
+- D4-2 (P4.S00): Approve the nine techniques T01–T09 (add, drop, or reorder)?
+- D4-3 (P4.S00): Output form — CSV + markdown + static charts in the repo now; an interactive dashboard later (parking lot)?
+- Q-P3a (now P4.S01): attribute the SRC-003 Q21 row-6 answer (blank respid) to respondent 112, by row alignment across the five sheets (INFERRED)? Would change one link weight (Q21∩Q23 318 → 319) via a `fix/` branch.
 - Open inferences: none from Phase 1 (85 of 85 decided — `review_summary.md`).
-- Q-P2a (not blocking the gate; needed before Phase 4): confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
+- Q-P2a (now P4.S01): confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
 - Q-S10a (not blocking): name the 6 lexicon gaps (`asymmetry_lexicon.md`, column `gap_name_by_scott`) — L02 being mis-targeted; L05 the cost of being pursued; L10 the meeting that was not worth it; L16 material that never reaches the decision; L17 the decision-maker selling internally on the vendor's behalf; L18 more people joining the decision than the vendor targeted.
 - (resolved — see decisions log) Q-S03a: Scott grouped Q1–Q25 (2026-10-28).
 - (resolved — see decisions log) Q-S04a, Q-S04b.
@@ -307,6 +330,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 - (P0.S04) Public-facing derived version of the data (de-identified, cleaned) — Scott's idea for later; not part of the current phase plan.
 
+- (P4.S00) Interactive dashboard of Phase 4 outputs (gate × cohort explorer) — after the library exists (D4-3).
 - (P1.S00) Phase 4 statistical linkages between threads: correlation of group profiles across the ~40 breakout groups, similarity clustering, network/topology maps. Caveat to carry: links computed on group percentages are ecological — they describe groups, not individuals.
 
 - (P1.S03) Cross-wave lineage: REF-3 shows an earlier wave with identical Q1, Q2, Q9 and part of Q8 wording, and a closed-ended form of Q21. A "prior-wave wording" link type could enter the linkage inventory as structure only; earlier-wave results are not in source and study dates are excluded from analysis.
