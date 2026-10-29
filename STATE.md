@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 2 — Inventory the data   **Gate:** open
-**Step:** P2.S07 — Cross-check (re-run on main)
-**Status:** done — 10/10 pass; next P2.S08 gate review
-**Branch:** phase-2/step-07-crosscheck-rerun
+**Step:** P2.S08 — Draft Phase 2 gate review
+**Status:** drafted — awaiting Scott's merge and tag `phase-2-complete`
+**Branch:** phase-2/step-08-gate-review
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 2
@@ -21,7 +21,7 @@ Outputs go to `02_data_inventory/`. Phase 2 reads the results for the first time
 | P2.S05 | **Coverage matrix:** base n for every cohort × item, including function × level; n = 25 flags | `results.csv`; `cohorts.csv` | `02_data_inventory/coverage_matrix.csv` + `.md`; script | Every tabulated cohort × item has a base; below-minimum cells flagged; function × level shown as its own table | done — 6,754 cells | PR #29 (`cf33a1d`) |
 | P2.S06 | **Open-ended inventory:** respondent-level text — answers per question, blanks, lengths, respids answering all five, links to "please specify" answers (no coding yet) | SRC-003; SRC-002 "Other" sheet; `linkages.csv` | `02_data_inventory/open_ended_inventory.md` + csv; script | Counts reconcile to 319 respids per sheet; overlap with "please specify" respondents reported; no answer text altered | done — 5 questions inventoried | PR #29 (`cf33a1d`) |
 | P2.S07 | Cross-check and provenance count | All P2 outputs | `scripts/p2_crosscheck.py`; `crosscheck_report.md` | Every result cell, flag, and variable reconciles to source; all generators re-run identically | done — 10/10 pass (re-run after fix PR #28) | stopped `adec182` (PR #29); re-run `9160b3c` |
-| P2.S08 | Draft Phase 2 gate review | All P2 outputs | Gate review block | Every §5 P2 criterion checked with evidence; stop for Scott's merge and tag | not started | — |
+| P2.S08 | Draft Phase 2 gate review | All P2 outputs | Gate review block | Every §5 P2 criterion checked with evidence; stop for Scott's merge and tag | done — recommendation PASS | this branch |
 
 Batch S01–S07 approved by name and merged (PR #29); S07 closed on its own branch after fix PR #28.
 
@@ -64,6 +64,33 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 ## Gate reviews
 <!-- one dated block per closed phase, with criteria checklist and tag -->
+
+### Phase 2 — Inventory the data
+**Drafted:** 2026-10-29 by Claude (P2.S08) · **Reviewed against:** `main` @ `cf33a1d` + P2.S07 re-run (`9160b3c`, `321463b`)
+**Recommendation:** PASS — close Phase 2 · **Decision:** pending Scott · **Tag:** `phase-2-complete` (Scott creates)
+
+| # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
+|---|---|---|---|
+| 1 | `variable_dictionary.csv`: every variable with name, label, source question ID, type, valid values, status ∈ {collected, derivable, missing} | PASS | 189 variables: collected 130, derivable 51 (6 recodes + 45 summary measures), missing 8. Name, label, status on all 189; source question, type, scale, valid values on all 181 non-missing (the 8 missing have no source by definition). All 136 question-map items present (C05) |
+| 2 | Every `derivable` variable has an explicit derivation rule | PASS | 51 of 51 derivable rows carry a rule; 0 rules on non-derivable rows (C05). Q6_bucketed read as 0–5 (A04) |
+| 3 | `data_quality.md`: n, missing rate, out-of-range counts per variable — by committed script | PASS, with notes | `scripts/p2_check_data_quality.py`: 118 tabulated items, 24,552 cells — base n, non-substantive share, out-of-range (0), sum failures (0 of 4,347), not-asked cells (328) per item. Text variables counted per column in `open_ended_inventory.md` (`scripts/p2_inventory_open_ended.py`): 5 open-ended (answers, blanks, non-answers) and 10 "please specify" columns. Notes: (a) "missing rate" is group-level — not-asked cells and non-substantive share; respondent-level missingness cannot be measured (MISSING by source). (b) Three text columns have 0 answers — S1_Other, Q11_Other, Q20_4_text (A06) — listed in the dictionary with 0 result cells, not in the inventory table |
+| 4 | `coverage_matrix.csv`: bases for every breakout group, including role level × stakeholder type | PASS | `scripts/p2_build_coverage_matrix.py`: 6,754 cohort × item bases for all 58 tabulated cohorts (14 dimensions); 1,252 below n = 25 flagged. Level × function (stakeholder type) shown as its own table: 8 cohorts, IT VP (12) and business C-level (18) below minimum |
+
+**Cross-check (P2.S07):** 10 of 10 pass on `main` — every result cell, flag, and variable reconciles to source; all 6 Phase 2 generators byte-identical; `sha256sum -c` OK.
+
+**Provenance (variable dictionary):** RECON_DATA 134, INFERRED 47, MISSING 8. Results (24,552), significance flags (1,686), and coverage cells (6,754) all RECON_DATA.
+
+**Also delivered in Phase 2 (beyond the criteria):** `results.csv` (every tabulated cell, cited by sheet and cell); `significance.csv` (1,686 flags from the cell comments: significant 233, not significant 924, not tested 529).
+
+**Carried into Phase 3 (not blockers):**
+- Data is group-level: the schema stores a result as item × option × cohort, with function and level on the cohort; respondent-level choices reserved but empty (D1; purpose of record 2026-10-29).
+- 47 INFERRED variables (45 summary measures — top-two box, Q13 'differentiator' share, Q18__self_built — plus 2 recodes): definitions are Claude's; confirm or change before Phase 4 relies on them.
+- Scale direction: SC-IMPORT4 runs high-to-low, opposite to SC-FREQ4 and SC-AGREE4 — align before comparing.
+- Significance: test statistic not in source (header says 95% confidence); country and region differ far more often than IT vs business — preliminary, for Phase 4.
+- Open-ended: answers may stop at a 255-character entry limit (INFERRED); Phase 5.
+- Phase 1 `crosscheck_report.md` still shows RECALL_DESIGNER 94 (live 96); re-running `p1_crosscheck.py` rewrites it and `question_list.xlsx` — a `fix/` refresh is optional.
+- Lexicon: 6 gaps for Scott to name (Q-S10a).
+- Governance incidents in Phase 2: one — the merged P1.S08 defect, found by C08 and fixed (PR #28).
 
 ### Phase 1 — Reconstruct the instrument
 **Drafted:** 2026-10-29 by Claude (P1.S11) · **Reviewed against:** `main` @ `5465b09`
@@ -186,12 +213,14 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P2.S07 cross-check STOPPED (stop condition S3; batch rule BT4): 9 of 10 checks pass. C08 fails — the Phase 1 linkage inventory (P1.S08, `linkages.csv`) overstates 6 open-ended respondent overlaps by 1 (e.g. Q22∩Q23 = 319; true 318): `p1_build_linkages.py` treated three blank answers (one each in Q22, Q24, Q25) as answered. Not caught at the Phase 1 gate because no check compared overlap weights to a fresh count; caught now by C08. Correction goes on `fix/p1-s08-blank-answers` (rule B2), not in this batch. During S07 Claude also fixed two defects in its own new checks: C04 counted the All-respondents banner twice (flags were complete, 1,686/1,686); C08 first used a loose threshold that passed the bad weights. After the fix merges, S07 is re-run on `main`.
 - 2026-10-29: Fix PR #28 (`e0443d0`) and batch PR #29 (`cf33a1d`) merged by Scott. P1.S08 linkage weights corrected (6 open-ended overlaps 319 → 318).
 - 2026-10-29: P2.S07 re-run on `main` @ `cf33a1d` (branch `phase-2/step-07-crosscheck-rerun`): 10 of 10 pass — C08 now 0 mismatches; all 6 Phase 2 generators byte-identical; source checksums OK. Phase 1 cross-check still passes. Variable-dictionary provenance: RECON_DATA 134, INFERRED 47, MISSING 8.
+- 2026-10-29: P2.S08 Phase 2 gate review drafted — all four §5 criteria PASS (criterion 3 with notes: group-level missingness only; three empty text columns). Recommendation: close Phase 2. Awaiting Scott's merge and tag.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
 <!-- includes all INFERRED items awaiting review -->
 - (resolved in P1.S10 — see decisions log) Q-S02a, Q-S02b, Q-S02c, Q-S02d #1–#4.
-- Open inferences: none (85 of 85 decided — `review_summary.md`).
+- Open inferences: none from Phase 1 (85 of 85 decided — `review_summary.md`).
+- Q-P2a (not blocking the gate; needed before Phase 4): confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
 - Q-S10a (not blocking): name the 6 lexicon gaps (`asymmetry_lexicon.md`, column `gap_name_by_scott`) — L02 being mis-targeted; L05 the cost of being pursued; L10 the meeting that was not worth it; L16 material that never reaches the decision; L17 the decision-maker selling internally on the vendor's behalf; L18 more people joining the decision than the vendor targeted.
 - (resolved — see decisions log) Q-S03a: Scott grouped Q1–Q25 (2026-10-28).
 - (resolved — see decisions log) Q-S04a, Q-S04b.
