@@ -100,14 +100,14 @@ def main() -> int:
          s.share("S6_6") == 0 and s.share("S6_7") == 0, "RECON_DATA", "Same as R03.")
     rule("R05", "screen", "S9 country not in {Canada, France, Germany, United Kingdom, United States}",
          "TERMINATE", "S9", "only these five countries appear (n = 7 / 54 / 54 / 54 / 150)",
-         True, "INFERRED", "Respondents from other countries are absent; whether they were terminated or never invited is not in the data.")
+         True, "RECALL_DESIGNER", "Confirmed by Scott, 2026-10-29. Data: only these five countries appear.")
     rule("R06", "screen", "S8 employees below 1,000", "TERMINATE", "S8",
-         "lowest employee band starts at 1,000 (label reads '1,0000')", True, "INFERRED",
-         "No one below 1,000 appears; the band boundary may be a screen or a bucket label.")
+         "lowest employee band starts at 1,000 (label reads '1,0000')", True, "RECALL_DESIGNER",
+         "Confirmed by Scott, 2026-10-29. Data: no one below 1,000 appears.")
     rule("R07", "quota", "ITDM ≈ BDM", "quota 50/50", "S1 → DM type",
-         "ITDM 160 / BDM 159", True, "INFERRED", "Published methodology (REF-1) reports a 50/50 split.")
+         "ITDM 160 / BDM 159", True, "RECALL_DESIGNER", "Confirmed by Scott, 2026-10-29; REF-1 also reports a 50/50 split.")
     rule("R08", "quota", "UK = France = Germany", "quota 54 each", "S9",
-         "54 / 54 / 54", True, "INFERRED", "Exactly equal counts in three countries.")
+         "54 / 54 / 54", True, "RECALL_DESIGNER", "Confirmed by Scott, 2026-10-29. Data: exactly equal counts.")
     rule("R09", "quality", 'Q19_4 ≠ "Somewhat important" (attention check)', "REMOVE respondent",
          "all", f"Q19_4 'Somewhat important' share = {s.count('Q19_4', 'Somewhat important') / 319:.3f}",
          s.count("Q19_4", "Somewhat important") == 319, "RECON_DATA",
@@ -116,7 +116,7 @@ def main() -> int:
     # --- Piping ------------------------------------------------------------------------
     rule("R10", "piping", "S5 wording", "insert text at 'hS5Piping'", "S5",
          "placeholder 'hS5Piping' appears in S5 headers", True, "MISSING",
-         "The inserted text is not in the source. Likely 'IT' vs 'business' by respondent type — INFERRED, unconfirmed.")
+         "The inserted text is not in the source, and Scott does not recall it (2026-10-29). S5 is treated as one question; caution: the wording may have differed for IT and business respondents.")
 
     # --- Follow-ups ------------------------------------------------------------------------
     q20_share = s.count("Q20_PurchaseLimit", "Yes, purchase  limit and Im wi")
