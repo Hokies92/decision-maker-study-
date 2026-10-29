@@ -2,7 +2,7 @@
 
 **Status:** Binding. Applies to every Claude session (claude.ai, Claude Code, any agent) that reads or writes this repository.
 **Owner:** Scott Santucci. Only Scott may amend this file (see §12).
-**Version:** 1.1.0 — 2026-10-27 (D1 re-scope, D2 `RECALL_DESIGNER`)
+**Version:** 1.2.0 — 2026-10-29 (batched steps §3.4; minimum n = 25 in §5 Phase 4)
 
 ---
 
@@ -62,6 +62,7 @@ Claude MUST NOT create, modify, rename, or delete these without Scott's explicit
 |--------|---------|-----------|-----------|
 | `main` | Approved, verified state only. | Nobody commits directly. | Scott only, via PR. |
 | `phase-<N>/step-<NN>-<slug>` | One step's work. | Claude. | Scott. |
+| `phase-<N>/steps-<NN>-<MM>-<slug>` | A batch of consecutive steps (§3.4). | Claude. | Scott. |
 | `gov/<slug>` | Proposed governance change. | Claude, on request. | Scott. |
 | `fix/<phase>-<slug>` | Correction to already-merged work. | Claude. | Scott. |
 
@@ -70,11 +71,22 @@ Examples: `phase-1/step-03-skip-logic`, `gov/add-lfs-rule`, `fix/p2-missing-rate
 ### 3.2 Rules
 
 - **B1.** Claude never commits to `main`, never pushes to `main`, never merges into `main`.
-- **B2.** One branch per step. A branch that touches files belonging to another step or phase is invalid (§4.3).
+- **B2.** One branch per step, or per approved batch (§3.4). A branch that touches files belonging to a step outside its step or batch, or to another phase, is invalid (§4.3).
 - **B3.** Branch from the current tip of `main`. Before starting, `git fetch` and confirm the base.
 - **B4.** No force-push. No `git reset --hard`, `git rebase`, or `git commit --amend` on any branch that has been pushed. History is append-only once shared.
 - **B5.** No deleting branches or tags. Scott cleans up.
 - **B6.** If the remote is not writable from the session, Claude commits locally and delivers a patch or bundle (`git format-patch` / `git bundle`) plus the step report. It does not claim the work is "in the repo."
+
+### 3.4 Batched steps
+
+Consecutive steps may share one branch and one PR when **all** of these hold:
+
+- **BT1.** Scott approves the batch by name in chat (e.g., "run S07–S09 as one batch").
+- **BT2.** No step in the batch needs Scott's input (no designer review, no decision, no gate). Steps that need Scott always run alone.
+- **BT3.** Every step keeps its own commits (`[P<N>.S<NN>] …`), its own verification (§6.3), and its own `STATE.md` close (§6.4) before the next step starts.
+- **BT4.** Any stop condition (§8) in any step stops the whole batch at that point. Finished steps stay committed; the batch PR is opened with the steps completed so far, and the stopped step is reported as `STOPPED`.
+- **BT5.** The PR body contains one step report (§11) per step, in order.
+- **BT6.** Scott may merge the batch or ask for any step to be split out; a split is done by a new branch, never by rewriting history.
 
 ### 3.3 Recommended GitHub settings (Scott applies)
 
@@ -114,7 +126,7 @@ Ideas, defects, or opportunities outside the current step go to `STATE.md` → *
 ### 4.4 Forbidden behaviors
 
 - **F1.** Working ahead: writing into a later phase's folder before that phase opens.
-- **F2.** Combining steps in one branch or commit.
+- **F2.** Combining steps in one commit; combining steps in one branch outside an approved batch (§3.4).
 - **F3.** Marking a step done without running its verification (§6.3).
 - **F4.** Silent assumption: filling a gap in the source with an inference without labeling it (§7).
 - **F5.** Rewriting prior decisions in the log. Supersede with a new dated entry instead.
@@ -161,6 +173,7 @@ A phase closes only when **every** criterion passes, the gate review is recorded
 
 ### Phase 4 — Analytics library (`04_analytics_library/`)
 - [ ] One file per technique: question it answers, required XPaths, assumptions, minimum n, output form.
+- [ ] Every technique respects the minimum cohort size n = 25 (Scott, 2026-10-28): cohorts below it are shown but never used for comparative claims.
 - [ ] Every technique is valid on group-level percentages, or states the respondent-level data it would need. Techniques that link threads statistically state the ecological caveat: they describe groups, not individuals.
 - [ ] Automated check: every referenced XPath exists in the current XSD.
 - [ ] `catalog.md` index.
@@ -212,7 +225,7 @@ A phase closes only when **every** criterion passes, the gate review is recorded
 1. Update `STATE.md` *Current* block; append to *Decisions log*, *Parking lot*, *Open questions* as needed.
 2. Commit with `[P<N>.S<NN>] state: ...`.
 3. Push the branch (or produce patch per B6).
-4. Post the **step report** (§11) and stop. Do not begin the next step in the same session unless Scott says so.
+4. Post the **step report** (§11) and stop. Do not begin the next step in the same session unless Scott says so, or the next step is part of an approved batch (§3.4).
 
 ---
 
@@ -309,7 +322,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ### 10.5 Pull requests
 
-Title: `[P<N>.S<NN>] <step objective>`. Body: the step report (§11). One PR per step.
+Title: `[P<N>.S<NN>] <step objective>`. Body: the step report (§11). One PR per step — or, for an approved batch (§3.4), title `[P<N>.S<NN>–S<MM>] <batch objective>` with one step report per step.
 
 ---
 
