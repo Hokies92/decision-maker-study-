@@ -1,0 +1,25 @@
+rule_id,kind,condition,action,applies_to,evidence,check,provenance,note
+R01,branch,"S1 = ""IT or IS department""","classify ITDM; ASK S2, S4","S2, S4",S1 IT/IS = 160; S2 base = 160; S4 base = 160; S2/S4 BDM column = '-',PASS,RECON_DATA,
+R02,branch,S1 = any other department,"classify BDM; ASK S3, S6","S3, S6",319 − 160 = 159; S3 base = 159; S6 base = 159; S3/S6 ITDM column = '-',PASS,RECON_DATA,
+R03,screen-out,"S5 = ""Don't know/Not applicable""",TERMINATE,S5,S5_6 share = 0,PASS,RECON_DATA,Published methodology (REF-1) states respondents were screened for significant involvement in IT decision-making and purchasing — consistent.
+R04,screen-out,"S6 = ""I am not involved in IT decision-making"" OR ""Don't know/Not applicable""",TERMINATE,S6,S6_6 share = 0; S6_7 share = 0,PASS,RECON_DATA,Same as R03.
+R05,screen,"S9 country not in {Canada, France, Germany, United Kingdom, United States}",TERMINATE,S9,only these five countries appear (n = 7 / 54 / 54 / 54 / 150),not checkable,INFERRED,Respondents from other countries are absent; whether they were terminated or never invited is not in the data.
+R06,screen,"S8 employees below 1,000",TERMINATE,S8,"lowest employee band starts at 1,000 (label reads '1,0000')",not checkable,INFERRED,"No one below 1,000 appears; the band boundary may be a screen or a bucket label."
+R07,quota,ITDM ≈ BDM,quota 50/50,S1 → DM type,ITDM 160 / BDM 159,not checkable,INFERRED,Published methodology (REF-1) reports a 50/50 split.
+R08,quota,UK = France = Germany,quota 54 each,S9,54 / 54 / 54,not checkable,INFERRED,Exactly equal counts in three countries.
+R09,quality,"Q19_4 ≠ ""Somewhat important"" (attention check)",REMOVE respondent,all,Q19_4 'Somewhat important' share = 1.000,PASS,RECON_DATA,Every tabulated respondent passed; failures were removed before tabulation.
+R10,piping,S5 wording,insert text at 'hS5Piping',S5,placeholder 'hS5Piping' appears in S5 headers,not checkable,MISSING,"The inserted text is not in the source. Likely 'IT' vs 'business' by respondent type — INFERRED, unconfirmed."
+R11,follow-up,"Q20 = ""Yes, purchase limit and I'm willing to share""",ASK Q20_2 (amount),Q20_2,Q20 willing-to-share = 23; Q20_2 base = 23; Q20_2 text entries = 23,PASS,RECON_DATA,
+R12,follow-up,unknown,Q20_4 text,Q20_4,Q20_4 text entries = 0,not checkable,MISSING,Column exists with no entries; its trigger cannot be recovered.
+R13-Q1,specify,"Q1 ""Other (Please specify)"" selected",ASK Q1_Other (text),Q1_Other,selected = 1; text entries = 1,PASS,RECON_DATA,
+R13-Q7,specify,"Q7 ""Other (Please specify)"" selected",ASK Q7_Other (text),Q7_Other,selected = 4; text entries = 4,PASS,RECON_DATA,
+R13-Q11,specify,"Q11 ""Other (Please specify)"" selected",ASK Q11_Other (text),Q11_Other,selected = 0; text entries = 0,PASS,RECON_DATA,
+R13-Q15,specify,"Q15 ""Other (Please specify)"" selected",ASK Q15_Other (text),Q15_Other,selected = 15; text entries = 15,PASS,RECON_DATA,
+R13-S4,specify,"S4 = ""Other (Please specify)""",ASK S4_Other (text),S4_Other,selected = 6; text entries = 6,PASS,RECON_DATA,
+R13-Q18,specify,"Q18 = ""Other, please specify""",ASK Q18_Other (text),Q18_Other,selected = 1; text entries = 1,PASS,RECON_DATA,
+R14-Q8,specify,respondent typed an 'other' attribute in Q8_Other,ASK rating row Q8_8 for it,Q8_8,Q8_8 base = 19; Q8_Other text entries = 19,PASS,RECON_DATA,Only those who named an extra attribute rated it.
+R14-Q12,specify,respondent typed an 'other' attribute in Q12_Other,ASK rating row Q12_10 for it,Q12_10,Q12_10 base = 11; Q12_Other text entries = 11,PASS,RECON_DATA,Only those who named an extra attribute rated it.
+R14-Q13,specify,respondent typed an 'other' attribute in Q13_Other,ASK rating row Q13_10 for it,Q13_10,Q13_10 base = 13; Q13_Other text entries = 13,PASS,RECON_DATA,Only those who named an extra attribute rated it.
+R14-Q19,specify,respondent typed an 'other' attribute in Q19_Other,ASK rating row Q19_7 for it,Q19_7,Q19_7 base = 12; Q19_Other text entries = 12,PASS,RECON_DATA,Only those who named an extra attribute rated it.
+R15,all,none,ASK all respondents,89 tabulated items,89 Main Page items have base 319,PASS,RECON_DATA,"All Q1–Q20 items not listed above, plus S1, S5, S7–S12."
+R16,all,none,ASK all respondents,Q21–Q25,Q21: 319 respids + 40 empty rows; Q22: 319 respids + 40 empty rows; Q23: 319 respids + 40 empty rows; Q24: 319 respids + 40 empty rows; Q25: 319 respids + 40 empty rows,PASS,RECON_DATA,"The extra 40 rows per sheet are empty (no respid, no answer) — an export artifact, not missing respondents."
