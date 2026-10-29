@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Gate model v1 — Scott Santucci's five binary gates of the value communication process.
+  A stand-alone module (ADR-002): other research and work can import this file alone.
+  Namespace and versioning: ADR-001. Authored file (P3.S02); not generated.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:g="https://growthenablement.com/ns/gates/v1"
+           targetNamespace="https://growthenablement.com/ns/gates/v1"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="1.0.0">
+
+  <xs:annotation>
+    <xs:documentation>
+      Five gates, in order: Target, Access, Agree, Vision, Case. Each gate has two states:
+      1 = yes (advance), 0 = not yes. The close is not a gate; the contract is a terminal
+      state outside the value communication process (design_intent.md §2.2–2.3a).
+    </xs:documentation>
+  </xs:annotation>
+
+  <!-- ===== Shared simple types (also used by the study schema) ===== -->
+
+  <xs:simpleType name="GateId">
+    <xs:annotation><xs:documentation>Permanent gate identifiers. Fixed within gates/v1.</xs:documentation></xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TARGET"/>
+      <xs:enumeration value="ACCESS"/>
+      <xs:enumeration value="AGREE"/>
+      <xs:enumeration value="VISION"/>
+      <xs:enumeration value="CASE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="GateState">
+    <xs:annotation><xs:documentation>1 = yes (advance); 0 = not yes.</xs:documentation></xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Provenance">
+    <xs:annotation><xs:documentation>
+      The six governance tags (GOVERNANCE §7), plus SYNTHETIC, which is allowed only in
+      test fixtures under 03_schema/tests/ (ADR-008; enforced by the cross-check).
+    </xs:documentation></xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VERBATIM"/>
+      <xs:enumeration value="RECON_DATA"/>
+      <xs:enumeration value="RECON_REPORT"/>
+      <xs:enumeration value="RECALL_DESIGNER"/>
+      <xs:enumeration value="INFERRED"/>
+      <xs:enumeration value="MISSING"/>
+      <xs:enumeration value="SYNTHETIC"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Fit">
+    <xs:annotation><xs:documentation>
+      How well an outside item measures a gate: direct (it measures the gate's yes/no),
+      partial (one part of it), context (bears on it without measuring it).
+    </xs:documentation></xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="direct"/>
+      <xs:enumeration value="partial"/>
+      <xs:enumeration value="context"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ===== Gate model ===== -->
+
+  <xs:complexType name="GateType">
+    <xs:sequence>
+      <xs:element name="Question" type="xs:string">
+        <xs:annotation><xs:documentation>The gate's question in Scott's words (design_intent.md §2.2.2).</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="g:GateId" use="required"/>
+    <xs:attribute name="order" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:positiveInteger"><xs:maxInclusive value="5"/></xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="label" type="xs:string" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="MappingType">
+    <xs:annotation><xs:documentation>One outside item mapped to one gate.</xs:documentation></xs:annotation>
+    <xs:sequence>
+      <xs:element name="ItemText" type="xs:string" minOccurs="0"/>
+      <xs:element name="Note" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="source" type="xs:string" use="required"/>
+    <xs:attribute name="itemRef" type="xs:string" use="required"/>
+    <xs:attribute name="gate" type="g:GateId" use="required"/>
+    <xs:attribute name="fit" type="g:Fit" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CrosswalkType">
+    <xs:sequence>
+      <xs:element name="Mapping" type="g:MappingType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="GateModelType">
+    <xs:sequence>
+      <xs:element name="Definition" type="xs:string" minOccurs="0"/>
+      <xs:element name="Gate" type="g:GateType" minOccurs="5" maxOccurs="5"/>
+      <xs:element name="Crosswalk" type="g:CrosswalkType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="version" type="xs:string" use="required"/>
+    <xs:attribute name="author" type="xs:string" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="GateModel" type="g:GateModelType">
+    <xs:unique name="gateIdUnique">
+      <xs:selector xpath="g:Gate"/>
+      <xs:field xpath="@id"/>
+    </xs:unique>
+    <xs:unique name="gateOrderUnique">
+      <xs:selector xpath="g:Gate"/>
+      <xs:field xpath="@order"/>
+    </xs:unique>
+    <xs:unique name="crosswalkIdUnique">
+      <xs:selector xpath="g:Crosswalk"/>
+      <xs:field xpath="@id"/>
+    </xs:unique>
+  </xs:element>
+
+</xs:schema>

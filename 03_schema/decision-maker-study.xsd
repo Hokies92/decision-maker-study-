@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Decision Maker Study schema v1 (dms/v1).
+  Implements 03_schema/design_brief.md and decisions/ADR-001…ADR-013. Authored file (P3.S02).
+  Every result is stored as item × option × cohort; role level and stakeholder type reach a
+  result through its cohort; the gate reaches it through item → thread → assignment → group.
+  The Respondents section is optional: it holds respondent-level text now and decision paths later.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:d="https://growthenablement.com/ns/dms/v1"
+           xmlns:g="https://growthenablement.com/ns/gates/v1"
+           targetNamespace="https://growthenablement.com/ns/dms/v1"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="1.0.0">
+
+  <xs:import namespace="https://growthenablement.com/ns/gates/v1" schemaLocation="gates.xsd"/>
+
+  <!-- ================= Simple types ================= -->
+
+  <xs:simpleType name="Ref"><xs:restriction base="xs:string"><xs:minLength value="1"/></xs:restriction></xs:simpleType>
+
+  <xs:simpleType name="Share">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/><xs:maxInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="RecordKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="source"/>
+      <xs:enumeration value="syntheticTest"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Reviewed">
+    <xs:annotation><xs:documentation>An INFERRED item Scott approved keeps INFERRED and carries this flag (ADR-008).</xs:documentation></xs:annotation>
+    <xs:restriction base="xs:string"><xs:enumeration value="confirmedByScott"/></xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ItemRole">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="asked"/>
+      <xs:enumeration value="derived"/>
+      <xs:enumeration value="attention_check"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ItemKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="single_select"/>
+      <xs:enumeration value="multi_select_option"/>
+      <xs:enumeration value="grid_row"/>
+      <xs:enumeration value="open_text"/>
+      <xs:enumeration value="open_text_specify"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ScaleKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ordinal"/>
+      <xs:enumeration value="nominal"/>
+      <xs:enumeration value="selection_list"/>
+      <xs:enumeration value="numeric_bins"/>
+      <xs:enumeration value="numeric_observed"/>
+      <xs:enumeration value="open_text"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Facet">
+    <xs:annotation><xs:documentation>Kinds of stakeholder node (ADR-005). Can grow in a minor version.</xs:documentation></xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="stakeholderType"/>
+      <xs:enumeration value="roleLevel"/>
+      <xs:enumeration value="purchaseRole"/>
+      <xs:enumeration value="department"/>
+      <xs:enumeration value="itRole"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Layer">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="person"/>
+      <xs:enumeration value="company"/>
+      <xs:enumeration value="engagement"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Membership">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="exclusive"/>
+      <xs:enumeration value="overlapping"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CohortStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="tabulated"/>
+      <xs:enumeration value="definable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="GroupRole">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="gate"/>
+      <xs:enumeration value="input"/>
+      <xs:enumeration value="baseline"/>
+      <xs:enumeration value="crossGate"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SetStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="current"/>
+      <xs:enumeration value="alternative"/>
+      <xs:enumeration value="superseded"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ResultStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="value"/>
+      <xs:enumeration value="notAsked"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SignificanceState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="significant"/>
+      <xs:enumeration value="notSignificant"/>
+      <xs:enumeration value="notTested"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VariableKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="item"/>
+      <xs:enumeration value="summary"/>
+      <xs:enumeration value="missing"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VariableStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="collected"/>
+      <xs:enumeration value="derivable"/>
+      <xs:enumeration value="missing"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="LinkKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="shared_scale"/>
+      <xs:enumeration value="routes_to"/>
+      <xs:enumeration value="breakout_of"/>
+      <xs:enumeration value="derived_from"/>
+      <xs:enumeration value="specify_of"/>
+      <xs:enumeration value="same_respondents"/>
+      <xs:enumeration value="mirror"/>
+      <xs:enumeration value="same_construct"/>
+      <xs:enumeration value="topic"/>
+      <xs:enumeration value="relates_to"/>
+      <xs:enumeration value="in_group"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Actor">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="vendor"/>
+      <xs:enumeration value="salesperson"/>
+      <xs:enumeration value="decisionMaker"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ================= Sources ================= -->
+
+  <xs:complexType name="SourceType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="d:Ref" use="required"/>
+        <xs:attribute name="path" type="xs:string" use="required"/>
+        <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="SourcesType">
+    <xs:sequence><xs:element name="Source" type="d:SourceType" maxOccurs="unbounded"/></xs:sequence>
+  </xs:complexType>
+
+  <!-- ================= Instrument ================= -->
+
+  <xs:complexType name="OptionType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="scale" type="d:Ref" use="required">
+          <xs:annotation><xs:documentation>Repeats the parent scale's id so (scale, seq) can be a key; the cross-check confirms it matches.</xs:documentation></xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="seq" type="xs:positiveInteger" use="required"/>
+        <xs:attribute name="substantive" type="xs:boolean" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ScaleType">
+    <xs:sequence>
+      <xs:element name="Rationale" type="xs:string" minOccurs="0"/>
+      <xs:element name="Option" type="d:OptionType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="type" type="d:ScaleKind" use="required"/>
+    <xs:attribute name="direction" type="xs:string" use="required"/>
+    <xs:attribute name="family" type="xs:string"/>
+    <xs:attribute name="labelProvenance" type="g:Provenance">
+      <xs:annotation><xs:documentation>Provenance of the option labels; absent when the scale has no options (open text).</xs:documentation></xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="provenance" type="g:Provenance" use="required">
+      <xs:annotation><xs:documentation>Provenance of the scale's type and direction.</xs:documentation></xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="reviewed" type="d:Reviewed"/>
+  </xs:complexType>
+
+  <xs:complexType name="ItemType">
+    <xs:sequence>
+      <xs:element name="Stem" type="xs:string"/>
+      <xs:element name="Label" type="xs:string" minOccurs="0"/>
+      <xs:element name="PipingToken" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="seq" type="xs:positiveInteger" use="required"/>
+    <xs:attribute name="role" type="d:ItemRole" use="required"/>
+    <xs:attribute name="type" type="d:ItemKind" use="required"/>
+    <xs:attribute name="scale" type="d:Ref" use="required"/>
+    <xs:attribute name="base" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="stemComplete" type="xs:boolean"/>
+    <xs:attribute name="cite" type="xs:string"/>
+    <xs:attribute name="textProvenance" type="g:Provenance" use="required"/>
+    <xs:attribute name="typeProvenance" type="g:Provenance" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="ThreadType">
+    <xs:sequence>
+      <xs:element name="Item" type="d:ItemType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="question" type="xs:string" use="required"/>
+    <xs:attribute name="construct" type="xs:string"/>
+    <xs:attribute name="section" type="xs:string"/>
+    <xs:attribute name="constructProvenance" type="g:Provenance"/>
+    <xs:attribute name="reviewed" type="d:Reviewed"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="RuleTargetType">
+    <xs:attribute name="item" type="d:Ref" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="RuleType">
+    <xs:sequence>
+      <xs:element name="Condition" type="xs:string"/>
+      <xs:element name="Action" type="xs:string"/>
+      <xs:element name="AppliesTo" type="xs:string"/>
+      <xs:element name="Target" type="d:RuleTargetType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Evidence" type="xs:string" minOccurs="0"/>
+      <xs:element name="Note" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="kind" type="xs:string" use="required"/>
+    <xs:attribute name="check" type="xs:string"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="InstrumentType">
+    <xs:sequence>
+      <xs:element name="Scales" minOccurs="0">
+        <xs:complexType><xs:sequence><xs:element name="Scale" type="d:ScaleType" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+      </xs:element>
+      <xs:element name="Threads" minOccurs="0">
+        <xs:complexType><xs:sequence><xs:element name="Thread" type="d:ThreadType" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+      </xs:element>
+      <xs:element name="RoutingRules" minOccurs="0">
+        <xs:complexType><xs:sequence><xs:element name="Rule" type="d:RuleType" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ================= Population ================= -->
+
+  <xs:complexType name="NodeType">
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="facet" type="d:Facet" use="required"/>
+    <xs:attribute name="label" type="xs:string" use="required"/>
+    <xs:attribute name="parent" type="d:Ref"/>
+    <xs:attribute name="labelProvenance" type="g:Provenance" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required">
+      <xs:annotation><xs:documentation>Provenance of the node's place in the hierarchy.</xs:documentation></xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="HierarchyType">
+    <xs:sequence>
+      <xs:element name="Definition" type="xs:string" minOccurs="0"/>
+      <xs:element name="Node" type="d:NodeType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="DimensionType">
+    <xs:sequence>
+      <xs:element name="Definition" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="layer" type="d:Layer" use="required"/>
+    <xs:attribute name="parent" type="d:Ref"/>
+    <xs:attribute name="membership" type="d:Membership" use="required"/>
+    <xs:attribute name="tabulated" type="xs:boolean" use="required"/>
+    <xs:attribute name="sourceItems" type="xs:string"/>
+    <xs:attribute name="derivedFrom" type="xs:string"/>
+    <xs:attribute name="definitionProvenance" type="g:Provenance"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="NodeRefType">
+    <xs:attribute name="node" type="d:Ref" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CohortType">
+    <xs:sequence>
+      <xs:element name="Carries" minOccurs="0">
+        <xs:annotation><xs:documentation>The stakeholder nodes this cohort carries (ADR-005). A combined level cohort carries the level node under each function.</xs:documentation></xs:annotation>
+        <xs:complexType><xs:sequence><xs:element name="NodeRef" type="d:NodeRefType" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="dimension" type="d:Ref" use="required"/>
+    <xs:attribute name="label" type="xs:string" use="required"/>
+    <xs:attribute name="n" type="xs:nonNegativeInteger" use="required"/>
+    <xs:attribute name="status" type="d:CohortStatus" use="required"/>
+    <xs:attribute name="belowMinimum" type="xs:boolean" use="required"/>
+    <xs:attribute name="parent" type="d:Ref"/>
+    <xs:attribute name="sheet" type="xs:string"/>
+    <xs:attribute name="column" type="xs:string"/>
+    <xs:attribute name="cite" type="xs:string"/>
+    <xs:attribute name="labelProvenance" type="g:Provenance" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required">
+      <xs:annotation><xs:documentation>Provenance of n.</xs:documentation></xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="PopulationType">
+    <xs:sequence>
+      <xs:element name="StakeholderHierarchy" type="d:HierarchyType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Dimensions" minOccurs="0">
+        <xs:complexType><xs:sequence><xs:element name="Dimension" type="d:DimensionType" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+      </xs:element>
+      <xs:element name="Cohorts" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence><xs:element name="Cohort" type="d:CohortType" maxOccurs="unbounded"/></xs:sequence>
+          <xs:attribute name="minimumN" type="xs:positiveInteger"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ================= Grouping (thread → group → gate) ================= -->
+
+  <xs:complexType name="GroupType">
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="label" type="xs:string" use="required"/>
+    <xs:attribute name="role" type="d:GroupRole" use="required"/>
+    <xs:attribute name="gate" type="g:GateId"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="AssignmentType">
+    <xs:sequence><xs:element name="Note" type="xs:string" minOccurs="0"/></xs:sequence>
+    <xs:attribute name="thread" type="d:Ref" use="required"/>
+    <xs:attribute name="group" type="d:Ref" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="AssignmentSetType">
+    <xs:sequence><xs:element name="Assignment" type="d:AssignmentType" maxOccurs="unbounded"/></xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="author" type="xs:string" use="required"/>
+    <xs:attribute name="status" type="d:SetStatus" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="GroupingType">
+    <xs:sequence>
+      <xs:element name="Group" type="d:GroupType" maxOccurs="unbounded"/>
+      <xs:element name="AssignmentSet" type="d:AssignmentSetType" maxOccurs="unbounded">
+        <xs:unique name="oneAssignmentPerThread">
+          <xs:selector xpath="d:Assignment"/>
+          <xs:field xpath="@thread"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ================= Results ================= -->
+
+  <xs:complexType name="AlsoAtType">
+    <xs:annotation><xs:documentation>Another source cell holding the same result (the All-respondents column repeats on every sheet).</xs:documentation></xs:annotation>
+    <xs:attribute name="cite" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="ResultType">
+    <xs:sequence><xs:element name="AlsoAt" type="d:AlsoAtType" minOccurs="0" maxOccurs="unbounded"/></xs:sequence>
+    <xs:attribute name="cohort" type="d:Ref" use="required"/>
+    <xs:attribute name="option" type="xs:positiveInteger">
+      <xs:annotation><xs:documentation>Option seq within the item's scale. Absent for multi_select_option items, where the result is the share selecting the item.</xs:documentation></xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scale" type="d:Ref">
+      <xs:annotation><xs:documentation>Present whenever option is present: (scale, option) must name an Option. The cross-check confirms scale is the item's scale.</xs:documentation></xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="status" type="d:ResultStatus" use="required"/>
+    <xs:attribute name="share" type="d:Share"/>
+    <xs:attribute name="base" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="cite" type="xs:string" use="required"/>
+    <xs:attribute name="baseCite" type="xs:string"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="ItemResultsType">
+    <xs:sequence><xs:element name="Result" type="d:ResultType" maxOccurs="unbounded"/></xs:sequence>
+    <xs:attribute name="item" type="d:Ref" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="FlagType">
+    <xs:sequence><xs:element name="Comment" type="xs:string" minOccurs="0"/></xs:sequence>
+    <xs:attribute name="item" type="d:Ref">
+      <xs:annotation><xs:documentation>The tested question block. When the block is a condensed table covering several items (Main Page Q15), the flag names its thread instead. Exactly one of item / thread (cross-check).</xs:documentation></xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="thread" type="d:Ref"/>
+    <xs:attribute name="dimension" type="d:Ref" use="required"/>
+    <xs:attribute name="state" type="d:SignificanceState" use="required"/>
+    <xs:attribute name="tableSize" type="xs:string"/>
+    <xs:attribute name="cite" type="xs:string" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="ResultsType">
+    <xs:sequence>
+      <xs:element name="ItemResults" type="d:ItemResultsType" minOccurs="0" maxOccurs="unbounded">
+        <xs:unique name="oneResultPerCohortOption">
+          <xs:selector xpath="d:Result"/>
+          <xs:field xpath="@cohort"/>
+          <xs:field xpath="@option"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="SignificanceFlags" minOccurs="0">
+        <xs:complexType><xs:sequence><xs:element name="Flag" type="d:FlagType" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="source" type="d:Ref" use="required"/>
+  </xs:complexType>
+
+  <!-- ================= Variables ================= -->
+
+  <xs:complexType name="VariableType">
+    <xs:sequence>
+      <xs:element name="Label" type="xs:string"/>
+      <xs:element name="ValidValues" type="xs:string" minOccurs="0"/>
+      <xs:element name="Rule" type="xs:string" minOccurs="0"/>
+      <xs:element name="Note" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="kind" type="d:VariableKind" use="required"/>
+    <xs:attribute name="status" type="d:VariableStatus" use="required"/>
+    <xs:attribute name="item" type="d:Ref"/>
+    <xs:attribute name="type" type="xs:string"/>
+    <xs:attribute name="scale" type="d:Ref"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <!-- ================= Graph ================= -->
+
+  <xs:complexType name="LinkType">
+    <xs:annotation><xs:documentation>One edge. Exactly one from* and one to* attribute (checked by the cross-check; XSD 1.0 cannot express it).</xs:documentation></xs:annotation>
+    <xs:sequence><xs:element name="Evidence" type="xs:string" minOccurs="0"/></xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="type" type="d:LinkKind" use="required"/>
+    <xs:attribute name="directed" type="xs:boolean" use="required"/>
+    <xs:attribute name="weight" type="xs:decimal" use="required"/>
+    <xs:attribute name="fromThread" type="d:Ref"/>
+    <xs:attribute name="fromItem" type="d:Ref"/>
+    <xs:attribute name="toThread" type="d:Ref"/>
+    <xs:attribute name="toItem" type="d:Ref"/>
+    <xs:attribute name="toGroup" type="d:Ref"/>
+    <xs:attribute name="toVariable" type="d:Ref"/>
+    <xs:attribute name="reviewed" type="d:Reviewed"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <!-- ================= Respondents (optional layer) ================= -->
+
+  <xs:complexType name="TextAnswerType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="item" type="d:Ref" use="required"/>
+        <xs:attribute name="cite" type="xs:string"/>
+        <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="AnswerType">
+    <xs:annotation><xs:documentation>One respondent's structured answer to one item: an option (scale, option) for closed items, or a value for numeric entries. Empty in this study — the source holds tables only.</xs:documentation></xs:annotation>
+    <xs:attribute name="item" type="d:Ref" use="required"/>
+    <xs:attribute name="scale" type="d:Ref"/>
+    <xs:attribute name="option" type="xs:positiveInteger"/>
+    <xs:attribute name="value" type="xs:string"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="ReasonType">
+    <xs:sequence><xs:element name="Note" type="xs:string" minOccurs="0"/></xs:sequence>
+    <xs:attribute name="thread" type="d:Ref" use="required"/>
+    <xs:attribute name="item" type="d:Ref"/>
+    <xs:attribute name="option" type="xs:positiveInteger"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="GateEventType">
+    <xs:sequence><xs:element name="Reason" type="d:ReasonType" minOccurs="0" maxOccurs="unbounded"/></xs:sequence>
+    <xs:attribute name="seq" type="xs:positiveInteger" use="required"/>
+    <xs:attribute name="gate" type="g:GateId" use="required"/>
+    <xs:attribute name="state" type="g:GateState" use="required"/>
+    <xs:attribute name="observedAt" type="xs:dateTime"/>
+    <xs:attribute name="actor" type="d:Actor"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="DecisionPathType">
+    <xs:sequence>
+      <xs:element name="Context" type="xs:string" minOccurs="0"/>
+      <xs:element name="GateEvent" type="d:GateEventType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="RespondentType">
+    <xs:sequence>
+      <xs:element name="Attributes" minOccurs="0">
+        <xs:annotation><xs:documentation>Stakeholder nodes for this person. Only when collected; never inferred.</xs:documentation></xs:annotation>
+        <xs:complexType>
+          <xs:sequence><xs:element name="NodeRef" type="d:NodeRefType" maxOccurs="unbounded"/></xs:sequence>
+          <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Answer" type="d:AnswerType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="TextAnswer" type="d:TextAnswerType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="DecisionPath" type="d:DecisionPathType" minOccurs="0" maxOccurs="unbounded">
+        <xs:unique name="eventSeqUnique">
+          <xs:selector xpath="d:GateEvent"/>
+          <xs:field xpath="@seq"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="respid" type="d:Ref" use="required"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="RespondentsType">
+    <xs:sequence><xs:element name="Respondent" type="d:RespondentType" maxOccurs="unbounded"/></xs:sequence>
+    <xs:attribute name="source" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- ================= Root ================= -->
+
+  <xs:complexType name="StudyType">
+    <xs:sequence>
+      <xs:element name="Title" type="xs:string" minOccurs="0"/>
+      <xs:element name="Note" type="xs:string" minOccurs="0"/>
+      <xs:element name="Sources" type="d:SourcesType" minOccurs="0"/>
+      <xs:element ref="g:GateModel" minOccurs="0"/>
+      <xs:element name="Instrument" type="d:InstrumentType" minOccurs="0"/>
+      <xs:element name="Population" type="d:PopulationType" minOccurs="0"/>
+      <xs:element name="Grouping" type="d:GroupingType" minOccurs="0"/>
+      <xs:element name="Results" type="d:ResultsType" minOccurs="0"/>
+      <xs:element name="Variables" minOccurs="0">
+        <xs:complexType><xs:sequence><xs:element name="Variable" type="d:VariableType" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+      </xs:element>
+      <xs:element name="Graph" minOccurs="0">
+        <xs:complexType><xs:sequence><xs:element name="Link" type="d:LinkType" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+      </xs:element>
+      <xs:element name="Respondents" type="d:RespondentsType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="d:Ref" use="required"/>
+    <xs:attribute name="schemaVersion" type="xs:string" use="required"/>
+    <xs:attribute name="recordKind" type="d:RecordKind" use="required"/>
+    <xs:attribute name="sampleN" type="xs:positiveInteger"/>
+    <xs:attribute name="confidenceLevel" type="d:Share"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="Study" type="d:StudyType">
+    <!-- keys -->
+    <xs:key name="sourceKey"><xs:selector xpath="d:Sources/d:Source"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="scaleKey"><xs:selector xpath="d:Instrument/d:Scales/d:Scale"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="optionKey"><xs:selector xpath="d:Instrument/d:Scales/d:Scale/d:Option"/><xs:field xpath="@scale"/><xs:field xpath="@seq"/></xs:key>
+    <xs:key name="threadKey"><xs:selector xpath="d:Instrument/d:Threads/d:Thread"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="itemKey"><xs:selector xpath="d:Instrument/d:Threads/d:Thread/d:Item"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="ruleKey"><xs:selector xpath="d:Instrument/d:RoutingRules/d:Rule"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="nodeKey"><xs:selector xpath="d:Population/d:StakeholderHierarchy/d:Node"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="hierarchyKey"><xs:selector xpath="d:Population/d:StakeholderHierarchy"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="dimensionKey"><xs:selector xpath="d:Population/d:Dimensions/d:Dimension"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="cohortKey"><xs:selector xpath="d:Population/d:Cohorts/d:Cohort"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="groupKey"><xs:selector xpath="d:Grouping/d:Group"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="setKey"><xs:selector xpath="d:Grouping/d:AssignmentSet"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="variableKey"><xs:selector xpath="d:Variables/d:Variable"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="linkKey"><xs:selector xpath="d:Graph/d:Link"/><xs:field xpath="@id"/></xs:key>
+    <xs:key name="respondentKey"><xs:selector xpath="d:Respondents/d:Respondent"/><xs:field xpath="@respid"/></xs:key>
+    <xs:unique name="itemResultsUnique"><xs:selector xpath="d:Results/d:ItemResults"/><xs:field xpath="@item"/></xs:unique>
+    <xs:unique name="flagUnique"><xs:selector xpath="d:Results/d:SignificanceFlags/d:Flag"/><xs:field xpath="@cite"/></xs:unique>
+
+    <!-- references -->
+    <xs:keyref name="itemScaleRef" refer="d:scaleKey"><xs:selector xpath="d:Instrument/d:Threads/d:Thread/d:Item"/><xs:field xpath="@scale"/></xs:keyref>
+    <xs:keyref name="ruleTargetRef" refer="d:itemKey"><xs:selector xpath="d:Instrument/d:RoutingRules/d:Rule/d:Target"/><xs:field xpath="@item"/></xs:keyref>
+    <xs:keyref name="nodeParentRef" refer="d:nodeKey"><xs:selector xpath="d:Population/d:StakeholderHierarchy/d:Node"/><xs:field xpath="@parent"/></xs:keyref>
+    <xs:keyref name="dimensionParentRef" refer="d:dimensionKey"><xs:selector xpath="d:Population/d:Dimensions/d:Dimension"/><xs:field xpath="@parent"/></xs:keyref>
+    <xs:keyref name="cohortDimensionRef" refer="d:dimensionKey"><xs:selector xpath="d:Population/d:Cohorts/d:Cohort"/><xs:field xpath="@dimension"/></xs:keyref>
+    <xs:keyref name="cohortParentRef" refer="d:cohortKey"><xs:selector xpath="d:Population/d:Cohorts/d:Cohort"/><xs:field xpath="@parent"/></xs:keyref>
+    <xs:keyref name="cohortNodeRef" refer="d:nodeKey"><xs:selector xpath="d:Population/d:Cohorts/d:Cohort/d:Carries/d:NodeRef"/><xs:field xpath="@node"/></xs:keyref>
+    <xs:keyref name="assignmentThreadRef" refer="d:threadKey"><xs:selector xpath="d:Grouping/d:AssignmentSet/d:Assignment"/><xs:field xpath="@thread"/></xs:keyref>
+    <xs:keyref name="assignmentGroupRef" refer="d:groupKey"><xs:selector xpath="d:Grouping/d:AssignmentSet/d:Assignment"/><xs:field xpath="@group"/></xs:keyref>
+    <xs:keyref name="resultsSourceRef" refer="d:sourceKey"><xs:selector xpath="d:Results"/><xs:field xpath="@source"/></xs:keyref>
+    <xs:keyref name="itemResultsItemRef" refer="d:itemKey"><xs:selector xpath="d:Results/d:ItemResults"/><xs:field xpath="@item"/></xs:keyref>
+    <xs:keyref name="resultCohortRef" refer="d:cohortKey"><xs:selector xpath="d:Results/d:ItemResults/d:Result"/><xs:field xpath="@cohort"/></xs:keyref>
+    <xs:keyref name="resultOptionRef" refer="d:optionKey"><xs:selector xpath="d:Results/d:ItemResults/d:Result"/><xs:field xpath="@scale"/><xs:field xpath="@option"/></xs:keyref>
+    <xs:keyref name="flagItemRef" refer="d:itemKey"><xs:selector xpath="d:Results/d:SignificanceFlags/d:Flag"/><xs:field xpath="@item"/></xs:keyref>
+    <xs:keyref name="flagThreadRef" refer="d:threadKey"><xs:selector xpath="d:Results/d:SignificanceFlags/d:Flag"/><xs:field xpath="@thread"/></xs:keyref>
+    <xs:keyref name="flagDimensionRef" refer="d:dimensionKey"><xs:selector xpath="d:Results/d:SignificanceFlags/d:Flag"/><xs:field xpath="@dimension"/></xs:keyref>
+    <xs:keyref name="variableItemRef" refer="d:itemKey"><xs:selector xpath="d:Variables/d:Variable"/><xs:field xpath="@item"/></xs:keyref>
+    <xs:keyref name="variableScaleRef" refer="d:scaleKey"><xs:selector xpath="d:Variables/d:Variable"/><xs:field xpath="@scale"/></xs:keyref>
+    <xs:keyref name="linkFromThreadRef" refer="d:threadKey"><xs:selector xpath="d:Graph/d:Link"/><xs:field xpath="@fromThread"/></xs:keyref>
+    <xs:keyref name="linkFromItemRef" refer="d:itemKey"><xs:selector xpath="d:Graph/d:Link"/><xs:field xpath="@fromItem"/></xs:keyref>
+    <xs:keyref name="linkToThreadRef" refer="d:threadKey"><xs:selector xpath="d:Graph/d:Link"/><xs:field xpath="@toThread"/></xs:keyref>
+    <xs:keyref name="linkToItemRef" refer="d:itemKey"><xs:selector xpath="d:Graph/d:Link"/><xs:field xpath="@toItem"/></xs:keyref>
+    <xs:keyref name="linkToGroupRef" refer="d:groupKey"><xs:selector xpath="d:Graph/d:Link"/><xs:field xpath="@toGroup"/></xs:keyref>
+    <xs:keyref name="linkToVariableRef" refer="d:variableKey"><xs:selector xpath="d:Graph/d:Link"/><xs:field xpath="@toVariable"/></xs:keyref>
+    <xs:keyref name="respondentNodeRef" refer="d:nodeKey"><xs:selector xpath="d:Respondents/d:Respondent/d:Attributes/d:NodeRef"/><xs:field xpath="@node"/></xs:keyref>
+    <xs:keyref name="answerItemRef" refer="d:itemKey"><xs:selector xpath="d:Respondents/d:Respondent/d:Answer"/><xs:field xpath="@item"/></xs:keyref>
+    <xs:keyref name="answerOptionRef" refer="d:optionKey"><xs:selector xpath="d:Respondents/d:Respondent/d:Answer"/><xs:field xpath="@scale"/><xs:field xpath="@option"/></xs:keyref>
+    <xs:keyref name="textAnswerItemRef" refer="d:itemKey"><xs:selector xpath="d:Respondents/d:Respondent/d:TextAnswer"/><xs:field xpath="@item"/></xs:keyref>
+    <xs:keyref name="reasonThreadRef" refer="d:threadKey"><xs:selector xpath="d:Respondents/d:Respondent/d:DecisionPath/d:GateEvent/d:Reason"/><xs:field xpath="@thread"/></xs:keyref>
+    <xs:keyref name="reasonItemRef" refer="d:itemKey"><xs:selector xpath="d:Respondents/d:Respondent/d:DecisionPath/d:GateEvent/d:Reason"/><xs:field xpath="@item"/></xs:keyref>
+  </xs:element>
+
+</xs:schema>
