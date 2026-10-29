@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Study xmlns="https://growthenablement.com/ns/dms/v1" xmlns:g="https://growthenablement.com/ns/gates/v1" id="DMS-Q15" schemaVersion="1.0.0" recordKind="source" sampleN="319" confidenceLevel="0.95" provenance="RECON_DATA">
+<Study xmlns="https://growthenablement.com/ns/dms/v1" xmlns:g="https://growthenablement.com/ns/gates/v1" id="DMS-Q15" schemaVersion="1.1.0" recordKind="source" sampleN="319" confidenceLevel="0.95" provenance="RECON_DATA">
   <Title>The Receiving End of Go-to-Market: What Decision Makers Experience with Vendors, from First Contact to Signed Contract</Title>
   <Note>Slice: thread Q15 ('pulled back') with its items, scale, every cohort that reports it, its results, significance flags, variables and links; neighbouring threads are included so every link endpoint resolves. Results are for Q15 only.</Note>
   <Sources>
@@ -1548,7 +1548,7 @@
       <Rule/>
       <Note/>
     </Variable>
-    <Variable id="DM_TYPE" kind="item" status="derivable" item="DM_TYPE" type="single_select" scale="SC-DMTYPE2" provenance="INFERRED">
+    <Variable id="DM_TYPE" kind="item" status="derivable" item="DM_TYPE" type="single_select" scale="SC-DMTYPE2" reviewed="confirmedByScott" provenance="INFERRED">
       <Label>ITDM or BDM</Label>
       <ValidValues>["ITDM", "BDM"]</ValidValues>
       <Rule>Recode of S1: No source ID. ITDM share (0.5016, n=160) equals S1 'IT or IS department' share; BDM = all other S1 departments. Used as the ITDM/BDM stakeholder split.</Rule>
@@ -1662,7 +1662,7 @@
       <Rule/>
       <Note/>
     </Variable>
-    <Variable id="S8_Bucketed" kind="item" status="derivable" item="S8_Bucketed" type="single_select" scale="SC-EMPLOYEES3" provenance="INFERRED">
+    <Variable id="S8_Bucketed" kind="item" status="derivable" item="S8_Bucketed" type="single_select" scale="SC-EMPLOYEES3" reviewed="confirmedByScott" provenance="INFERRED">
       <Label>Using your best estimate, how many employees work for your company worldwide?</Label>
       <ValidValues>["1,0000 to 4,999 employees", "5,000 to 19,999 employees", "20,000+ employees"]</ValidValues>
       <Rule>Recode of S8 (raw, not tabulated): Item name 'Bucketed'; the raw S8 answer is not in any source file.</Rule>

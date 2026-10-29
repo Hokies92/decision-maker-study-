@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Study xmlns="https://growthenablement.com/ns/dms/v1" xmlns:g="https://growthenablement.com/ns/gates/v1" id="DMS-RESPONDENTS" schemaVersion="1.0.0" recordKind="source" sampleN="319" confidenceLevel="0.95" provenance="RECON_DATA">
+<Study xmlns="https://growthenablement.com/ns/dms/v1" xmlns:g="https://growthenablement.com/ns/gates/v1" id="DMS-RESPONDENTS" schemaVersion="1.1.0" recordKind="source" sampleN="319" confidenceLevel="0.95" provenance="RECON_DATA">
   <Title>The Receiving End of Go-to-Market: What Decision Makers Experience with Vendors, from First Contact to Signed Contract</Title>
-  <Note>Respondent layer: every respondent-level text answer in the source, unchanged. Respondents carry no function, level, or stakeholder value — none was collected. One Q21 answer (SRC-003 Q21 row 6) has a blank respid (a single space) in the source; it is stored under that blank key, not attributed. Row 6 holds respid 112 on the other four sheets (open question Q-P3a).</Note>
+  <Note>Respondent layer: every respondent-level text answer in the source, unchanged. Respondents carry no function, level, or stakeholder value — none was collected. One Q21 answer (SRC-003 Q21!A6) has a blank respid in the source; it is assigned to respondent 112 by row alignment (INFERRED, approved by Scott in P4.S01) and marked with keyProvenance on the answer.</Note>
   <Sources>
     <Source id="SRC-002" path="00_source/data/survey.xlsx" provenance="RECON_DATA">Structured results: tabulated report, N=319, five table sheets and an 'Other' text sheet</Source>
     <Source id="SRC-003" path="00_source/data/open_ended.xlsx" provenance="RECON_DATA">Open-ended responses, respondent-level, one sheet per question Q21–Q25</Source>
@@ -762,8 +762,9 @@
       <TextAnswer item="Q24" cite="SRC-003 Q24!C5" provenance="VERBATIM">N/A                                                                                                                                                                                                                                                            </TextAnswer>
       <TextAnswer item="Q25" cite="SRC-003 Q25!C5" provenance="VERBATIM">N/A                                                                                                                                                                                                                                                            </TextAnswer>
     </Respondent>
-    <Respondent respid=" " provenance="RECON_DATA">
-      <TextAnswer item="Q21" cite="SRC-003 Q21!C6" provenance="VERBATIM">They understand my specific business and have ideas for solutions.                                                                                                                                                                                             </TextAnswer>
+    <Respondent respid="112" provenance="RECON_DATA">
+      <TextAnswer item="Q21" cite="SRC-003 Q21!C6" provenance="VERBATIM" keyProvenance="INFERRED" keyNote="Source respid cell Q21!A6 holds ' '; assigned 112. The cell holds a single space. On Q22–Q25 row 6 is respid 112, and the respid columns of all five sheets agree on 358 of 359 rows; this cell is the only difference. Respid 112 appears on every other sheet and nowhere else on Q21. Scott, 2026-10-29 (P4.S01): 'Accept all (Recommended)' — assign to 112, tagged INFERRED">They understand my specific business and have ideas for solutions.                                                                                                                                                                                             </TextAnswer>
+      <TextAnswer item="Q23" cite="SRC-003 Q23!C6" provenance="VERBATIM">-Genpact since they don't keep commitments. -Accenture as they cannot be trusted for what they say. -McKinsey as they are too pushy.                                                                                                                           </TextAnswer>
     </Respondent>
     <Respondent respid="137" provenance="RECON_DATA">
       <TextAnswer item="Q21" cite="SRC-003 Q21!C7" provenance="VERBATIM">Service                                                                                                                                                                                                                                                        </TextAnswer>
@@ -3067,9 +3068,6 @@
       <TextAnswer item="Q23" cite="SRC-003 Q23!C320" provenance="VERBATIM">mostly smaller players in the industry                                                                                                                                                                                                                         </TextAnswer>
       <TextAnswer item="Q24" cite="SRC-003 Q24!C320" provenance="VERBATIM">Account Manager                                                                                                                                                                                                                                                </TextAnswer>
       <TextAnswer item="Q25" cite="SRC-003 Q25!C320" provenance="VERBATIM">product specialist                                                                                                                                                                                                                                             </TextAnswer>
-    </Respondent>
-    <Respondent respid="112" provenance="RECON_DATA">
-      <TextAnswer item="Q23" cite="SRC-003 Q23!C6" provenance="VERBATIM">-Genpact since they don't keep commitments. -Accenture as they cannot be trusted for what they say. -McKinsey as they are too pushy.                                                                                                                           </TextAnswer>
     </Respondent>
   </Respondents>
 </Study>

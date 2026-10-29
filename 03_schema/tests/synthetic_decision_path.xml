@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Study xmlns="https://growthenablement.com/ns/dms/v1" xmlns:g="https://growthenablement.com/ns/gates/v1" id="DMS-SYNTHETIC-TEST" schemaVersion="1.0.0" recordKind="syntheticTest" provenance="SYNTHETIC">
+<Study xmlns="https://growthenablement.com/ns/dms/v1" xmlns:g="https://growthenablement.com/ns/gates/v1" id="DMS-SYNTHETIC-TEST" schemaVersion="1.1.0" recordKind="syntheticTest" provenance="SYNTHETIC">
   <Title>Synthetic test record — not data</Title>
   <Note>One invented decision-maker's path through the five gates, used only to prove the decision-path layer validates (ADR-013). Excluded from every count and analysis. The instrument elements are copied from the study so reasons can point to real questions.</Note>
   <g:GateModel id="VCP-GATES" version="1.0.0" author="Scott Santucci" provenance="RECALL_DESIGNER">

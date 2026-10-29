@@ -36,7 +36,7 @@ SRC2, SRC3 = Path("00_source/data/survey.xlsx"), Path("00_source/data/open_ended
 NS_D, NS_G = "https://growthenablement.com/ns/dms/v1", "https://growthenablement.com/ns/gates/v1"
 D, G = f"{{{NS_D}}}", f"{{{NS_G}}}"
 NSMAP = {None: NS_D, "g": NS_G}
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION = "1.1.0"
 CANON_SHEET = "Industry 7"           # canonical sheet for the All-respondents column (as in Phase 1)
 SHEETS = ["Main Page", "Industry 7", "Company Size & Revenue", "Sales Engagement", "Decision Making Stages"]
 ALL_COHORT = "C-L-ALL-RESPONDENTS"
@@ -69,6 +69,26 @@ GATE_DEFINITION = ("My NEW version of this a series of binary gates that are des
                    "(which is the foundational source of reality) and to measure state change")
 TITLE = ("The Receiving End of Go-to-Market: What Decision Makers Experience with Vendors, "
          "from First Contact to Signed Contract")
+
+
+RESPID_CORRECTIONS = Path("01_instrument_reconstruction/respid_corrections.csv")
+
+
+def apply_respid_corrections(sheets):
+    """Apply Scott-approved respid corrections (P4.S01, respid_corrections.csv) to SRC-003 sheets read with
+    dtype=str. Stops if the source cell does not hold the value the correction expects. Returns what it applied."""
+    import csv as _csv
+    done = []
+    for c in _csv.DictReader(RESPID_CORRECTIONS.open(encoding="utf-8")):
+        if c["source"] != "SRC-003":
+            continue
+        d, i = sheets[c["sheet"]], int(c["cell"][1:]) - 2
+        if c["cell"][0] != "A" or d.iloc[i, 0] != c["source_value"]:
+            raise SystemExit(f"respid correction {c['sheet']}!{c['cell']}: source holds {d.iloc[i, 0]!r}, "
+                             f"expected {c['source_value']!r}")
+        d.iloc[i, 0] = c["assigned_respid"]
+        done.append(c)
+    return done
 
 
 def rd(path):
@@ -351,7 +371,8 @@ def build_study(dd: Data, sid, threads, result_items, link_filter, note, with_fl
                 item = None
             prov = "INFERRED" if v.provenance.startswith("INFERRED") else v.provenance
             el = sub(ve, "Variable", id=v.variable, kind=v.kind, status=v.status, item=item, type=v.type,
-                     scale=v.scale_id if v.scale_id in scales_in else None, provenance=prov)
+                     scale=v.scale_id if v.scale_id in scales_in else None, role=v.measure_role,
+                     reviewed=v.reviewed, provenance=prov)
             sub(el, "Label", v.label)
             sub(el, "ValidValues", v.valid_values)
             sub(el, "Rule", v.derivation_rule)
@@ -386,6 +407,7 @@ def gate_model(root, prov="RECALL_DESIGNER"):
 def respondents_doc(dd: Data):
     """Respondent-level text: open-ended Q21–Q25 (SRC-003) and 'please specify' answers (SRC-002)."""
     oe = pd.read_excel(SRC3, sheet_name=None, dtype=str)
+    corrected = {(c["sheet"], int(c["cell"][1:])): c for c in apply_respid_corrections(oe)}
     other = pd.read_excel(SRC2, sheet_name='"Other" Text Answers', dtype=str)
     answers = defaultdict(list)          # respid → [(item, text, cite)]
     order = []
@@ -403,7 +425,7 @@ def respondents_doc(dd: Data):
                 continue
             if clean_xml_text(txt):
                 errors.append(f"control character in {sheet} row {i + 2}")
-            answers[rid].append((item, txt, f"SRC-003 {sheet}!{col_letter(2)}{i + 2}"))
+            answers[rid].append((item, txt, f"SRC-003 {sheet}!{col_letter(2)}{i + 2}", corrected.get((sheet, i + 2))))
     # 'please specify' columns map to items by the column each item cites (question_map.csv source_cite)
     by_col = {}
     for q in dd.qmap.itertuples():
@@ -428,21 +450,25 @@ def respondents_doc(dd: Data):
                 continue
             if rid not in answers:
                 order.append(rid)
-            answers[rid].append((item, txt, f'SRC-002 "Other" Text Answers!{col_letter(j)}{i + 2}'))
-    used = {it for v in answers.values() for it, _, _ in v}
+            answers[rid].append((item, txt, f'SRC-002 "Other" Text Answers!{col_letter(j)}{i + 2}', None))
+    used = {it for v in answers.values() for it, _, _, _ in v}
     threads = {dd.item_thread[i] for i in used}
     root = build_study(dd, "DMS-RESPONDENTS", threads, result_items=set(), link_filter=lambda r: False,
                        note="Respondent layer: every respondent-level text answer in the source, unchanged. "
                             "Respondents carry no function, level, or stakeholder value — none was collected. "
-                            "One Q21 answer (SRC-003 Q21 row 6) has a blank respid (a single space) in the source; "
-                            "it is stored under that blank key, not attributed. Row 6 holds respid 112 on the "
-                            "other four sheets (open question Q-P3a).",
+                            "One Q21 answer (SRC-003 Q21!A6) has a blank respid in the source; it is assigned to "
+                            "respondent 112 by row alignment (INFERRED, approved by Scott in P4.S01) and marked "
+                            "with keyProvenance on the answer.",
                        with_flags=False, with_vars=False)
     re_el = sub(root, "Respondents", source="SRC-003; SRC-002 \"Other\" Text Answers")
     for rid in order:
         rel = sub(re_el, "Respondent", respid=rid, provenance="RECON_DATA")
-        for item, txt, cite in answers[rid]:
-            sub(rel, "TextAnswer", txt, item=item, cite=cite, provenance="VERBATIM")
+        for item, txt, cite, corr in answers[rid]:
+            el = sub(rel, "TextAnswer", txt, item=item, cite=cite, provenance="VERBATIM",
+                     keyProvenance=corr["provenance"] if corr else None)
+            if corr:
+                el.set("keyNote", f"Source respid cell {corr['sheet']}!{corr['cell']} holds {corr['source_value']!r}; "
+                                  f"assigned {corr['assigned_respid']}. {corr['evidence']} {corr['decision']}")
     return root, errors
 
 
