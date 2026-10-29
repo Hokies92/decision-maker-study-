@@ -490,6 +490,7 @@
     <xs:attribute name="toItem" type="d:Ref"/>
     <xs:attribute name="toGroup" type="d:Ref"/>
     <xs:attribute name="toVariable" type="d:Ref"/>
+    <xs:attribute name="reviewed" type="d:Reviewed"/>
     <xs:attribute name="provenance" type="g:Provenance" use="required"/>
   </xs:complexType>
 
