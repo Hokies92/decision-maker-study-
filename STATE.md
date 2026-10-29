@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 3 — Design the new schema   **Gate:** open
-**Step:** P3.S01 — Design brief and decision records
-**Status:** done — awaiting Scott's review and merge
-**Branch:** phase-3/step-01-design-brief
+**Step:** P3.S02 — XSD v1 (batch S02–S05)
+**Status:** done — next P3.S03 in batch
+**Branch:** phase-3/steps-02-05-schema-build
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 3
@@ -14,14 +14,14 @@ Outputs go to `03_schema/`. The schema stores what the source holds — each res
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
 | P3.S00 | Propose the Phase 3 step plan | Phase 2 outputs; `GOVERNANCE.md` §5 P3; README | `STATE.md` | Plan merged by Scott; D3-1…D3-3 answered | done | `f44c992` (PR #32) |
-| P3.S01 | **Design brief and decision records:** the entity model (study, instrument, population, results, graph, gates, respondents, provenance) and one ADR per non-obvious choice | `design_intent.md`; `cohort_model.md`; `linkages.md`; `variable_dictionary.csv`; Scott's answers to D3-1…D3-3 | `03_schema/design_brief.md`; `03_schema/decisions/ADR-001…` | Every entity named with its source file; ADRs cover at least: namespace and versioning; result cell = item × option × cohort; role level and stakeholder type as referenced entities in one configurable hierarchy (Scott, 2026-10-28); threads and links as edges; gates and an editable thread → gate assignment; optional respondent layer and its order model; provenance on every element; significance as a flag. Each ADR: context, options, decision, consequences. Scott's answers recorded `RECALL_DESIGNER` | done — brief + 13 ADRs | this branch |
-| P3.S02 | **XSD v1** | `design_brief.md`; ADRs | `03_schema/decision-maker-study.xsd` | Namespace ends `/dms/v1`; every entity in the brief is a type; every reference enforced by key/keyref (result → item, option, cohort; cohort → dimension; link → thread; gate assignment → thread and gate); respondent elements optional; provenance attribute restricted to the six tags; the schema itself loads in `xmllint` | not started | — |
+| P3.S01 | **Design brief and decision records:** the entity model (study, instrument, population, results, graph, gates, respondents, provenance) and one ADR per non-obvious choice | `design_intent.md`; `cohort_model.md`; `linkages.md`; `variable_dictionary.csv`; Scott's answers to D3-1…D3-3 | `03_schema/design_brief.md`; `03_schema/decisions/ADR-001…` | Every entity named with its source file; ADRs cover at least: namespace and versioning; result cell = item × option × cohort; role level and stakeholder type as referenced entities in one configurable hierarchy (Scott, 2026-10-28); threads and links as edges; gates and an editable thread → gate assignment; optional respondent layer and its order model; provenance on every element; significance as a flag. Each ADR: context, options, decision, consequences. Scott's answers recorded `RECALL_DESIGNER` | done — brief + 13 ADRs | `9019d92` (PR #33) |
+| P3.S02 | **XSD v1** | `design_brief.md`; ADRs | `03_schema/decision-maker-study.xsd` | Namespace ends `/dms/v1`; every entity in the brief is a type; every reference enforced by key/keyref (result → item, option, cohort; cohort → dimension; link → thread; gate assignment → thread and gate); respondent elements optional; provenance attribute restricted to the six tags; the schema itself loads in `xmllint` | done — 2 schemas, 15 keys, 26 keyrefs | batch branch |
 | P3.S03 | **Instance generator and examples** | P1 and P2 outputs; SRC-003 (respondent text) | `scripts/p3_build_instances.py`; `03_schema/examples/full_study.xml`, `thread_q15.xml`, `respondents_open_ended.xml` | All three validate against the XSD; `full_study.xml` holds every result (24,552), flag (1,686), cohort (115), item (136), and link (381) exactly once; `full_study.xml` validates with no respondent layer (proves it optional); respondent example carries the real respid-keyed answers unchanged; generator re-runs byte-identical | not started | — |
 | P3.S04 | **Schema mapping** | `variable_dictionary.csv`; XSD; `full_study.xml` | `03_schema/schema_mapping.csv`; `scripts/p3_build_schema_mapping.py` | All 189 variables → an XPath, or `EXCLUDED` with reason; every XPath checked by script to resolve in `full_study.xml` or to name an optional respondent slot | not started | — |
 | P3.S05 | Cross-check | All P3 outputs | `scripts/p3_crosscheck.py`; `03_schema/crosscheck_report.md` | `xmllint` passes on every example; counts reconcile to Phase 2; negative tests fail as expected (broken reference, bad provenance tag, wrong namespace); generators byte-identical; source checksums OK | not started | — |
 | P3.S06 | Draft Phase 3 gate review | All P3 outputs | Gate review block | Every §5 P3 criterion checked with evidence; stop for Scott's merge and tags `schema-v1.0.0` and `phase-3-complete` | not started | — |
 
-Candidate batch (needs Scott's approval by name, GOVERNANCE §3.4): **S02–S05**, once S01 is merged — none of them needs Scott's input. S01 needs D3-1…D3-3.
+Batch **S02–S05** approved by Scott by name ("Run S02–S05 as one batch.") — branch `phase-3/steps-02-05-schema-build`.
 
 ## Step plan — Phase 2 (closed — tag `phase-2-complete` on `61c8b2b`)
 
@@ -237,6 +237,9 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: D3-2 answered (Scott, RECALL_DESIGNER): "Yes. I agree." — decision paths are ordered gate events (seq, gate, state 1/0, reasons linked to threads); clock time optional (ADR-009, ADR-010).
 - 2026-10-29: D3-3 answered (Scott): "Yes." — one synthetic test record in `03_schema/tests/`, tagged SYNTHETIC, excluded from every count (ADR-008, ADR-013).
 - 2026-10-29: P3.S01 design brief and 13 ADRs drafted (`03_schema/design_brief.md`, `03_schema/decisions/`). Choices proposed by Claude (INFERRED), accepted or changed by Scott at merge: two namespaces `https://growthenablement.com/ns/dms/v1` and `…/ns/gates/v1`; named, editable assignment sets for thread → group → gate; result = item × option × cohort; one configurable stakeholder hierarchy with facets, attached to cohorts; links with typed endpoints (incl. one link to the missing variable S8_raw); provenance required everywhere, `SYNTHETIC` allowed only in tests; derived variables stored as rules, not values; one root element, optional sections, all references enforced by key/keyref.
+- 2026-10-29: P3.S01 merged (PR #33, `41c0175`) — the five design choices flagged for Scott (namespace domain, event actor, crosswalk fit scale, summary measures as rules, lexicon parked) accepted by merge.
+- 2026-10-29: Batch S02–S05 approved by Scott by name ("Run S02–S05 as one batch.") — BT1.
+- 2026-10-29: P3.S02 XSD v1: `gates.xsd` (gates/v1) and `decision-maker-study.xsd` (dms/v1, imports gates). 15 keys + 26 keyrefs. Result → option is enforced through a composite key (scale, seq): each Option repeats its scale id, and each Result that has an option carries its item's scale. Multi-select results have no option (the share selecting the item). Rules XSD 1.0 cannot express are assigned to the P3.S05 cross-check. Implementation notes vs ADR text: item role uses the three values in the data (asked, derived, attention_check) — text items are identified by type, not role; a cohort carries stakeholder nodes as a list (a combined level cohort carries the level node under each function).
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
