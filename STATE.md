@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 3 — Design the new schema   **Gate:** open
-**Step:** P3.S05 — Cross-check (batch S02–S05)
-**Status:** batch done — S02–S05 complete; next P3.S06 gate review (not started)
-**Branch:** phase-3/steps-02-05-schema-build
+**Step:** P3.S06 — Draft Phase 3 gate review
+**Status:** drafted — awaiting Scott's merge and tags `schema-v1.0.0` + `phase-3-complete`
+**Branch:** phase-3/step-06-gate-review
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 3
@@ -15,11 +15,11 @@ Outputs go to `03_schema/`. The schema stores what the source holds — each res
 |----|-----------|--------|---------|-----------|--------|--------|
 | P3.S00 | Propose the Phase 3 step plan | Phase 2 outputs; `GOVERNANCE.md` §5 P3; README | `STATE.md` | Plan merged by Scott; D3-1…D3-3 answered | done | `f44c992` (PR #32) |
 | P3.S01 | **Design brief and decision records:** the entity model (study, instrument, population, results, graph, gates, respondents, provenance) and one ADR per non-obvious choice | `design_intent.md`; `cohort_model.md`; `linkages.md`; `variable_dictionary.csv`; Scott's answers to D3-1…D3-3 | `03_schema/design_brief.md`; `03_schema/decisions/ADR-001…` | Every entity named with its source file; ADRs cover at least: namespace and versioning; result cell = item × option × cohort; role level and stakeholder type as referenced entities in one configurable hierarchy (Scott, 2026-10-28); threads and links as edges; gates and an editable thread → gate assignment; optional respondent layer and its order model; provenance on every element; significance as a flag. Each ADR: context, options, decision, consequences. Scott's answers recorded `RECALL_DESIGNER` | done — brief + 13 ADRs | `9019d92` (PR #33) |
-| P3.S02 | **XSD v1** | `design_brief.md`; ADRs | `03_schema/decision-maker-study.xsd` | Namespace ends `/dms/v1`; every entity in the brief is a type; every reference enforced by key/keyref (result → item, option, cohort; cohort → dimension; link → thread; gate assignment → thread and gate); respondent elements optional; provenance attribute restricted to the six tags; the schema itself loads in `xmllint` | done — 2 schemas, 15 keys, 26 keyrefs | batch branch |
-| P3.S03 | **Instance generator and examples** | P1 and P2 outputs; SRC-003 (respondent text) | `scripts/p3_build_instances.py`; `03_schema/examples/full_study.xml`, `thread_q15.xml`, `respondents_open_ended.xml` | All three validate against the XSD; `full_study.xml` holds every result (24,552), flag (1,686), cohort (115), item (136), and link (381) exactly once; `full_study.xml` validates with no respondent layer (proves it optional); respondent example carries the real respid-keyed answers unchanged; generator re-runs byte-identical | done — 4 instances validate | batch branch |
-| P3.S04 | **Schema mapping** | `variable_dictionary.csv`; XSD; `full_study.xml` | `03_schema/schema_mapping.csv`; `scripts/p3_build_schema_mapping.py` | All 189 variables → an XPath, or `EXCLUDED` with reason; every XPath checked by script to resolve in `full_study.xml` or to name an optional respondent slot | done — 189 variables mapped | batch branch |
-| P3.S05 | Cross-check | All P3 outputs | `scripts/p3_crosscheck.py`; `03_schema/crosscheck_report.md` | `xmllint` passes on every example; counts reconcile to Phase 2; negative tests fail as expected (broken reference, bad provenance tag, wrong namespace); generators byte-identical; source checksums OK | done — 13/13 pass | batch branch |
-| P3.S06 | Draft Phase 3 gate review | All P3 outputs | Gate review block | Every §5 P3 criterion checked with evidence; stop for Scott's merge and tags `schema-v1.0.0` and `phase-3-complete` | not started | — |
+| P3.S02 | **XSD v1** | `design_brief.md`; ADRs | `03_schema/decision-maker-study.xsd` | Namespace ends `/dms/v1`; every entity in the brief is a type; every reference enforced by key/keyref (result → item, option, cohort; cohort → dimension; link → thread; gate assignment → thread and gate); respondent elements optional; provenance attribute restricted to the six tags; the schema itself loads in `xmllint` | done — 2 schemas, 15 keys, 26 keyrefs | PR #34 (`6d06df8`) |
+| P3.S03 | **Instance generator and examples** | P1 and P2 outputs; SRC-003 (respondent text) | `scripts/p3_build_instances.py`; `03_schema/examples/full_study.xml`, `thread_q15.xml`, `respondents_open_ended.xml` | All three validate against the XSD; `full_study.xml` holds every result (24,552), flag (1,686), cohort (115), item (136), and link (381) exactly once; `full_study.xml` validates with no respondent layer (proves it optional); respondent example carries the real respid-keyed answers unchanged; generator re-runs byte-identical | done — 4 instances validate | PR #34 (`6d06df8`) |
+| P3.S04 | **Schema mapping** | `variable_dictionary.csv`; XSD; `full_study.xml` | `03_schema/schema_mapping.csv`; `scripts/p3_build_schema_mapping.py` | All 189 variables → an XPath, or `EXCLUDED` with reason; every XPath checked by script to resolve in `full_study.xml` or to name an optional respondent slot | done — 189 variables mapped | PR #34 (`6d06df8`) |
+| P3.S05 | Cross-check | All P3 outputs | `scripts/p3_crosscheck.py`; `03_schema/crosscheck_report.md` | `xmllint` passes on every example; counts reconcile to Phase 2; negative tests fail as expected (broken reference, bad provenance tag, wrong namespace); generators byte-identical; source checksums OK | done — 13/13 pass | PR #34 (`6d06df8`) |
+| P3.S06 | Draft Phase 3 gate review | All P3 outputs | Gate review block | Every §5 P3 criterion checked with evidence; stop for Scott's merge and tags `schema-v1.0.0` and `phase-3-complete` | done — recommendation PASS | this branch |
 
 Batch **S02–S05** approved by Scott by name ("Run S02–S05 as one batch.") — branch `phase-3/steps-02-05-schema-build`.
 
@@ -80,6 +80,34 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 ## Gate reviews
 <!-- one dated block per closed phase, with criteria checklist and tag -->
+
+### Phase 3 — Design the new schema
+**Drafted:** 2026-10-29 by Claude (P3.S06) · **Reviewed against:** `main` @ `6d06df8` + `fix/p3-adr-implementation-notes` (`5606c35`)
+**Recommendation:** PASS — close Phase 3 · **Decision:** pending Scott · **Tags:** `schema-v1.0.0` and `phase-3-complete` (Scott creates)
+
+| # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
+|---|---|---|---|
+| 1 | `decision-maker-study.xsd` validates (`xmllint --noout --schema`) | PASS | Schema loads; all 3 examples and the test file validate (C01). Imports `gates.xsd` (`f2654f2`; fixes `a0b5f47`, `79b76d8`, `538b5ab`) |
+| 2 | Role level and stakeholder type are first-class, referenced entities on breakout groups; every result cell linkable to both through its group | PASS | 38 stakeholder nodes in one configurable hierarchy (facets stakeholderType, roleLevel, purchaseRole, department, itRole); cohorts reference them by keyref. C06: every person-cohort result reaches its stakeholder type, every level-cohort result its role level; 4,752 results reach both. Company and engagement cohorts (country, revenue …) carry neither — the source does not cross them with function or level (ADR-005) |
+| 3 | Every question is a thread element; thread links are first-class edges | PASS | 37 Thread elements holding 136 Items; 381 Link elements with typed, keyref-checked endpoints — every row of `linkages.csv`, 0 mismatches (C04, C05) |
+| 4 | Respondent-level elements defined but optional | PASS | Respondents section optional; `full_study.xml` validates without it (C08). Defined: Respondent, Attributes, Answer, TextAnswer, DecisionPath, GateEvent, Reason. `respondents_open_ended.xml` holds 1,697 real text answers (0 mismatches); the synthetic test exercises Answer and DecisionPath (C01, C09) |
+| 5 | Namespace carries the major version (`…/dms/v1`) | PASS | `https://growthenablement.com/ns/dms/v1`; gate module `…/ns/gates/v1`; schema and instance versions 1.0.0 (C03) |
+| 6 | ≥3 sample instances in `examples/` validate | PASS | `full_study.xml`, `thread_q15.xml`, `respondents_open_ended.xml` (C01) |
+| 7 | `schema_mapping.csv`: every P2 variable → XPath or `EXCLUDED` with reason | PASS | 189 of 189: results 118, respondent text 18, rule only 45, respondent slot 2, EXCLUDED 6 with reasons; every XPath evaluated by script (`0f9af95`) |
+| 8 | `decisions/ADR-NNN-*.md` for each non-obvious design choice | PASS | 13 ADRs (`9019d92`); choices made while building recorded as implementation notes in 7 of them (`5606c35`, fix branch — merge before this review) |
+| 9 | Scott tags `schema-v1.0.0` alongside `phase-3-complete` | pending | Scott's action after merge |
+
+**Cross-check (P3.S05):** 13 of 13 pass on `main` — full reconciliation to Phases 1–2 (24,552 cells, 1,686 flags, 0 mismatches); gate module validates alone; 11 of 11 broken copies rejected; generators byte-identical; source checksums OK; no date field.
+
+**Also delivered (beyond the criteria):** the gate model as a stand-alone module with a crosswalk for outside research (Scott, D3-1); decision paths ordered by event (D3-2); a synthetic test record (D3-3).
+
+**Carried into Phase 4 (not blockers):**
+- Q-P2a: 47 INFERRED variable definitions (45 summary measures) — confirm before Phase 4 computes them.
+- Q-P3a: Q21 row-6 blank respid — attribute to 112 or leave.
+- First gate-level reading (preliminary): significant group differences fall from 26% of tests at Access to 9% at Vision and Case; IT seniority is the one dimension that stays near 20–27% at every gate. Case rests on 9 tests per dimension.
+- Instrument weight by gate (distinct results): Target input 6,844, Vision 5,394, Access 4,176, Case 2,842, Agree 2,726, Baseline 986. The parked note that Vision is thinly measured is withdrawn — Case is the thin gate.
+- Ecological caveat: every link between gates in this data describes groups, not people; individual paths need new data in the DecisionPath slot.
+- Governance in Phase 3: four XSD amendments and one ADR fix, all in separate, disclosed commits; no incidents.
 
 ### Phase 2 — Inventory the data
 **Drafted:** 2026-10-29 by Claude (P2.S08) · **Reviewed against:** `main` @ `cf33a1d` + P2.S07 re-run (`9160b3c`, `321463b`)
@@ -246,6 +274,9 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P3.S02 amended a third time (found in S04, separate fix commit): optional Respondent/Answer for one person's structured answers — design_brief §2 reserved it, the XSD lacked it. Synthetic record now carries two Answers so the slot is exercised.
 - 2026-10-29: P3.S04 schema mapping: 189 of 189 variables — results 118, respondent text 18 (3 empty in source: S1_Other, Q11_Other, Q20_4_text), rule only 45 (summary measures, ADR-011), respondent slot 2 (structured answers; function/level per respondent), EXCLUDED 6 with reasons (S8 raw, S5 piped text, Q20_4 content, 39 → 7 industry map, significance statistics, weights). Every XPath evaluated by script.
 - 2026-10-29: P3.S05 cross-check: 13 of 13 pass. full_study.xml reconciles exactly to Phases 1–2 (0 mismatches in cells, flags, links); every result reaches a gate group (Target-input 6,844, Access 4,176, Agree 2,726, Vision 5,394, Case 2,842, Baseline 986 distinct results); 4,752 results (function × level cohorts) reach both stakeholder type and role level; the gate module validates on its own; 11 of 11 broken copies rejected. C13 (no study date) first failed on S7's verbatim wording "in calendar year 2013"; the check was narrowed to what ADR-010 forbids — no date field anywhere, and years only inside copied source wording (6 copies, kept VERBATIM, not analysed).
+- 2026-10-29: Batch S02–S05 merged (PR #34, `6d06df8`).
+- 2026-10-29: ADR implementation notes added on `fix/p3-adr-implementation-notes` (`5606c35`) so criterion 8 holds: four choices made during the build (multi-select results without option and AlsoAt citations; Carries as a node list; flags on a thread; Respondent/Answer) were recorded only in STATE.md.
+- 2026-10-29: P3.S06 Phase 3 gate review drafted — criteria 1–8 PASS, 9 pending Scott's tags. Recommendation: close Phase 3.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
@@ -282,7 +313,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - (P3.S01) Asymmetry lexicon as schema elements (concepts linked to gates and threads) — fits the gate interface; not in the Phase 3 plan.
 - (P1.S03) Time model for later phases: gates as event-ordered state changes (Leibnizian/Bergsonian time) with kairos moments — relevant to Phase 3 schema design (state transitions, not timestamps).
 
-- (P1.S03) Instrument coverage gap (Vision and Case thinly measured) — based on Claude's withdrawn draft map; re-check once Scott's grouping exists.
+- (P1.S03) Instrument coverage gap (Vision and Case thinly measured) — re-checked at P3.S06 on Scott's grouping: Vision is the second-heaviest gate (5,394 distinct results); Case is thin (3 questions). Vision part withdrawn.
 
 - (P1.S04 → P1.S07 anomalies) Q6 bucket label and Q6 outlier — handled in P1.S07 (A04, A05).
 
