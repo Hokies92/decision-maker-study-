@@ -1,0 +1,119 @@
+item_id,type,base_all,nonsubstantive,out_of_range,sum_failures,sum_checked,base_over_cohort,not_asked_cells,zero_base_cells,all_sheets_agree,anomalies,flags
+S1,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+DM_TYPE,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+S2,single_select,160,0.0000,0,0,52,0,40,0,yes,,
+S2_S3_combined,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+S3,single_select,159,0.0000,0,0,57,0,20,0,yes,,
+S4,single_select,160,0.0375,0,0,52,0,90,0,yes,,
+S5_1,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A07,anomalies A07
+S5_2,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A07;A09,anomalies A07;A09
+S5_3,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A07,anomalies A07
+S5_4,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A07,anomalies A07
+S5_5,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A07,anomalies A07
+S5_6,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A07;A09,anomalies A07;A09
+S6_1,multi_select_option,159,0.0000,0,0,0,0,5,0,yes,,
+S6_2,multi_select_option,159,0.0000,0,0,0,0,5,0,yes,,
+S6_3,multi_select_option,159,0.0000,0,0,0,0,5,0,yes,,
+S6_4,multi_select_option,159,0.0000,0,0,0,0,5,0,yes,,
+S6_5,multi_select_option,159,0.0000,0,0,0,0,5,0,yes,,
+S6_6,multi_select_option,159,0.0000,0,0,0,0,5,0,yes,,
+S6_7,multi_select_option,159,0.0000,0,0,0,0,5,0,yes,,
+S7_Revenue,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+S8_Bucketed,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+S9_Country,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+S9_Region,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+S10,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+S11,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+S12,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+S12_Industry7,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+Q1_1,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_2,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_3,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_4,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_5,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_6,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_7,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_8,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_9,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_10,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q1_11,multi_select_option,319,0.0031,0,0,0,0,0,0,yes,,
+Q2,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+Q3_1,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q3_2,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q3_3,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q3_4,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q3_5,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q3_6,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q4_1,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q4_2,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q4_3,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q4_4,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q5,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+Q6,single_select,319,0.0000,0,0,62,0,0,0,yes,A04;A05,anomalies A04;A05
+Q6_bucketed,single_select,319,0.0000,0,0,62,0,0,0,yes,A04;A05,anomalies A04;A05
+Q7_1,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q7_2,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q7_3,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q7_4,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q7_5,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q7_6,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q7_7,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,,
+Q7_8,multi_select_option,319,0.0125,0,0,0,0,0,0,yes,,
+Q8_1,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q8_2,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q8_3,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q8_4,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q8_5,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q8_6,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q8_7,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q8_8,grid_row,19,0.0000,0,0,59,0,12,0,yes,,
+Q9,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+Q10,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+Q11_1,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A01,anomalies A01
+Q11_2,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A01,anomalies A01
+Q11_3,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A01,anomalies A01
+Q11_4,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A01,anomalies A01
+Q11_5,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A01,anomalies A01
+Q11_6,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A01,anomalies A01
+Q11_7,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A01,anomalies A01
+Q12_1,grid_row,319,0.0000,0,0,62,0,0,0,yes,A10,anomalies A10
+Q12_2,grid_row,319,0.0000,0,0,62,0,0,0,yes,A10,anomalies A10
+Q12_3,grid_row,319,0.0000,0,0,62,0,0,0,yes,A10,anomalies A10
+Q12_4,grid_row,319,0.0000,0,0,62,0,0,0,yes,A10,anomalies A10
+Q12_5,grid_row,319,0.0000,0,0,62,0,0,0,yes,A10,anomalies A10
+Q12_6,grid_row,319,0.0000,0,0,62,0,0,0,yes,A10,anomalies A10
+Q12_7,grid_row,319,0.0000,0,0,62,0,0,0,yes,A10,anomalies A10
+Q12_8,grid_row,319,0.0000,0,0,62,0,0,0,yes,A10,anomalies A10
+Q12_9,grid_row,319,0.0000,0,0,62,0,0,0,yes,A10,anomalies A10
+Q12_10,grid_row,11,0.0000,0,0,55,0,28,0,yes,A10,anomalies A10
+Q13_1,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q13_2,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q13_3,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q13_4,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q13_5,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q13_6,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q13_7,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q13_8,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q13_9,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q13_10,grid_row,13,0.0000,0,0,55,0,21,0,yes,,
+Q14,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+Q15_1,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A02;A10,anomalies A02;A10
+Q15_2,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A02;A10,anomalies A02;A10
+Q15_3,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A02;A10,anomalies A02;A10
+Q15_4,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A02;A10,anomalies A02;A10
+Q15_5,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A02;A10,anomalies A02;A10
+Q15_6,multi_select_option,319,0.0000,0,0,0,0,0,0,yes,A02;A10,anomalies A02;A10
+Q15_7,multi_select_option,319,0.0470,0,0,0,0,0,0,yes,A02;A10,anomalies A02;A10
+Q15_8,multi_select_option,319,0.0282,0,0,0,0,0,0,yes,A02;A10,anomalies A02;A10
+Q16,single_select,319,0.0000,0,0,62,0,0,0,yes,,
+Q17,single_select,319,0.0125,0,0,62,0,0,0,yes,,
+Q18,single_select,319,0.0188,0,0,62,0,0,0,yes,,
+Q19_1,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q19_2,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q19_3,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q19_4,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q19_5,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q19_6,grid_row,319,0.0000,0,0,62,0,0,0,yes,,
+Q19_7,grid_row,12,0.0000,0,0,54,0,32,0,yes,,
+Q20_PurchaseLimit,single_select,319,0.0408,0,0,62,0,0,0,yes,A13,anomalies A13
+Q20_2,single_select,23,0.0000,0,0,57,0,50,0,yes,,
