@@ -1,0 +1,2 @@
+source,sheet,cell,source_value,assigned_respid,provenance,evidence,decision
+SRC-003,Q21,A6," ",112,INFERRED,"The cell holds a single space. On Q22–Q25 row 6 is respid 112, and the respid columns of all five sheets agree on 358 of 359 rows; this cell is the only difference. Respid 112 appears on every other sheet and nowhere else on Q21.","Scott, 2026-10-29 (P4.S01): 'Accept all (Recommended)' — assign to 112, tagged INFERRED"

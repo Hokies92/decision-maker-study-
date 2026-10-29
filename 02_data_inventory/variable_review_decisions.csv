@@ -1,0 +1,8 @@
+group,match_kind,match_suffix,match_scale,match_variables,definition,decision,role,decided_by,decided_on,basis
+A1,summary,topbox,SC-FREQ4,,"share answering Frequently (top box)",added and approved,headline,Scott Santucci,2026-10-29,"P4.S01: Scott chose 'Accept all (Recommended)' — recommendation A: use Frequently alone as the headline frequency measure"
+A2,summary,top2,SC-FREQ4,,"share answering Occasionally or Frequently (top two)",approved,secondary,Scott Santucci,2026-10-29,"P4.S01: Scott chose 'Accept all (Recommended)' — recommendation A: keep top-two as the secondary frequency measure"
+B,summary,top2,SC-AGREE4,,"share answering Agree or Strongly agree",approved,headline,Scott Santucci,2026-10-29,"P4.S01: Scott chose 'Accept all (Recommended)'"
+C,summary,top2,SC-IMPORT4,,"share answering Very or Somewhat important (scale listed high to low)",approved,headline,Scott Santucci,2026-10-29,"P4.S01: Scott chose 'Accept all (Recommended)'"
+D,summary,differentiator,SC-DIFF3,,"share rating it 'Important, and a differentiator'",approved,headline,Scott Santucci,2026-10-29,"P4.S01: Scott chose 'Accept all (Recommended)'"
+E,summary,,,Q18__self_built,"options 4 + 5: had to do most / all of the business justification ourselves",approved,headline,Scott Santucci,2026-10-29,"P4.S01: Scott chose 'Accept all (Recommended)'"
+F,item,,,DM_TYPE;S8_Bucketed,"recodes: IT/business from S1; employee buckets from S8 (raw not in source)",approved,,Scott Santucci,2026-10-29,"P4.S01: Scott chose 'Accept all (Recommended)'"
