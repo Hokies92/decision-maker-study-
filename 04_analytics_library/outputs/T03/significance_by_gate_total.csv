@@ -1,0 +1,6 @@
+gate,tested,significant,share_significant
+baseline,131,16,0.1221
+ACCESS,231,60,0.2597
+AGREE,146,19,0.1301
+VISION,305,27,0.0885
+CASE,99,9,0.0909
