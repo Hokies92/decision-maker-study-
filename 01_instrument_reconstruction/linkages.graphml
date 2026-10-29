@@ -318,7 +318,7 @@
     <edge id="e264" source="T-Q24" target="T-Q04"><data key="type">topic</data><data key="prov">INFERRED</data><data key="w">1</data></edge>
     <edge id="e265" source="T-Q21" target="T-Q13"><data key="type">topic</data><data key="prov">INFERRED</data><data key="w">1</data></edge>
     <edge id="e266" source="T-Q21" target="T-Q22"><data key="type">same_respondents</data><data key="prov">RECON_DATA</data><data key="w">318</data></edge>
-    <edge id="e267" source="T-Q21" target="T-Q23"><data key="type">same_respondents</data><data key="prov">RECON_DATA</data><data key="w">318</data></edge>
+    <edge id="e267" source="T-Q21" target="T-Q23"><data key="type">same_respondents</data><data key="prov">RECON_DATA</data><data key="w">319</data></edge>
     <edge id="e268" source="T-Q21" target="T-Q24"><data key="type">same_respondents</data><data key="prov">RECON_DATA</data><data key="w">318</data></edge>
     <edge id="e269" source="T-Q21" target="T-Q25"><data key="type">same_respondents</data><data key="prov">RECON_DATA</data><data key="w">318</data></edge>
     <edge id="e270" source="T-Q22" target="T-Q23"><data key="type">same_respondents</data><data key="prov">RECON_DATA</data><data key="w">318</data></edge>

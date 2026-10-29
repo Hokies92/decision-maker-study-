@@ -284,7 +284,7 @@ T-Q23,T-Q14,thread,topic,1,Ineffective sales teams (open) vs how the salesperson
 T-Q24,T-Q04,thread,topic,1,Primary contact in best relationships vs which referral sources lead to meetings,INFERRED
 T-Q21,T-Q13,thread,topic,1,What differentiates a vendor vs which meeting attributes are differentiators,INFERRED
 T-Q21,T-Q22,thread,same_respondents,318,318 respondents answered both,RECON_DATA
-T-Q21,T-Q23,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q21,T-Q23,thread,same_respondents,319,"319 respondents answered both (includes respid 112, assigned to SRC-003 Q21!A6 by row alignment — INFERRED, approved by Scott; respid_corrections.csv)",RECON_DATA
 T-Q21,T-Q24,thread,same_respondents,318,318 respondents answered both,RECON_DATA
 T-Q21,T-Q25,thread,same_respondents,318,318 respondents answered both,RECON_DATA
 T-Q22,T-Q23,thread,same_respondents,318,318 respondents answered both,RECON_DATA

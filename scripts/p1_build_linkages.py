@@ -43,6 +43,26 @@ OUT_CSV, OUT_GML, OUT_MD = RD / "linkages.csv", RD / "linkages.graphml", RD / "l
 FIELDS = ["source", "target", "level", "link_type", "weight", "evidence", "provenance"]
 
 
+RESPID_CORRECTIONS = Path("01_instrument_reconstruction/respid_corrections.csv")
+
+
+def apply_respid_corrections(sheets):
+    """Apply Scott-approved respid corrections (P4.S01, respid_corrections.csv) to SRC-003 sheets read with
+    dtype=str. Stops if the source cell does not hold the value the correction expects. Returns what it applied."""
+    import csv as _csv
+    done = []
+    for c in _csv.DictReader(RESPID_CORRECTIONS.open(encoding="utf-8")):
+        if c["source"] != "SRC-003":
+            continue
+        d, i = sheets[c["sheet"]], int(c["cell"][1:]) - 2
+        if c["cell"][0] != "A" or d.iloc[i, 0] != c["source_value"]:
+            raise SystemExit(f"respid correction {c['sheet']}!{c['cell']}: source holds {d.iloc[i, 0]!r}, "
+                             f"expected {c['source_value']!r}")
+        d.iloc[i, 0] = c["assigned_respid"]
+        done.append(c)
+    return done
+
+
 def read(name):
     return list(csv.DictReader((RD / name).open(encoding="utf-8")))
 
@@ -123,6 +143,7 @@ def main() -> int:
     # same_respondents (respid overlap among text answers)
     resp = {}
     oe = pd.read_excel(SRC3, sheet_name=None, dtype=str)
+    assigned = {c["assigned_respid"] for c in apply_respid_corrections(oe)}
     for k, d in oe.items():
         a = d.iloc[:, 2].fillna("").astype(str).str.strip()   # blank cells are not answers
         resp[f"T-Q{int(k[1:]):02d}"] = set(d.loc[d["respid"].notna() & a.ne(""), "respid"])
@@ -135,9 +156,12 @@ def main() -> int:
         if ids:
             spec[f"T-{m.group(1)[0]}{int(m.group(1)[1:]):02d}"] |= ids
     for a, b in itertools.combinations(sorted(resp), 2):
-        n = len(resp[a] & resp[b])
+        both = resp[a] & resp[b]
+        n = len(both)
         if n:
-            edge(a, b, "thread", "same_respondents", n, f"{n} respondents answered both", "RECON_DATA")
+            note = "" if not (both & assigned) else \
+                " (includes respid 112, assigned to SRC-003 Q21!A6 by row alignment — INFERRED, approved by Scott; respid_corrections.csv)"
+            edge(a, b, "thread", "same_respondents", n, f"{n} respondents answered both{note}", "RECON_DATA")
     for s, ids in sorted(spec.items(), key=lambda kv: threads.index(kv[0])):
         for o in sorted(resp):
             n = len(ids & resp[o])
