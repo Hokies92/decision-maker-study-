@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 1 — Reconstruct the instrument   **Gate:** open
-**Step:** P1.S10 — Designer review
+**Step:** P1.S10a — Asymmetry lexicon, pass 1
 **Status:** done (awaiting Scott's merge)
-**Branch:** phase-1/step-10-designer-review
+**Branch:** phase-1/step-10a-asymmetry-lexicon
 **Updated:** 2026-10-27 by Claude session
 
 ## Step plan — Phase 1
@@ -23,8 +23,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 | P1.S07 | Gaps and anomalies: Main Page missing Q11_2–7 and Q15_1–7; `Sheet1` fragment; S1 untabulated; open-ended 359 rows vs 319 respids | All P1 outputs | `anomalies.md` | Each anomaly described with evidence and disposition; none silently resolved | done — 16 anomalies | `662be85` (PR #22) |
 | P1.S08 | **Linkage inventory:** every link between question threads that the instrument defines, as an edge list | All P1 outputs; SRC-002 banners; SRC-002 "Other" sheet; SRC-003 | `linkages.csv` (source thread, target thread, link type, evidence, provenance); `linkages.md` (type definitions + summary graph); `scripts/p1_build_linkages.py` | Link types covered: shared response scale; same construct/stem family; routing dependency; piping; screener item used as a breakout (S-thread → every Q-thread it cuts); "Other" free text → parent item; open-ended ↔ structured topical link; respondent-key link (respid shared by SRC-003 and the "Other" sheet); **gate assignment** (thread → Scott's group, from `scott_grouping.csv`; RECALL_DESIGNER); Q21–Q25 pending clarification; schema keeps the assignment editable. Each edge cites evidence; topical links tagged `INFERRED` until Scott reviews | done — 381 links | `aa2e15f` (PR #22) |
 | P1.S09 | Cross-check and provenance count | All P1 outputs | `scripts/p1_crosscheck.py`; `crosscheck_report.md` | Every table block and data column maps to ≥1 question; every question maps to data or is flagged `NO_DATA`; provenance counts reported | done — 10/10 checks pass | `b3ab8e2` (PR #22) |
-| P1.S10 | Designer review: Scott confirms or rejects every `INFERRED` item and supplies `RECALL_DESIGNER` facts on intent | Open questions list | Updated outputs; decisions log | No `INFERRED` item left unreviewed | done — 85/85 decided | this branch |
-| P1.S10a | **Asymmetry lexicon, pass 1:** paired vocabulary per gate — vendor's term vs the decision-maker's verbatim term from the instrument, with gaps where no customer-side word exists | `question_map.csv`, `scott_grouping.csv`, `design_intent.md` | `01_instrument_reconstruction/asymmetry_lexicon.md` (+ csv) | Every customer-side term `VERBATIM` with citation; vendor-side terms labeled as Claude's (INFERRED); gaps marked for Scott to name; pass 2 (open-ended words) deferred to Phase 5 | not started | — |
+| P1.S10 | Designer review: Scott confirms or rejects every `INFERRED` item and supplies `RECALL_DESIGNER` facts on intent | Open questions list | Updated outputs; decisions log | No `INFERRED` item left unreviewed | done — 85/85 decided | `757bc4f` (PR #24) |
+| P1.S10a | **Asymmetry lexicon, pass 1:** paired vocabulary per gate — vendor's term vs the decision-maker's verbatim term from the instrument, with gaps where no customer-side word exists | `question_map.csv`, `scott_grouping.csv`, `design_intent.md` | `01_instrument_reconstruction/asymmetry_lexicon.md` (+ csv) | Every customer-side term `VERBATIM` with citation; vendor-side terms labeled as Claude's (INFERRED); gaps marked for Scott to name; pass 2 (open-ended words) deferred to Phase 5 | done — 26 concepts, 6 gaps | this branch |
 | P1.S11 | Draft Phase 1 gate review | All P1 outputs | Gate review block | Every §5 P1 criterion checked with evidence; stop for Scott's merge and tag | not started | — |
 
 ## Step plan — Phase 0 (closed — tag `phase-0-complete` on `1c066db`)
@@ -132,12 +132,14 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: Q-S02d design readings closed: #1 sales-encounter arc — Scott's grouping follows survey order through the gates; #2 IT purchasing — REF-1 methodology; #3 country quotas — confirmed (R08); #4 forced-choice scales — "The scale structures were very intentional"; #5 — answered 2026-10-28 (single hierarchy).
 - 2026-10-29: Plan amended (Scott: "ok" to the proposal): P1.S10a asymmetry lexicon, pass 1 (instrument wording) inserted before the gate review; pass 2 from open-ended answers deferred to Phase 5; Scott names the gaps.
 - 2026-10-29: Working title and binary gate states recorded (fix PR #23): gates are 1 = yes (advance) / 0 = not yes; close not modeled.
+- 2026-10-29: P1.S10a asymmetry lexicon, pass 1: 26 concepts across Target, Baseline, Access, Agree, Vision, Case, Not yes, Relationship; 61 decision-maker phrases, all VERBATIM and cited; vendor terms INFERRED (trade usage, quoted to expose the vendor side); 6 gaps for Scott to name. Two former gaps closed by the survey's own wording: "building the case myself" = Q18 "We had to do all of the business justification ourselves"; "stalled" = "pulled back" (full wording survives only on Q15_Other — the check caught a wrong citation and it was corrected before commit).
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
 <!-- includes all INFERRED items awaiting review -->
 - (resolved in P1.S10 — see decisions log) Q-S02a, Q-S02b, Q-S02c, Q-S02d #1–#4.
 - Open inferences: none (85 of 85 decided — `review_summary.md`).
+- Q-S10a (not blocking): name the 6 lexicon gaps (`asymmetry_lexicon.md`, column `gap_name_by_scott`) — L02 being mis-targeted; L05 the cost of being pursued; L10 the meeting that was not worth it; L16 material that never reaches the decision; L17 the decision-maker selling internally on the vendor's behalf; L18 more people joining the decision than the vendor targeted.
 - (resolved — see decisions log) Q-S03a: Scott grouped Q1–Q25 (2026-10-28).
 - (resolved — see decisions log) Q-S04a, Q-S04b.
 - (resolved — see decisions log) Q-S03b, Q-S03c, Q-S03d; Q-S02d #5.

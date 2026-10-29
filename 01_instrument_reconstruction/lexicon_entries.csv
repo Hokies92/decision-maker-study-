@@ -1,0 +1,27 @@
+entry_id,group,concept,vendor_term,decision_maker_refs,gap,note
+L01,Target,Who the right people are,"ideal customer profile; persona; target account","S1:stem;S5:stem;S5_3;S5_4",,Decision-makers describe themselves by department and by the decisions they take part in — not by a profile
+L02,Target,Message fit,"messaging; personalization; relevance","Q12_6;Q8_4",Being mis-targeted — receiving a message meant for someone else,No customer-side word for the wrong message reaching them
+L03,Baseline,What makes a vendor worth it,"value proposition; differentiation","Q1:stem;Q21:stem;Q1_3;Q1_2",,
+L04,Baseline,Spending concentrates with strategic vendors,"share of wallet; account expansion","Q2:stem;Q2:opt1",,
+L05,Access,Being contacted,"prospecting; outbound; cadence; touches","Q3:stem",The cost of being pursued — the time and attention spent on unsolicited vendor contact,Q3 asks about responding; the burden itself is not named
+L06,Access,Being screened,"getting past the gatekeeper","Q5:stem",,
+L07,Access,Introductions,"warm intro; referral","Q4:stem;Q7_4",,
+L08,Access,The moment of need,"intent signal; in-market; buying window","Q7_1;Q7_5;Q12_7",,Kairos on the decision-maker's side is simply 'timing' and 'what I was looking for at that point in time'
+L09,Access,Meeting granted,"meeting set; appointment booked; qualified lead","Q6:stem",,
+L10,Agree,The first meeting,"discovery call; first call","Q10:stem;Q9:stem",The meeting that was not worth it,"Q9/Q10 measure how often meetings succeed; the failed meeting has no customer-side name"
+L11,Agree,Preparation,"account research; call prep","Q8:stem;Q8_3;Q8_5",,
+L12,Agree,Being presented to,"pitch; demo; presentation","Q14:opt1;Q14:opt2;Q11_6;Q13_1",,Q14 option 2 is the decision-maker's account of keyword-triggered pitching
+L13,Agree,Being taught something,"insight selling; thought leadership","Q11_4;Q13_5;Q13_4",,
+L14,Agree,Being helped,"consultative selling; partnership","Q14:opt4;Q14:opt5",,
+L15,Vision,Seeing the path to value,"solution; value proposition; vision selling","Q16:stem;Q11_2;Q15_2",,
+L16,Vision,Vendor material,"collateral; content; enablement assets","Q12_1;Q12_2;Q12_8;Q12_4",Material that never reaches the decision,"Q12_8 ('scan … then throw it in the trash') describes the act, not the waste"
+L17,Vision,Carrying the idea inside the company,"champion; internal advocate; multithreading","Q15_5;Q12_3",The decision-maker selling internally on the vendor's behalf,"The burden appears only as a reason for pulling back (Q15_5)"
+L18,Vision,The agreement network widens,"buying committee; stakeholder mapping","Q15_4",More people joining the decision than the vendor targeted,"Scott's 'agreement network' (Target); Q15_4 names only the effect: momentum lost"
+L19,Vision,Who will carry it out,"implementation handoff; onboarding","Q15_6;Q19_3",,
+L20,Case,Building the case,"business case; ROI calculator; value engineering","Q17:stem;Q18:stem;Q18:opt4;Q18:opt5;Q17:opt5",,"Q18 options give the decision-maker's words: 'We had to do all of the business justification ourselves'"
+L21,Case,Risk,"objection handling; risk mitigation","Q15_3",,
+L22,Case,Authority,"economic buyer; signing authority","Q20:stem;S5_4",,
+L23,Not yes,Not yes,"stalled; no decision; closed-lost","Q15:stem;Q15_Other:stem",,"The survey's word is 'pulled back' — a choice by the decision-maker, not a vendor-side state. The full wording survives only on the Q15_Other column; the main Q15 header is cut off before it (anomaly A10)"
+L24,Not yes,Another vendor earned the yes,"lost to competitor","Q15_1",,
+L25,Relationship,Who carries the relationship,"account manager; customer success","Q24:stem;Q25:stem",,
+L26,Relationship,Judging sales teams,"win/loss analysis; sales effectiveness","Q22:stem;Q23:stem",,
