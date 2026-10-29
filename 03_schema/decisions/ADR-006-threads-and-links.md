@@ -19,3 +19,10 @@ Typed endpoint attributes, rather than one generic reference, let the XSD check 
 - The graph is exported from any instance by reading `Graph/Link`; `linkages.graphml` becomes a view, not a separate source.
 - New link types (statistical links in Phase 4, prior-wave wording) arrive as enumeration values in a minor version.
 - `in_group` links duplicate the current assignment set (ADR-003). They are kept so the graph is complete on its own; the cross-check confirms they agree.
+
+## Implementation notes (P3.S02–S05)
+
+Added after the XSD was built and validated against real data. Each note records where the implementation refines the decision above; the decision itself is unchanged.
+
+- **Item role** uses the three values in the data: `asked`, `derived`, `attention_check`. Text items are identified by their type (`open_text`, `open_text_specify`), not by role.
+- **Approved inferences.** All 27 `INFERRED` links were approved by Scott in P1.S10; they carry `reviewed="confirmedByScott"`.

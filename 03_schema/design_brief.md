@@ -69,11 +69,12 @@ dms/v1  (study)
   │   └─ AssignmentSet ── Assignment (Thread → Group)   [editable; more than one set allowed]
   ├─ Results
   │   ├─ Result (Item × Option × Cohort: share or not-asked, base n, cell citation)
-  │   └─ SignificanceFlag (Item block × Dimension: significant | notSignificant | notTested)
+  │   └─ SignificanceFlag (Item block — or Thread for a condensed table — × Dimension: significant | notSignificant | notTested)
   ├─ Variables ── Variable (collected | derivable | missing; derivation rule; → Item)
   ├─ Graph ── Link (typed endpoints: Thread | Item | Group | Variable; type; weight; evidence)
   └─ Respondents  (optional)
       └─ Respondent (respid)
+          ├─ Answer (→ Item; scale + option, or value — one person's structured answer; empty here)
           ├─ TextAnswer (→ Item; text VERBATIM, unchanged)
           ├─ Attributes (optional → stakeholder Nodes; empty unless collected)
           └─ DecisionPath ── GateEvent (seq; → Gate; state 1|0; Reason → Thread/Item/Option; optional clock time)

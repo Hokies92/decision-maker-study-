@@ -30,3 +30,12 @@ The hierarchy carries no date; the study date is excluded (README).
 - `Result → Cohort → Node(stakeholderType)` and `Result → Cohort → Node(roleLevel)` satisfy the §5 P3 criterion for every result whose cohort is a person cohort.
 - Results for company or engagement cohorts (country, revenue, contact frequency) have no level or stakeholder value. That is correct: the source does not cross them with function or level.
 - No respondent carries a node unless it was collected (ADR-009). Never inferred.
+
+## Implementation notes (P3.S02–S05)
+
+Added after the XSD was built and validated against real data. Each note records where the implementation refines the decision above; the decision itself is unchanged.
+
+- **Nodes come from person cohorts.** One node per cohort in a person dimension (function, level within function, department, IT role, decision stage), with the parent taken from the cohort's parent. This gives 38 nodes.
+- **Carries is a list of node references,** not two fixed attributes. A cohort carries its own node; a combined level cohort (e.g. `C-LEVEL-DIRECTOR`, from S2 + S3) carries the level node under each function (`N-LEVEL-IT-DIRECTOR`, `N-LEVEL-BUS-DIRECTOR`) — "Director, any stakeholder type." Stakeholder type is found by following a node's parents.
+- **S5 decision stages** were asked of all 319, so their purchase-role nodes have no parent; S6 stages sit under the business function.
+- **The 39 definable industry cohorts** have no parent cohort: the 39 → 7 mapping is not in source (variable `industry_39_to_7_map`, MISSING).

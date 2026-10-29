@@ -13,3 +13,9 @@ The study date is deliberately excluded from analysis (README, CLAUDE.md). Scott
 ## Consequences
 - Paths of very different length compare step for step.
 - If a future dataset needs explicit kairos markers, they are a minor-version addition to `GateEvent`.
+
+## Implementation notes (P3.S02–S05)
+
+Added after the XSD was built and validated against real data. Each note records where the implementation refines the decision above; the decision itself is unchanged.
+
+- **Verbatim wording may contain a year.** S7 asks about revenues "in calendar year …"; that wording is stored VERBATIM (item stem, dimension definition, variable label). The rule is that no field holds a date and no analysis uses one; the cross-check (C13) enforces exactly that and reports the copies of the S7 wording.

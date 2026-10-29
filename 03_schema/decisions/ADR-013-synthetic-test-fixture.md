@@ -15,3 +15,10 @@ No individual gate choices exist in the source. Without a record that uses the d
 ## Consequences
 - The decision-path layer is proven before real data arrives.
 - The file doubles as a template for anyone collecting new data.
+
+## Implementation notes (P3.S02–S05)
+
+Added after the XSD was built and validated against real data. Each note records where the implementation refines the decision above; the decision itself is unchanged.
+
+- The record also carries two synthetic `Answer` elements (Q15_2 selected; Q18 option 4), so the structured-answer slot is validated as well as the decision path.
+- `Attributes` (stakeholder nodes per person) is not exercised: the decision above says the invented person carries no stakeholder attributes. The slot is enforced by keyref and checked by the cross-check (no `INFERRED` attributes).
