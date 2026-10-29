@@ -66,6 +66,18 @@ REF-1 defines four verifiable objectives every salesperson must achieve, each va
 - The Case gate closes when the client **accepts the business case**, not when the contract is executed; the contract is a terminal state outside the value communication process.
 - Time is relational and event-ordered (gate transitions), not clock time; kairos marks the moments where coaching can change a choice.
 
+### 2.3a Gate states and the close (`RECALL_DESIGNER`, Scott, 2026-10-29)
+
+"Since selling is a process of getting to yes, I don't think we need to focus on close. We have 1 - yes (advance) and 0 - not yes."
+
+Each gate has exactly two states: **1 = yes (advance)** and **0 = not yes**. The close is not modeled as a gate.
+
+### 2.3b Working title (`RECALL_DESIGNER`, Scott, 2026-10-29)
+
+**The Receiving End of Go-to-Market: What Decision Makers Experience with Vendors, from First Contact to Signed Contract**
+
+Rationale (Scott): the vendor's own term ("go-to-market") signals to vendors and exposes the asymmetry between the two sides; "contact to contract" is easy to understand and frames the binary gates Target → Access → Agree → Vision → Case. The data reaches past the business case into ongoing relationships (Q2 spend with strategic providers; Q16 choosing vendors; Q22–Q25 best and worst relationships). "Go-to-market" is used here deliberately as a mirror for vendors; it is not instrument wording and does not describe Growth Enablement.
+
 ### 2.4 Stakeholder hierarchy (`RECALL_DESIGNER`)
 
 "No, the role played in purchase is subordinate to IT or Business in this model. However there are many ways we can define roles and role hierarchies so lets not that and make sure we are flexible."
