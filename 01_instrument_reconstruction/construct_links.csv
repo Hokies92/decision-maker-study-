@@ -1,0 +1,16 @@
+source,target,link_type,provenance,rationale
+T-Q22,T-Q23,mirror,RECON_DATA,Same wording with MOST vs LEAST effective (VERBATIM)
+T-Q24,T-Q25,mirror,RECON_DATA,Same wording with BEST vs WORST relationships (VERBATIM)
+T-Q01,T-Q21,same_construct,INFERRED,What makes a vendor strategic (closed) vs what differentiates a vendor (open); both Baseline (Scott)
+T-Q09,T-Q11,same_construct,INFERRED,Whether meetings are valuable vs what makes a meeting valuable
+T-Q11,T-Q13,same_construct,INFERRED,What makes a meeting valuable vs which meeting attributes are important or differentiating
+T-Q08,T-Q11,same_construct,INFERRED,Salesperson preparedness vs what makes a meeting valuable (understanding my business and role appear in both)
+T-Q12,T-Q18,same_construct,INFERRED,Attitudes toward vendor materials vs whether materials help build reasons to invest
+T-Q16,T-Q19,same_construct,INFERRED,Choosing vendors who turn a vision into a path to value vs what it takes to shape a vision into a plan
+T-Q17,T-Q18,same_construct,INFERRED,Difficulty of building a business case vs whether vendor materials help build it
+T-Q15,T-Q16,same_construct,INFERRED,Why customers pull back (incl. could not envision value) vs choosing vendors who make the path to value clear
+T-Q09,T-Q10,same_construct,INFERRED,Meetings valuable vs accepting follow-on meetings — both measure the Agree gate outcome
+T-Q22,T-Q14,topic,INFERRED,Effective sales teams (open) vs how the salesperson's agenda is characterized
+T-Q23,T-Q14,topic,INFERRED,Ineffective sales teams (open) vs how the salesperson's agenda is characterized
+T-Q24,T-Q04,topic,INFERRED,Primary contact in best relationships vs which referral sources lead to meetings
+T-Q21,T-Q13,topic,INFERRED,What differentiates a vendor vs which meeting attributes are differentiators

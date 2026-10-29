@@ -1,0 +1,382 @@
+source,target,level,link_type,weight,evidence,provenance
+T-Q03,T-Q04,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q03,T-Q08,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q03,T-Q09,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q03,T-Q10,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q03,T-Q16,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q04,T-Q08,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q04,T-Q09,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q04,T-Q10,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q04,T-Q16,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q08,T-Q09,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q08,T-Q10,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q08,T-Q16,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q09,T-Q10,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q09,T-Q16,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-Q10,T-Q16,thread,shared_scale,1,both use SC-FREQ4,RECON_DATA
+T-S01,T-S02,thread,routes_to,1,"skip_logic R01: S1 = ""IT or IS department"" → classify ITDM; ASK S2, S4",RECON_DATA
+T-S01,T-S04,thread,routes_to,1,"skip_logic R01: S1 = ""IT or IS department"" → classify ITDM; ASK S2, S4",RECON_DATA
+T-S01,T-S03,thread,routes_to,1,"skip_logic R02: S1 = any other department → classify BDM; ASK S3, S6",RECON_DATA
+T-S01,T-S06,thread,routes_to,1,"skip_logic R02: S1 = any other department → classify BDM; ASK S3, S6",RECON_DATA
+Q20_PurchaseLimit,Q20_2,item,routes_to,1,skip_logic R11,RECON_DATA
+Q1_Other,T-Q01,item→thread,specify_of,1,skip_logic R13-Q1: selected = 1; text entries = 1,RECON_DATA
+Q7_Other,T-Q07,item→thread,specify_of,1,skip_logic R13-Q7: selected = 4; text entries = 4,RECON_DATA
+Q11_Other,T-Q11,item→thread,specify_of,1,skip_logic R13-Q11: selected = 0; text entries = 0,RECON_DATA
+Q15_Other,T-Q15,item→thread,specify_of,1,skip_logic R13-Q15: selected = 15; text entries = 15,RECON_DATA
+S4_Other,T-S04,item→thread,specify_of,1,skip_logic R13-S4: selected = 6; text entries = 6,RECON_DATA
+Q18_Other,T-Q18,item→thread,specify_of,1,skip_logic R13-Q18: selected = 1; text entries = 1,RECON_DATA
+Q8_8,T-Q08,item→thread,specify_of,1,skip_logic R14-Q8: Q8_8 base = 19; Q8_Other text entries = 19,RECON_DATA
+Q12_10,T-Q12,item→thread,specify_of,1,skip_logic R14-Q12: Q12_10 base = 11; Q12_Other text entries = 11,RECON_DATA
+Q13_10,T-Q13,item→thread,specify_of,1,skip_logic R14-Q13: Q13_10 base = 13; Q13_Other text entries = 13,RECON_DATA
+Q19_7,T-Q19,item→thread,specify_of,1,skip_logic R14-Q19: Q19_7 base = 12; Q19_Other text entries = 12,RECON_DATA
+DM_TYPE,S1,item,derived_from,1,"No source ID. ITDM share (0.5016, n=160) equals S1 'IT or IS department' share; BDM = all other S1 departments. Used as the ITDM/BDM stakeholder split.",INFERRED
+S2_S3_combined,S2,item,derived_from,1,Header says 'S2 and S3 combined'; same four tiers; base 319 = 160 + 159.,RECON_DATA
+S2_S3_combined,S3,item,derived_from,1,Header says 'S2 and S3 combined'; same four tiers; base 319 = 160 + 159.,RECON_DATA
+S8_Bucketed,"S8 (raw, not tabulated)",item,derived_from,1,Item name 'Bucketed'; the raw S8 answer is not in any source file.,INFERRED
+S9_Region,S9_Country,item,derived_from,1,Two regions; North America 157 = US 150 + Canada 7; Europe 162 = UK + France + Germany (54 each).,RECON_DATA
+S12_Industry7,S12,item,derived_from,1,Item name 'Industry7'; 39 industries collapsed to 7.,RECON_DATA
+Q6_bucketed,Q6,item,derived_from,1,Item name 'bucketed'; 14 counts collapsed to 5 ranges.,RECON_DATA
+T-S01,T-Q01,thread,breakout_of,1,via D-FUNCTION: results for Q1 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q02,thread,breakout_of,1,via D-FUNCTION: results for Q2 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q03,thread,breakout_of,1,via D-FUNCTION: results for Q3 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q04,thread,breakout_of,1,via D-FUNCTION: results for Q4 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q05,thread,breakout_of,1,via D-FUNCTION: results for Q5 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q06,thread,breakout_of,1,via D-FUNCTION: results for Q6 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q07,thread,breakout_of,1,via D-FUNCTION: results for Q7 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q08,thread,breakout_of,1,via D-FUNCTION: results for Q8 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q09,thread,breakout_of,1,via D-FUNCTION: results for Q9 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q10,thread,breakout_of,1,via D-FUNCTION: results for Q10 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q11,thread,breakout_of,1,via D-FUNCTION: results for Q11 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q12,thread,breakout_of,1,via D-FUNCTION: results for Q12 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q13,thread,breakout_of,1,via D-FUNCTION: results for Q13 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q14,thread,breakout_of,1,via D-FUNCTION: results for Q14 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q15,thread,breakout_of,1,via D-FUNCTION: results for Q15 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q16,thread,breakout_of,1,via D-FUNCTION: results for Q16 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q17,thread,breakout_of,1,via D-FUNCTION: results for Q17 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q18,thread,breakout_of,1,via D-FUNCTION: results for Q18 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q19,thread,breakout_of,1,via D-FUNCTION: results for Q19 are tabulated by this dimension on Main Page,RECON_DATA
+T-S01,T-Q20,thread,breakout_of,1,via D-FUNCTION: results for Q20 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q01,thread,breakout_of,1,via D-LEVEL-IT: results for Q1 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q02,thread,breakout_of,1,via D-LEVEL-IT: results for Q2 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q03,thread,breakout_of,1,via D-LEVEL-IT: results for Q3 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q04,thread,breakout_of,1,via D-LEVEL-IT: results for Q4 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q05,thread,breakout_of,1,via D-LEVEL-IT: results for Q5 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q06,thread,breakout_of,1,via D-LEVEL-IT: results for Q6 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q07,thread,breakout_of,1,via D-LEVEL-IT: results for Q7 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q08,thread,breakout_of,1,via D-LEVEL-IT: results for Q8 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q09,thread,breakout_of,1,via D-LEVEL-IT: results for Q9 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q10,thread,breakout_of,1,via D-LEVEL-IT: results for Q10 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q11,thread,breakout_of,1,via D-LEVEL-IT: results for Q11 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q12,thread,breakout_of,1,via D-LEVEL-IT: results for Q12 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q13,thread,breakout_of,1,via D-LEVEL-IT: results for Q13 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q14,thread,breakout_of,1,via D-LEVEL-IT: results for Q14 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q15,thread,breakout_of,1,via D-LEVEL-IT: results for Q15 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q16,thread,breakout_of,1,via D-LEVEL-IT: results for Q16 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q17,thread,breakout_of,1,via D-LEVEL-IT: results for Q17 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q18,thread,breakout_of,1,via D-LEVEL-IT: results for Q18 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q19,thread,breakout_of,1,via D-LEVEL-IT: results for Q19 are tabulated by this dimension on Main Page,RECON_DATA
+T-S02,T-Q20,thread,breakout_of,1,via D-LEVEL-IT: results for Q20 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q01,thread,breakout_of,1,via D-LEVEL-BUS: results for Q1 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q02,thread,breakout_of,1,via D-LEVEL-BUS: results for Q2 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q03,thread,breakout_of,1,via D-LEVEL-BUS: results for Q3 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q04,thread,breakout_of,1,via D-LEVEL-BUS: results for Q4 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q05,thread,breakout_of,1,via D-LEVEL-BUS: results for Q5 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q06,thread,breakout_of,1,via D-LEVEL-BUS: results for Q6 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q07,thread,breakout_of,1,via D-LEVEL-BUS: results for Q7 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q08,thread,breakout_of,1,via D-LEVEL-BUS: results for Q8 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q09,thread,breakout_of,1,via D-LEVEL-BUS: results for Q9 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q10,thread,breakout_of,1,via D-LEVEL-BUS: results for Q10 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q11,thread,breakout_of,1,via D-LEVEL-BUS: results for Q11 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q12,thread,breakout_of,1,via D-LEVEL-BUS: results for Q12 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q13,thread,breakout_of,1,via D-LEVEL-BUS: results for Q13 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q14,thread,breakout_of,1,via D-LEVEL-BUS: results for Q14 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q15,thread,breakout_of,1,via D-LEVEL-BUS: results for Q15 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q16,thread,breakout_of,1,via D-LEVEL-BUS: results for Q16 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q17,thread,breakout_of,1,via D-LEVEL-BUS: results for Q17 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q18,thread,breakout_of,1,via D-LEVEL-BUS: results for Q18 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q19,thread,breakout_of,1,via D-LEVEL-BUS: results for Q19 are tabulated by this dimension on Main Page,RECON_DATA
+T-S03,T-Q20,thread,breakout_of,1,via D-LEVEL-BUS: results for Q20 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q01,thread,breakout_of,1,via D-COUNTRY: results for Q1 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q02,thread,breakout_of,1,via D-COUNTRY: results for Q2 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q03,thread,breakout_of,1,via D-COUNTRY: results for Q3 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q04,thread,breakout_of,1,via D-COUNTRY: results for Q4 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q05,thread,breakout_of,1,via D-COUNTRY: results for Q5 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q06,thread,breakout_of,1,via D-COUNTRY: results for Q6 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q07,thread,breakout_of,1,via D-COUNTRY: results for Q7 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q08,thread,breakout_of,1,via D-COUNTRY: results for Q8 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q09,thread,breakout_of,1,via D-COUNTRY: results for Q9 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q10,thread,breakout_of,1,via D-COUNTRY: results for Q10 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q11,thread,breakout_of,1,via D-COUNTRY: results for Q11 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q12,thread,breakout_of,1,via D-COUNTRY: results for Q12 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q13,thread,breakout_of,1,via D-COUNTRY: results for Q13 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q14,thread,breakout_of,1,via D-COUNTRY: results for Q14 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q15,thread,breakout_of,1,via D-COUNTRY: results for Q15 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q16,thread,breakout_of,1,via D-COUNTRY: results for Q16 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q17,thread,breakout_of,1,via D-COUNTRY: results for Q17 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q18,thread,breakout_of,1,via D-COUNTRY: results for Q18 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q19,thread,breakout_of,1,via D-COUNTRY: results for Q19 are tabulated by this dimension on Main Page,RECON_DATA
+T-S09,T-Q20,thread,breakout_of,1,via D-COUNTRY: results for Q20 are tabulated by this dimension on Main Page,RECON_DATA
+T-S12,T-Q01,thread,breakout_of,1,via D-INDUSTRY7: results for Q1 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q02,thread,breakout_of,1,via D-INDUSTRY7: results for Q2 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q03,thread,breakout_of,1,via D-INDUSTRY7: results for Q3 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q04,thread,breakout_of,1,via D-INDUSTRY7: results for Q4 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q05,thread,breakout_of,1,via D-INDUSTRY7: results for Q5 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q06,thread,breakout_of,1,via D-INDUSTRY7: results for Q6 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q07,thread,breakout_of,1,via D-INDUSTRY7: results for Q7 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q08,thread,breakout_of,1,via D-INDUSTRY7: results for Q8 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q09,thread,breakout_of,1,via D-INDUSTRY7: results for Q9 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q10,thread,breakout_of,1,via D-INDUSTRY7: results for Q10 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q11,thread,breakout_of,1,via D-INDUSTRY7: results for Q11 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q12,thread,breakout_of,1,via D-INDUSTRY7: results for Q12 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q13,thread,breakout_of,1,via D-INDUSTRY7: results for Q13 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q14,thread,breakout_of,1,via D-INDUSTRY7: results for Q14 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q15,thread,breakout_of,1,via D-INDUSTRY7: results for Q15 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q16,thread,breakout_of,1,via D-INDUSTRY7: results for Q16 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q17,thread,breakout_of,1,via D-INDUSTRY7: results for Q17 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q18,thread,breakout_of,1,via D-INDUSTRY7: results for Q18 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q19,thread,breakout_of,1,via D-INDUSTRY7: results for Q19 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S12,T-Q20,thread,breakout_of,1,via D-INDUSTRY7: results for Q20 are tabulated by this dimension on Industry 7,RECON_DATA
+T-S08,T-Q01,thread,breakout_of,1,via D-EMPLOYEES: results for Q1 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q02,thread,breakout_of,1,via D-EMPLOYEES: results for Q2 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q03,thread,breakout_of,1,via D-EMPLOYEES: results for Q3 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q04,thread,breakout_of,1,via D-EMPLOYEES: results for Q4 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q05,thread,breakout_of,1,via D-EMPLOYEES: results for Q5 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q06,thread,breakout_of,1,via D-EMPLOYEES: results for Q6 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q07,thread,breakout_of,1,via D-EMPLOYEES: results for Q7 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q08,thread,breakout_of,1,via D-EMPLOYEES: results for Q8 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q09,thread,breakout_of,1,via D-EMPLOYEES: results for Q9 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q10,thread,breakout_of,1,via D-EMPLOYEES: results for Q10 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q11,thread,breakout_of,1,via D-EMPLOYEES: results for Q11 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q12,thread,breakout_of,1,via D-EMPLOYEES: results for Q12 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q13,thread,breakout_of,1,via D-EMPLOYEES: results for Q13 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q14,thread,breakout_of,1,via D-EMPLOYEES: results for Q14 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q15,thread,breakout_of,1,via D-EMPLOYEES: results for Q15 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q16,thread,breakout_of,1,via D-EMPLOYEES: results for Q16 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q17,thread,breakout_of,1,via D-EMPLOYEES: results for Q17 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q18,thread,breakout_of,1,via D-EMPLOYEES: results for Q18 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q19,thread,breakout_of,1,via D-EMPLOYEES: results for Q19 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S08,T-Q20,thread,breakout_of,1,via D-EMPLOYEES: results for Q20 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q01,thread,breakout_of,1,via D-REVENUE: results for Q1 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q02,thread,breakout_of,1,via D-REVENUE: results for Q2 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q03,thread,breakout_of,1,via D-REVENUE: results for Q3 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q04,thread,breakout_of,1,via D-REVENUE: results for Q4 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q05,thread,breakout_of,1,via D-REVENUE: results for Q5 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q06,thread,breakout_of,1,via D-REVENUE: results for Q6 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q07,thread,breakout_of,1,via D-REVENUE: results for Q7 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q08,thread,breakout_of,1,via D-REVENUE: results for Q8 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q09,thread,breakout_of,1,via D-REVENUE: results for Q9 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q10,thread,breakout_of,1,via D-REVENUE: results for Q10 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q11,thread,breakout_of,1,via D-REVENUE: results for Q11 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q12,thread,breakout_of,1,via D-REVENUE: results for Q12 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q13,thread,breakout_of,1,via D-REVENUE: results for Q13 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q14,thread,breakout_of,1,via D-REVENUE: results for Q14 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q15,thread,breakout_of,1,via D-REVENUE: results for Q15 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q16,thread,breakout_of,1,via D-REVENUE: results for Q16 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q17,thread,breakout_of,1,via D-REVENUE: results for Q17 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q18,thread,breakout_of,1,via D-REVENUE: results for Q18 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q19,thread,breakout_of,1,via D-REVENUE: results for Q19 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S07,T-Q20,thread,breakout_of,1,via D-REVENUE: results for Q20 are tabulated by this dimension on Company Size & Revenue,RECON_DATA
+T-S10,T-Q01,thread,breakout_of,1,via D-CONTACTFREQ: results for Q1 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q02,thread,breakout_of,1,via D-CONTACTFREQ: results for Q2 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q03,thread,breakout_of,1,via D-CONTACTFREQ: results for Q3 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q04,thread,breakout_of,1,via D-CONTACTFREQ: results for Q4 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q05,thread,breakout_of,1,via D-CONTACTFREQ: results for Q5 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q06,thread,breakout_of,1,via D-CONTACTFREQ: results for Q6 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q07,thread,breakout_of,1,via D-CONTACTFREQ: results for Q7 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q08,thread,breakout_of,1,via D-CONTACTFREQ: results for Q8 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q09,thread,breakout_of,1,via D-CONTACTFREQ: results for Q9 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q10,thread,breakout_of,1,via D-CONTACTFREQ: results for Q10 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q11,thread,breakout_of,1,via D-CONTACTFREQ: results for Q11 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q12,thread,breakout_of,1,via D-CONTACTFREQ: results for Q12 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q13,thread,breakout_of,1,via D-CONTACTFREQ: results for Q13 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q14,thread,breakout_of,1,via D-CONTACTFREQ: results for Q14 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q15,thread,breakout_of,1,via D-CONTACTFREQ: results for Q15 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q16,thread,breakout_of,1,via D-CONTACTFREQ: results for Q16 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q17,thread,breakout_of,1,via D-CONTACTFREQ: results for Q17 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q18,thread,breakout_of,1,via D-CONTACTFREQ: results for Q18 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q19,thread,breakout_of,1,via D-CONTACTFREQ: results for Q19 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S10,T-Q20,thread,breakout_of,1,via D-CONTACTFREQ: results for Q20 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q01,thread,breakout_of,1,via D-SELLSTO: results for Q1 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q02,thread,breakout_of,1,via D-SELLSTO: results for Q2 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q03,thread,breakout_of,1,via D-SELLSTO: results for Q3 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q04,thread,breakout_of,1,via D-SELLSTO: results for Q4 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q05,thread,breakout_of,1,via D-SELLSTO: results for Q5 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q06,thread,breakout_of,1,via D-SELLSTO: results for Q6 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q07,thread,breakout_of,1,via D-SELLSTO: results for Q7 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q08,thread,breakout_of,1,via D-SELLSTO: results for Q8 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q09,thread,breakout_of,1,via D-SELLSTO: results for Q9 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q10,thread,breakout_of,1,via D-SELLSTO: results for Q10 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q11,thread,breakout_of,1,via D-SELLSTO: results for Q11 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q12,thread,breakout_of,1,via D-SELLSTO: results for Q12 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q13,thread,breakout_of,1,via D-SELLSTO: results for Q13 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q14,thread,breakout_of,1,via D-SELLSTO: results for Q14 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q15,thread,breakout_of,1,via D-SELLSTO: results for Q15 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q16,thread,breakout_of,1,via D-SELLSTO: results for Q16 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q17,thread,breakout_of,1,via D-SELLSTO: results for Q17 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q18,thread,breakout_of,1,via D-SELLSTO: results for Q18 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q19,thread,breakout_of,1,via D-SELLSTO: results for Q19 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S11,T-Q20,thread,breakout_of,1,via D-SELLSTO: results for Q20 are tabulated by this dimension on Sales Engagement,RECON_DATA
+T-S05,T-Q01,thread,breakout_of,1,via D-STAGE: results for Q1 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q02,thread,breakout_of,1,via D-STAGE: results for Q2 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q03,thread,breakout_of,1,via D-STAGE: results for Q3 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q04,thread,breakout_of,1,via D-STAGE: results for Q4 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q05,thread,breakout_of,1,via D-STAGE: results for Q5 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q06,thread,breakout_of,1,via D-STAGE: results for Q6 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q07,thread,breakout_of,1,via D-STAGE: results for Q7 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q08,thread,breakout_of,1,via D-STAGE: results for Q8 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q09,thread,breakout_of,1,via D-STAGE: results for Q9 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q10,thread,breakout_of,1,via D-STAGE: results for Q10 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q11,thread,breakout_of,1,via D-STAGE: results for Q11 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q12,thread,breakout_of,1,via D-STAGE: results for Q12 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q13,thread,breakout_of,1,via D-STAGE: results for Q13 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q14,thread,breakout_of,1,via D-STAGE: results for Q14 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q15,thread,breakout_of,1,via D-STAGE: results for Q15 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q16,thread,breakout_of,1,via D-STAGE: results for Q16 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q17,thread,breakout_of,1,via D-STAGE: results for Q17 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q18,thread,breakout_of,1,via D-STAGE: results for Q18 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q19,thread,breakout_of,1,via D-STAGE: results for Q19 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S05,T-Q20,thread,breakout_of,1,via D-STAGE: results for Q20 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q01,thread,breakout_of,1,via D-STAGE-BUS: results for Q1 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q02,thread,breakout_of,1,via D-STAGE-BUS: results for Q2 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q03,thread,breakout_of,1,via D-STAGE-BUS: results for Q3 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q04,thread,breakout_of,1,via D-STAGE-BUS: results for Q4 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q05,thread,breakout_of,1,via D-STAGE-BUS: results for Q5 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q06,thread,breakout_of,1,via D-STAGE-BUS: results for Q6 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q07,thread,breakout_of,1,via D-STAGE-BUS: results for Q7 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q08,thread,breakout_of,1,via D-STAGE-BUS: results for Q8 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q09,thread,breakout_of,1,via D-STAGE-BUS: results for Q9 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q10,thread,breakout_of,1,via D-STAGE-BUS: results for Q10 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q11,thread,breakout_of,1,via D-STAGE-BUS: results for Q11 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q12,thread,breakout_of,1,via D-STAGE-BUS: results for Q12 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q13,thread,breakout_of,1,via D-STAGE-BUS: results for Q13 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q14,thread,breakout_of,1,via D-STAGE-BUS: results for Q14 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q15,thread,breakout_of,1,via D-STAGE-BUS: results for Q15 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q16,thread,breakout_of,1,via D-STAGE-BUS: results for Q16 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q17,thread,breakout_of,1,via D-STAGE-BUS: results for Q17 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q18,thread,breakout_of,1,via D-STAGE-BUS: results for Q18 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q19,thread,breakout_of,1,via D-STAGE-BUS: results for Q19 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S06,T-Q20,thread,breakout_of,1,via D-STAGE-BUS: results for Q20 are tabulated by this dimension on Decision Making Stages,RECON_DATA
+T-S10,T-Q03,thread,relates_to,1,D-CONTACTFREQ: How often the decision-maker meets salespeople bears on how they respond to contact channels (Access),INFERRED
+T-S10,T-Q06,thread,relates_to,1,D-CONTACTFREQ: Contact frequency bears on appointments accepted per week (Access),INFERRED
+T-S10,T-Q07,thread,relates_to,1,D-CONTACTFREQ: Contact frequency bears on reasons for accepting an appointment (Access),INFERRED
+T-S02,T-Q05,thread,relates_to,1,D-LEVEL: Senior decision-makers are more likely to have staff who screen meeting requests (Access),INFERRED
+T-S02,T-Q20,thread,relates_to,1,D-LEVEL: Seniority bears on purchase authority (Business Case),INFERRED
+T-S05,T-Q20,thread,relates_to,1,D-STAGE:Authorizing purchases: Those who authorize purchases are the ones a purchase limit applies to (Business Case),INFERRED
+T-S05,T-Q17,thread,relates_to,1,D-STAGE:Setting or managing budgets: Budget owners build or judge the business case (Shared Vision),INFERRED
+T-S05,T-Q01,thread,relates_to,1,D-STAGE:Choosing/recommending vendors: Those who choose vendors define what a strategic vendor is (Baseline),INFERRED
+T-S05,T-Q16,thread,relates_to,1,D-STAGE:Requirements definition: Requirements owners shape the path from vision to value (Shared Vision),INFERRED
+T-S04,T-Q05,thread,relates_to,1,D-ITROLE:Sourcing and vendor management: Sourcing roles act as gatekeepers for vendor meetings (Access),INFERRED
+T-S04,T-Q20,thread,relates_to,1,D-ITROLE:Chief information officer: CIOs hold purchase authority (Business Case),INFERRED
+T-S11,T-Q12,thread,relates_to,1,D-SELLSTO: Whether the company itself sells B2B or B2C may shape how vendor materials are judged (Shared Vision),INFERRED
+T-Q22,T-Q23,thread,mirror,1,Same wording with MOST vs LEAST effective (VERBATIM),RECON_DATA
+T-Q24,T-Q25,thread,mirror,1,Same wording with BEST vs WORST relationships (VERBATIM),RECON_DATA
+T-Q01,T-Q21,thread,same_construct,1,What makes a vendor strategic (closed) vs what differentiates a vendor (open); both Baseline (Scott),INFERRED
+T-Q09,T-Q11,thread,same_construct,1,Whether meetings are valuable vs what makes a meeting valuable,INFERRED
+T-Q11,T-Q13,thread,same_construct,1,What makes a meeting valuable vs which meeting attributes are important or differentiating,INFERRED
+T-Q08,T-Q11,thread,same_construct,1,Salesperson preparedness vs what makes a meeting valuable (understanding my business and role appear in both),INFERRED
+T-Q12,T-Q18,thread,same_construct,1,Attitudes toward vendor materials vs whether materials help build reasons to invest,INFERRED
+T-Q16,T-Q19,thread,same_construct,1,Choosing vendors who turn a vision into a path to value vs what it takes to shape a vision into a plan,INFERRED
+T-Q17,T-Q18,thread,same_construct,1,Difficulty of building a business case vs whether vendor materials help build it,INFERRED
+T-Q15,T-Q16,thread,same_construct,1,Why customers pull back (incl. could not envision value) vs choosing vendors who make the path to value clear,INFERRED
+T-Q09,T-Q10,thread,same_construct,1,Meetings valuable vs accepting follow-on meetings — both measure the Agree gate outcome,INFERRED
+T-Q22,T-Q14,thread,topic,1,Effective sales teams (open) vs how the salesperson's agenda is characterized,INFERRED
+T-Q23,T-Q14,thread,topic,1,Ineffective sales teams (open) vs how the salesperson's agenda is characterized,INFERRED
+T-Q24,T-Q04,thread,topic,1,Primary contact in best relationships vs which referral sources lead to meetings,INFERRED
+T-Q21,T-Q13,thread,topic,1,What differentiates a vendor vs which meeting attributes are differentiators,INFERRED
+T-Q21,T-Q22,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q21,T-Q23,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q21,T-Q24,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q21,T-Q25,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q22,T-Q23,thread,same_respondents,319,319 respondents answered both,RECON_DATA
+T-Q22,T-Q24,thread,same_respondents,319,319 respondents answered both,RECON_DATA
+T-Q22,T-Q25,thread,same_respondents,319,319 respondents answered both,RECON_DATA
+T-Q23,T-Q24,thread,same_respondents,319,319 respondents answered both,RECON_DATA
+T-Q23,T-Q25,thread,same_respondents,319,319 respondents answered both,RECON_DATA
+T-Q24,T-Q25,thread,same_respondents,319,319 respondents answered both,RECON_DATA
+T-S04,T-Q21,thread,same_respondents,6,6 respondents who wrote a 'please specify' answer in S4 also answered Q21,RECON_DATA
+T-S04,T-Q22,thread,same_respondents,6,6 respondents who wrote a 'please specify' answer in S4 also answered Q22,RECON_DATA
+T-S04,T-Q23,thread,same_respondents,6,6 respondents who wrote a 'please specify' answer in S4 also answered Q23,RECON_DATA
+T-S04,T-Q24,thread,same_respondents,6,6 respondents who wrote a 'please specify' answer in S4 also answered Q24,RECON_DATA
+T-S04,T-Q25,thread,same_respondents,6,6 respondents who wrote a 'please specify' answer in S4 also answered Q25,RECON_DATA
+T-Q01,T-Q21,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q1 also answered Q21,RECON_DATA
+T-Q01,T-Q22,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q1 also answered Q22,RECON_DATA
+T-Q01,T-Q23,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q1 also answered Q23,RECON_DATA
+T-Q01,T-Q24,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q1 also answered Q24,RECON_DATA
+T-Q01,T-Q25,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q1 also answered Q25,RECON_DATA
+T-Q07,T-Q21,thread,same_respondents,4,4 respondents who wrote a 'please specify' answer in Q7 also answered Q21,RECON_DATA
+T-Q07,T-Q22,thread,same_respondents,4,4 respondents who wrote a 'please specify' answer in Q7 also answered Q22,RECON_DATA
+T-Q07,T-Q23,thread,same_respondents,4,4 respondents who wrote a 'please specify' answer in Q7 also answered Q23,RECON_DATA
+T-Q07,T-Q24,thread,same_respondents,4,4 respondents who wrote a 'please specify' answer in Q7 also answered Q24,RECON_DATA
+T-Q07,T-Q25,thread,same_respondents,4,4 respondents who wrote a 'please specify' answer in Q7 also answered Q25,RECON_DATA
+T-Q08,T-Q21,thread,same_respondents,19,19 respondents who wrote a 'please specify' answer in Q8 also answered Q21,RECON_DATA
+T-Q08,T-Q22,thread,same_respondents,19,19 respondents who wrote a 'please specify' answer in Q8 also answered Q22,RECON_DATA
+T-Q08,T-Q23,thread,same_respondents,19,19 respondents who wrote a 'please specify' answer in Q8 also answered Q23,RECON_DATA
+T-Q08,T-Q24,thread,same_respondents,19,19 respondents who wrote a 'please specify' answer in Q8 also answered Q24,RECON_DATA
+T-Q08,T-Q25,thread,same_respondents,19,19 respondents who wrote a 'please specify' answer in Q8 also answered Q25,RECON_DATA
+T-Q12,T-Q21,thread,same_respondents,11,11 respondents who wrote a 'please specify' answer in Q12 also answered Q21,RECON_DATA
+T-Q12,T-Q22,thread,same_respondents,11,11 respondents who wrote a 'please specify' answer in Q12 also answered Q22,RECON_DATA
+T-Q12,T-Q23,thread,same_respondents,11,11 respondents who wrote a 'please specify' answer in Q12 also answered Q23,RECON_DATA
+T-Q12,T-Q24,thread,same_respondents,11,11 respondents who wrote a 'please specify' answer in Q12 also answered Q24,RECON_DATA
+T-Q12,T-Q25,thread,same_respondents,11,11 respondents who wrote a 'please specify' answer in Q12 also answered Q25,RECON_DATA
+T-Q13,T-Q21,thread,same_respondents,13,13 respondents who wrote a 'please specify' answer in Q13 also answered Q21,RECON_DATA
+T-Q13,T-Q22,thread,same_respondents,13,13 respondents who wrote a 'please specify' answer in Q13 also answered Q22,RECON_DATA
+T-Q13,T-Q23,thread,same_respondents,13,13 respondents who wrote a 'please specify' answer in Q13 also answered Q23,RECON_DATA
+T-Q13,T-Q24,thread,same_respondents,13,13 respondents who wrote a 'please specify' answer in Q13 also answered Q24,RECON_DATA
+T-Q13,T-Q25,thread,same_respondents,13,13 respondents who wrote a 'please specify' answer in Q13 also answered Q25,RECON_DATA
+T-Q15,T-Q21,thread,same_respondents,15,15 respondents who wrote a 'please specify' answer in Q15 also answered Q21,RECON_DATA
+T-Q15,T-Q22,thread,same_respondents,15,15 respondents who wrote a 'please specify' answer in Q15 also answered Q22,RECON_DATA
+T-Q15,T-Q23,thread,same_respondents,15,15 respondents who wrote a 'please specify' answer in Q15 also answered Q23,RECON_DATA
+T-Q15,T-Q24,thread,same_respondents,15,15 respondents who wrote a 'please specify' answer in Q15 also answered Q24,RECON_DATA
+T-Q15,T-Q25,thread,same_respondents,15,15 respondents who wrote a 'please specify' answer in Q15 also answered Q25,RECON_DATA
+T-Q18,T-Q21,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q18 also answered Q21,RECON_DATA
+T-Q18,T-Q22,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q18 also answered Q22,RECON_DATA
+T-Q18,T-Q23,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q18 also answered Q23,RECON_DATA
+T-Q18,T-Q24,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q18 also answered Q24,RECON_DATA
+T-Q18,T-Q25,thread,same_respondents,1,1 respondents who wrote a 'please specify' answer in Q18 also answered Q25,RECON_DATA
+T-Q19,T-Q21,thread,same_respondents,12,12 respondents who wrote a 'please specify' answer in Q19 also answered Q21,RECON_DATA
+T-Q19,T-Q22,thread,same_respondents,12,12 respondents who wrote a 'please specify' answer in Q19 also answered Q22,RECON_DATA
+T-Q19,T-Q23,thread,same_respondents,12,12 respondents who wrote a 'please specify' answer in Q19 also answered Q23,RECON_DATA
+T-Q19,T-Q24,thread,same_respondents,12,12 respondents who wrote a 'please specify' answer in Q19 also answered Q24,RECON_DATA
+T-Q19,T-Q25,thread,same_respondents,12,12 respondents who wrote a 'please specify' answer in Q19 also answered Q25,RECON_DATA
+T-Q20,T-Q21,thread,same_respondents,23,23 respondents who wrote a 'please specify' answer in Q20 also answered Q21,RECON_DATA
+T-Q20,T-Q22,thread,same_respondents,23,23 respondents who wrote a 'please specify' answer in Q20 also answered Q22,RECON_DATA
+T-Q20,T-Q23,thread,same_respondents,23,23 respondents who wrote a 'please specify' answer in Q20 also answered Q23,RECON_DATA
+T-Q20,T-Q24,thread,same_respondents,23,23 respondents who wrote a 'please specify' answer in Q20 also answered Q24,RECON_DATA
+T-Q20,T-Q25,thread,same_respondents,23,23 respondents who wrote a 'please specify' answer in Q20 also answered Q25,RECON_DATA
+T-S01,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S02,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S03,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S04,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S05,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S06,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S07,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S08,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S09,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S10,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S11,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-S12,G:Screener metadata,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q01,G:Baseline,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q02,G:Baseline,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q03,G:Access,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q04,G:Access,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q05,G:Access,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q06,G:Access,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q07,G:Access,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q08,G:Successful meeting (I call it agree to explore now),thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q09,G:Successful meeting (I call it agree to explore now),thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q10,G:Successful meeting (I call it agree to explore now),thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q11,G:Successful meeting (I call it agree to explore now),thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q12,G:Shared Vision,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q13,G:Shared Vision,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q14,G:Shared Vision,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q15,G:Shared Vision,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q16,G:Shared Vision,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q17,G:Shared Vision,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q18,G:Business Case,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q19,G:Business Case,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q20,G:Business Case,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q21,G:Baseline,thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q22,G:Relationship accounts (open-ended),thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q23,G:Relationship accounts (open-ended),thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q24,G:Relationship accounts (open-ended),thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
+T-Q25,G:Relationship accounts (open-ended),thread→group,in_group,1,scott_grouping.csv,RECALL_DESIGNER
