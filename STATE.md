@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 4 — Analytics library   **Gate:** open
-**Step:** P4.S01 — Scott's review of the inputs Phase 4 computes from
-**Status:** done — decisions applied on `fix/p4-s01-apply-input-review`; awaiting merge
-**Branch:** fix/p4-s01-apply-input-review
+**Step:** P4.S02 — Library conventions
+**Status:** done — awaiting Scott's merge
+**Branch:** phase-4/step-02-library-conventions
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 4
@@ -14,8 +14,8 @@ Outputs go to `04_analytics_library/`. A technique is one file that states the q
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
 | P4.S00 | Propose the Phase 4 step plan | Phase 3 outputs; `GOVERNANCE.md` §5 P4; README | `STATE.md` | Plan merged by Scott; D4-1…D4-3 answered | done | `72906a8` (PR #37) |
-| P4.S01 | **Scott's review of the inputs Phase 4 computes from:** the 47 INFERRED variable definitions (Q-P2a) and the Q21 blank respid (Q-P3a) | `variable_dictionary.csv`; Q-P3a evidence | `02_data_inventory/variable_review.csv` (on a `fix/` branch for P2 outputs); decisions log | Every one of the 47 definitions approved, changed, or dropped by Scott; Q-P3a answered and applied or closed | done — 65 definitions reviewed; Q21 → 112 | fix branch |
-| P4.S02 | **Library conventions:** technique template, `catalog.md`, shared reader for the schema, and the XPath check | XSD; `schema_mapping.csv` | `04_analytics_library/TEMPLATE.md`, `catalog.md`; `scripts/p4_lib.py`; `scripts/p4_check_xpaths.py` | Template has every §5 P4 field; the check fails on an XPath that names an element or attribute not in the XSD (negative test) | not started | — |
+| P4.S01 | **Scott's review of the inputs Phase 4 computes from:** the 47 INFERRED variable definitions (Q-P2a) and the Q21 blank respid (Q-P3a) | `variable_dictionary.csv`; Q-P3a evidence | `02_data_inventory/variable_review.csv` (on a `fix/` branch for P2 outputs); decisions log | Every one of the 47 definitions approved, changed, or dropped by Scott; Q-P3a answered and applied or closed | done — 65 definitions reviewed; Q21 → 112 | PR #38 (`b53c5d4`) |
+| P4.S02 | **Library conventions:** technique template, `catalog.md`, shared reader for the schema, and the XPath check | XSD; `schema_mapping.csv` | `04_analytics_library/TEMPLATE.md`, `catalog.md`; `scripts/p4_lib.py`; `scripts/p4_check_xpaths.py` | Template has every §5 P4 field; the check fails on an XPath that names an element or attribute not in the XSD (negative test) | done — template, catalog, reader, check | this branch |
 | P4.S03 | **Descriptive techniques:** T01 gate profile (answers by gate and cohort); T02 summary measures (top-two box and the other approved definitions); T03 where groups differ (significance flags by gate and dimension) | `full_study.xml`; approved definitions (S01) | `04_analytics_library/T01…T03-*.md`; scripts; outputs | Each technique file complete; script runs; n = 25 enforced; outputs reproducible | not started | — |
 | P4.S04 | **Gap techniques:** T04 value vs experience (pairs of items: what decision-makers value against what they report receiving — pairs proposed by Claude, INFERRED, for Scott's review); T05 not-yes reasons by cohort (Q15) | `full_study.xml`; authored pair list | T04, T05 files; scripts; outputs; `pairs.csv` | Every pair cites both items and is tagged INFERRED until reviewed; Q15 reasons by every usable cohort | not started | — |
 | P4.S05 | **Network techniques:** T06 thread network (degree, centrality, communities on the structural links); T07 statistical thread links (correlation of answer profiles across cohorts — new link type, ecological) | `full_study.xml` Graph and Results | T06, T07 files; scripts; outputs (incl. GraphML) | Ecological caveat stated in T07 and in its output; only cohorts with n ≥ 25 enter correlations | not started | — |
@@ -302,6 +302,9 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: Phase 4 plan merged (PR #37, `fae193e`).
 - 2026-10-29: P4.S01 decided (Scott, via question card: "Accept all (Recommended)"). Q-P2a — A: frequency measures report "Frequently" as the headline (18 new `__topbox` variables) and keep "Occasionally + Frequently" as secondary; B agreement, C importance, D differentiator, E Q18 self-built, F the two recodes — approved. Q-P3a — SRC-003 Q21!A6 (blank respid) assigned to 112 by row alignment, INFERRED.
 - 2026-10-29: P4.S01 applied on `fix/p4-s01-apply-input-review`, one labeled commit per affected step: decision records (`variable_review_decisions.csv`, `respid_corrections.csv`); variable dictionary 189 → 207, all 65 INFERRED definitions `confirmedByScott` with a headline/secondary role (`variable_review.csv`); link weight Q21∩Q23 318 → 319 (evidence names the inferred key); every respid reader applies the same correction file and stops if the source cell is not the expected blank; schema dms 1.0.0 → 1.1.0 (additive; all 1.0.0 instances still validate; gates unchanged); instances regenerated. P1 cross-check 10/10 (its report refresh also fixes the stale RECALL_DESIGNER 94 → 96), P2 10/10, P3 13/13. Scott to tag `schema-v1.1.0` after merge.
+- 2026-10-29: P4.S01 merged (PR #38, `b53c5d4`). Tag `schema-v1.1.0` not yet created (Scott).
+- 2026-10-29: Scott replied "next" — taken as approval of P4.S02 only; a batch needs approval by name (BT1).
+- 2026-10-29: P4.S02 library conventions: technique template (12 front-matter fields + 6 body sections), generated catalog, shared reader `p4_lib.py` (reads full_study.xml only; marks a result usable when cohort n and item base are both ≥ 25 — 18,162 of 22,968), XPath check with a built-in negative test. Techniques run with `python3 -I` and add `scripts/` to the path explicitly to import the reader.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
