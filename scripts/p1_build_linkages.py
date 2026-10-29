@@ -124,14 +124,14 @@ def main() -> int:
     resp = {}
     oe = pd.read_excel(SRC3, sheet_name=None, dtype=str)
     for k, d in oe.items():
-        a = d.iloc[:, 2].astype(str).str.strip()
-        resp[f"T-Q{int(k[1:]):02d}"] = set(d.loc[d["respid"].notna() & a.ne("") & a.ne("nan"), "respid"])
+        a = d.iloc[:, 2].fillna("").astype(str).str.strip()   # blank cells are not answers
+        resp[f"T-Q{int(k[1:]):02d}"] = set(d.loc[d["respid"].notna() & a.ne(""), "respid"])
     other = pd.read_excel(SRC2, sheet_name='"Other" Text Answers', dtype=str)
     spec = defaultdict(set)
     for c in other.columns[1:]:
         m = re.match(r"((?:Q|S)\d+)", str(c))
-        v = other[c].astype(str).str.strip()
-        ids = set(other.loc[other["respid"].notna() & other[c].notna() & v.ne(""), "respid"])
+        v = other[c].fillna("").astype(str).str.strip()
+        ids = set(other.loc[other["respid"].notna() & v.ne(""), "respid"])
         if ids:
             spec[f"T-{m.group(1)[0]}{int(m.group(1)[1:]):02d}"] |= ids
     for a, b in itertools.combinations(sorted(resp), 2):
