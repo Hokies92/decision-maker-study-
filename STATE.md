@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 2 — Inventory the data   **Gate:** open
-**Step:** P2.S00 — Propose the Phase 2 step plan
-**Status:** done (awaiting Scott's merge = plan approval)
-**Branch:** phase-2/step-00-plan
+**Step:** P2.S01 — Extract every result (batch S01–S07)
+**Status:** batch S01–S07 in progress
+**Branch:** phase-2/steps-01-07-data-inventory
 **Updated:** 2026-10-27 by Claude session
 
 ## Step plan — Phase 2
@@ -13,8 +13,8 @@ Outputs go to `02_data_inventory/`. Phase 2 reads the results for the first time
 
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
-| P2.S00 | Propose the Phase 2 step plan | Phase 1 outputs; `GOVERNANCE.md` §5 P2 | `STATE.md` | Plan merged by Scott | done — awaiting Scott | this branch |
-| P2.S01 | **Extract every result:** one row per item × answer option × cohort, with the share, the cohort's base for that item, and the source cell | SRC-002 (5 table sheets); `table_blocks.csv`; `cohorts.csv` | `02_data_inventory/results.csv`; `scripts/p2_extract_results.py` | Every tabulated cell extracted once; each cell cited by sheet and cell; shares in 0–1; the All-respondents column agrees across all five sheets | not started | — |
+| P2.S00 | Propose the Phase 2 step plan | Phase 1 outputs; `GOVERNANCE.md` §5 P2 | `STATE.md` | Plan merged by Scott | done | `9c4a7d5` (PR #27) |
+| P2.S01 | **Extract every result:** one row per item × answer option × cohort, with the share, the cohort's base for that item, and the source cell | SRC-002 (5 table sheets); `table_blocks.csv`; `cohorts.csv` | `02_data_inventory/results.csv`; `scripts/p2_extract_results.py` | Every tabulated cell extracted once; each cell cited by sheet and cell; shares in 0–1; the All-respondents column agrees across all five sheets | done — 24,552 results | batch branch |
 | P2.S02 | **Significance layer:** turn the 1,688 cell comments into one flag per question × breakout dimension (significant / not significant / not tested — table too small) | SRC-002 comments; `table_blocks.csv`; `cohort_dimensions.csv` | `02_data_inventory/significance.csv`; script | Every comment parsed into exactly one of the three states; every flag tied to a question item and a dimension; comment counts reconcile per sheet | not started | — |
 | P2.S03 | **Variable dictionary:** every variable with name, label, source question, type, valid values, status collected / derivable / missing, and a rule for every derivable one | `question_map.csv`; `response_scales.csv`; `routing.csv`; `anomalies.csv`; `results.csv` | `02_data_inventory/variable_dictionary.csv` + `.md`; script | Every item and every derived variable listed; each derivable variable has an explicit rule (incl. Q6 bucket read as 0–5, A04); missing variables named (raw S8, S5 piped text, Q20_4, industry 39 → 7 mapping, all respondent-level answers) | not started | — |
 | P2.S04 | **Data quality:** per variable — base n, non-substantive share (don't know / other), out-of-range values, sum checks (single choice and grid rows sum to 1 per cohort), Main Page vs breakout agreement, outliers | `results.csv`; `variable_dictionary.csv`; `anomalies.csv` | `02_data_inventory/data_quality.md` + csv; script | Every check produced by a committed script; every failure listed with evidence; Q6 outlier (A05) carried | not started | — |
@@ -176,6 +176,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P1.S10a asymmetry lexicon, pass 1: 26 concepts across Target, Baseline, Access, Agree, Vision, Case, Not yes, Relationship; 61 decision-maker phrases, all VERBATIM and cited; vendor terms INFERRED (trade usage, quoted to expose the vendor side); 6 gaps for Scott to name. Two former gaps closed by the survey's own wording: "building the case myself" = Q18 "We had to do all of the business justification ourselves"; "stalled" = "pulled back" (full wording survives only on Q15_Other — the check caught a wrong citation and it was corrected before commit).
 - 2026-10-29: Phase 1 closed. Gate review merged (PR #26, `4f9d46d`); Scott created tag `phase-1-complete`.
 - 2026-10-29: Structure check for the Phase 2 plan (read-only): significance comments sit on each question's header row, one per breakout dimension's first column — each is a test of whether that dimension and that question are related (significant / not significant / not tested). This is a ready-made statistical link between screener dimensions and question threads, for Phase 4.
+- 2026-10-29: Phase 2 plan approved (PR #27). Batch S01–S07 approved by Scott by name ("Run s01-s07 as one batch") — BT1. Branch `phase-2/steps-01-07-data-inventory`.
+- 2026-10-29: P2.S01 results extracted: 24,552 cells (item × option × cohort) from the five table sheets — 24,224 values, 328 not asked ('-'), 0 blank; every value within 0–1; the All-respondents share agrees across all five sheets for all 396 item-options. Main Page condensed Q11/Q15 split back to their items; Sheet1 (duplicate) not extracted.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
