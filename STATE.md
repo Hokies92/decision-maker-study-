@@ -2,8 +2,8 @@
 
 ## Current
 **Phase:** 3 — Design the new schema   **Gate:** open
-**Step:** P3.S04 — Schema mapping (batch S02–S05)
-**Status:** done — next P3.S05 in batch
+**Step:** P3.S05 — Cross-check (batch S02–S05)
+**Status:** batch done — S02–S05 complete; next P3.S06 gate review (not started)
 **Branch:** phase-3/steps-02-05-schema-build
 **Updated:** 2026-10-29 by Claude session
 
@@ -18,7 +18,7 @@ Outputs go to `03_schema/`. The schema stores what the source holds — each res
 | P3.S02 | **XSD v1** | `design_brief.md`; ADRs | `03_schema/decision-maker-study.xsd` | Namespace ends `/dms/v1`; every entity in the brief is a type; every reference enforced by key/keyref (result → item, option, cohort; cohort → dimension; link → thread; gate assignment → thread and gate); respondent elements optional; provenance attribute restricted to the six tags; the schema itself loads in `xmllint` | done — 2 schemas, 15 keys, 26 keyrefs | batch branch |
 | P3.S03 | **Instance generator and examples** | P1 and P2 outputs; SRC-003 (respondent text) | `scripts/p3_build_instances.py`; `03_schema/examples/full_study.xml`, `thread_q15.xml`, `respondents_open_ended.xml` | All three validate against the XSD; `full_study.xml` holds every result (24,552), flag (1,686), cohort (115), item (136), and link (381) exactly once; `full_study.xml` validates with no respondent layer (proves it optional); respondent example carries the real respid-keyed answers unchanged; generator re-runs byte-identical | done — 4 instances validate | batch branch |
 | P3.S04 | **Schema mapping** | `variable_dictionary.csv`; XSD; `full_study.xml` | `03_schema/schema_mapping.csv`; `scripts/p3_build_schema_mapping.py` | All 189 variables → an XPath, or `EXCLUDED` with reason; every XPath checked by script to resolve in `full_study.xml` or to name an optional respondent slot | done — 189 variables mapped | batch branch |
-| P3.S05 | Cross-check | All P3 outputs | `scripts/p3_crosscheck.py`; `03_schema/crosscheck_report.md` | `xmllint` passes on every example; counts reconcile to Phase 2; negative tests fail as expected (broken reference, bad provenance tag, wrong namespace); generators byte-identical; source checksums OK | not started | — |
+| P3.S05 | Cross-check | All P3 outputs | `scripts/p3_crosscheck.py`; `03_schema/crosscheck_report.md` | `xmllint` passes on every example; counts reconcile to Phase 2; negative tests fail as expected (broken reference, bad provenance tag, wrong namespace); generators byte-identical; source checksums OK | done — 13/13 pass | batch branch |
 | P3.S06 | Draft Phase 3 gate review | All P3 outputs | Gate review block | Every §5 P3 criterion checked with evidence; stop for Scott's merge and tags `schema-v1.0.0` and `phase-3-complete` | not started | — |
 
 Batch **S02–S05** approved by Scott by name ("Run S02–S05 as one batch.") — branch `phase-3/steps-02-05-schema-build`.
@@ -245,6 +245,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: New source anomaly (found in P3.S03): SRC-003 Q21 row 6 has a blank respid (a single space) with an answer; on Q22–Q25 row 6 is respid 112, and the five sheets' respid columns match on 358 of 359 rows — the only difference is this cell. Not attributed: stored under the blank key, so the respondent layer has 319 respids plus one blank key. Earlier counts stand (319 respondents per sheet; 318 answered all five). If attributed to 112, the P1.S08 link weight Q21∩Q23 would rise from 318 to 319. Open question Q-P3a.
 - 2026-10-29: P3.S02 amended a third time (found in S04, separate fix commit): optional Respondent/Answer for one person's structured answers — design_brief §2 reserved it, the XSD lacked it. Synthetic record now carries two Answers so the slot is exercised.
 - 2026-10-29: P3.S04 schema mapping: 189 of 189 variables — results 118, respondent text 18 (3 empty in source: S1_Other, Q11_Other, Q20_4_text), rule only 45 (summary measures, ADR-011), respondent slot 2 (structured answers; function/level per respondent), EXCLUDED 6 with reasons (S8 raw, S5 piped text, Q20_4 content, 39 → 7 industry map, significance statistics, weights). Every XPath evaluated by script.
+- 2026-10-29: P3.S05 cross-check: 13 of 13 pass. full_study.xml reconciles exactly to Phases 1–2 (0 mismatches in cells, flags, links); every result reaches a gate group (Target-input 6,844, Access 4,176, Agree 2,726, Vision 5,394, Case 2,842, Baseline 986 distinct results); 4,752 results (function × level cohorts) reach both stakeholder type and role level; the gate module validates on its own; 11 of 11 broken copies rejected. C13 (no study date) first failed on S7's verbatim wording "in calendar year 2013"; the check was narrowed to what ADR-010 forbids — no date field anywhere, and years only inside copied source wording (6 copies, kept VERBATIM, not analysed).
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
