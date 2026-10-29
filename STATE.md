@@ -2,8 +2,8 @@
 
 ## Current
 **Phase:** 4 — Analytics library   **Gate:** open
-**Step:** P4.S05 — Network techniques (batch S03–S07)
-**Status:** in progress — S03–S04 done
+**Step:** P4.S06 — Topology techniques (batch S03–S07)
+**Status:** in progress — S03–S05 done
 **Branch:** phase-4/steps-03-07-techniques
 **Updated:** 2026-10-29 by Claude session
 
@@ -18,7 +18,7 @@ Outputs go to `04_analytics_library/`. A technique is one file that states the q
 | P4.S02 | **Library conventions:** technique template, `catalog.md`, shared reader for the schema, and the XPath check | XSD; `schema_mapping.csv` | `04_analytics_library/TEMPLATE.md`, `catalog.md`; `scripts/p4_lib.py`; `scripts/p4_check_xpaths.py` | Template has every §5 P4 field; the check fails on an XPath that names an element or attribute not in the XSD (negative test) | done — template, catalog, reader, check | PR #39 (`e7ffd98`) |
 | P4.S03 | **Descriptive techniques:** T01 gate profile (answers by gate and cohort); T02 summary measures (top-two box and the other approved definitions); T03 where groups differ (significance flags by gate and dimension) | `full_study.xml`; approved definitions (S01) | `04_analytics_library/T01…T03-*.md`; scripts; outputs | Each technique file complete; script runs; n = 25 enforced; outputs reproducible | done — T01–T03 | batch branch |
 | P4.S04 | **Gap techniques:** T04 value vs experience (pairs of items: what decision-makers value against what they report receiving — pairs proposed by Claude, INFERRED, for Scott's review); T05 not-yes reasons by cohort (Q15) | `full_study.xml`; authored pair list | T04, T05 files; scripts; outputs; `pairs.csv` | Every pair cites both items and is tagged INFERRED until reviewed; Q15 reasons by every usable cohort | done — T04–T05 | batch branch |
-| P4.S05 | **Network techniques:** T06 thread network (degree, centrality, communities on the structural links); T07 statistical thread links (correlation of answer profiles across cohorts — new link type, ecological) | `full_study.xml` Graph and Results | T06, T07 files; scripts; outputs (incl. GraphML) | Ecological caveat stated in T07 and in its output; only cohorts with n ≥ 25 enter correlations | not started | — |
+| P4.S05 | **Network techniques:** T06 thread network (degree, centrality, communities on the structural links); T07 statistical thread links (correlation of answer profiles across cohorts — new link type, ecological) | `full_study.xml` Graph and Results | T06, T07 files; scripts; outputs (incl. GraphML) | Ecological caveat stated in T07 and in its output; only cohorts with n ≥ 25 enter correlations | done — T06–T07 | batch branch |
 | P4.S06 | **Topology techniques:** T08 cohort similarity and clusters; T09 map of cohorts × items (correspondence analysis or equivalent) | `full_study.xml` | T08, T09 files; scripts; outputs | Method and its limits stated; reproducible with fixed seeds | not started | — |
 | P4.S07 | Cross-check | All P4 outputs | `scripts/p4_crosscheck.py`; `04_analytics_library/crosscheck_report.md` | Every referenced XPath exists in the XSD; every technique has all fields; n = 25 never breached in a comparison; scripts byte-identical; source checksums OK | not started | — |
 | P4.S08 | Draft Phase 4 gate review | All P4 outputs | Gate review block | Every §5 P4 criterion checked with evidence; stop for Scott's merge and tag | not started | — |
@@ -309,6 +309,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P4.S02 extended during S03 (separate fix commit): `p4_lib.measures()` — one table of named measures per cohort (63 summary, 47 selection, 179 option), so every technique computes from one definition.
 - 2026-10-29: P4.S03 T01–T03 built with scripts and outputs. T03 on the source's own significance flags: share of tests where groups differ — Baseline 12%, Access 26%, Agree 13%, Vision 9%, Case 9% (chance ≈ 5%).
 - 2026-10-29: P4.S04 T04–T05 built. T04 (pairs INFERRED, for Scott's review — `04_analytics_library/pairs.csv`): understands my business issues — valued 0.61, received 0.22, gap negative in all 50 usable cohorts; equipped to make the case — 0.86 vs 0.40, negative in all 50; the pitch — valued 0.16, delivered 0.60, positive in all 50 (oversupply); prepared on themselves 0.62 vs on my issues 0.22, in all 50. T05: losing to another vendor ranks first in 42 of 50 cohorts; 'could not envision how the value would be delivered' in 10 (ties counted for each); Q15 differs significantly in 2 of 52 tests.
+- 2026-10-29: P4.S02 extended again during S05 (separate fix commit): `headline_measures()` — one number per substantive question per cohort (73; Q9/Q10/Q16 'Frequently' and Q14 'agenda helps' rules INFERRED) — and `cohort_matrix()` (49 usable cohorts × 73, complete).
+- 2026-10-29: P4.S05 T06–T07 built. T06: structural communities follow the instrument's mechanics (shared scales, text answered by the same respondents), not the gates — modularity 0.324 found vs 0.053 for Scott's grouping; the gates are a conceptual grouping. T07: 42 candidate statistical links (|rho| ≥ 0.6) among 2,413 measure pairs, 31 across gates, most between Agree and Vision (12) and Access and Agree (10); ecological — cohorts overlap, no p-values.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
