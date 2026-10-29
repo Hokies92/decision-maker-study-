@@ -1,0 +1,277 @@
+source,target_thread,target_group,link_type,provenance,rationale
+D-FUNCTION,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Main Page
+D-FUNCTION,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Main Page
+D-LEVEL-IT,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Main Page
+D-LEVEL-BUS,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Main Page
+D-LEVEL,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Main Page
+D-COUNTRY,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Main Page
+D-REGION,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Main Page
+D-REGION,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Main Page
+D-REGION,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Main Page
+D-REGION,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Main Page
+D-REGION,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Main Page
+D-REGION,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Main Page
+D-REGION,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Main Page
+D-REGION,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Main Page
+D-REGION,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Main Page
+D-REGION,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Main Page
+D-REGION,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Main Page
+D-REGION,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Main Page
+D-REGION,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Main Page
+D-REGION,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Main Page
+D-REGION,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Main Page
+D-REGION,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Main Page
+D-REGION,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Main Page
+D-REGION,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Main Page
+D-REGION,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Main Page
+D-REGION,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Main Page
+D-INDUSTRY7,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Industry 7
+D-INDUSTRY7,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Industry 7
+D-EMPLOYEES,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Company Size & Revenue
+D-EMPLOYEES,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Company Size & Revenue
+D-REVENUE,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Company Size & Revenue
+D-CONTACTFREQ,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Sales Engagement
+D-CONTACTFREQ,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Sales Engagement
+D-SELLSTO,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Sales Engagement
+D-STAGE,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Decision Making Stages
+D-STAGE,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q01,Baseline,breakout_of,RECON_DATA,results for Q1 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q02,Baseline,breakout_of,RECON_DATA,results for Q2 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q03,Access,breakout_of,RECON_DATA,results for Q3 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q04,Access,breakout_of,RECON_DATA,results for Q4 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q05,Access,breakout_of,RECON_DATA,results for Q5 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q06,Access,breakout_of,RECON_DATA,results for Q6 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q07,Access,breakout_of,RECON_DATA,results for Q7 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q08,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q8 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q09,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q9 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q10,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q10 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q11,Successful meeting (I call it agree to explore now),breakout_of,RECON_DATA,results for Q11 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q12,Shared Vision,breakout_of,RECON_DATA,results for Q12 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q13,Shared Vision,breakout_of,RECON_DATA,results for Q13 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q14,Shared Vision,breakout_of,RECON_DATA,results for Q14 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q15,Shared Vision,breakout_of,RECON_DATA,results for Q15 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q16,Shared Vision,breakout_of,RECON_DATA,results for Q16 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q17,Shared Vision,breakout_of,RECON_DATA,results for Q17 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q18,Business Case,breakout_of,RECON_DATA,results for Q18 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q19,Business Case,breakout_of,RECON_DATA,results for Q19 are tabulated by this dimension on Decision Making Stages
+D-STAGE-BUS,T-Q20,Business Case,breakout_of,RECON_DATA,results for Q20 are tabulated by this dimension on Decision Making Stages
+D-FUNCTION,T-S02,Screener metadata,routes_to,RECON_DATA,IT path asks S2 (skip_logic R01/R02)
+D-FUNCTION,T-S04,Screener metadata,routes_to,RECON_DATA,IT path asks S4 (skip_logic R01/R02)
+D-FUNCTION,T-S03,Screener metadata,routes_to,RECON_DATA,business path asks S3 (skip_logic R01/R02)
+D-FUNCTION,T-S06,Screener metadata,routes_to,RECON_DATA,business path asks S6 (skip_logic R01/R02)
+D-CONTACTFREQ,T-Q03,Access,relates_to,INFERRED,How often the decision-maker meets salespeople bears on how they respond to contact channels (Access)
+D-CONTACTFREQ,T-Q06,Access,relates_to,INFERRED,Contact frequency bears on appointments accepted per week (Access)
+D-CONTACTFREQ,T-Q07,Access,relates_to,INFERRED,Contact frequency bears on reasons for accepting an appointment (Access)
+D-LEVEL,T-Q05,Access,relates_to,INFERRED,Senior decision-makers are more likely to have staff who screen meeting requests (Access)
+D-LEVEL,T-Q20,Business Case,relates_to,INFERRED,Seniority bears on purchase authority (Business Case)
+D-STAGE:Authorizing purchases,T-Q20,Business Case,relates_to,INFERRED,Those who authorize purchases are the ones a purchase limit applies to (Business Case)
+D-STAGE:Setting or managing budgets,T-Q17,Shared Vision,relates_to,INFERRED,Budget owners build or judge the business case (Shared Vision)
+D-STAGE:Choosing/recommending vendors,T-Q01,Baseline,relates_to,INFERRED,Those who choose vendors define what a strategic vendor is (Baseline)
+D-STAGE:Requirements definition,T-Q16,Shared Vision,relates_to,INFERRED,Requirements owners shape the path from vision to value (Shared Vision)
+D-ITROLE:Sourcing and vendor management,T-Q05,Access,relates_to,INFERRED,Sourcing roles act as gatekeepers for vendor meetings (Access)
+D-ITROLE:Chief information officer,T-Q20,Business Case,relates_to,INFERRED,CIOs hold purchase authority (Business Case)
+D-SELLSTO,T-Q12,Shared Vision,relates_to,INFERRED,Whether the company itself sells B2B or B2C may shape how vendor materials are judged (Shared Vision)

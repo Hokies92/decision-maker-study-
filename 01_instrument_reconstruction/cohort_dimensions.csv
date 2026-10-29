@@ -1,0 +1,17 @@
+dimension_id,name,layer,parent_dimension,source_items,derived_from,membership,tabulated,n_cohorts,definition,definition_prov,hierarchy_prov
+D-FUNCTION,Function (IT vs business),person,,S1,S1 (IT or IS department → ITDM),exclusive,yes,2,Which of the following departments do you work in?,VERBATIM,
+D-DEPT,Department,person,D-FUNCTION,S1,,exclusive,no — definable only,9,Which of the following departments do you work in?,VERBATIM,RECALL_DESIGNER
+D-LEVEL-IT,Level — IT decision-makers,person,D-FUNCTION,S2,,exclusive,yes,4,Which of the following most closely describes your position?,VERBATIM,RECALL_DESIGNER
+D-LEVEL-BUS,Level — business decision-makers,person,D-FUNCTION,S3,,exclusive,yes,4,Which title best describes your position at your organization?,VERBATIM,RECALL_DESIGNER
+D-LEVEL,Level — combined,person,,S2;S3,S2 + S3 combined,exclusive,yes,4,Which of the following most closely describes your position?,VERBATIM,
+D-ITROLE,IT role,person,D-FUNCTION,S4,,exclusive,no — definable only,9,Which of the following titles best describes your role?,VERBATIM,RECALL_DESIGNER
+D-STAGE,Decision stages involved in,person,D-FUNCTION,S5,,overlapping,yes,5,In which of the following stages of 'hS5Piping' decision-making are you currently involved?,VERBATIM,RECALL_DESIGNER
+D-STAGE-BUS,IT decision stages (business decision-makers),person,D-FUNCTION,S6,,overlapping,yes,5,We are also interested in your involvement in IT decision-making. In what stages of the IT decision-making process are you involved?,VERBATIM,RECALL_DESIGNER
+D-REVENUE,Company revenue,company,,S7,,exclusive,yes,8,"Using your best estimate, in calendar year 2013, what were your companys worldwide revenues?",VERBATIM,
+D-EMPLOYEES,Company employees,company,,S8,"S8 numeric answer, bucketed",exclusive,yes,3,"Using your best estimate, how many employees work for your company worldwide?",VERBATIM,
+D-COUNTRY,Headquarters country,company,D-REGION,S9,,exclusive,yes,5,In which country is your company headquartered?,VERBATIM,RECON_DATA
+D-REGION,Headquarters region,company,,S9,S9_Country,exclusive,yes,2,In which country is your company headquartered?,VERBATIM,
+D-CONTACTFREQ,Frequency of contact with salespeople,engagement,,S10,,exclusive,yes,3,How frequently do you engage with a vendor sales person?,VERBATIM,
+D-SELLSTO,Company's own customers (B2B/B2C),company,,S11,,exclusive,yes,5,To whom does your company sell primarily?,VERBATIM,
+D-INDUSTRY39,Industry — 39 categories,company,D-INDUSTRY7,S12,,exclusive,no — definable only,39,Which of the following best describes your firm’s primary industry?,VERBATIM,RECON_DATA
+D-INDUSTRY7,Industry — 7 groups,company,,S12,S12 (39 → 7),exclusive,yes,7,Which of the following best describes your firm’s primary industry?,VERBATIM,
