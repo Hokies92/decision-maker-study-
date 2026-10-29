@@ -12,7 +12,7 @@
            targetNamespace="https://growthenablement.com/ns/dms/v1"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified"
-           version="1.0.0">
+           version="1.1.0">
 
   <xs:import namespace="https://growthenablement.com/ns/gates/v1" schemaLocation="gates.xsd"/>
 
@@ -36,6 +36,14 @@
   <xs:simpleType name="Reviewed">
     <xs:annotation><xs:documentation>An INFERRED item Scott approved keeps INFERRED and carries this flag (ADR-008).</xs:documentation></xs:annotation>
     <xs:restriction base="xs:string"><xs:enumeration value="confirmedByScott"/></xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MeasureRole">
+    <xs:annotation><xs:documentation>For summary measures: headline (the one to report) or secondary (kept alongside). Added in 1.1.0.</xs:documentation></xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="headline"/>
+      <xs:enumeration value="secondary"/>
+    </xs:restriction>
   </xs:simpleType>
 
   <xs:simpleType name="ItemRole">
@@ -477,6 +485,8 @@
     <xs:attribute name="item" type="d:Ref"/>
     <xs:attribute name="type" type="xs:string"/>
     <xs:attribute name="scale" type="d:Ref"/>
+    <xs:attribute name="role" type="d:MeasureRole"/>
+    <xs:attribute name="reviewed" type="d:Reviewed"/>
     <xs:attribute name="provenance" type="g:Provenance" use="required"/>
   </xs:complexType>
 
@@ -507,6 +517,10 @@
         <xs:attribute name="item" type="d:Ref" use="required"/>
         <xs:attribute name="cite" type="xs:string"/>
         <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+        <xs:attribute name="keyProvenance" type="g:Provenance">
+          <xs:annotation><xs:documentation>Present only when the respondent key was assigned rather than read from the source cell (respid_corrections.csv). Added in 1.1.0.</xs:documentation></xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="keyNote" type="xs:string"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>

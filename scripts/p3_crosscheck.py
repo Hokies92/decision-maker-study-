@@ -87,11 +87,12 @@ def main() -> int:
     # C03
     d_ns = etree.parse(str(XSD)).getroot().get("targetNamespace")
     g_ns = etree.parse(str(GXSD)).getroot().get("targetNamespace")
-    vers = {etree.parse(str(XSD)).getroot().get("version"), etree.parse(str(GXSD)).getroot().get("version")}
+    d_v = etree.parse(str(XSD)).getroot().get("version")
+    g_v = etree.parse(str(GXSD)).getroot().get("version")
     inst_v = {d.getroot().get("schemaVersion") for d in docs.values()}
-    check("C03", "Namespaces end /dms/v1 and /gates/v1; versions agree",
-          d_ns.endswith("/dms/v1") and g_ns.endswith("/gates/v1") and vers == {"1.0.0"} and inst_v == {"1.0.0"},
-          f"{d_ns}; {g_ns}; schema {sorted(vers)}; instances {sorted(inst_v)}")
+    check("C03", "Namespaces carry the major version; instances match the schema version",
+          d_ns.endswith(f"/dms/v{d_v.split('.')[0]}") and g_ns.endswith(f"/gates/v{g_v.split('.')[0]}") and inst_v == {d_v},
+          f"{d_ns} (schema {d_v}); {g_ns} (gate module {g_v}); instances {sorted(inst_v)}")
 
     # C04 — reconcile full_study to Phase 1–2
     R1, R2 = Path("01_instrument_reconstruction"), Path("02_data_inventory")
@@ -215,13 +216,23 @@ def main() -> int:
     resp = docs["respondents_open_ended.xml"]
     oe = pd.read_excel("00_source/data/open_ended.xlsx", sheet_name=None, dtype=str)
     other = pd.read_excel("00_source/data/survey.xlsx", sheet_name='"Other" Text Answers', dtype=str)
-    mism = 0
+    import csv as _csv
+    corr = {(c["sheet"], c["cell"]): c for c in _csv.DictReader(
+        Path("01_instrument_reconstruction/respid_corrections.csv").open(encoding="utf-8")) if c["source"] == "SRC-003"}
+    mism = keyed = 0
     for a in x(resp, "//d:TextAnswer"):
         m = re.fullmatch(r"(SRC-00\d) (.+)!([A-Z]+)(\d+)", a.get("cite"))
         src, sh, col, row = m.groups()
         df = oe[sh] if src == "SRC-003" else other
         i, j = int(row) - 2, column_index_from_string(col) - 1
-        if df.iloc[i, j] != a.text or df.iloc[i, 0] != a.getparent().get("respid"):
+        c = corr.get((sh, f"A{row}")) if src == "SRC-003" else None
+        want_rid = c["assigned_respid"] if c else df.iloc[i, 0]
+        if c and not (df.iloc[i, 0] == c["source_value"] and a.get("keyProvenance") == c["provenance"]):
+            mism += 1
+        if not c and a.get("keyProvenance") is not None:
+            mism += 1
+        keyed += c is not None
+        if df.iloc[i, j] != a.text or want_rid != a.getparent().get("respid"):
             mism += 1
     rids = [r.get("respid") for r in x(resp, "//d:Respondent")]
     inferred_attr = sum(len(x(d, "//d:Respondent/d:Attributes[@provenance='INFERRED']")) for d in docs.values())
@@ -229,7 +240,8 @@ def main() -> int:
     check("C08", "Respondent layer optional and faithful",
           no_layer and mism == 0 and inferred_attr == 0 and len([r for r in rids if r.strip()]) == 319,
           f"full_study has no Respondents: {no_layer}; text answers {len(x(resp, '//d:TextAnswer'))}, mismatches {mism}; "
-          f"respids {len([r for r in rids if r.strip()])} + blank keys {len([r for r in rids if not r.strip()])} (Q-P3a); "
+          f"respids {len([r for r in rids if r.strip()])} + blank keys {len([r for r in rids if not r.strip()])}; "
+          f"answers with an assigned key (respid_corrections.csv) {keyed}; "
           f"inferred attributes {inferred_attr}")
 
     # C09 — synthetic containment and provenance counts

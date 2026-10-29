@@ -39,6 +39,26 @@ GENERATORS = [
 ]
 
 
+RESPID_CORRECTIONS = Path("01_instrument_reconstruction/respid_corrections.csv")
+
+
+def apply_respid_corrections(sheets):
+    """Apply Scott-approved respid corrections (P4.S01, respid_corrections.csv) to SRC-003 sheets read with
+    dtype=str. Stops if the source cell does not hold the value the correction expects. Returns what it applied."""
+    import csv as _csv
+    done = []
+    for c in _csv.DictReader(RESPID_CORRECTIONS.open(encoding="utf-8")):
+        if c["source"] != "SRC-003":
+            continue
+        d, i = sheets[c["sheet"]], int(c["cell"][1:]) - 2
+        if c["cell"][0] != "A" or d.iloc[i, 0] != c["source_value"]:
+            raise SystemExit(f"respid correction {c['sheet']}!{c['cell']}: source holds {d.iloc[i, 0]!r}, "
+                             f"expected {c['source_value']!r}")
+        d.iloc[i, 0] = c["assigned_respid"]
+        done.append(c)
+    return done
+
+
 def read(path):
     return list(csv.DictReader(Path(path).open(encoding="utf-8")))
 
@@ -101,6 +121,7 @@ def main() -> int:
     oe = read(OD / "open_ended_inventory.csv")
     import pandas as pd
     sheets = pd.read_excel("00_source/data/open_ended.xlsx", sheet_name=None, dtype=str)
+    apply_respid_corrections(sheets)
     answered = {}
     for q, d in sheets.items():
         d = d[d["respid"].notna()]
