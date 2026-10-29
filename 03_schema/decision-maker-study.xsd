@@ -511,6 +511,15 @@
     </xs:simpleContent>
   </xs:complexType>
 
+  <xs:complexType name="AnswerType">
+    <xs:annotation><xs:documentation>One respondent's structured answer to one item: an option (scale, option) for closed items, or a value for numeric entries. Empty in this study — the source holds tables only.</xs:documentation></xs:annotation>
+    <xs:attribute name="item" type="d:Ref" use="required"/>
+    <xs:attribute name="scale" type="d:Ref"/>
+    <xs:attribute name="option" type="xs:positiveInteger"/>
+    <xs:attribute name="value" type="xs:string"/>
+    <xs:attribute name="provenance" type="g:Provenance" use="required"/>
+  </xs:complexType>
+
   <xs:complexType name="ReasonType">
     <xs:sequence><xs:element name="Note" type="xs:string" minOccurs="0"/></xs:sequence>
     <xs:attribute name="thread" type="d:Ref" use="required"/>
@@ -547,6 +556,7 @@
           <xs:attribute name="provenance" type="g:Provenance" use="required"/>
         </xs:complexType>
       </xs:element>
+      <xs:element name="Answer" type="d:AnswerType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="TextAnswer" type="d:TextAnswerType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="DecisionPath" type="d:DecisionPathType" minOccurs="0" maxOccurs="unbounded">
         <xs:unique name="eventSeqUnique">
@@ -638,6 +648,8 @@
     <xs:keyref name="linkToGroupRef" refer="d:groupKey"><xs:selector xpath="d:Graph/d:Link"/><xs:field xpath="@toGroup"/></xs:keyref>
     <xs:keyref name="linkToVariableRef" refer="d:variableKey"><xs:selector xpath="d:Graph/d:Link"/><xs:field xpath="@toVariable"/></xs:keyref>
     <xs:keyref name="respondentNodeRef" refer="d:nodeKey"><xs:selector xpath="d:Respondents/d:Respondent/d:Attributes/d:NodeRef"/><xs:field xpath="@node"/></xs:keyref>
+    <xs:keyref name="answerItemRef" refer="d:itemKey"><xs:selector xpath="d:Respondents/d:Respondent/d:Answer"/><xs:field xpath="@item"/></xs:keyref>
+    <xs:keyref name="answerOptionRef" refer="d:optionKey"><xs:selector xpath="d:Respondents/d:Respondent/d:Answer"/><xs:field xpath="@scale"/><xs:field xpath="@option"/></xs:keyref>
     <xs:keyref name="textAnswerItemRef" refer="d:itemKey"><xs:selector xpath="d:Respondents/d:Respondent/d:TextAnswer"/><xs:field xpath="@item"/></xs:keyref>
     <xs:keyref name="reasonThreadRef" refer="d:threadKey"><xs:selector xpath="d:Respondents/d:Respondent/d:DecisionPath/d:GateEvent/d:Reason"/><xs:field xpath="@thread"/></xs:keyref>
     <xs:keyref name="reasonItemRef" refer="d:itemKey"><xs:selector xpath="d:Respondents/d:Respondent/d:DecisionPath/d:GateEvent/d:Reason"/><xs:field xpath="@item"/></xs:keyref>
