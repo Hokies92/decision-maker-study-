@@ -1,0 +1,509 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="edge" attr.name="caveat" attr.type="string"/>
+<key id="d3" for="edge" attr.name="link_type" attr.type="string"/>
+<key id="d2" for="edge" attr.name="rho" attr.type="double"/>
+<key id="d1" for="node" attr.name="gate" attr.type="string"/>
+<key id="d0" for="node" attr.name="thread" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Q10__frequently">
+  <data key="d0">T-Q10</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q11_1">
+  <data key="d0">T-Q11</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q11_2">
+  <data key="d0">T-Q11</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q11_3">
+  <data key="d0">T-Q11</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q11_4">
+  <data key="d0">T-Q11</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q11_5">
+  <data key="d0">T-Q11</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q11_6">
+  <data key="d0">T-Q11</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q12_1__top2">
+  <data key="d0">T-Q12</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q12_2__top2">
+  <data key="d0">T-Q12</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q12_3__top2">
+  <data key="d0">T-Q12</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q12_4__top2">
+  <data key="d0">T-Q12</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q12_5__top2">
+  <data key="d0">T-Q12</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q12_6__top2">
+  <data key="d0">T-Q12</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q12_7__top2">
+  <data key="d0">T-Q12</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q12_8__top2">
+  <data key="d0">T-Q12</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q12_9__top2">
+  <data key="d0">T-Q12</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q13_1__differentiator">
+  <data key="d0">T-Q13</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q13_2__differentiator">
+  <data key="d0">T-Q13</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q13_3__differentiator">
+  <data key="d0">T-Q13</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q13_4__differentiator">
+  <data key="d0">T-Q13</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q13_5__differentiator">
+  <data key="d0">T-Q13</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q13_6__differentiator">
+  <data key="d0">T-Q13</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q13_7__differentiator">
+  <data key="d0">T-Q13</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q13_8__differentiator">
+  <data key="d0">T-Q13</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q13_9__differentiator">
+  <data key="d0">T-Q13</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q14__help">
+  <data key="d0">T-Q14</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q15_1">
+  <data key="d0">T-Q15</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q15_2">
+  <data key="d0">T-Q15</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q15_3">
+  <data key="d0">T-Q15</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q15_5">
+  <data key="d0">T-Q15</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q15_6">
+  <data key="d0">T-Q15</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q16__frequently">
+  <data key="d0">T-Q16</data>
+  <data key="d1">VISION</data>
+</node>
+<node id="Q18__self_built">
+  <data key="d0">T-Q18</data>
+  <data key="d1">CASE</data>
+</node>
+<node id="Q19_1__top2">
+  <data key="d0">T-Q19</data>
+  <data key="d1">CASE</data>
+</node>
+<node id="Q19_2__top2">
+  <data key="d0">T-Q19</data>
+  <data key="d1">CASE</data>
+</node>
+<node id="Q19_3__top2">
+  <data key="d0">T-Q19</data>
+  <data key="d1">CASE</data>
+</node>
+<node id="Q19_5__top2">
+  <data key="d0">T-Q19</data>
+  <data key="d1">CASE</data>
+</node>
+<node id="Q19_6__top2">
+  <data key="d0">T-Q19</data>
+  <data key="d1">CASE</data>
+</node>
+<node id="Q1_1">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q1_10">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q1_2">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q1_3">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q1_4">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q1_5">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q1_6">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q1_7">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q1_8">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q1_9">
+  <data key="d0">T-Q01</data>
+  <data key="d1">baseline</data>
+</node>
+<node id="Q3_1__topbox">
+  <data key="d0">T-Q03</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q3_2__topbox">
+  <data key="d0">T-Q03</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q3_3__topbox">
+  <data key="d0">T-Q03</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q3_4__topbox">
+  <data key="d0">T-Q03</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q3_5__topbox">
+  <data key="d0">T-Q03</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q3_6__topbox">
+  <data key="d0">T-Q03</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q4_1__topbox">
+  <data key="d0">T-Q04</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q4_2__topbox">
+  <data key="d0">T-Q04</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q4_3__topbox">
+  <data key="d0">T-Q04</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q4_4__topbox">
+  <data key="d0">T-Q04</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q7_1">
+  <data key="d0">T-Q07</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q7_2">
+  <data key="d0">T-Q07</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q7_3">
+  <data key="d0">T-Q07</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q7_4">
+  <data key="d0">T-Q07</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q7_5">
+  <data key="d0">T-Q07</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q7_6">
+  <data key="d0">T-Q07</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q7_7">
+  <data key="d0">T-Q07</data>
+  <data key="d1">ACCESS</data>
+</node>
+<node id="Q8_1__topbox">
+  <data key="d0">T-Q08</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q8_2__topbox">
+  <data key="d0">T-Q08</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q8_3__topbox">
+  <data key="d0">T-Q08</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q8_4__topbox">
+  <data key="d0">T-Q08</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q8_5__topbox">
+  <data key="d0">T-Q08</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q8_6__topbox">
+  <data key="d0">T-Q08</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q8_7__topbox">
+  <data key="d0">T-Q08</data>
+  <data key="d1">AGREE</data>
+</node>
+<node id="Q9__frequently">
+  <data key="d0">T-Q09</data>
+  <data key="d1">AGREE</data>
+</node>
+<edge source="Q10__frequently" target="Q8_6__topbox">
+  <data key="d2">0.7075</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q10__frequently" target="Q9__frequently">
+  <data key="d2">0.6945</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q10__frequently" target="Q12_6__top2">
+  <data key="d2">0.6747</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q10__frequently" target="Q12_5__top2">
+  <data key="d2">0.6449</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q10__frequently" target="Q8_7__topbox">
+  <data key="d2">0.6309</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q10__frequently" target="Q8_3__topbox">
+  <data key="d2">0.6154</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_2" target="Q12_6__top2">
+  <data key="d2">0.8004</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_2" target="Q7_3">
+  <data key="d2">0.6892</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_2" target="Q12_7__top2">
+  <data key="d2">0.671</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_2" target="Q12_5__top2">
+  <data key="d2">0.6544</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_2" target="Q7_2">
+  <data key="d2">-0.6405</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_2" target="Q7_1">
+  <data key="d2">-0.6469</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_3" target="Q8_1__topbox">
+  <data key="d2">0.621</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_3" target="Q7_3">
+  <data key="d2">-0.6993</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_3" target="Q12_6__top2">
+  <data key="d2">-0.7045</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q11_5" target="Q15_6">
+  <data key="d2">-0.6227</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_1__top2" target="Q7_3">
+  <data key="d2">-0.6253</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_1__top2" target="Q9__frequently">
+  <data key="d2">-0.6732</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_2__top2" target="Q13_7__differentiator">
+  <data key="d2">-0.624</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_5__top2" target="Q8_6__topbox">
+  <data key="d2">0.715</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_5__top2" target="Q15_1">
+  <data key="d2">-0.6384</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_6__top2" target="Q8_6__topbox">
+  <data key="d2">0.6594</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_6__top2" target="Q7_3">
+  <data key="d2">0.6401</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_6__top2" target="Q7_1">
+  <data key="d2">-0.7237</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_7__top2" target="Q8_6__topbox">
+  <data key="d2">0.6556</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q12_7__top2" target="Q7_1">
+  <data key="d2">-0.674</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q13_2__differentiator" target="Q8_1__topbox">
+  <data key="d2">0.6284</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q13_3__differentiator" target="Q7_3">
+  <data key="d2">-0.6993</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q13_7__differentiator" target="Q15_3">
+  <data key="d2">-0.6975</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q15_1" target="Q7_1">
+  <data key="d2">0.7047</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q1_2" target="Q3_6__topbox">
+  <data key="d2">-0.63</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q1_4" target="Q7_4">
+  <data key="d2">0.6029</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q1_6" target="Q7_4">
+  <data key="d2">-0.6319</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q3_1__topbox" target="Q8_6__topbox">
+  <data key="d2">0.6505</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q3_1__topbox" target="Q8_7__topbox">
+  <data key="d2">0.6235</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q3_3__topbox" target="Q8_7__topbox">
+  <data key="d2">0.6399</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q3_3__topbox" target="Q4_2__topbox">
+  <data key="d2">0.636</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q3_3__topbox" target="Q8_6__topbox">
+  <data key="d2">0.6083</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q4_4__topbox" target="Q8_1__topbox">
+  <data key="d2">0.7199</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q4_4__topbox" target="Q7_1">
+  <data key="d2">0.6633</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q4_4__topbox" target="Q7_7">
+  <data key="d2">0.6478</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+<edge source="Q7_1" target="Q8_1__topbox">
+  <data key="d2">0.7578</data>
+  <data key="d3">covaries_with</data>
+  <data key="d4">ecological</data>
+</edge>
+</graph></graphml>

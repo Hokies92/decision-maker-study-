@@ -1,0 +1,514 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d3" for="edge" attr.name="types" attr.type="string"/>
+<key id="d2" for="edge" attr.name="links" attr.type="long"/>
+<key id="d1" for="node" attr.name="label" attr.type="string"/>
+<key id="d0" for="node" attr.name="gate" attr.type="string"/>
+<graph edgedefault="undirected"><node id="T-S01">
+  <data key="d0">TARGET</data>
+  <data key="d1">S01</data>
+</node>
+<node id="T-S02">
+  <data key="d0">TARGET</data>
+  <data key="d1">S02</data>
+</node>
+<node id="T-S03">
+  <data key="d0">TARGET</data>
+  <data key="d1">S03</data>
+</node>
+<node id="T-S04">
+  <data key="d0">TARGET</data>
+  <data key="d1">S04</data>
+</node>
+<node id="T-S05">
+  <data key="d0">TARGET</data>
+  <data key="d1">S05</data>
+</node>
+<node id="T-S06">
+  <data key="d0">TARGET</data>
+  <data key="d1">S06</data>
+</node>
+<node id="T-S07">
+  <data key="d0">TARGET</data>
+  <data key="d1">S07</data>
+</node>
+<node id="T-S08">
+  <data key="d0">TARGET</data>
+  <data key="d1">S08</data>
+</node>
+<node id="T-S09">
+  <data key="d0">TARGET</data>
+  <data key="d1">S09</data>
+</node>
+<node id="T-S10">
+  <data key="d0">TARGET</data>
+  <data key="d1">S10</data>
+</node>
+<node id="T-S11">
+  <data key="d0">TARGET</data>
+  <data key="d1">S11</data>
+</node>
+<node id="T-S12">
+  <data key="d0">TARGET</data>
+  <data key="d1">S12</data>
+</node>
+<node id="T-Q01">
+  <data key="d0">baseline</data>
+  <data key="d1">Q01</data>
+</node>
+<node id="T-Q02">
+  <data key="d0">baseline</data>
+  <data key="d1">Q02</data>
+</node>
+<node id="T-Q03">
+  <data key="d0">ACCESS</data>
+  <data key="d1">Q03</data>
+</node>
+<node id="T-Q04">
+  <data key="d0">ACCESS</data>
+  <data key="d1">Q04</data>
+</node>
+<node id="T-Q05">
+  <data key="d0">ACCESS</data>
+  <data key="d1">Q05</data>
+</node>
+<node id="T-Q06">
+  <data key="d0">ACCESS</data>
+  <data key="d1">Q06</data>
+</node>
+<node id="T-Q07">
+  <data key="d0">ACCESS</data>
+  <data key="d1">Q07</data>
+</node>
+<node id="T-Q08">
+  <data key="d0">AGREE</data>
+  <data key="d1">Q08</data>
+</node>
+<node id="T-Q09">
+  <data key="d0">AGREE</data>
+  <data key="d1">Q09</data>
+</node>
+<node id="T-Q10">
+  <data key="d0">AGREE</data>
+  <data key="d1">Q10</data>
+</node>
+<node id="T-Q11">
+  <data key="d0">AGREE</data>
+  <data key="d1">Q11</data>
+</node>
+<node id="T-Q12">
+  <data key="d0">VISION</data>
+  <data key="d1">Q12</data>
+</node>
+<node id="T-Q13">
+  <data key="d0">VISION</data>
+  <data key="d1">Q13</data>
+</node>
+<node id="T-Q14">
+  <data key="d0">VISION</data>
+  <data key="d1">Q14</data>
+</node>
+<node id="T-Q15">
+  <data key="d0">VISION</data>
+  <data key="d1">Q15</data>
+</node>
+<node id="T-Q16">
+  <data key="d0">VISION</data>
+  <data key="d1">Q16</data>
+</node>
+<node id="T-Q17">
+  <data key="d0">VISION</data>
+  <data key="d1">Q17</data>
+</node>
+<node id="T-Q18">
+  <data key="d0">CASE</data>
+  <data key="d1">Q18</data>
+</node>
+<node id="T-Q19">
+  <data key="d0">CASE</data>
+  <data key="d1">Q19</data>
+</node>
+<node id="T-Q20">
+  <data key="d0">CASE</data>
+  <data key="d1">Q20</data>
+</node>
+<node id="T-Q21">
+  <data key="d0">baseline</data>
+  <data key="d1">Q21</data>
+</node>
+<node id="T-Q22">
+  <data key="d0">crossGate</data>
+  <data key="d1">Q22</data>
+</node>
+<node id="T-Q23">
+  <data key="d0">crossGate</data>
+  <data key="d1">Q23</data>
+</node>
+<node id="T-Q24">
+  <data key="d0">crossGate</data>
+  <data key="d1">Q24</data>
+</node>
+<node id="T-Q25">
+  <data key="d0">crossGate</data>
+  <data key="d1">Q25</data>
+</node>
+<edge source="T-S01" target="T-S02">
+  <data key="d2">1</data>
+  <data key="d3">routes_to</data>
+</edge>
+<edge source="T-S01" target="T-S04">
+  <data key="d2">1</data>
+  <data key="d3">routes_to</data>
+</edge>
+<edge source="T-S01" target="T-S03">
+  <data key="d2">1</data>
+  <data key="d3">routes_to</data>
+</edge>
+<edge source="T-S01" target="T-S06">
+  <data key="d2">1</data>
+  <data key="d3">routes_to</data>
+</edge>
+<edge source="T-S02" target="T-S03">
+  <data key="d2">1</data>
+  <data key="d3">derived_from</data>
+</edge>
+<edge source="T-S04" target="T-Q21">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-S04" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-S04" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-S04" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-S04" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q01" target="T-Q21">
+  <data key="d2">2</data>
+  <data key="d3">same_construct;same_respondents</data>
+</edge>
+<edge source="T-Q01" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q01" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q01" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q01" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q03" target="T-Q04">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q03" target="T-Q08">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q03" target="T-Q09">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q03" target="T-Q10">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q03" target="T-Q16">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q04" target="T-Q08">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q04" target="T-Q09">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q04" target="T-Q10">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q04" target="T-Q16">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q04" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">topic</data>
+</edge>
+<edge source="T-Q07" target="T-Q21">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q07" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q07" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q07" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q07" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q08" target="T-Q09">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q08" target="T-Q10">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q08" target="T-Q16">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q08" target="T-Q11">
+  <data key="d2">1</data>
+  <data key="d3">same_construct</data>
+</edge>
+<edge source="T-Q08" target="T-Q21">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q08" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q08" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q08" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q08" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q09" target="T-Q10">
+  <data key="d2">2</data>
+  <data key="d3">same_construct;shared_scale</data>
+</edge>
+<edge source="T-Q09" target="T-Q16">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q09" target="T-Q11">
+  <data key="d2">1</data>
+  <data key="d3">same_construct</data>
+</edge>
+<edge source="T-Q10" target="T-Q16">
+  <data key="d2">1</data>
+  <data key="d3">shared_scale</data>
+</edge>
+<edge source="T-Q11" target="T-Q13">
+  <data key="d2">1</data>
+  <data key="d3">same_construct</data>
+</edge>
+<edge source="T-Q12" target="T-Q18">
+  <data key="d2">1</data>
+  <data key="d3">same_construct</data>
+</edge>
+<edge source="T-Q12" target="T-Q21">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q12" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q12" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q12" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q12" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q13" target="T-Q21">
+  <data key="d2">2</data>
+  <data key="d3">same_respondents;topic</data>
+</edge>
+<edge source="T-Q13" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q13" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q13" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q13" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q14" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">topic</data>
+</edge>
+<edge source="T-Q14" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">topic</data>
+</edge>
+<edge source="T-Q15" target="T-Q16">
+  <data key="d2">1</data>
+  <data key="d3">same_construct</data>
+</edge>
+<edge source="T-Q15" target="T-Q21">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q15" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q15" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q15" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q15" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q16" target="T-Q19">
+  <data key="d2">1</data>
+  <data key="d3">same_construct</data>
+</edge>
+<edge source="T-Q17" target="T-Q18">
+  <data key="d2">1</data>
+  <data key="d3">same_construct</data>
+</edge>
+<edge source="T-Q18" target="T-Q21">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q18" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q18" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q18" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q18" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q19" target="T-Q21">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q19" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q19" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q19" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q19" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q20" target="T-Q21">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q20" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q20" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q20" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q20" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q21" target="T-Q22">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q21" target="T-Q23">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q21" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q21" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q22" target="T-Q23">
+  <data key="d2">2</data>
+  <data key="d3">mirror;same_respondents</data>
+</edge>
+<edge source="T-Q22" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q22" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q23" target="T-Q24">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q23" target="T-Q25">
+  <data key="d2">1</data>
+  <data key="d3">same_respondents</data>
+</edge>
+<edge source="T-Q24" target="T-Q25">
+  <data key="d2">2</data>
+  <data key="d3">mirror;same_respondents</data>
+</edge>
+</graph></graphml>
