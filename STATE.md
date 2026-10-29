@@ -2,8 +2,8 @@
 
 ## Current
 **Phase:** 2 — Inventory the data   **Gate:** open
-**Step:** P2.S06 — Open-ended inventory (batch S01–S07)
-**Status:** batch S01–S07 in progress
+**Step:** P2.S07 — Cross-check (stopped) (batch S01–S07)
+**Status:** batch stopped at P2.S07 (S3) — S01–S06 done; fix branch pending
 **Branch:** phase-2/steps-01-07-data-inventory
 **Updated:** 2026-10-27 by Claude session
 
@@ -20,7 +20,7 @@ Outputs go to `02_data_inventory/`. Phase 2 reads the results for the first time
 | P2.S04 | **Data quality:** per variable — base n, non-substantive share (don't know / other), out-of-range values, sum checks (single choice and grid rows sum to 1 per cohort), Main Page vs breakout agreement, outliers | `results.csv`; `variable_dictionary.csv`; `anomalies.csv` | `02_data_inventory/data_quality.md` + csv; script | Every check produced by a committed script; every failure listed with evidence; Q6 outlier (A05) carried | done — 0 failures | batch branch |
 | P2.S05 | **Coverage matrix:** base n for every cohort × item, including function × level; n = 25 flags | `results.csv`; `cohorts.csv` | `02_data_inventory/coverage_matrix.csv` + `.md`; script | Every tabulated cohort × item has a base; below-minimum cells flagged; function × level shown as its own table | done — 6,754 cells | batch branch |
 | P2.S06 | **Open-ended inventory:** respondent-level text — answers per question, blanks, lengths, respids answering all five, links to "please specify" answers (no coding yet) | SRC-003; SRC-002 "Other" sheet; `linkages.csv` | `02_data_inventory/open_ended_inventory.md` + csv; script | Counts reconcile to 319 respids per sheet; overlap with "please specify" respondents reported; no answer text altered | done — 5 questions inventoried | batch branch |
-| P2.S07 | Cross-check and provenance count | All P2 outputs | `scripts/p2_crosscheck.py`; `crosscheck_report.md` | Every result cell, flag, and variable reconciles to source; all generators re-run identically | not started | — |
+| P2.S07 | Cross-check and provenance count | All P2 outputs | `scripts/p2_crosscheck.py`; `crosscheck_report.md` | Every result cell, flag, and variable reconciles to source; all generators re-run identically | STOPPED (S3) — 9/10 pass; C08 fails on a P1.S08 defect | batch branch |
 | P2.S08 | Draft Phase 2 gate review | All P2 outputs | Gate review block | Every §5 P2 criterion checked with evidence; stop for Scott's merge and tag | not started | — |
 
 Candidate batch (needs Scott's approval by name, GOVERNANCE §3.4): **S01–S07** — none of them needs Scott's input.
@@ -183,6 +183,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P2.S04 data quality: 118 tabulated items, 24,552 cells — 0 values outside 0–1; 0 of 4,347 single-choice/grid cohort tables fail to sum to 1 (±0.002); 0 item bases larger than their cohort; All-respondents shares identical across sheets for every item; 328 cells not asked by design; 0 zero-base tables. Non-substantive answers (don't know / not applicable / other) never reach 5% for any item (max Q15_7 4.7%, Q20 4.1%). Negative test on a tampered copy raised failures as expected. Carried: A04, A05, A07, n = 25.
 - 2026-10-29: P2.S05 coverage matrix: 6,754 cohort × item cells across 58 tabulated cohorts; 1,252 (19%) below n = 25 — 918 from the 8 below-minimum cohorts, 334 from small item bases inside larger cohorts (mainly the 'Other, please specify' rating rows and subset-asked items). Function × level table: IT VP (12) and business C-level (18) below minimum; the other six level-within-function cohorts usable (30–81).
 - 2026-10-29: P2.S06 open-ended inventory: 319 respondents per question; answers 319/318/319/318/318 (Q21–Q25); 318 answered all five; non-answers (none, n/a, don't know …) 13/34/55/30/60 — highest for the 'least effective' and 'worst relationship' questions; median length 15–30 characters (2–5 words). Every 'please specify' writer (10 columns) is among the 318 — clean respondent-level links. Longest answers end at 250–255 characters: likely a 255-character entry limit, so the longest answers may be cut off (INFERRED, flag for Phase 5).
+- 2026-10-29: P2.S07 cross-check STOPPED (stop condition S3; batch rule BT4): 9 of 10 checks pass. C08 fails — the Phase 1 linkage inventory (P1.S08, `linkages.csv`) overstates 6 open-ended respondent overlaps by 1 (e.g. Q22∩Q23 = 319; true 318): `p1_build_linkages.py` treated three blank answers (one each in Q22, Q24, Q25) as answered. Not caught at the Phase 1 gate because no check compared overlap weights to a fresh count; caught now by C08. Correction goes on `fix/p1-s08-blank-answers` (rule B2), not in this batch. During S07 Claude also fixed two defects in its own new checks: C04 counted the All-respondents banner twice (flags were complete, 1,686/1,686); C08 first used a loose threshold that passed the bad weights. After the fix merges, S07 is re-run on `main`.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
@@ -220,3 +221,4 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 <!-- append-only -->
 - 2026-10-27 (P0.S01 session open): Claude ran `git reset --hard origin/main` on a local `main` that had no local commits or changes, to sync it after PR #1 merged. The effect was a fast-forward; nothing was discarded and nothing was pushed. It still breaks the letter of rule B4. Disclosed to Scott; no correction needed. Future syncs will use `git merge --ff-only origin/main`.
 - 2026-10-29 (disclosed by Claude): Rule B2 broken twice — P1.S03 addenda (Scott's grouping, then Q-S04a/b answers) were committed on the P1.S04 branch (`a2fdf85`) and the P1.S05 branch (`205e174`). Both were disclosed in the decisions log at the time but not logged as incidents. Effect: content correct, merged via PRs #17 and #18; step boundaries blurred. Correction: no history rewrite; corrections to merged work now go on `fix/<phase>-<slug>` branches (first used: `fix/p1-s05-screen-provenance`).
+- 2026-10-29 (disclosed by Claude): Defect in merged Phase 1 output — `linkages.csv` same_respondents weights for 6 open-ended pairs off by 1 (blank answers counted as answered), present at the Phase 1 gate. Effect: link weights only; no source data, result, or flag affected. Correction: `fix/p1-s08-blank-answers`; Phase 2 C08 now checks the weights exactly.
