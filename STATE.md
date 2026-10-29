@@ -1,13 +1,31 @@
 # Project State
 
 ## Current
-**Phase:** 1 — Reconstruct the instrument   **Gate:** under review (S6 stop — awaiting Scott)
-**Step:** P1.S11 — Draft Phase 1 gate review
-**Status:** done (awaiting Scott's merge)
-**Branch:** phase-1/step-11-gate-review
+**Phase:** 2 — Inventory the data   **Gate:** open
+**Step:** P2.S00 — Propose the Phase 2 step plan
+**Status:** done (awaiting Scott's merge = plan approval)
+**Branch:** phase-2/step-00-plan
 **Updated:** 2026-10-27 by Claude session
 
-## Step plan — Phase 1
+## Step plan — Phase 2
+
+Outputs go to `02_data_inventory/`. Phase 2 reads the results for the first time — to inventory and quality-check them, not to analyze them. Every derived file is produced by a committed script; nothing in `00_source/` changes.
+
+| ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
+|----|-----------|--------|---------|-----------|--------|--------|
+| P2.S00 | Propose the Phase 2 step plan | Phase 1 outputs; `GOVERNANCE.md` §5 P2 | `STATE.md` | Plan merged by Scott | done — awaiting Scott | this branch |
+| P2.S01 | **Extract every result:** one row per item × answer option × cohort, with the share, the cohort's base for that item, and the source cell | SRC-002 (5 table sheets); `table_blocks.csv`; `cohorts.csv` | `02_data_inventory/results.csv`; `scripts/p2_extract_results.py` | Every tabulated cell extracted once; each cell cited by sheet and cell; shares in 0–1; the All-respondents column agrees across all five sheets | not started | — |
+| P2.S02 | **Significance layer:** turn the 1,688 cell comments into one flag per question × breakout dimension (significant / not significant / not tested — table too small) | SRC-002 comments; `table_blocks.csv`; `cohort_dimensions.csv` | `02_data_inventory/significance.csv`; script | Every comment parsed into exactly one of the three states; every flag tied to a question item and a dimension; comment counts reconcile per sheet | not started | — |
+| P2.S03 | **Variable dictionary:** every variable with name, label, source question, type, valid values, status collected / derivable / missing, and a rule for every derivable one | `question_map.csv`; `response_scales.csv`; `routing.csv`; `anomalies.csv`; `results.csv` | `02_data_inventory/variable_dictionary.csv` + `.md`; script | Every item and every derived variable listed; each derivable variable has an explicit rule (incl. Q6 bucket read as 0–5, A04); missing variables named (raw S8, S5 piped text, Q20_4, industry 39 → 7 mapping, all respondent-level answers) | not started | — |
+| P2.S04 | **Data quality:** per variable — base n, non-substantive share (don't know / other), out-of-range values, sum checks (single choice and grid rows sum to 1 per cohort), Main Page vs breakout agreement, outliers | `results.csv`; `variable_dictionary.csv`; `anomalies.csv` | `02_data_inventory/data_quality.md` + csv; script | Every check produced by a committed script; every failure listed with evidence; Q6 outlier (A05) carried | not started | — |
+| P2.S05 | **Coverage matrix:** base n for every cohort × item, including function × level; n = 25 flags | `results.csv`; `cohorts.csv` | `02_data_inventory/coverage_matrix.csv` + `.md`; script | Every tabulated cohort × item has a base; below-minimum cells flagged; function × level shown as its own table | not started | — |
+| P2.S06 | **Open-ended inventory:** respondent-level text — answers per question, blanks, lengths, respids answering all five, links to "please specify" answers (no coding yet) | SRC-003; SRC-002 "Other" sheet; `linkages.csv` | `02_data_inventory/open_ended_inventory.md` + csv; script | Counts reconcile to 319 respids per sheet; overlap with "please specify" respondents reported; no answer text altered | not started | — |
+| P2.S07 | Cross-check and provenance count | All P2 outputs | `scripts/p2_crosscheck.py`; `crosscheck_report.md` | Every result cell, flag, and variable reconciles to source; all generators re-run identically | not started | — |
+| P2.S08 | Draft Phase 2 gate review | All P2 outputs | Gate review block | Every §5 P2 criterion checked with evidence; stop for Scott's merge and tag | not started | — |
+
+Candidate batch (needs Scott's approval by name, GOVERNANCE §3.4): **S01–S07** — none of them needs Scott's input.
+
+## Step plan — Phase 1 (closed — tag `phase-1-complete` on `4f9d46d`)
 
 Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance tag. Every derived file is produced by a committed script in `scripts/`.
 
@@ -25,7 +43,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 | P1.S09 | Cross-check and provenance count | All P1 outputs | `scripts/p1_crosscheck.py`; `crosscheck_report.md` | Every table block and data column maps to ≥1 question; every question maps to data or is flagged `NO_DATA`; provenance counts reported | done — 10/10 checks pass | `b3ab8e2` (PR #22) |
 | P1.S10 | Designer review: Scott confirms or rejects every `INFERRED` item and supplies `RECALL_DESIGNER` facts on intent | Open questions list | Updated outputs; decisions log | No `INFERRED` item left unreviewed | done — 85/85 decided | `757bc4f` (PR #24) |
 | P1.S10a | **Asymmetry lexicon, pass 1:** paired vocabulary per gate — vendor's term vs the decision-maker's verbatim term from the instrument, with gaps where no customer-side word exists | `question_map.csv`, `scott_grouping.csv`, `design_intent.md` | `01_instrument_reconstruction/asymmetry_lexicon.md` (+ csv) | Every customer-side term `VERBATIM` with citation; vendor-side terms labeled as Claude's (INFERRED); gaps marked for Scott to name; pass 2 (open-ended words) deferred to Phase 5 | done — 26 concepts, 6 gaps | `1bf3587` (PR #25) |
-| P1.S11 | Draft Phase 1 gate review | All P1 outputs | Gate review block | Every §5 P1 criterion checked with evidence; stop for Scott's merge and tag | done — awaiting Scott | this branch |
+| P1.S11 | Draft Phase 1 gate review | All P1 outputs | Gate review block | Every §5 P1 criterion checked with evidence; stop for Scott's merge and tag | done | `e39ec65` (PR #26) |
 
 ## Step plan — Phase 0 (closed — tag `phase-0-complete` on `1c066db`)
 
@@ -49,7 +67,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 ### Phase 1 — Reconstruct the instrument
 **Drafted:** 2026-10-29 by Claude (P1.S11) · **Reviewed against:** `main` @ `5465b09`
-**Recommendation:** PASS — close Phase 1 · **Decision:** pending Scott · **Tag:** `phase-1-complete` (Scott creates)
+**Recommendation:** PASS — close Phase 1 · **Decision:** APPROVED by Scott (PR #26 merged 2026-10-29) · **Tag:** `phase-1-complete` on `4f9d46d` (created by Scott)
 
 | # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
 |---|---|---|---|
@@ -156,6 +174,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: Plan amended (Scott: "ok" to the proposal): P1.S10a asymmetry lexicon, pass 1 (instrument wording) inserted before the gate review; pass 2 from open-ended answers deferred to Phase 5; Scott names the gaps.
 - 2026-10-29: Working title and binary gate states recorded (fix PR #23): gates are 1 = yes (advance) / 0 = not yes; close not modeled.
 - 2026-10-29: P1.S10a asymmetry lexicon, pass 1: 26 concepts across Target, Baseline, Access, Agree, Vision, Case, Not yes, Relationship; 61 decision-maker phrases, all VERBATIM and cited; vendor terms INFERRED (trade usage, quoted to expose the vendor side); 6 gaps for Scott to name. Two former gaps closed by the survey's own wording: "building the case myself" = Q18 "We had to do all of the business justification ourselves"; "stalled" = "pulled back" (full wording survives only on Q15_Other — the check caught a wrong citation and it was corrected before commit).
+- 2026-10-29: Phase 1 closed. Gate review merged (PR #26, `4f9d46d`); Scott created tag `phase-1-complete`.
+- 2026-10-29: Structure check for the Phase 2 plan (read-only): significance comments sit on each question's header row, one per breakout dimension's first column — each is a test of whether that dimension and that question are related (significant / not significant / not tested). This is a ready-made statistical link between screener dimensions and question threads, for Phase 4.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
