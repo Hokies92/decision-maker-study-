@@ -1,0 +1,190 @@
+variable,kind,status,mapping,value_xpath,value_nodes,definition_xpath,definition_nodes,checked_in,reason
+S1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S1']/d:Result,522,/d:Study/d:Variables/d:Variable[@id='S1'],1,full_study.xml,
+DM_TYPE,item,derivable,results,/d:Study/d:Results/d:ItemResults[@item='DM_TYPE']/d:Result,116,/d:Study/d:Variables/d:Variable[@id='DM_TYPE'],1,full_study.xml,
+S1_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='S1_Other'],0,/d:Study/d:Variables/d:Variable[@id='S1_Other'],1,respondents_open_ended.xml,Column present in source but no respondent wrote text (0 answers); the slot resolves when answers exist.
+S2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S2']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='S2'],1,full_study.xml,
+S2_S3_combined,item,derivable,results,/d:Study/d:Results/d:ItemResults[@item='S2_S3_combined']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='S2_S3_combined'],1,full_study.xml,
+S3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S3']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='S3'],1,full_study.xml,
+S4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S4']/d:Result,522,/d:Study/d:Variables/d:Variable[@id='S4'],1,full_study.xml,
+S4_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='S4_Other'],6,/d:Study/d:Variables/d:Variable[@id='S4_Other'],1,respondents_open_ended.xml,
+S5_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S5_1']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S5_1'],1,full_study.xml,
+S5_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S5_2']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S5_2'],1,full_study.xml,
+S5_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S5_3']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S5_3'],1,full_study.xml,
+S5_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S5_4']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S5_4'],1,full_study.xml,
+S5_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S5_5']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S5_5'],1,full_study.xml,
+S5_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S5_6']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S5_6'],1,full_study.xml,
+S6_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S6_1']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S6_1'],1,full_study.xml,
+S6_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S6_2']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S6_2'],1,full_study.xml,
+S6_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S6_3']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S6_3'],1,full_study.xml,
+S6_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S6_4']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S6_4'],1,full_study.xml,
+S6_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S6_5']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S6_5'],1,full_study.xml,
+S6_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S6_6']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S6_6'],1,full_study.xml,
+S6_7,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S6_7']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='S6_7'],1,full_study.xml,
+S7_Revenue,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S7_Revenue']/d:Result,464,/d:Study/d:Variables/d:Variable[@id='S7_Revenue'],1,full_study.xml,
+S8_Bucketed,item,derivable,results,/d:Study/d:Results/d:ItemResults[@item='S8_Bucketed']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='S8_Bucketed'],1,full_study.xml,
+S9_Country,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S9_Country']/d:Result,290,/d:Study/d:Variables/d:Variable[@id='S9_Country'],1,full_study.xml,
+S9_Region,item,derivable,results,/d:Study/d:Results/d:ItemResults[@item='S9_Region']/d:Result,116,/d:Study/d:Variables/d:Variable[@id='S9_Region'],1,full_study.xml,
+S10,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S10']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='S10'],1,full_study.xml,
+S11,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S11']/d:Result,290,/d:Study/d:Variables/d:Variable[@id='S11'],1,full_study.xml,
+S12,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='S12']/d:Result,2262,/d:Study/d:Variables/d:Variable[@id='S12'],1,full_study.xml,
+S12_Industry7,item,derivable,results,/d:Study/d:Results/d:ItemResults[@item='S12_Industry7']/d:Result,464,/d:Study/d:Variables/d:Variable[@id='S12_Industry7'],1,full_study.xml,
+Q1_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_1']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_1'],1,full_study.xml,
+Q1_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_2']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_2'],1,full_study.xml,
+Q1_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_3']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_3'],1,full_study.xml,
+Q1_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_4']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_4'],1,full_study.xml,
+Q1_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_5']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_5'],1,full_study.xml,
+Q1_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_6']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_6'],1,full_study.xml,
+Q1_7,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_7']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_7'],1,full_study.xml,
+Q1_8,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_8']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_8'],1,full_study.xml,
+Q1_9,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_9']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_9'],1,full_study.xml,
+Q1_10,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_10']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_10'],1,full_study.xml,
+Q1_11,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q1_11']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q1_11'],1,full_study.xml,
+Q1_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q1_Other'],1,/d:Study/d:Variables/d:Variable[@id='Q1_Other'],1,respondents_open_ended.xml,
+Q2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q2']/d:Result,348,/d:Study/d:Variables/d:Variable[@id='Q2'],1,full_study.xml,
+Q3_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q3_1']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q3_1'],1,full_study.xml,
+Q3_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q3_2']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q3_2'],1,full_study.xml,
+Q3_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q3_3']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q3_3'],1,full_study.xml,
+Q3_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q3_4']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q3_4'],1,full_study.xml,
+Q3_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q3_5']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q3_5'],1,full_study.xml,
+Q3_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q3_6']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q3_6'],1,full_study.xml,
+Q4_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q4_1']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q4_1'],1,full_study.xml,
+Q4_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q4_2']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q4_2'],1,full_study.xml,
+Q4_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q4_3']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q4_3'],1,full_study.xml,
+Q4_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q4_4']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q4_4'],1,full_study.xml,
+Q5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q5']/d:Result,290,/d:Study/d:Variables/d:Variable[@id='Q5'],1,full_study.xml,
+Q6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q6']/d:Result,812,/d:Study/d:Variables/d:Variable[@id='Q6'],1,full_study.xml,
+Q6_bucketed,item,derivable,results,/d:Study/d:Results/d:ItemResults[@item='Q6_bucketed']/d:Result,290,/d:Study/d:Variables/d:Variable[@id='Q6_bucketed'],1,full_study.xml,
+Q7_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q7_1']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q7_1'],1,full_study.xml,
+Q7_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q7_2']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q7_2'],1,full_study.xml,
+Q7_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q7_3']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q7_3'],1,full_study.xml,
+Q7_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q7_4']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q7_4'],1,full_study.xml,
+Q7_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q7_5']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q7_5'],1,full_study.xml,
+Q7_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q7_6']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q7_6'],1,full_study.xml,
+Q7_7,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q7_7']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q7_7'],1,full_study.xml,
+Q7_8,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q7_8']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q7_8'],1,full_study.xml,
+Q7_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q7_Other'],4,/d:Study/d:Variables/d:Variable[@id='Q7_Other'],1,respondents_open_ended.xml,
+Q8_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q8_1']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q8_1'],1,full_study.xml,
+Q8_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q8_2']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q8_2'],1,full_study.xml,
+Q8_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q8_3']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q8_3'],1,full_study.xml,
+Q8_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q8_4']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q8_4'],1,full_study.xml,
+Q8_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q8_5']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q8_5'],1,full_study.xml,
+Q8_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q8_6']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q8_6'],1,full_study.xml,
+Q8_7,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q8_7']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q8_7'],1,full_study.xml,
+Q8_8,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q8_8']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q8_8'],1,full_study.xml,
+Q8_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q8_Other'],19,/d:Study/d:Variables/d:Variable[@id='Q8_Other'],1,respondents_open_ended.xml,
+Q9,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q9']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q9'],1,full_study.xml,
+Q10,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q10']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q10'],1,full_study.xml,
+Q11_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q11_1']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q11_1'],1,full_study.xml,
+Q11_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q11_2']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q11_2'],1,full_study.xml,
+Q11_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q11_3']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q11_3'],1,full_study.xml,
+Q11_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q11_4']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q11_4'],1,full_study.xml,
+Q11_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q11_5']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q11_5'],1,full_study.xml,
+Q11_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q11_6']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q11_6'],1,full_study.xml,
+Q11_7,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q11_7']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q11_7'],1,full_study.xml,
+Q11_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q11_Other'],0,/d:Study/d:Variables/d:Variable[@id='Q11_Other'],1,respondents_open_ended.xml,Column present in source but no respondent wrote text (0 answers); the slot resolves when answers exist.
+Q12_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_1']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_1'],1,full_study.xml,
+Q12_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_2']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_2'],1,full_study.xml,
+Q12_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_3']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_3'],1,full_study.xml,
+Q12_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_4']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_4'],1,full_study.xml,
+Q12_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_5']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_5'],1,full_study.xml,
+Q12_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_6']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_6'],1,full_study.xml,
+Q12_7,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_7']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_7'],1,full_study.xml,
+Q12_8,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_8']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_8'],1,full_study.xml,
+Q12_9,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_9']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_9'],1,full_study.xml,
+Q12_10,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q12_10']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q12_10'],1,full_study.xml,
+Q12_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q12_Other'],11,/d:Study/d:Variables/d:Variable[@id='Q12_Other'],1,respondents_open_ended.xml,
+Q13_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_1']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_1'],1,full_study.xml,
+Q13_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_2']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_2'],1,full_study.xml,
+Q13_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_3']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_3'],1,full_study.xml,
+Q13_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_4']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_4'],1,full_study.xml,
+Q13_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_5']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_5'],1,full_study.xml,
+Q13_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_6']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_6'],1,full_study.xml,
+Q13_7,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_7']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_7'],1,full_study.xml,
+Q13_8,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_8']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_8'],1,full_study.xml,
+Q13_9,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_9']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_9'],1,full_study.xml,
+Q13_10,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q13_10']/d:Result,174,/d:Study/d:Variables/d:Variable[@id='Q13_10'],1,full_study.xml,
+Q13_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q13_Other'],13,/d:Study/d:Variables/d:Variable[@id='Q13_Other'],1,respondents_open_ended.xml,
+Q14,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q14']/d:Result,290,/d:Study/d:Variables/d:Variable[@id='Q14'],1,full_study.xml,
+Q15_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q15_1']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q15_1'],1,full_study.xml,
+Q15_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q15_2']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q15_2'],1,full_study.xml,
+Q15_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q15_3']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q15_3'],1,full_study.xml,
+Q15_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q15_4']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q15_4'],1,full_study.xml,
+Q15_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q15_5']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q15_5'],1,full_study.xml,
+Q15_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q15_6']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q15_6'],1,full_study.xml,
+Q15_7,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q15_7']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q15_7'],1,full_study.xml,
+Q15_8,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q15_8']/d:Result,58,/d:Study/d:Variables/d:Variable[@id='Q15_8'],1,full_study.xml,
+Q15_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q15_Other'],15,/d:Study/d:Variables/d:Variable[@id='Q15_Other'],1,respondents_open_ended.xml,
+Q16,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q16']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q16'],1,full_study.xml,
+Q17,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q17']/d:Result,348,/d:Study/d:Variables/d:Variable[@id='Q17'],1,full_study.xml,
+Q18,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q18']/d:Result,406,/d:Study/d:Variables/d:Variable[@id='Q18'],1,full_study.xml,
+Q18_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q18_Other'],1,/d:Study/d:Variables/d:Variable[@id='Q18_Other'],1,respondents_open_ended.xml,
+Q19_1,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q19_1']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q19_1'],1,full_study.xml,
+Q19_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q19_2']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q19_2'],1,full_study.xml,
+Q19_3,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q19_3']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q19_3'],1,full_study.xml,
+Q19_4,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q19_4']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q19_4'],1,full_study.xml,
+Q19_5,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q19_5']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q19_5'],1,full_study.xml,
+Q19_6,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q19_6']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q19_6'],1,full_study.xml,
+Q19_7,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q19_7']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q19_7'],1,full_study.xml,
+Q19_Other,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q19_Other'],12,/d:Study/d:Variables/d:Variable[@id='Q19_Other'],1,respondents_open_ended.xml,
+Q20_PurchaseLimit,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q20_PurchaseLimit']/d:Result,232,/d:Study/d:Variables/d:Variable[@id='Q20_PurchaseLimit'],1,full_study.xml,
+Q20_2,item,collected,results,/d:Study/d:Results/d:ItemResults[@item='Q20_2']/d:Result,580,/d:Study/d:Variables/d:Variable[@id='Q20_2'],1,full_study.xml,
+Q20_2_text,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q20_2_text'],23,/d:Study/d:Variables/d:Variable[@id='Q20_2_text'],1,respondents_open_ended.xml,
+Q20_4_text,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q20_4_text'],0,/d:Study/d:Variables/d:Variable[@id='Q20_4_text'],1,respondents_open_ended.xml,Column present in source but no respondent wrote text (0 answers); the slot resolves when answers exist.
+Q21,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q21'],319,/d:Study/d:Variables/d:Variable[@id='Q21'],1,respondents_open_ended.xml,
+Q22,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q22'],318,/d:Study/d:Variables/d:Variable[@id='Q22'],1,respondents_open_ended.xml,
+Q23,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q23'],319,/d:Study/d:Variables/d:Variable[@id='Q23'],1,respondents_open_ended.xml,
+Q24,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q24'],318,/d:Study/d:Variables/d:Variable[@id='Q24'],1,respondents_open_ended.xml,
+Q25,item,collected,respondent_text,/d:Study/d:Respondents/d:Respondent/d:TextAnswer[@item='Q25'],318,/d:Study/d:Variables/d:Variable[@id='Q25'],1,respondents_open_ended.xml,
+Q3_1__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q3_1__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q3_1__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q3_2__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q3_2__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q3_2__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q3_3__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q3_3__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q3_3__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q3_4__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q3_4__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q3_4__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q3_5__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q3_5__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q3_5__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q3_6__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q3_6__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q3_6__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q4_1__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q4_1__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q4_1__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q4_2__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q4_2__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q4_2__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q4_3__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q4_3__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q4_3__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q4_4__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q4_4__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q4_4__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q8_1__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q8_1__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q8_1__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q8_2__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q8_2__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q8_2__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q8_3__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q8_3__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q8_3__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q8_4__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q8_4__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q8_4__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q8_5__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q8_5__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q8_5__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q8_6__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q8_6__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q8_6__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q8_7__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q8_7__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q8_7__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q8_8__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q8_8__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q8_8__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_1__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_1__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_1__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_2__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_2__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_2__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_3__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_3__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_3__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_4__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_4__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_4__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_5__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_5__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_5__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_6__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_6__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_6__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_7__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_7__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_7__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_8__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_8__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_8__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_9__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_9__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_9__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q12_10__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q12_10__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q12_10__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_1__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_1__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_1__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_2__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_2__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_2__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_3__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_3__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_3__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_4__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_4__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_4__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_5__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_5__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_5__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_6__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_6__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_6__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_7__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_7__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_7__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_8__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_8__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_8__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_9__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_9__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_9__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q13_10__differentiator,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q13_10__differentiator']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q13_10__differentiator'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q19_1__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q19_1__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q19_1__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q19_2__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q19_2__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q19_2__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q19_3__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q19_3__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q19_3__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q19_5__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q19_5__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q19_5__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q19_6__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q19_6__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q19_6__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q19_7__top2,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q19_7__top2']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q19_7__top2'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+Q18__self_built,summary,derivable,rule_only,/d:Study/d:Variables/d:Variable[@id='Q18__self_built']/d:Rule,1,/d:Study/d:Variables/d:Variable[@id='Q18__self_built'],1,full_study.xml,"Derivable summary measure: the rule is stored; values are computed in Phase 4 (ADR-011). Definition INFERRED, pending Scott (Q-P2a)."
+respondent_level_structured,missing,missing,respondent_slot,/d:Study/d:Respondents/d:Respondent/d:Answer,2,/d:Study/d:Variables/d:Variable[@id='respondent_level_structured'],1,synthetic_decision_path.xml,Reserved: Respondent/Answer holds one person's structured answers. The source has tables only (SRC-002). Slot exercised by the synthetic test file.
+respondent_function_level,missing,missing,respondent_slot,/d:Study/d:Respondents/d:Respondent/d:Attributes/d:NodeRef,0,/d:Study/d:Variables/d:Variable[@id='respondent_function_level'],1,synthetic_decision_path.xml,Reserved: Respondent/Attributes points to stakeholder nodes. Not collected per respondent; never inferred. Slot defined in the XSD; not exercised by the synthetic file (no attributes are invented).
+S8_raw,missing,missing,EXCLUDED,,,/d:Study/d:Variables/d:Variable[@id='S8_raw'],1,,Raw employee count is not in any source file; only the bucketed S8 is tabulated. A future respondent value would go in Respondent/Answer/@value.
+S5_piped_text,missing,missing,EXCLUDED,,,/d:Study/d:Variables/d:Variable[@id='S5_piped_text'],1,,The text piped into S5 ('hS5Piping') is not in source (A07); S5 is kept as one question.
+Q20_4_content,missing,missing,EXCLUDED,,,/d:Study/d:Variables/d:Variable[@id='Q20_4_content'],1,,The Q20_4 column is present but empty (A06); its purpose is unknown.
+industry_39_to_7_map,missing,missing,EXCLUDED,,,/d:Study/d:Variables/d:Variable[@id='industry_39_to_7_map'],1,,The mapping of 39 industries to 7 groups is not in source; the 39 definable cohorts carry no parent cohort.
+significance_statistics,missing,missing,EXCLUDED,,,/d:Study/d:Variables/d:Variable[@id='significance_statistics'],1,,Test statistics and p-values are not in source; only the flag (significant / not / not tested) is stored (ADR-007).
+survey_weights,missing,missing,EXCLUDED,,,/d:Study/d:Variables/d:Variable[@id='survey_weights'],1,,No weights are present or described in source.
