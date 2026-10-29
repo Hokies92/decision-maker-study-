@@ -12,17 +12,17 @@ Counts are table shares × base, rounded.
 | R02 | S1 = any other department | classify BDM; ASK S3, S6 | 319 − 160 = 159; S3 base = 159; S6 base = 159; S3/S6 ITDM column = '-' (PASS) | RECON_DATA |  |
 | R03 | S5 = "Don't know/Not applicable" | TERMINATE | S5_6 share = 0 (PASS) | RECON_DATA | Published methodology (REF-1) states respondents were screened for significant involvement in IT decision-making and purchasing — consistent. |
 | R04 | S6 = "I am not involved in IT decision-making" OR "Don't know/Not applicable" | TERMINATE | S6_6 share = 0; S6_7 share = 0 (PASS) | RECON_DATA | Same as R03. |
-| R05 | S9 country not in {Canada, France, Germany, United Kingdom, United States} | TERMINATE | only these five countries appear (n = 7 / 54 / 54 / 54 / 150) (not checkable) | INFERRED | Respondents from other countries are absent; whether they were terminated or never invited is not in the data. |
-| R06 | S8 employees below 1,000 | TERMINATE | lowest employee band starts at 1,000 (label reads '1,0000') (not checkable) | INFERRED | No one below 1,000 appears; the band boundary may be a screen or a bucket label. |
-| R07 | ITDM ≈ BDM | quota 50/50 | ITDM 160 / BDM 159 (not checkable) | INFERRED | Published methodology (REF-1) reports a 50/50 split. |
-| R08 | UK = France = Germany | quota 54 each | 54 / 54 / 54 (not checkable) | INFERRED | Exactly equal counts in three countries. |
+| R05 | S9 country not in {Canada, France, Germany, United Kingdom, United States} | TERMINATE | only these five countries appear (n = 7 / 54 / 54 / 54 / 150) (not checkable) | RECALL_DESIGNER | Confirmed by Scott, 2026-10-29. Data: only these five countries appear. |
+| R06 | S8 employees below 1,000 | TERMINATE | lowest employee band starts at 1,000 (label reads '1,0000') (not checkable) | RECALL_DESIGNER | Confirmed by Scott, 2026-10-29. Data: no one below 1,000 appears. |
+| R07 | ITDM ≈ BDM | quota 50/50 | ITDM 160 / BDM 159 (not checkable) | RECALL_DESIGNER | Confirmed by Scott, 2026-10-29; REF-1 also reports a 50/50 split. |
+| R08 | UK = France = Germany | quota 54 each | 54 / 54 / 54 (not checkable) | RECALL_DESIGNER | Confirmed by Scott, 2026-10-29. Data: exactly equal counts. |
 | R09 | Q19_4 ≠ "Somewhat important" (attention check) | REMOVE respondent | Q19_4 'Somewhat important' share = 1.000 (PASS) | RECON_DATA | Every tabulated respondent passed; failures were removed before tabulation. |
 
 ## Piping
 
 | Rule | IF | THEN | Evidence | Provenance | Note |
 |---|---|---|---|---|---|
-| R10 | S5 wording | insert text at 'hS5Piping' | placeholder 'hS5Piping' appears in S5 headers (not checkable) | MISSING | The inserted text is not in the source. Likely 'IT' vs 'business' by respondent type — INFERRED, unconfirmed. |
+| R10 | S5 wording | insert text at 'hS5Piping' | placeholder 'hS5Piping' appears in S5 headers (not checkable) | MISSING | The inserted text is not in the source, and Scott does not recall it (2026-10-29). S5 is treated as one question; caution: the wording may have differed for IT and business respondents. |
 
 ## Follow-ups and 'please specify'
 
@@ -50,5 +50,5 @@ Counts are table shares × base, rounded.
 
 ## Totals
 
-- Rules: 24 — INFERRED 4, MISSING 2, RECON_DATA 18
+- Rules: 24 — MISSING 2, RECALL_DESIGNER 4, RECON_DATA 18
 - Every RECON_DATA check: PASS
