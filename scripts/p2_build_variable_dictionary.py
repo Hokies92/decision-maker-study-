@@ -2,8 +2,10 @@
 """p2_build_variable_dictionary.py — every variable: collected, derivable, or missing.
 
 Inputs (read-only): question_map.csv, item_scales.csv, response_scales.csv, anomalies.csv
-(01_instrument_reconstruction/), 02_data_inventory/results.csv
-Outputs: 02_data_inventory/variable_dictionary.csv and .md
+(01_instrument_reconstruction/), 02_data_inventory/results.csv,
+02_data_inventory/variable_review_decisions.csv (authored: Scott's decisions on the INFERRED definitions, P4.S01)
+Outputs: 02_data_inventory/variable_dictionary.csv and .md; 02_data_inventory/variable_review.csv
+(one row per INFERRED variable with the decision that covers it; the script stops if any is uncovered)
 
 Statuses (GOVERNANCE §5 P2):
     collected  — asked of respondents; results or text exist in the source
@@ -30,11 +32,14 @@ from pathlib import Path
 RD, OD = Path("01_instrument_reconstruction"), Path("02_data_inventory")
 OUT_CSV, OUT_MD = OD / "variable_dictionary.csv", OD / "variable_dictionary.md"
 FIELDS = ["variable", "kind", "label", "source_question", "thread_id", "type", "scale_id", "valid_values",
-          "status", "derivation_rule", "provenance", "result_cells", "cohorts_with_results", "anomalies", "note"]
+          "status", "derivation_rule", "provenance", "result_cells", "cohorts_with_results", "anomalies", "note",
+          "reviewed", "measure_role"]
+REVIEW_DEC, REVIEW_OUT = OD / "variable_review_decisions.csv", OD / "variable_review.csv"
 
 # Summary variables: scale_id → (suffix, options counted, meaning)
 TOPBOX = {
     "SC-FREQ4": ("top2", ["Occasionally", "Frequently"], "share answering Occasionally or Frequently"),
+    "SC-FREQ4/topbox": ("topbox", ["Frequently"], "share answering Frequently"),
     "SC-AGREE4": ("top2", ["Agree", "Strongly agree"], "share answering Agree or Strongly agree"),
     "SC-IMPORT4": ("top2", ["Very important", "Somewhat important"], "share answering Very or Somewhat important"),
     "SC-DIFF3": ("differentiator", ["Important, and a differentiator"], "share rating it a differentiator"),
@@ -105,16 +110,19 @@ def main() -> int:
         sid = scale_of.get(q["item_id"], "")
         if q["question_type"] != "grid_row" or sid not in TOPBOX or q["item_role"] == "attention_check":
             continue
-        suffix, opts, meaning = TOPBOX[sid]
-        labels = json.loads(scales[sid]["labels"])
-        if any(o not in labels for o in opts):
-            errors.append(f"{sid}: option missing for summary rule")
-        rows.append({"variable": f"{q['item_id']}__{suffix}", "kind": "summary", "label": f"{q['item_label']} — {meaning}",
-                     "source_question": f"{q['thread_id'][2]}{int(q['thread_id'][3:])}", "thread_id": q["thread_id"],
-                     "type": "share", "scale_id": sid, "valid_values": "0–1", "status": "derivable",
-                     "derivation_rule": f"sum of shares for {' + '.join(opts)} in {q['item_id']}, per cohort",
-                     "provenance": "INFERRED (definition)", "result_cells": "", "cohorts_with_results": "",
-                     "anomalies": "", "note": ""})
+        for key in (sid, f"{sid}/topbox"):
+            if key not in TOPBOX:
+                continue
+            suffix, opts, meaning = TOPBOX[key]
+            labels = json.loads(scales[sid]["labels"])
+            if any(o not in labels for o in opts):
+                errors.append(f"{sid}: option missing for summary rule")
+            rows.append({"variable": f"{q['item_id']}__{suffix}", "kind": "summary", "label": f"{q['item_label']} — {meaning}",
+                         "source_question": f"{q['thread_id'][2]}{int(q['thread_id'][3:])}", "thread_id": q["thread_id"],
+                         "type": "share", "scale_id": sid, "valid_values": "0–1", "status": "derivable",
+                         "derivation_rule": f"{'share' if len(opts) == 1 else 'sum of shares'} for {' + '.join(opts)} in {q['item_id']}, per cohort",
+                         "provenance": "INFERRED (definition)", "result_cells": "", "cohorts_with_results": "",
+                         "anomalies": "", "note": ""})
     rows.append({"variable": "Q18__self_built", "kind": "summary",
                  "label": "Share who did most or all of the business justification themselves",
                  "source_question": "Q18", "thread_id": "T-Q18", "type": "share", "scale_id": "SC-MATERIALS7",
@@ -128,10 +136,36 @@ def main() -> int:
                      "type": "", "scale_id": "", "valid_values": "", "status": "missing", "derivation_rule": "",
                      "provenance": "MISSING", "result_cells": "", "cohorts_with_results": "", "anomalies": "", "note": why})
 
+    # Scott's review of the INFERRED definitions (P4.S01): every INFERRED variable must match exactly one decision
+    decisions = list(csv.DictReader(REVIEW_DEC.open(encoding="utf-8")))
+    review_rows = []
+    for r in rows:
+        r.setdefault("reviewed", ""); r.setdefault("measure_role", "")
+        if not r["provenance"].startswith("INFERRED"):
+            continue
+        suffix = r["variable"].split("__")[1] if "__" in r["variable"] else ""
+        hits = [d for d in decisions if d["match_kind"] == r["kind"] and (
+            r["variable"] in d["match_variables"].split(";") if d["match_variables"]
+            else (d["match_suffix"] == suffix and d["match_scale"] == r["scale_id"]))]
+        if len(hits) != 1:
+            errors.append(f"{r['variable']}: matches {len(hits)} review decisions")
+            continue
+        d = hits[0]
+        if d["decision"].startswith(("approved", "added and approved")):
+            r["reviewed"] = "confirmedByScott"
+        r["measure_role"] = d["role"]
+        review_rows.append({"variable": r["variable"], "group": d["group"], "definition": r["derivation_rule"],
+                            "decision": d["decision"], "measure_role": d["role"], "decided_by": d["decided_by"],
+                            "decided_on": d["decided_on"], "basis": d["basis"]})
+
     if errors:
         for e in errors:
             print("ERROR:", e, file=sys.stderr)
         return 2
+    with REVIEW_OUT.open("w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=["variable", "group", "definition", "decision", "measure_role",
+                                           "decided_by", "decided_on", "basis"], lineterminator="\n")
+        w.writeheader(); w.writerows(review_rows)
     with OUT_CSV.open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=FIELDS, lineterminator="\n")
         w.writeheader(); w.writerows(rows)
@@ -148,9 +182,18 @@ def main() -> int:
     L += ["", "## Summary variables proposed for analysis (derivable)", "",
           "| Scale | Summary | Rule | Count |", "|---|---|---|---|"]
     by_scale = Counter(r["scale_id"] for r in rows if r["kind"] == "summary")
-    for sid, (suffix, opts, meaning) in TOPBOX.items():
-        L.append(f"| {sid} | `__{suffix}` | {meaning} | {by_scale[sid]} |")
+    by_suffix = Counter((r["scale_id"], r["variable"].split("__")[1]) for r in rows if r["kind"] == "summary" and "__" in r["variable"])
+    for key, (suffix, opts, meaning) in TOPBOX.items():
+        sid = key.split("/")[0]
+        L.append(f"| {sid} | `__{suffix}` | {meaning} | {by_suffix[(sid, suffix)]} |")
     L.append("| SC-MATERIALS7 | `Q18__self_built` | did most or all of the business justification themselves (options 4 + 5) | 1 |")
+    rc = Counter((v["group"], v["decision"], v["measure_role"]) for v in review_rows)
+    L += ["", "## Scott's review of the INFERRED definitions (P4.S01)", "",
+          f"All {len(review_rows)} INFERRED variables are covered by a decision in `variable_review_decisions.csv`; "
+          "per-variable record in `variable_review.csv`. Approved definitions keep `INFERRED` and carry `reviewed = confirmedByScott`.", "",
+          "| Group | Decision | Role | Variables |", "|---|---|---|---|"]
+    for (g, dcs, role), n in sorted(rc.items()):
+        L.append(f"| {g} | {dcs} | {role or '—'} | {n} |")
     L += ["", "## Missing variables", "", "| Variable | What | Why missing |", "|---|---|---|"]
     for var, label, why in MISSING:
         L.append(f"| {var} | {label} | {why} |")
