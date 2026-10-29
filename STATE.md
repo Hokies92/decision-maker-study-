@@ -1,10 +1,10 @@
 # Project State
 
 ## Current
-**Phase:** 1 — Reconstruct the instrument   **Gate:** open
-**Step:** P1.S10a — Asymmetry lexicon, pass 1
+**Phase:** 1 — Reconstruct the instrument   **Gate:** under review (S6 stop — awaiting Scott)
+**Step:** P1.S11 — Draft Phase 1 gate review
 **Status:** done (awaiting Scott's merge)
-**Branch:** phase-1/step-10a-asymmetry-lexicon
+**Branch:** phase-1/step-11-gate-review
 **Updated:** 2026-10-27 by Claude session
 
 ## Step plan — Phase 1
@@ -24,8 +24,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 | P1.S08 | **Linkage inventory:** every link between question threads that the instrument defines, as an edge list | All P1 outputs; SRC-002 banners; SRC-002 "Other" sheet; SRC-003 | `linkages.csv` (source thread, target thread, link type, evidence, provenance); `linkages.md` (type definitions + summary graph); `scripts/p1_build_linkages.py` | Link types covered: shared response scale; same construct/stem family; routing dependency; piping; screener item used as a breakout (S-thread → every Q-thread it cuts); "Other" free text → parent item; open-ended ↔ structured topical link; respondent-key link (respid shared by SRC-003 and the "Other" sheet); **gate assignment** (thread → Scott's group, from `scott_grouping.csv`; RECALL_DESIGNER); Q21–Q25 pending clarification; schema keeps the assignment editable. Each edge cites evidence; topical links tagged `INFERRED` until Scott reviews | done — 381 links | `aa2e15f` (PR #22) |
 | P1.S09 | Cross-check and provenance count | All P1 outputs | `scripts/p1_crosscheck.py`; `crosscheck_report.md` | Every table block and data column maps to ≥1 question; every question maps to data or is flagged `NO_DATA`; provenance counts reported | done — 10/10 checks pass | `b3ab8e2` (PR #22) |
 | P1.S10 | Designer review: Scott confirms or rejects every `INFERRED` item and supplies `RECALL_DESIGNER` facts on intent | Open questions list | Updated outputs; decisions log | No `INFERRED` item left unreviewed | done — 85/85 decided | `757bc4f` (PR #24) |
-| P1.S10a | **Asymmetry lexicon, pass 1:** paired vocabulary per gate — vendor's term vs the decision-maker's verbatim term from the instrument, with gaps where no customer-side word exists | `question_map.csv`, `scott_grouping.csv`, `design_intent.md` | `01_instrument_reconstruction/asymmetry_lexicon.md` (+ csv) | Every customer-side term `VERBATIM` with citation; vendor-side terms labeled as Claude's (INFERRED); gaps marked for Scott to name; pass 2 (open-ended words) deferred to Phase 5 | done — 26 concepts, 6 gaps | this branch |
-| P1.S11 | Draft Phase 1 gate review | All P1 outputs | Gate review block | Every §5 P1 criterion checked with evidence; stop for Scott's merge and tag | not started | — |
+| P1.S10a | **Asymmetry lexicon, pass 1:** paired vocabulary per gate — vendor's term vs the decision-maker's verbatim term from the instrument, with gaps where no customer-side word exists | `question_map.csv`, `scott_grouping.csv`, `design_intent.md` | `01_instrument_reconstruction/asymmetry_lexicon.md` (+ csv) | Every customer-side term `VERBATIM` with citation; vendor-side terms labeled as Claude's (INFERRED); gaps marked for Scott to name; pass 2 (open-ended words) deferred to Phase 5 | done — 26 concepts, 6 gaps | `1bf3587` (PR #25) |
+| P1.S11 | Draft Phase 1 gate review | All P1 outputs | Gate review block | Every §5 P1 criterion checked with evidence; stop for Scott's merge and tag | done — awaiting Scott | this branch |
 
 ## Step plan — Phase 0 (closed — tag `phase-0-complete` on `1c066db`)
 
@@ -46,6 +46,29 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 ## Gate reviews
 <!-- one dated block per closed phase, with criteria checklist and tag -->
+
+### Phase 1 — Reconstruct the instrument
+**Drafted:** 2026-10-29 by Claude (P1.S11) · **Reviewed against:** `main` @ `5465b09`
+**Recommendation:** PASS — close Phase 1 · **Decision:** pending Scott · **Tag:** `phase-1-complete` (Scott creates)
+
+| # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
+|---|---|---|---|
+| 1 | `question_map.csv` + `.md`: every item with ID, verbatim text, type, response scale ID, base/filter, provenance | PASS | 136 items, 37 threads; wording VERBATIM with cell citations; type from evidence; base per item; scale ID per item in `item_scales.csv` (keyed by item ID, 136/136) (`ad69ab3`, `eec5828`) |
+| 2 | `skip_logic.md`: every routing rule as an explicit condition | PASS | 24 IF … THEN rules; 18 RECON_DATA checks recomputed on every run, all pass; 4 confirmed by Scott; 2 MISSING (S5 piped text, Q20_4) (`2717c59`, fix `7725f17`) |
+| 3 | `response_scales.csv`: every scale with ID, points, labels, direction | PASS | 34 scales covering 136 items; labels VERBATIM; order and type per scale (`eec5828`) |
+| 4 | `sampling_frame.md`: screener criteria, quotas, role-level and stakeholder-type definitions | PASS, as amended | Replaced by the cohort model with Scott's approval (2026-10-28): 16 dimensions, 115 cohorts, definitions VERBATIM, hierarchy function → level/role (Scott); screening and quota rules in `skip_logic.md` R03–R09 (`5c64050`) |
+| 5 | Cross-check passes: every data column maps to a question; every question maps to data or NO_DATA | PASS | P1.S09 C01–C04: 578 blocks, 13 "Other" columns, 5 open-ended sheets all map; Q20_4_text is NO_DATA (present, empty). Re-run on `5465b09`: 10/10 PASS (`b3ab8e2`) |
+| 6 | Provenance counts reported | PASS | `crosscheck_report.md` (`b3ab8e2`). Live totals on `5465b09`: VERBATIM 300, RECON_DATA 885, RECON_REPORT 4, RECALL_DESIGNER 96, INFERRED 102 (all 85 open ones confirmed by Scott), MISSING 5. Committed report shows RECALL_DESIGNER 94 — it predates fix PR #23 (+2 design statements); not rewritten here (rule B2) |
+
+**Also delivered in Phase 1 (beyond the criteria):** design intent and purpose of record (`design_intent.md`); Scott's grouping of all 37 questions; anomalies (16); linkage inventory (381 links, `linkages.graphml`); asymmetry lexicon pass 1 (26 concepts, 6 gaps).
+
+**Carried into Phase 2 (not blockers):**
+- A04: treat Q6 bucket "1-5" as 0–5 in derived data. A05: Q6 outlier (80) — medians or buckets, not means.
+- A16: significance tests stored in 1,688 cell comments — carry as a per-result flag.
+- A07: S5 piped wording unknown — S5 kept as one question with a caution.
+- Minimum n = 25 (8 tabulated cohorts below).
+- Lexicon: 6 gaps for Scott to name (Q-S10a, not blocking); pass 2 in Phase 5.
+- Governance incidents logged: one reset (P0), two B2 violations (P1) — no data effect.
 
 ### Phase 0 — Ingest source materials
 **Drafted:** 2026-10-27 by Claude (P0.S07) · **Reviewed against:** `main` @ `9aa51d1`
