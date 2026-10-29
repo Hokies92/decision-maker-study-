@@ -287,12 +287,12 @@ T-Q21,T-Q22,thread,same_respondents,318,318 respondents answered both,RECON_DATA
 T-Q21,T-Q23,thread,same_respondents,318,318 respondents answered both,RECON_DATA
 T-Q21,T-Q24,thread,same_respondents,318,318 respondents answered both,RECON_DATA
 T-Q21,T-Q25,thread,same_respondents,318,318 respondents answered both,RECON_DATA
-T-Q22,T-Q23,thread,same_respondents,319,319 respondents answered both,RECON_DATA
-T-Q22,T-Q24,thread,same_respondents,319,319 respondents answered both,RECON_DATA
-T-Q22,T-Q25,thread,same_respondents,319,319 respondents answered both,RECON_DATA
-T-Q23,T-Q24,thread,same_respondents,319,319 respondents answered both,RECON_DATA
-T-Q23,T-Q25,thread,same_respondents,319,319 respondents answered both,RECON_DATA
-T-Q24,T-Q25,thread,same_respondents,319,319 respondents answered both,RECON_DATA
+T-Q22,T-Q23,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q22,T-Q24,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q22,T-Q25,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q23,T-Q24,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q23,T-Q25,thread,same_respondents,318,318 respondents answered both,RECON_DATA
+T-Q24,T-Q25,thread,same_respondents,318,318 respondents answered both,RECON_DATA
 T-S04,T-Q21,thread,same_respondents,6,6 respondents who wrote a 'please specify' answer in S4 also answered Q21,RECON_DATA
 T-S04,T-Q22,thread,same_respondents,6,6 respondents who wrote a 'please specify' answer in S4 also answered Q22,RECON_DATA
 T-S04,T-Q23,thread,same_respondents,6,6 respondents who wrote a 'please specify' answer in S4 also answered Q23,RECON_DATA
