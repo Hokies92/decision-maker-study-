@@ -14,3 +14,9 @@ Flags are not attached to cells. The source tests whether a dimension and a ques
 - "Which dimensions matter for this gate" is answerable directly: flags → item → thread → gate.
 - Each flag is a ready-made statistical link between a screener dimension and a question thread (decisions log 2026-10-29), for Phase 4.
 - The confidence level is a study-level attribute (`0.95`, RECON_DATA from the report header); no test statistic is stored, because none exists in source.
+
+## Implementation notes (P3.S02–S05)
+
+Added after the XSD was built and validated against real data. Each note records where the implementation refines the decision above; the decision itself is unchanged.
+
+- **A flag names an item or a thread — exactly one.** The Main Page shows Q15 as one condensed table covering Q15_1–Q15_7; its 7 flags test the whole table, so they name thread `T-Q15`, not a single item. All other flags name their item.

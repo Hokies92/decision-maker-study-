@@ -26,3 +26,10 @@ Rules:
 - Where a path stops, what came before a state change (the coachable moment), and recovery are all readable from `seq` and `state`.
 - Reasons point into the instrument, so a coached path and a survey result about the same reason share an address.
 - Cohort-level results and individual paths stay separate: nothing links a path to a cohort's percentages except shared gates and reasons. The ecological caveat holds (parking lot, P1.S00).
+
+## Implementation notes (P3.S02–S05)
+
+Added after the XSD was built and validated against real data. Each note records where the implementation refines the decision above; the decision itself is unchanged.
+
+- **Respondent/Answer** (optional, 0..n) holds one person's structured answer to one item: `scale` + `option` for closed items, `value` for numeric entries. Design brief §2 reserved this slot; the first XSD lacked it and it was added before the batch closed. Empty in this study (the source has tables only); exercised by the synthetic test file.
+- **A blank respondent key.** SRC-003 Q21 row 6 has a blank respid (one space). It is stored under that key, not attributed (open question Q-P3a).
