@@ -223,3 +223,61 @@ def _build_measures(doc):
                     "value": round(float(m["values"]), 6), "base": f["base"], "n": f["n"], "usable": bool(f["usable"]),
                     "label": m["label"]})
     return pd.DataFrame(out)
+
+
+# ------------------------------------------------------- headline measures
+# One number per substantive question per cohort, for techniques that compare questions across cohorts
+# (T07–T09). Rules (INFERRED where noted):
+#   grid rows with a summary measure     → the approved headline summary measure
+#   multi-select options                 → the share selecting the option
+#   Q9, Q10, Q16 (single frequency items)→ share answering "Frequently" (extends the approved headline; INFERRED)
+#   Q18                                  → Q18__self_built (approved)
+#   Q14                                  → options 3–5, "the typical agenda helps" (INFERRED)
+# Excluded: screener threads (they define the cohorts), the attention check, "Other" and "Don't know" rows.
+HEADLINE_SINGLE = {"Q9": ["Q9=4"], "Q10": ["Q10=4"], "Q16": ["Q16=4"], "Q14": ["Q14=3", "Q14=4", "Q14=5"]}
+EXCLUDE_LABEL = ("Other", "Don’t know", "Don't know")
+
+
+def headline_measures():
+    m = measures()
+    it = items(load()).set_index("item")
+    keep = []
+    for item, g in m.groupby("item", sort=False):
+        if it.loc[item, "thread"].startswith("T-S") or it.loc[item, "role"] == "attention_check":
+            continue
+        label = (it.loc[item, "label"] or "")
+        if label.startswith(EXCLUDE_LABEL):
+            continue
+        h = g[(g.kind == "summary") & (g.role == "headline")]
+        if item in HEADLINE_SINGLE:
+            parts = g[g.measure.isin(HEADLINE_SINGLE[item])]
+            agg = parts.groupby("cohort", sort=False).agg(value=("value", "sum"), k=("value", "size"),
+                                                          base=("base", "first"), n=("n", "first"),
+                                                          usable=("usable", "all"), dimension=("dimension", "first"),
+                                                          thread=("thread", "first"), gate=("gate", "first")).reset_index()
+            agg = agg[agg.k == len(HEADLINE_SINGLE[item])].drop(columns="k")
+            agg["measure"] = item + ("__help" if item == "Q14" else "__frequently")
+            agg["item"] = item
+            agg["rule"] = " + ".join(HEADLINE_SINGLE[item])
+            agg["provenance"] = "INFERRED"
+            keep.append(agg)
+        elif not h.empty:
+            x = h.copy(); x["rule"] = "approved headline"; x["provenance"] = "INFERRED (confirmed by Scott)"
+            keep.append(x)
+        elif (g.kind == "selection").any():
+            x = g[g.kind == "selection"].copy(); x["rule"] = "share selecting"; x["provenance"] = "RECON_DATA"
+            keep.append(x)
+    cols = ["measure", "item", "thread", "gate", "cohort", "dimension", "value", "base", "n", "usable", "rule", "provenance"]
+    out = pd.concat([k[cols] for k in keep], ignore_index=True)
+    out["value"] = out.value.round(6)
+    return out
+
+
+def cohort_matrix(min_cohorts=20):
+    """Usable cohorts (excluding All respondents) × headline measures, values only where usable.
+    Returns (wide DataFrame cohorts × measures, long headline table)."""
+    h = headline_measures()
+    u = h[h.usable & (h.cohort != "C-L-ALL-RESPONDENTS")]
+    wide = u.pivot(index="cohort", columns="measure", values="value")
+    wide = wide.loc[:, wide.notna().sum() >= min_cohorts]
+    return wide.sort_index().reindex(sorted(wide.columns), axis=1), h
