@@ -460,6 +460,8 @@ def synthetic_doc(dd: Data):
     root.append(full.find(D + "Instrument"))
     rs = sub(root, "Respondents", source="synthetic")
     r = sub(rs, "Respondent", respid="SYN-0001", provenance="SYNTHETIC")
+    sub(r, "Answer", item="Q15_2", provenance="SYNTHETIC")            # multi-select: selected
+    sub(r, "Answer", item="Q18", scale=dd.item_scale["Q18"], option="4", provenance="SYNTHETIC")
     p = sub(r, "DecisionPath", id="SYN-PATH-1", provenance="SYNTHETIC")
     sub(p, "Context", "Invented opportunity used to exercise every rule: all five gates, a not-yes with reasons, "
                       "recovery at the same gate, one event with clock time and the rest without.")

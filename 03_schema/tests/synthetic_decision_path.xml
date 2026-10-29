@@ -129,6 +129,8 @@
   </Instrument>
   <Respondents source="synthetic">
     <Respondent respid="SYN-0001" provenance="SYNTHETIC">
+      <Answer item="Q15_2" provenance="SYNTHETIC"/>
+      <Answer item="Q18" scale="SC-MATERIALS7" option="4" provenance="SYNTHETIC"/>
       <DecisionPath id="SYN-PATH-1" provenance="SYNTHETIC">
         <Context>Invented opportunity used to exercise every rule: all five gates, a not-yes with reasons, recovery at the same gate, one event with clock time and the rest without.</Context>
         <GateEvent seq="1" gate="TARGET" state="1" actor="vendor" provenance="SYNTHETIC"/>
