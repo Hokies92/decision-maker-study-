@@ -1,0 +1,10 @@
+pair_id,codes,provenance,rationale
+P01,B-KNOWS-BUSINESS;B-LISTENS,INFERRED,Understanding the decision-maker's business issues = knowing the business and listening for its issues
+P02,B-KNOWS-BUSINESS;B-PERSONAL,INFERRED,Relating to the decision-maker's role and responsibilities
+P03,B-KNOWS-BUSINESS,INFERRED,Business-specific knowledge
+P04,B-SOLVES-PROBLEMS;L14,INFERRED,Helping solve the business problem; lexicon 'Being helped'
+P05,B-CUSTOMER-FIRST;L12,INFERRED,The pitch: product presentation vs the customer's agenda; lexicon 'Being presented to'
+P06,B-INSIGHT;B-COMMUNICATES;L16,INFERRED,The right information at the right time; lexicon 'Vendor material'
+P07,B-QUANTIFIES-VALUE;B-HELPS-SELL-INTERNALLY;L20;L17,INFERRED,Equipped to make the case inside the company; lexicon 'Building the case' and 'Carrying the idea inside the company'
+C01,B-PREPARED;B-PRODUCT-EXPERTISE;B-KNOWS-BUSINESS,INFERRED,Prepared on their own products vs on the decision-maker
+C02,B-PRODUCT-EXPERTISE;B-KNOWS-BUSINESS,INFERRED,Knowledge of their products vs of the decision-maker's business

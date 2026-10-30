@@ -1,0 +1,29 @@
+entry_id,concept,group,gap,answers,best,worst,q21,top_words,example
+L01,Who the right people are,Target,,0,0,0,0,,
+L02,Message fit,Target,Being mis-targeted — receiving a message meant for someone else,6,0,1,4,company 2; needs 2; understanding 2; articulate 1; audience 1; basic 1; business 1; certification 1,its normally generic (Q12_Other-R191)
+L03,What makes a vendor worth it,Baseline,,290,0,0,289,business 45; knowledge 33; ability 28; understanding 26; product 25; price 21; needs 20; quality 15,Quality of their products and knowledge of our indusrty (Q1_Other-R346)
+L04,Spending concentrates with strategic vendors,Baseline,,0,0,0,0,,
+L05,Being contacted,Access,The cost of being pursued — the time and attention spent on unsolicited vendor contact,7,1,3,1,activity 1; agressive 1; approached 1; buy 1; calling 1; cold 1; company 1; complete 1,Rapid7 - Far too agressive on their marketing. (Q23-R199)
+L06,Being screened,Access,,0,0,0,0,,
+L07,Introductions,Access,,0,0,0,0,,
+L08,The moment of need,Access,,5,2,0,2,time 2; ability 1; adequately 1; anticipate 1; approached 1; buy 1; contract 1; customers 1,VW => Good marketing Printus => Always good deals at the right time DougeEgberts => Flexible (Q22-R096)
+L09,Meeting granted,Access,,2,0,0,0,behavior 1; current 1; preferred 1; professional 1; vendor 1,Professional behavior (Q7_Other-R104)
+L10,The first meeting,Agree,The meeting that was not worth it,3,1,1,1,add 1; ask 1; asked 1; audits 1; believer 1; broniac 1; challenges 1; changed 1,
+L11,Preparation,Agree,,36,10,5,15,prepared 12; business 9; company 5; homework 5; ibm 5; knowledge 4; needs 4; product 4,"Accenture, IBM, E&Y...they are current on my industry trends and know my issues before I tell them. (Q22-R004)"
+L12,Being presented to,Agree,,30,2,10,17,product 9; presentation 8; listen 5; sales 5; understanding 5; business 4; needs 3; presentations 3,get to the point without a lot of fluff (Q13_Other-R141)
+L13,Being taught something,Agree,,8,5,0,3,ways 3; ability 2; business 2; ideas 2; innovative 2; solve 2; use 2; work 2,"Marsh Mcclenan for their ability to share insight and expertise, (Q22-R019)"
+L14,Being helped,Agree,,31,12,2,17,ability 7; problems 7; solve 7; help 6; solutions 6; listen 5; needs 5; problem 5,"Microsoft, SAP, IBM most help further (Q22-R091)"
+L15,Seeing the path to value,Vision,,41,12,0,24,solutions 12; business 7; product 7; vision 7; understanding 5; ability 4; clear 4; problems 4,Did not suit the required solutions (Q15_Other-R349)
+L16,Vendor material,Vision,Material that never reaches the decision,7,1,0,1,business 2; documents 2; according 1; concentration 1; core 1; detailed 1; generic 1; information 1,to much information is presented before they know what my needs are (Q12_Other-R141)
+L17,Carrying the idea inside the company,Vision,The decision-maker selling internally on the vendor's behalf,4,1,0,3,business 2; company 2; work 2; ability 1; capacity 1; case 1; change 1; clearly 1,KAM: understands how my company works and helps sell internally (Q24-R245)
+L18,The agreement network widens,Vision,More people joining the decision than the vendor targeted,1,0,1,0,answer 1; asked 1; got 1; heard 1; helps 1; make 1; people 1; rep 1,
+L19,Who will carry it out,Vision,,8,4,0,3,ability 2; execution 2; good 2; implementation 2; person 2; project 2; understanding 2; answer 1,project plan  and cost estimate (Q19_Other-R346)
+L20,Building the case,Case,,24,5,1,10,roi 7; business 6; value 6; case 4; cost 4; ability 3; money 3; services 3,project could not be accomplished at proposed budgetarty costs (Q15_Other-R355)
+L21,Risk,Case,,8,1,2,3,deliver 2; dell 2; game 2; sales 2; skin 2; success 2; ability 1; base 1,did not believe they vendor could deliver on promises (Q15_Other-R348)
+L22,Authority,Case,,4,0,1,0,budget 2; address 1; authorized 1; available 1; constraint 1; decision 1; funding 1; lack 1,lack of available budget (Q15_Other-R353)
+L23,Not yes,Not yes,,14,0,0,0,did 3; vendor 3; budget 2; deliver 2; pushy 2; ability 1; accomplished 1; available 1,did not believe they vendor could deliver on promises (Q15_Other-R348)
+L24,Another vendor earned the yes,Not yes,,0,0,0,0,,
+L25,Who carries the relationship,Relationship,,212,116,82,14,account 63; manager 57; product 35; executive 23; sales 23; specialist 22; business 21; knows 17,Ernst and Young-- long record of working with us. BridgePoint-- 403b expertise. (Q22-R051)
+L26,Judging sales teams,Relationship,,0,0,0,0,,
+L27,Selling inside the vendor on the customer's behalf,Vision,The salesperson working their own company for the customer — the mirror of L17,17,11,4,2,account 9; manager 9; resources 5; quickly 4; needs 3; sales 3; team 3; access 2,"Sprint,HP,Dell........resources/sales team can't compare to the stronger companies (Q23-R080)"
+L28,Being condescended to,Agree,Being treated as if one does not know one's own business,10,0,9,1,microsoft 4; arrogant 3; accenture 2; apple 2; business 2; does 2; know 2; like 2,Microsoft: impersonal; DHL: overly confident in its efficiency; Free: does not understand anything about companies (Q23-R123)
