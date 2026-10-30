@@ -1,0 +1,9 @@
+role,best,worst,best_share_of_role
+account_manager,90,40,0.6923
+executive,36,25,0.5902
+product_specialist,35,25,0.5833
+consultant,21,14,0.6
+sales_rep,15,47,0.2419
+technical,14,4,0.7778
+other_role,12,6,0.6667
+customer_service,8,13,0.381

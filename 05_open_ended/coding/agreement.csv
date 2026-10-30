@@ -1,0 +1,17 @@
+layer,measure,units,agreement,alpha,kappa,verdict
+codability,N- code or CODABLE,200,0.965,0.9507,0.9506,reliable
+gate,primary code,94,0.9255,0.8961,0.8957,reliable
+gate,presence of each code,564,0.9468,0.8233,0.8235,reliable
+behaviour,primary code,94,0.8191,0.8116,0.8109,reliable
+behaviour,presence of each code,4794,0.9906,0.8677,0.8677,reliable
+servqual,primary code,94,0.8511,0.7856,0.7846,usable with caution
+servqual,presence of each code,564,0.9486,0.8471,0.847,reliable
+meansend,primary code,94,1.0,1.0,1.0,reliable
+meansend,presence of each code,282,0.9433,0.8824,0.8822,reliable
+attribution,primary code,94,0.8723,0.7455,0.7451,usable with caution
+attribution,presence of each code,470,0.9426,0.8281,0.8279,reliable
+valence,primary code,94,0.9894,0.9843,0.9842,reliable
+valence,presence of each code,376,0.9947,0.9858,0.9858,reliable
+lexicon,primary code,94,0.7766,0.7072,0.711,usable with caution
+lexicon,presence of each code,2068,0.9686,0.7244,0.725,usable with caution
+lexicon,"presence, excluding L26 (sensitivity)",1974,0.9818,0.8282,0.8283,reliable

@@ -1,0 +1,80 @@
+answer_id,layer,main,recode
+Q21-R201,codability,N-UNINTELLIGIBLE,N-NONANSWER
+Q23-R012,codability,N-UNINTELLIGIBLE,N-NONANSWER
+Q23-R054,codability,N-UNINTELLIGIBLE,N-NONANSWER
+Q23-R201,codability,N-UNINTELLIGIBLE,N-NONANSWER
+Q24-R057,codability,CODABLE,N-ROLE-ONLY
+Q25-R057,codability,N-UNINTELLIGIBLE,N-NONANSWER
+Q7_Other-R351,codability,N-NONANSWER,CODABLE
+Q21-R012,gate (primary),G-AGREE,G-NONE
+Q21-R220,gate (primary),G-RELATIONSHIP,G-AGREE
+Q21-R104,gate (primary),G-RELATIONSHIP,G-NONE
+Q22-R158,gate (primary),G-NONE,G-VISION
+Q22-R183,gate (primary),G-AGREE,G-RELATIONSHIP
+Q22-R212,gate (primary),G-RELATIONSHIP,G-NONE
+Q23-R287,gate (primary),G-AGREE,G-NONE
+Q21-R220,behaviour (primary),B-HONEST:+,B-SOLVES-PROBLEMS:+
+Q21-R189,behaviour (primary),B-PARTNERSHIP:+,B-COMMITTED:+
+Q21-R244,behaviour (primary),B-PRODUCT-EXPERTISE:+,B-KNOWS-BUSINESS:+
+Q21-R163,behaviour (primary),B-COMPETENT:+,B-PRODUCT-EXPERTISE:+
+Q21-R286,behaviour (primary),B-FLEXIBLE:+,B-PERSONAL:+
+Q21-R199,behaviour (primary),B-PERSONAL:+,B-PREPARED:+
+Q21-R281,behaviour (primary),B-PERSONAL:+,B-SOLVES-PROBLEMS:+
+Q22-R318,behaviour (primary),B-COMPETENT:+,B-KNOWS-BUSINESS:+
+Q23-R104,behaviour (primary),B-COMMITTED:-,B-PROFESSIONAL:-
+Q23-R287,behaviour (primary),B-COMMUNICATES:-,B-HONEST:-
+Q23-R244,behaviour (primary),B-COMMITTED:-,B-CUSTOMER-FIRST:-
+Q24-R016,behaviour (primary),B-PERSONAL:+,B-KNOWS-BUSINESS:+
+Q24-R183,behaviour (primary),B-RELATIONSHIP:+,B-KNOWS-BUSINESS:+
+Q24-R318,behaviour (primary),B-COMPETENT:+,B-KNOWS-BUSINESS:+
+Q25-R013,behaviour (primary),B-COMPETENT:-,NONE
+Q25-R295,behaviour (primary),B-COMMITTED:-,B-KNOWS-BUSINESS:-
+Q13_Other-R252,behaviour (primary),B-RESPONSIVE:+,NONE
+Q21-R254,servqual (primary),S-ASSURANCE,S-TANGIBLES
+Q21-R287,servqual (primary),S-NONE,S-RELIABILITY
+Q21-R244,servqual (primary),S-ASSURANCE,S-EMPATHY
+Q21-R199,servqual (primary),S-EMPATHY,S-ASSURANCE
+Q22-R268,servqual (primary),S-RESPONSIVENESS,S-EMPATHY
+Q22-R252,servqual (primary),S-NONE,S-TANGIBLES
+Q23-R104,servqual (primary),S-EMPATHY,S-ASSURANCE
+Q23-R287,servqual (primary),S-EMPATHY,S-ASSURANCE
+Q24-R318,servqual (primary),S-ASSURANCE,S-EMPATHY
+Q25-R013,servqual (primary),S-ASSURANCE,S-NONE
+Q25-R027,servqual (primary),S-RESPONSIVENESS,S-ASSURANCE
+Q25-R010,servqual (primary),S-EMPATHY,S-ASSURANCE
+Q13_Other-R252,servqual (primary),S-RESPONSIVENESS,S-NONE
+Q7_Other-R110,servqual (primary),S-EMPATHY,S-NONE
+Q21-R132,attribution (primary),A-VENDOR,A-SALESPERSON
+Q21-R240,attribution (primary),A-VENDOR,A-PRODUCT
+Q21-R017,attribution (primary),A-SALESPERSON,A-VENDOR
+Q21-R117,attribution (primary),A-VENDOR,A-PRODUCT
+Q22-R183,attribution (primary),A-SALESPERSON,A-VENDOR
+Q22-R212,attribution (primary),A-VENDOR,A-SALESPERSON
+Q22-R129,attribution (primary),A-VENDOR,A-SALESPERSON
+Q22-R318,attribution (primary),A-VENDOR,A-SALESPERSON
+Q23-R104,attribution (primary),A-VENDOR,A-SALESPERSON
+Q23-R287,attribution (primary),A-VENDOR,A-SALESPERSON
+Q13_Other-R252,attribution (primary),A-SALESPERSON,A-NONE
+Q7_Other-R110,attribution (primary),A-VENDOR,A-OWN
+Q24-R175,valence (primary),V-POS,V-NEUTRAL
+Q22-R268,lexicon (primary),NONE,L26
+Q22-R295,lexicon (primary),NONE,L26
+Q22-R262,lexicon (primary),NONE,L26
+Q22-R158,lexicon (primary),NONE,L26
+Q22-R016,lexicon (primary),L13,L10
+Q22-R183,lexicon (primary),NONE,L25
+Q22-R027,lexicon (primary),NONE,L14
+Q22-R212,lexicon (primary),L25,L26
+Q22-R129,lexicon (primary),NONE,L26
+Q22-R318,lexicon (primary),NONE,L26
+Q22-R190,lexicon (primary),NONE,L26
+Q22-R179,lexicon (primary),NONE,L26
+Q22-R037,lexicon (primary),NONE,L26
+Q23-R306,lexicon (primary),L11,L10
+Q23-R207,lexicon (primary),NONE,L26
+Q23-R262,lexicon (primary),L27,L26
+Q23-R128,lexicon (primary),NONE,L26
+Q23-R104,lexicon (primary),NONE,L26
+Q23-R287,lexicon (primary),NONE,L26
+Q13_Other-R252,lexicon (primary),L08,L10
+Q13_Other-R220,lexicon (primary),NONE,L10

@@ -1,0 +1,11 @@
+source,field,xpath,nodes,checked_in
+05_open_ended/corpus.csv,answer_id,/d:Study/d:Respondents/d:Respondent/d:TextAnswer/@id,1697,respondents_coded.xml
+05_open_ended/coding_frame.csv,code,/d:Study/d:Coding/d:CodeDef/@id,90,respondents_coded.xml
+05_open_ended/codes.csv,layer=attribution,/d:Study/d:Coding/d:Applied[@code = /d:Study/d:Coding/d:CodeDef[@layer='attribution']/@id],779,respondents_coded.xml
+05_open_ended/codes.csv,layer=behaviour,/d:Study/d:Coding/d:Applied[@code = /d:Study/d:Coding/d:CodeDef[@layer='behaviour']/@id],1367,respondents_coded.xml
+05_open_ended/codes.csv,layer=gate,/d:Study/d:Coding/d:Applied[@code = /d:Study/d:Coding/d:CodeDef[@layer='gate']/@id],777,respondents_coded.xml
+05_open_ended/codes.csv,layer=lexicon,/d:Study/d:Coding/d:Applied[@code = /d:Study/d:Coding/d:CodeDef[@layer='lexicon']/@id],768,respondents_coded.xml
+05_open_ended/codes.csv,layer=meansend,/d:Study/d:Coding/d:Applied[@code = /d:Study/d:Coding/d:CodeDef[@layer='meansend']/@id],898,respondents_coded.xml
+05_open_ended/codes.csv,layer=notcodable,/d:Study/d:Coding/d:Applied[@code = /d:Study/d:Coding/d:CodeDef[@layer='notcodable']/@id],949,respondents_coded.xml
+05_open_ended/codes.csv,layer=servqual,/d:Study/d:Coding/d:Applied[@code = /d:Study/d:Coding/d:CodeDef[@layer='servqual']/@id],870,respondents_coded.xml
+05_open_ended/codes.csv,layer=valence,/d:Study/d:Coding/d:Applied[@code = /d:Study/d:Coding/d:CodeDef[@layer='valence']/@id],748,respondents_coded.xml
