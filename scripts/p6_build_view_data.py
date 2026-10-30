@@ -223,6 +223,30 @@ def main() -> int:
          "Statistical links between threads (T07) are group-level — the ecological caveat applies."],
         "Links RECON_DATA or INFERRED per edge (provenance field)."), "nodes": nodes, "edges": edges})
 
+    # ---- V0 context: who was asked what (read by every page) ------------------------------------------------------------
+    import re as _re
+    di = (P1 / "design_intent.md").read_text(encoding="utf-8")
+    gates = []
+    for g in ["Target", "Access", "Agree", "Vision", "Case"]:
+        m = _re.search(r"\| \*\*" + g + r"\*\* \| \"(.+?)\" \|", di)
+        gates.append({"gate": g.upper(), "name": g, "scott_definition": m.group(1) if m else ""})
+    def n_of(c):
+        return int(coh.loc[c, "n"])
+    lev = [c for c in coh.index if coh.loc[c, "dimension_id"] == "D-LEVEL"]
+    stems = {}
+    for t in ["T-Q08", "T-Q11", "T-Q12", "T-Q13", "T-Q14", "T-Q18", "T-Q19", "T-Q21", "T-Q22", "T-Q23", "T-Q24", "T-Q25"]:
+        stems[t.replace("T-", "")] = qm[qm.thread_id == t].stem.iloc[0]
+    v0 = {"meta": meta("V0", "Study context", "Who was asked, and what?", "study",
+                       ["01_instrument_reconstruction/cohorts.csv", "01_instrument_reconstruction/question_map.csv",
+                        "01_instrument_reconstruction/design_intent.md", "05_open_ended/corpus.csv", "05_open_ended/codes.csv"],
+                       ["The study date is excluded from analysis by design."],
+                       "Counts RECON_DATA; question wording VERBATIM; gate definitions RECALL_DESIGNER (Scott)."),
+          "respondents": n_of(ALL), "it_decision_makers": n_of("C-FUNCTION-ITDM"), "business_decision_makers": n_of("C-FUNCTION-BDM"),
+          "levels": [{"label": coh.loc[c, "label"], "n": n_of(c)} for c in lev],
+          "written_answers": int(len(corpus)), "codable_answers": int(codes[codes.layer == "valence"].answer_id.nunique()),
+          "question_stems": stems, "gates": gates}
+    write("v0_context.json", v0)
+
     print(f"v1 pairs={len(v1)}; v2 {len(clist)}×{len(mlist)}; v3 points={len(v3)}; v4 behaviours={len(v4)}; answers linked={len(sub)}; "
           f"v5 rows={len(v5)}; v6 answers={len(allrec)}; v7 {len(nodes)} nodes / {len(edges)} edges")
     return 0
