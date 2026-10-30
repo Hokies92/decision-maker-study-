@@ -12,3 +12,4 @@ R10,The method must accept the field's answer format,A method defined for one fo
 R11,Two fields compared on one axis must share stem scale and base,Same people asked the same way is what makes two shares comparable,"Groves et al. (2009)",rejected
 R12,Interpretive lenses state no quantity of their own,An economic or systems lens explains a measured result; it does not measure,"method register (EC01–EC04; CY01)",condition
 R13,An interpretive lens applies only to the gates it speaks to,Search costs belong to Access; transaction costs to Vision and Case; a lens on an unrelated question adds noise not insight,"method register (gates column)",not_applicable
+R14,A method tied to one kind of scale applies only to fields on that scale,Stated importance cannot be read from a frequency or agreement scale; found at Scott's review when DC02 passed on Q3 and Q8,"Scott's review 2026-10-30 (S09)",not_applicable

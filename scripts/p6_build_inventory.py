@@ -5,7 +5,7 @@ Pairs every method in the method register with every field, set of fields, pair 
 apply to, tests each combination against the validity rules, and keeps the valid ones. Every rejected combination names
 the rule it breaks. Combinations whose answer format the method does not accept are counted as not applicable, not listed.
 
-Inputs: 06_visualization/inventory/data_register.csv (P6.S06), method_register.csv and rules.csv (authored, P6.S07–S08),
+Inputs: 06_visualization/inventory/data_register.csv (P6.S06), method_register.csv, rules.csv and verdicts.csv (authored),
         04_analytics_library/pairs.csv (to re-test the retired V1 ledger), 01_instrument_reconstruction/cohort_dimensions.csv.
 Outputs: 06_visualization/inventory/valid.csv, rejected.csv, summary.md, methods.md.
 Statuses: valid | valid_with_condition (a rule adds a condition the analysis must state) | needs_data | rejected.
@@ -84,6 +84,8 @@ def main() -> int:
         if m["arity"] not in ("threads",) and m["formats"] != "any":
             if any(r.answer_format not in fmts for r in rows):
                 return "not_applicable", ["R10"], []
+        if m.get("scale_families", "any") != "any" and any(r.scale_family not in m["scale_families"].split(";") for r in rows):
+            return "not_applicable", ["R14"], []
         if m.get("gates", "any") != "any" and not any(r.gate.replace(" (input)", "") in m["gates"].split(";") for r in rows):
             return "not_applicable", ["R13"], []
         if m["needs_respondent_level"] == "yes" and any(r.respondent_level != "yes" for r in rows):
@@ -130,6 +132,11 @@ def main() -> int:
                 valid.append({**base, "conditions": " | ".join(cond) if cond else (rules.loc["R09", "statement"] if status == "needs_data" else ""),
                               "question": m["question"], "output": m["output"]})
     V, R = pd.DataFrame(valid), pd.DataFrame(rejected)
+    # learning loop: Scott's verdicts annotate combinations (exact combination, or every combination of a method)
+    vd = rd(INV / "verdicts.csv")
+    by_combo = dict(zip(vd[vd.level == "combo"].target, vd[vd.level == "combo"].verdict))
+    by_method = dict(zip(vd[vd.level == "method"].target, vd[vd.level == "method"].verdict))
+    V["verdict"] = [by_combo.get(c, by_method.get(m, "")) for c, m in zip(V.combo_id, V.method_id)]
 
     # ---- regression test: the two retired analyses must be rejected --------------------------------------------------
     rej = set(R.combo_id)
@@ -153,6 +160,9 @@ def main() -> int:
          f"{sum(na.values())} pairings were not applicable (the method does not accept the field's answer format) and are counted only.", "",
          "**Regression test passed:** all " + str(len(v1_ids)) + " pairs of the retired V1 ledger are rejected (R01), and the retired "
          "V3 felt-vs-said comparison is rejected (R08).", "",
+         f"**Learning loop:** {len(vd)} verdicts recorded (`verdicts.csv`): "
+         + ", ".join(f"{k} {n}" for k, n in sorted(Counter(vd.verdict).items())) + ". Method-level verdicts change the register or the rules; "
+         "combination-level verdicts mark what to run; 'fix' verdicts record a change already made to the rules or the register.", "",
          "## By discipline", "", "| Discipline | Methods | Usable | Rejected |", "|---|---|---|---|"]
     for d in disc:
         ids = [m["method_id"] for m in methods if m["discipline"] == d]

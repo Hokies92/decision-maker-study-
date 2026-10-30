@@ -1,0 +1,9 @@
+target,level,verdict,by,date,note,action
+IN01:Q14,combo,useful,Scott (approved as recommended),2026-10-30,One number for how one-sided the typical meeting is,run in S10
+DS07:Q8_1+Q8_3,combo,useful,Scott (approved as recommended),2026-10-30,Prepared on own products vs on my business within one question — the sound version of the retired ledger,run in S10
+IS04:Q18,combo,useful,Scott (approved as recommended),2026-10-30,Does the business-case problem differ by group,run in S10 on non-overlapping groups
+CM01:Q14,combo,useful,Scott (approved as recommended),2026-10-30,Which groups get the most pitching,run in S10
+EC03:Q18,combo,useful,Scott (approved as recommended),2026-10-30,Economic reading of the business case; no numbers of its own,run in S10
+BY02:Q14,combo,duplicate,Scott (approved as recommended),2026-10-30,Overlaps the chi-square test for this purpose,not run; keep in inventory
+DC02,fix,wrong,Scott (approved as recommended),2026-10-30,Passed on frequency grids (Q3; Q8) that do not measure importance,fixed by new rule R14 (scale family)
+CY02,fix,misleading,Scott (approved as recommended),2026-10-30,Duplicated the within-question difference (DS07),dropped from the method register
