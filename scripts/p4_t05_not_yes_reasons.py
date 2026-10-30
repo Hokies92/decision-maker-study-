@@ -30,6 +30,7 @@ def main() -> int:
     import matplotlib
     matplotlib.use("Agg")
     matplotlib.rcParams["svg.fonttype"] = "none"
+    matplotlib.rcParams["font.family"] = ["DejaVu Sans"]   # bundled with matplotlib: same metrics on any machine
     import matplotlib.pyplot as plt
     m = L.measures()
     q = m[m.item.isin(WHERE) & (m.kind == "selection")].copy()

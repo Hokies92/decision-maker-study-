@@ -50,6 +50,7 @@ def main() -> int:
     import matplotlib
     matplotlib.use("Agg")
     matplotlib.rcParams["svg.fonttype"] = "none"
+    matplotlib.rcParams["font.family"] = ["DejaVu Sans"]   # bundled with matplotlib: same metrics on any machine
     import matplotlib.pyplot as plt
     import networkx as nx
     import pandas as pd
