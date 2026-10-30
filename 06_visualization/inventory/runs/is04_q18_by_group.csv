@@ -1,0 +1,12 @@
+dimension,groups,n,chi2,dof,p,cramers_v,min_expected,expected_ok,p_bh,differs_at_5pct
+Headquarters country,4,306,18.107,6,0.006,0.172,15.12,True,0.0575,False
+Level — IT decision-makers,3,145,13.176,4,0.0104,0.213,8.91,True,0.0575,False
+Frequency of contact with salespeople,3,313,12.133,4,0.0164,0.139,16.28,True,0.0601,False
+Level — combined,4,313,13.282,6,0.0388,0.146,11.34,True,0.1011,False
+Headquarters region,2,313,6.161,2,0.0459,0.14,45.06,True,0.1011,False
+Industry — 7 groups,6,299,9.448,10,0.4902,0.126,7.27,True,0.8155,False
+Company's own customers (B2B/B2C),5,313,6.691,8,0.5703,0.103,7.85,True,0.8155,False
+Company employees,3,313,2.267,4,0.6868,0.06,26.75,True,0.8155,False
+Function (IT vs business),2,313,0.676,2,0.713,0.046,45.06,True,0.8155,False
+Level — business decision-makers,3,140,1.97,4,0.7413,0.084,8.7,True,0.8155,False
+Company revenue,4,259,1.307,6,0.9712,0.05,8.22,True,0.9712,False
