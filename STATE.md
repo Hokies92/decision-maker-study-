@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 4 — Analytics library   **Gate:** open
-**Step:** P4.S07 — Cross-check (batch S03–S07)
-**Status:** batch done — S03–S07 complete; next P4.S08 gate review (not started)
-**Branch:** phase-4/steps-03-07-techniques
+**Step:** P4.S08 — Draft Phase 4 gate review
+**Status:** drafted — awaiting Scott's merge and tag `phase-4-complete`
+**Branch:** phase-4/step-08-gate-review
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 4
@@ -16,12 +16,12 @@ Outputs go to `04_analytics_library/`. A technique is one file that states the q
 | P4.S00 | Propose the Phase 4 step plan | Phase 3 outputs; `GOVERNANCE.md` §5 P4; README | `STATE.md` | Plan merged by Scott; D4-1…D4-3 answered | done | `72906a8` (PR #37) |
 | P4.S01 | **Scott's review of the inputs Phase 4 computes from:** the 47 INFERRED variable definitions (Q-P2a) and the Q21 blank respid (Q-P3a) | `variable_dictionary.csv`; Q-P3a evidence | `02_data_inventory/variable_review.csv` (on a `fix/` branch for P2 outputs); decisions log | Every one of the 47 definitions approved, changed, or dropped by Scott; Q-P3a answered and applied or closed | done — 65 definitions reviewed; Q21 → 112 | PR #38 (`b53c5d4`) |
 | P4.S02 | **Library conventions:** technique template, `catalog.md`, shared reader for the schema, and the XPath check | XSD; `schema_mapping.csv` | `04_analytics_library/TEMPLATE.md`, `catalog.md`; `scripts/p4_lib.py`; `scripts/p4_check_xpaths.py` | Template has every §5 P4 field; the check fails on an XPath that names an element or attribute not in the XSD (negative test) | done — template, catalog, reader, check | PR #39 (`e7ffd98`) |
-| P4.S03 | **Descriptive techniques:** T01 gate profile (answers by gate and cohort); T02 summary measures (top-two box and the other approved definitions); T03 where groups differ (significance flags by gate and dimension) | `full_study.xml`; approved definitions (S01) | `04_analytics_library/T01…T03-*.md`; scripts; outputs | Each technique file complete; script runs; n = 25 enforced; outputs reproducible | done — T01–T03 | batch branch |
-| P4.S04 | **Gap techniques:** T04 value vs experience (pairs of items: what decision-makers value against what they report receiving — pairs proposed by Claude, INFERRED, for Scott's review); T05 not-yes reasons by cohort (Q15) | `full_study.xml`; authored pair list | T04, T05 files; scripts; outputs; `pairs.csv` | Every pair cites both items and is tagged INFERRED until reviewed; Q15 reasons by every usable cohort | done — T04–T05 | batch branch |
-| P4.S05 | **Network techniques:** T06 thread network (degree, centrality, communities on the structural links); T07 statistical thread links (correlation of answer profiles across cohorts — new link type, ecological) | `full_study.xml` Graph and Results | T06, T07 files; scripts; outputs (incl. GraphML) | Ecological caveat stated in T07 and in its output; only cohorts with n ≥ 25 enter correlations | done — T06–T07 | batch branch |
-| P4.S06 | **Topology techniques:** T08 cohort similarity and clusters; T09 map of cohorts × items (correspondence analysis or equivalent) | `full_study.xml` | T08, T09 files; scripts; outputs | Method and its limits stated; reproducible with fixed seeds | done — T08–T09 | batch branch |
-| P4.S07 | Cross-check | All P4 outputs | `scripts/p4_crosscheck.py`; `04_analytics_library/crosscheck_report.md` | Every referenced XPath exists in the XSD; every technique has all fields; n = 25 never breached in a comparison; scripts byte-identical; source checksums OK | done — 9/9 pass | batch branch |
-| P4.S08 | Draft Phase 4 gate review | All P4 outputs | Gate review block | Every §5 P4 criterion checked with evidence; stop for Scott's merge and tag | not started | — |
+| P4.S03 | **Descriptive techniques:** T01 gate profile (answers by gate and cohort); T02 summary measures (top-two box and the other approved definitions); T03 where groups differ (significance flags by gate and dimension) | `full_study.xml`; approved definitions (S01) | `04_analytics_library/T01…T03-*.md`; scripts; outputs | Each technique file complete; script runs; n = 25 enforced; outputs reproducible | done — T01–T03 | PR #40 (`67ee188`) |
+| P4.S04 | **Gap techniques:** T04 value vs experience (pairs of items: what decision-makers value against what they report receiving — pairs proposed by Claude, INFERRED, for Scott's review); T05 not-yes reasons by cohort (Q15) | `full_study.xml`; authored pair list | T04, T05 files; scripts; outputs; `pairs.csv` | Every pair cites both items and is tagged INFERRED until reviewed; Q15 reasons by every usable cohort | done — T04–T05 | PR #40 (`67ee188`) |
+| P4.S05 | **Network techniques:** T06 thread network (degree, centrality, communities on the structural links); T07 statistical thread links (correlation of answer profiles across cohorts — new link type, ecological) | `full_study.xml` Graph and Results | T06, T07 files; scripts; outputs (incl. GraphML) | Ecological caveat stated in T07 and in its output; only cohorts with n ≥ 25 enter correlations | done — T06–T07 | PR #40 (`67ee188`) |
+| P4.S06 | **Topology techniques:** T08 cohort similarity and clusters; T09 map of cohorts × items (correspondence analysis or equivalent) | `full_study.xml` | T08, T09 files; scripts; outputs | Method and its limits stated; reproducible with fixed seeds | done — T08–T09 | PR #40 (`67ee188`) |
+| P4.S07 | Cross-check | All P4 outputs | `scripts/p4_crosscheck.py`; `04_analytics_library/crosscheck_report.md` | Every referenced XPath exists in the XSD; every technique has all fields; n = 25 never breached in a comparison; scripts byte-identical; source checksums OK | done — 9/9 pass | PR #40 (`67ee188`) |
+| P4.S08 | Draft Phase 4 gate review | All P4 outputs | Gate review block | Every §5 P4 criterion checked with evidence; stop for Scott's merge and tag | done — recommendation PASS | this branch |
 
 Batch **S03–S07** approved by Scott by name ("Run S03–S07 as one batch") — branch `phase-4/steps-03-07-techniques`. S02 ran alone (PR #39).
 
@@ -98,6 +98,30 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 ## Gate reviews
 <!-- one dated block per closed phase, with criteria checklist and tag -->
+
+### Phase 4 — Analytics library
+**Drafted:** 2026-10-29 by Claude (P4.S08) · **Reviewed against:** `main` @ `67ee188`
+**Recommendation:** PASS — close Phase 4 · **Decision:** pending Scott · **Tag:** `phase-4-complete` (Scott creates)
+
+| # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
+|---|---|---|---|
+| 1 | One file per technique: question, required XPaths, assumptions, minimum n, output form | PASS | 9 files T01–T09 in `04_analytics_library/`, each with 12 front-matter fields and 6 body sections (incl. Question, Assumptions, Minimum n, Output); `p4_check_xpaths.py` enforces both (C01) |
+| 2 | Every technique respects n = 25: below-minimum cohorts shown, never used for comparisons | PASS | Every result row carries `usable` (cohort n ≥ 25 and item base ≥ 25); comparisons use usable rows only — T04 450 of 522, T05 400 of 464, T07–T09 49 cohorts × 73 measures; 584 headline values excluded; 0 breaches (C04) |
+| 3 | Valid on group-level percentages, or states the respondent-level data needed; statistical links state the ecological caveat | PASS | All 9 are group-level; T04, T07, T08, T09 carry an Ecological caveat section and name the respondent-level slot that would remove it (Respondent/Answer); T07 writes the caveat on every output row (C05) |
+| 4 | Automated check: every referenced XPath exists in the current XSD | PASS | `scripts/p4_check_xpaths.py` — 45 XPaths, every element and attribute declared in dms 1.1.0 / gates 1.0.0 and selecting nodes in `full_study.xml`; built-in negative test rejects a non-existent element and attribute (C01) |
+| 5 | `catalog.md` index | PASS | Generated from the technique files; 9 of 9 listed; unchanged on regeneration (C02) |
+
+**Cross-check (P4.S07):** 9 of 9 pass on `main` — also: T02 equals a direct recomputation from the instance (3,626 values); 9 scripts and 37 outputs byte-identical; every third-party import listed; source checksums OK.
+
+**Also delivered (beyond the criteria):** reference scripts and committed results for every technique (D4-1); outputs keyed by gate, cohort and item for visualization (Scott, 2026-10-29); first readings — the value-vs-experience gaps run the same direction in all 50 usable cohorts; 45 of 49 cohorts share one profile; group differences fall from 26% of tests at Access to 9% at Vision and Case.
+
+**Carried into Phase 5 (not blockers):**
+- Q-P4a: Scott's review of the 9 T04 pairs (`pairs.csv`, INFERRED).
+- Tag `schema-v1.1.0` (Scott) — Phase 4 reads dms 1.1.0.
+- `covaries_with` (T07's 42 candidate links) is not a schema link type yet; adding it is a minor version.
+- Visualization concepts (parking lot) — the library's outputs are ready to feed them.
+- Phase 5 (open-ended coding) will add the decision-makers' own words: lexicon pass 2, and Q22–Q25 coded to the gate each answer describes.
+- Governance in Phase 4: reader extended twice in separate fix commits; one incident (dependency rule) — now checked automatically (C08).
 
 ### Phase 3 — Design the new schema
 **Drafted:** 2026-10-29 by Claude (P3.S06) · **Reviewed against:** `main` @ `6d06df8` + `fix/p3-adr-implementation-notes` (`5606c35`)
@@ -313,6 +337,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P4.S05 T06–T07 built. T06: structural communities follow the instrument's mechanics (shared scales, text answered by the same respondents), not the gates — modularity 0.324 found vs 0.053 for Scott's grouping; the gates are a conceptual grouping. T07: 42 candidate statistical links (|rho| ≥ 0.6) among 2,413 measure pairs, 31 across gates, most between Agree and Vision (12) and Access and Agree (10); ecological — cohorts overlap, no p-values.
 - 2026-10-29: P4.S06 T08–T09 built. T08: 45 of 49 usable cohorts fall in one cluster — the experience is broadly shared; distinct cohorts are business-side vice presidents (with the combined VP cohort, which they are part of), France, and Public Sector. T09: the first two components explain 21% and 11% of between-cohort variation (32% together) — no single dominant axis.
 - 2026-10-29: P4.S07 cross-check: 9 of 9 pass — 9 technique files complete, 45 XPaths all in the XSD; 37 declared outputs, none undeclared; n = 25 never breached (584 headline values excluded as below minimum); ecological caveat wherever cohorts are compared statistically; T02 equals a direct recomputation from the instance (3,626 values); every script byte-identical; every third-party import listed (new check after the dependency incident).
+- 2026-10-29: Batch S03–S07 merged (PR #40, `67ee188`).
+- 2026-10-29: P4.S08 Phase 4 gate review drafted — all five §5 P4 criteria PASS. Recommendation: close Phase 4.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
