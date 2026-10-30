@@ -3,8 +3,8 @@
 ## Current
 **Phase:** 5 — Open-ended responses   **Gate:** open
 **Step:** P5.S10 — Draft Phase 5 gate review
-**Status:** not started — batch S05–S09 done; awaiting Scott's merge of the S04 PR, the C03 fix PR and the batch PR
-**Branch:** phase-5/steps-05-09-code-check-views (on phase-5/step-04-frame-review)
+**Status:** done — recommendation NOT YET: criterion 1 fails (28 codes without an example, 50 without an exclude rule); stopped for Scott (S3)
+**Branch:** phase-5/step-10-gate-review (base `8b0070f`)
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 5
@@ -45,7 +45,7 @@ Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer
 | P5.S07 | **Views and associations:** CIT effective vs ineffective; satisfiers / dissatisfiers (Kano-style); SERVQUAL profile; means-end ladders; attribution; contact role best vs worst; vendors named best vs worst; gate distribution of Q22–Q25; framework matrix; code co-occurrence network; respondent typology; topics vs themes; lexicon pass 2; links to the structured gaps (T04) at concept level | codes; corpus; Phase 4 outputs | `05_open_ended/views/…`; `findings.md` | Each view states its method, unit (answer or respondent), and limits; every number reproducible by script | done — 15 views; findings with valid / invalid / unknown | batch branch |
 | P5.S08 | **Schema 1.2.0:** codes as a separate, optional layer referencing each text answer; regenerated instances; mapping | codes; XSD | XSD 1.2.0; examples; `CHANGELOG.md` | Additive minor version; all 1.1.0 instances still validate; codes reference answers by key | done — dms 1.2.0; 1.1.0 examples unchanged and valid; fix PR for P3 C03 | batch branch; `fix/p3-c03-minor-versions` |
 | P5.S09 | Cross-check | All P5 outputs | `scripts/p5_crosscheck.py`; `crosscheck_report.md` | Verbatims unchanged vs source; every code has a frame entry; every coded row links respid → thread; no level/stakeholder on any respondent; scripts byte-identical; checksums OK | done — 10 of 10 pass | batch branch |
-| P5.S10 | Draft Phase 5 gate review | All P5 outputs | Gate review block | Every §5 P5 criterion checked; stop for Scott's merge and tag | not started | — |
+| P5.S10 | Draft Phase 5 gate review | All P5 outputs | Gate review block | Every §5 P5 criterion checked; stop for Scott's merge and tag | done — recommendation NOT YET (criterion 1) | this branch |
 
 Batch **S01–S03** approved by Scott by name ("Run s01-s03 as one batch.") — starts when this plan is merged. S04 done. Batch **S05–S09** approved by Scott by name ("Run S05–S09 as one batch.") — branch `phase-5/steps-05-09-code-check-views`, stacked on the S04 branch.
 
@@ -140,6 +140,28 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 ## Gate reviews
 <!-- one dated block per closed phase, with criteria checklist and tag -->
+
+### Phase 5 — Open-ended responses
+**Drafted:** 2026-10-29 by Claude (P5.S10) · **Reviewed against:** `main` @ `8b0070f`
+**Recommendation:** NOT YET — criteria 2–4 pass; criterion 1 fails. Close after a frame-completion step · **Decision:** pending (Scott) · **Tag:** —
+
+| # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
+|---|---|---|---|
+| 1 | `coding_frame.md`: each code with definition, include/exclude rules, ≥1 example | **FAIL** | 90 codes. Definition 90 of 90; include 90 of 90; **exclude 40 of 90** (missing on 22 non-lexicon codes, e.g. B-HONEST, B-PRICE, V-POS, A-OWN, N-VALUE, and all 28 lexicon codes); **example 62 of 90** (missing on all 28 lexicon codes L01–L28). Cause: `p5_build_coding_frame.py --require-examples` exempts the lexicon layer and never checked exclude rules, so the P5.S03 done-when ("every code … ≥1 example") was reported met when it was not (incident below). 6 lexicon codes (L01, L04, L06, L07, L24, L26) carry no answer in the main coding, so no verbatim answer example exists for them |
+| 2 | Coded output links respondent ID → question thread; no per-respondent level or stakeholder | PASS | `codes.csv`: 7,156 rows, each with answer_id, respid, item, thread; 0 link mismatches against the corpus (P5 C03). No level, stakeholder, function or seniority field anywhere; 0 Respondent/Attributes (P5 C05) |
+| 3 | Raw verbatims untouched; codes stored separately | PASS | 1,697 answers equal the source cells (SRC-002 / SRC-003), the corpus and both instances (P5 C01). Codes live in `codes.csv` and in the separate `Coding` section of schema 1.2.0, referencing answers by `@id` (ADR-014; P5 C06) |
+| 4 | Consistency check documented (re-code a sample; report agreement) | PASS | `consistency_report.md`: 200-answer stratified sample, blind second coder; Krippendorff's alpha and Cohen's kappa per layer; no layer below 0.67 (D5-2); lowest: lexicon 0.71 / 0.72, attribution primary 0.75, SERVQUAL primary 0.79; coder notes in `coding/recode_notes.md` |
+
+**Cross-check (P5.S09):** 10 of 10 pass on `main`. Phase 3 cross-check 13 of 13 and Phase 4 9 of 9 on `main`. The committed Phase 3 report is stale since 1.2.0 (it shows 3 examples; there are 4) — a Phase 3 file, so its refresh needs a `fix/` branch.
+
+**Options to close criterion 1 (Scott to choose):**
+1. **Frame-completion step (recommended):** add exclude rules to the 50 codes and a verbatim example to each lexicon code, drawn by script from the answers carrying it; for the 6 lexicon codes no answer expresses, record the example as `MISSING` with the reason and cite the instrument wording instead. Codes unchanged, so agreement and findings stand; re-run S09.
+2. As option 1, plus settle the L26 rule and re-run the blind check on a fresh sample (frame v1.2).
+3. Accept the lexicon layer as exempt (its codes are defined by `asymmetry_lexicon.md`) and record that as a decision; still add the 22 missing non-lexicon exclude rules.
+
+**Also delivered:** 17 published methods (`methods.md`); corpus, vendor / person / feedback search index (D5-4); text views; frame v1.1 (90 codes, 18 inductive); 15 coded views and `findings.md`; schema dms 1.2.0 (ADR-014).
+
+**Carried forward (not blockers):** L26 rule; frame candidates from the coders (time, relevance, energy, size match, going around the decision-maker, lock-in, customer building the vendor's case, cultural fit); Q-S10a gap names (candidate words in `views/coded/lexicon_pass2.csv`); Q-P4a and `t04_concept_links.csv` review; tag `schema-v1.2.0`; visualization concepts and search page (parking lot).
 
 ### Phase 4 — Analytics library
 **Drafted:** 2026-10-29 by Claude (P4.S08) · **Reviewed against:** `main` @ `67ee188`
@@ -454,4 +476,5 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-27 (P0.S01 session open): Claude ran `git reset --hard origin/main` on a local `main` that had no local commits or changes, to sync it after PR #1 merged. The effect was a fast-forward; nothing was discarded and nothing was pushed. It still breaks the letter of rule B4. Disclosed to Scott; no correction needed. Future syncs will use `git merge --ff-only origin/main`.
 - 2026-10-29 (disclosed by Claude): Rule B2 broken twice — P1.S03 addenda (Scott's grouping, then Q-S04a/b answers) were committed on the P1.S04 branch (`a2fdf85`) and the P1.S05 branch (`205e174`). Both were disclosed in the decisions log at the time but not logged as incidents. Effect: content correct, merged via PRs #17 and #18; step boundaries blurred. Correction: no history rewrite; corrections to merged work now go on `fix/<phase>-<slug>` branches (first used: `fix/p1-s05-screen-provenance`).
 - 2026-10-29 (disclosed by Claude): Defect in merged Phase 1 output — `linkages.csv` same_respondents weights for 6 open-ended pairs off by 1 (blank answers counted as answered), present at the Phase 1 gate. Effect: link weights only; no source data, result, or flag affected. Correction: `fix/p1-s08-blank-answers`; Phase 2 C08 now checks the weights exactly.
+- 2026-10-29 (disclosed by Claude): False DONE in P5.S03 — the done-when "Every code: definition, include/exclude, ≥1 example" was reported met, but the frame builder's `--require-examples` check exempted the 28 lexicon codes and never checked exclude rules; 28 codes have no example and 50 no exclude rule. Found while drafting the Phase 5 gate review. Effect: frame documentation only — no code, agreement figure or finding changes. Correction: pending Scott's choice of option (gate review, Phase 5); the builder should check every criterion literally, with no layer exempt unless a logged decision says so.
 - 2026-10-29 (disclosed by Claude): CLAUDE.md dependency rule missed — matplotlib (first used in P4.S03, `e2675d5`) and networkx (P4.S05, `3db0dab`) were added to `requirements.txt` only in P4.S06 (`d212ca5`), together with numpy and scipy. Effect: none on outputs; the batch branch had not been pushed. Correction: recorded in S06; no history rewrite. Future: the cross-check (P4.S07) verifies every imported third-party package is listed.
