@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 5 — Open-ended responses   **Gate:** open
-**Step:** P5.S04 — Scott reviews coding frame v1
-**Status:** done — approved; frame v1.1 (with lexicon L27, L28); awaiting merge
-**Branch:** phase-5/step-04-frame-review (on fix/p1-lexicon-l27-l28)
+**Step:** P5.S06 — Consistency check (batch S05–S09)
+**Status:** in progress — S05 done
+**Branch:** phase-5/steps-05-09-code-check-views (on phase-5/step-04-frame-review)
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 5
@@ -40,14 +40,14 @@ Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer
 | P5.S02 | **Corpus and text views (scripted, no judgment):** one corpus file; non-answers flagged; vendor and person-name extraction and contact role (M12) — names kept, not masked (D5-4); a search index by vendor, person and feedback text; sentiment (M13); frequency, keyness, collocations, word networks (M14); topics (M15) | `respondents_open_ended.xml` | `05_open_ended/corpus.csv`; `05_open_ended/index/` (vendor index, people index, searchable answers); `scripts/p5_*.py`; `05_open_ended/views/…` | Corpus = 1,697 answers, text byte-identical to the schema; every named vendor and person indexed to its answers; every view reproducible | done — corpus, index, views | PR #43 (`b2e3aec`) |
 | P5.S03 | **Inductive coding pass (M1–M3):** open coding of a stratified sample; themes; coding frame v1 with ≥1 verbatim example per code | corpus; frame v0 | `coding_frame.md` v1; `codes_sample.csv` | Every code: definition, include/exclude, ≥1 example; inductive codes marked as such | done — frame v1, 88 codes; 220 coded | PR #43 (`b2e3aec`) |
 | P5.S04 | **Scott reviews coding frame v1** | `coding_frame.md` v1 | decisions log; frame v1.x | Every code kept, merged, renamed, or dropped by Scott | done — v1 approved; v1.1 = v1 + L27, L28 | this branch |
-| P5.S05 | **Full coding:** every answer coded on every layer that applies (M4–M8, M10–M11); codes stored separately from verbatims, keyed respid → item → thread | corpus; approved frame | `05_open_ended/codes.csv` | Every answer coded or marked not codable; no code without a definition in the frame; no verbatim altered | not started | — |
+| P5.S05 | **Full coding:** every answer coded on every layer that applies (M4–M8, M10–M11); codes stored separately from verbatims, keyed respid → item → thread | corpus; approved frame | `05_open_ended/codes.csv` | Every answer coded or marked not codable; no code without a definition in the frame; no verbatim altered | done — 1,697 answers; 748 coded | batch branch |
 | P5.S06 | **Consistency check (M17):** independent blind re-code of a stratified random sample by a separate agent; kappa / alpha per layer; disagreements reviewed and frame clarified | codes; frame | `05_open_ended/consistency_report.md`; `recode_sample.csv` | Agreement reported per layer with the sample design; any layer below the threshold (D5-2) revised and re-checked | not started | — |
 | P5.S07 | **Views and associations:** CIT effective vs ineffective; satisfiers / dissatisfiers (Kano-style); SERVQUAL profile; means-end ladders; attribution; contact role best vs worst; vendors named best vs worst; gate distribution of Q22–Q25; framework matrix; code co-occurrence network; respondent typology; topics vs themes; lexicon pass 2; links to the structured gaps (T04) at concept level | codes; corpus; Phase 4 outputs | `05_open_ended/views/…`; `findings.md` | Each view states its method, unit (answer or respondent), and limits; every number reproducible by script | not started | — |
 | P5.S08 | **Schema 1.2.0:** codes as a separate, optional layer referencing each text answer; regenerated instances; mapping | codes; XSD | XSD 1.2.0; examples; `CHANGELOG.md` | Additive minor version; all 1.1.0 instances still validate; codes reference answers by key | not started | — |
 | P5.S09 | Cross-check | All P5 outputs | `scripts/p5_crosscheck.py`; `crosscheck_report.md` | Verbatims unchanged vs source; every code has a frame entry; every coded row links respid → thread; no level/stakeholder on any respondent; scripts byte-identical; checksums OK | not started | — |
 | P5.S10 | Draft Phase 5 gate review | All P5 outputs | Gate review block | Every §5 P5 criterion checked; stop for Scott's merge and tag | not started | — |
 
-Batch **S01–S03** approved by Scott by name ("Run s01-s03 as one batch.") — starts when this plan is merged. S04 done. **S05–S09** needs approval by name.
+Batch **S01–S03** approved by Scott by name ("Run s01-s03 as one batch.") — starts when this plan is merged. S04 done. Batch **S05–S09** approved by Scott by name ("Run S05–S09 as one batch.") — branch `phase-5/steps-05-09-code-check-views`, stacked on the S04 branch.
 
 ## Step plan — Phase 4 (closed — tag `phase-4-complete` on `046b6ea`)
 
@@ -396,6 +396,10 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: Batch S01–S03 merged (PR #43, `b2e3aec`).
 - 2026-10-29: P5.S04 — Scott: "Approve." Coding frame v1 approved as proposed: all 15 new behaviour codes kept; the four close pairs kept separate (merge first if agreement is low); polarity kept; gate rules for Q22–Q25 kept.
 - 2026-10-29: Scott (RECALL_DESIGNER), on the proposal to add the vendor-side internal sell and being condescended to: "Add this. I like it." Added as lexicon L27 'Selling inside the vendor on the customer's behalf' (the mirror of L17) and L28 'Being condescended to', on `fix/p1-lexicon-l27-l28` (`f77316d`, Phase 1 file — rule B2); coding frame v1.1 = v1 + the two lexicon codes (90 codes). Lexicon gaps for Scott to name: 8 (was 6).
+- 2026-10-29: Lexicon fix merged (PR #44, `61fef90`). Batch S05–S09 approved by Scott by name ("Run S05–S09 as one batch.") — BT1; stacked on the S04 branch (S04 to merge first).
+- 2026-10-29: Local merge of `main` into the S04 branch before branching the batch (`174eca1`, not a rewrite) so the batch carries the merged lexicon fix.
+- 2026-10-29: P5.S05 full coding: 1,697 answers, 7,156 code rows — 748 coded on every layer, 949 not codable (56%: non-answer or refusal 371, names only 223, role only 197, unintelligible 111, a value 29, reference to another answer 14, off topic 4). 646 not-codable codes assigned by rule after a hand check of the rules; 831 hand-coded in four question blocks by forks of the same coder (same context, frame, conventions); 220 from the S03 sample.
+- 2026-10-29: Frame-gap candidates raised by the coders (coded with the closest code; to weigh after S06): relevance / generic or mis-targeted material (the L02 gap — 'random offers without regard to audience'); respecting the decision-maker's time; energy and enthusiasm; patience / no pressure; vendor size and seniority matched to the customer's size ('too big', 'too small to deliver for an org our size', 'large companies like ours get the top sales individual'); going around the decision-maker; taking lock-in for granted ('assumes we are trapped'); the customer made to build the vendor's case ('expected us to complete their business case' — the Q18 finding in their own words); cultural fit.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
