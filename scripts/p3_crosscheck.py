@@ -4,7 +4,7 @@
 Checks:
     C01 Every example and the test file validate against the XSD (xmllint)
     C02 The gate module stands alone: a GateModel document validates against gates.xsd by itself
-    C03 Namespaces carry the major version; schema and instance versions agree
+    C03 Namespaces carry the major version; instance versions are the schema major, at or below its minor (ADR-001)
     C04 full_study.xml reconciles to Phase 1–2 outputs (every cell, flag, cohort, item, link, variable)
     C05 Rules XSD 1.0 cannot express (one endpoint per side, scale consistency, one current set, …)
     C06 Every person-cohort result reaches stakeholder type; every level-cohort result reaches role level
@@ -90,8 +90,11 @@ def main() -> int:
     d_v = etree.parse(str(XSD)).getroot().get("version")
     g_v = etree.parse(str(GXSD)).getroot().get("version")
     inst_v = {d.getroot().get("schemaVersion") for d in docs.values()}
-    check("C03", "Namespaces carry the major version; instances match the schema version",
-          d_ns.endswith(f"/dms/v{d_v.split('.')[0]}") and g_ns.endswith(f"/gates/v{g_v.split('.')[0]}") and inst_v == {d_v},
+    vt = lambda v: tuple(int(x) for x in v.split("."))
+    # ADR-001: a minor version is additive, so an instance written for an earlier minor of the same major stays valid.
+    compatible = all(vt(v)[0] == vt(d_v)[0] and vt(v) <= vt(d_v) for v in inst_v)
+    check("C03", "Namespaces carry the major version; every instance's version is the schema's major, at or below its minor",
+          d_ns.endswith(f"/dms/v{d_v.split('.')[0]}") and g_ns.endswith(f"/gates/v{g_v.split('.')[0]}") and compatible,
           f"{d_ns} (schema {d_v}); {g_ns} (gate module {g_v}); instances {sorted(inst_v)}")
 
     # C04 — reconcile full_study to Phase 1–2
