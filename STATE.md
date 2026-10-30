@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 5 — Open-ended responses   **Gate:** open
-**Step:** P5.S00 — Propose the Phase 5 step plan
-**Status:** proposed — D5-1…D5-4 answered; batch S01–S03 approved; awaiting Scott's merge
-**Branch:** phase-5/step-00-plan
+**Step:** P5.S02 — Corpus and text views (batch S01–S03)
+**Status:** in progress — S01 done
+**Branch:** phase-5/steps-01-03-frame-corpus-sample
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 5
@@ -35,8 +35,8 @@ Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer
 
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
-| P5.S00 | Propose the Phase 5 step plan | Phase 4 outputs; `GOVERNANCE.md` §5 P5 | `STATE.md` | Plan merged by Scott; D5-1…D5-4 answered | proposed | this branch |
-| P5.S01 | **Method inventory and deductive frame:** `methods.md` (M1–M17: what each is, citation, how applied, limits); deductive code layers from the gates, SERVQUAL, CIT, means-end, attribution, contact role, lexicon concepts | `design_intent.md`; `asymmetry_lexicon.csv`; question wording | `05_open_ended/methods.md`; `coding_frame.md` (v0, deductive layers) | Every method cited and mapped to the questions it applies to; every deductive code has definition, include/exclude rules | not started | — |
+| P5.S00 | Propose the Phase 5 step plan | Phase 4 outputs; `GOVERNANCE.md` §5 P5 | `STATE.md` | Plan merged by Scott; D5-1…D5-4 answered | done | `1c8296e` (PR #42) |
+| P5.S01 | **Method inventory and deductive frame:** `methods.md` (M1–M17: what each is, citation, how applied, limits); deductive code layers from the gates, SERVQUAL, CIT, means-end, attribution, contact role, lexicon concepts | `design_intent.md`; `asymmetry_lexicon.csv`; question wording | `05_open_ended/methods.md`; `coding_frame.md` (v0, deductive layers) | Every method cited and mapped to the questions it applies to; every deductive code has definition, include/exclude rules | done — 17 methods; frame v0, 70 codes | batch branch |
 | P5.S02 | **Corpus and text views (scripted, no judgment):** one corpus file; non-answers flagged; vendor and person-name extraction and contact role (M12) — names kept, not masked (D5-4); a search index by vendor, person and feedback text; sentiment (M13); frequency, keyness, collocations, word networks (M14); topics (M15) | `respondents_open_ended.xml` | `05_open_ended/corpus.csv`; `05_open_ended/index/` (vendor index, people index, searchable answers); `scripts/p5_*.py`; `05_open_ended/views/…` | Corpus = 1,697 answers, text byte-identical to the schema; every named vendor and person indexed to its answers; every view reproducible | not started | — |
 | P5.S03 | **Inductive coding pass (M1–M3):** open coding of a stratified sample; themes; coding frame v1 with ≥1 verbatim example per code | corpus; frame v0 | `coding_frame.md` v1; `codes_sample.csv` | Every code: definition, include/exclude, ≥1 example; inductive codes marked as such | not started | — |
 | P5.S04 | **Scott reviews coding frame v1** | `coding_frame.md` v1 | decisions log; frame v1.x | Every code kept, merged, renamed, or dropped by Scott | not started | — |
@@ -389,6 +389,8 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: D5-3 (Scott): "Yes" — several codes per answer per layer, one marked primary.
 - 2026-10-29: D5-4 (Scott, RECALL_DESIGNER): "I want all names. People and vendors. I want to also search by vendor and feedback." — no masking in any output; P5.S02 adds person-name extraction and a search index by vendor, person and feedback text.
 - 2026-10-29: Batch S01–S03 approved by Scott by name ("Run s01-s03 as one batch.") — BT1; starts after the plan merges.
+- 2026-10-29: Phase 5 plan merged (PR #42, `08ffe1b`); batch S01–S03 started (approved by name earlier).
+- 2026-10-29: P5.S01 methods and frame v0: 17 methods cited in `methods.md`; deductive frame of 70 codes on 8 layers — not codable 4, gate 7 (five gates + 'after the business case' + 'no single gate'), behaviour 15 (CIT seeds), SERVQUAL 6, means-end 3, attribution 5, valence 4, lexicon 26 (generated from the lexicon). Contact role is extracted by script (M12), not hand-coded.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
