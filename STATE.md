@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 6 — Visualization   **Gate:** open
-**Step:** P6.S03 — Data layer
-**Status:** not started — S02 done (all decided)
-**Branch:** phase-6/step-02-concept-review (on phase-6/step-01-concept-sheet)
+**Step:** P6.S04 — Argument page (batch S03–S04)
+**Status:** in progress — S03 done
+**Branch:** phase-6/steps-03-04-data-argument-page (base `bbcef65`)
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 6
@@ -16,7 +16,7 @@ Outputs go to `06_visualization/`. Exit criteria: GOVERNANCE §5 Phase 6 (v1.3.0
 | P6.S00 | Phase 6 plan (gov PR) | Scott's direction | GOVERNANCE §5 P6; README row 6; `06_visualization/README.md` | Scott merges | done | `84a7f06` (PR #51) |
 | P6.S01 | **Concept sheet:** for each of V1–V7 — question, data paths, unit, caveats, one static sketch built from committed data | Phase 4–5 outputs | `06_visualization/concepts.md` + sketches; `scripts/p6_build_concept_sketches.py` | All 7 concepts on one sheet; every sketch drawn by script from committed data | done — 7 concepts; 136 numbers listed with sources | this branch |
 | P6.S02 | **Scott reviews concepts:** keep / change / drop each; D6-1 audience, D6-2 delivery, D6-3 scope and order | concept sheet | decisions log | Every concept and D6-1–D6-3 decided | done — all 7 kept; public; both; Q-P4a confirmed | this branch |
-| P6.S03 | **Data layer:** one JSON per approved view | committed data | `scripts/p6_build_view_data.py`; `06_visualization/data/` | Every number traceable to a source file; byte-identical on re-run | not started | — |
+| P6.S03 | **Data layer:** one JSON per approved view | committed data | `scripts/p6_build_view_data.py`; `06_visualization/data/` | Every number traceable to a source file; byte-identical on re-run | done — 7 JSON files | batch branch |
 | P6.S04 | **Build the argument page:** V1 ledger, V3 silent gap, V4 wins / loses, with V5 vocabularies as a reference table (D6-3) | view data | page in `06_visualization/`; published page | Meets every §5 P6 criterion | not started | — |
 | P6.S05 | **Build V2** gate × cohort explorer | view data | page; published page | Meets every §5 P6 criterion | not started | — |
 | P6.S06 | **Build V6** search the customers' words (public: D6-1) | view data | page; published page | Meets every §5 P6 criterion | not started | — |
@@ -450,6 +450,8 @@ First draft (P5.S10): NOT YET — criterion 1 failed (28 codes without an exampl
 - 2026-10-29: P6.S01 concept sheet (Scott: "Go"). `scripts/p6_build_concept_sketches.py` → `06_visualization/concepts.md`, `concepts/concepts.html`, 5 SVG sketches (V1–V4, V7; light and dark), V5 and V6 as tables; `concepts/sketch_numbers.csv` lists all 136 numbers shown with their source file. Byte-identical on re-run. Palette: reference data-viz palette, two-series pair validated in light and dark (CVD ΔE 24.7). Sketch choices to note: V2 uses T02 headline measures (45; Target has none — screeners), cells below n = 25 outlined, not filled; V7 hides 280 breakout, grouping and same-respondent links to show the content links. Sketches are not the views: no interaction, phone width not yet met (wide figures scroll).
 - 2026-10-30: P6.S02 concept review (Scott). (1) "Keep." — read as: all seven views kept (V1–V7); built in the recommended order, V1 + V3 + V4 first with V5 as their reference table, then V2, V6, V7. Correct on Scott's word. (2) D6-1 audience: "Public". (3) D6-2 delivery: "Both" — published pages and HTML committed to `06_visualization/`. (4) Q-P4a: "Comfirm" — the 9 T04 pairs (`04_analytics_library/pairs.csv`) and the concept map (`05_open_ended/t04_concept_links.csv`) confirmed by Scott; files keep their INFERRED tag (Claude's inference), now reviewed — views say "confirmed by Scott". (5) CI: "Fix" — `fix/ci-run-crosschecks` (`8685c2e`).
 - 2026-10-30: Consequence of D6-1 (public) stated to Scott: V6 shows verbatims naming vendors in worst accounts, and respondent IDs, to anyone. Respondent IDs are anonymous codes (SRC-002 register); vendor names are kept by D5-4. Published pages start private and become public when Scott shares them; the committed HTML is public with the repo.
+- 2026-10-30: Batch **S03–S04** approved by Scott by name ("run S03–S04 as a batch") — branch `phase-6/steps-03-04-data-argument-page`.
+- 2026-10-30: P6.S03 data layer: `scripts/p6_build_view_data.py` → `06_visualization/data/v1_ledger.json` … `v7_network.json` (byte-identical on re-run). Each file carries meta (question, unit, sources, caveats, provenance) that the page must show. V1 9 pairs × 58 cohorts (50 usable); V2 57 cohorts × 45 headline measures; V3 9 points with their 612 linked answers shared with V4 (30 behaviours); V5 28 concepts; V6 all 1,697 answers with vendors, people, roles and codes; V7 37 threads, 326 links. Correction to the S01 sketch: V1 labelled C01 and C02 as valued vs received; they are self vs customer pairs (what salespeople know about themselves against what they know about the customer). The data now carries each pair's own labels.
 
 ## Open questions
 <!-- includes all INFERRED items awaiting review -->
