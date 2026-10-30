@@ -3,13 +3,13 @@
 ## Current
 **Phase:** 5 — Open-ended responses   **Gate:** open
 **Step:** P5.S00 — Propose the Phase 5 step plan
-**Status:** proposed — awaiting Scott's approval and answers to D5-1…D5-4
+**Status:** proposed — D5-1…D5-4 answered; batch S01–S03 approved; awaiting Scott's merge
 **Branch:** phase-5/step-00-plan
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 5
 
-Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer in the source: Q21–Q25 (1,592 answers) and the "please specify" fields (105) — 1,697 answers from 319 respondents, keyed by respid, read from `03_schema/examples/respondents_open_ended.xml`. Scott's direction (2026-10-29): "factor in as many structured published ways to analyze open[-ended] feedback as possible so that we create lots of views and associations." Rules (GOVERNANCE §5 P5): raw verbatims untouched, codes stored separately, every code linked respondent → thread, no per-respondent level or stakeholder (none exists), consistency checked by re-coding a sample. Codes assigned by Claude are INFERRED.
+Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer in the source: Q21–Q25 (1,592 answers) and the "please specify" fields (105) — 1,697 answers from 319 respondents, keyed by respid, read from `03_schema/examples/respondents_open_ended.xml`. Scott's direction (2026-10-29): "factor in as many structured published ways to analyze open[-ended] feedback as possible so that we create lots of views and associations." Rules (GOVERNANCE §5 P5): raw verbatims untouched, codes stored separately, every code linked respondent → thread, no per-respondent level or stakeholder (none exists), consistency checked by re-coding a sample. Codes assigned by Claude are INFERRED. Names (Scott, D5-4): every vendor and person named in the answers is kept and indexed — no masking — and answers are searchable by vendor and by feedback.
 
 **Methods proposed (one coding layer or one view each; all published, cited in `methods.md`):**
 
@@ -37,7 +37,7 @@ Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer
 |----|-----------|--------|---------|-----------|--------|--------|
 | P5.S00 | Propose the Phase 5 step plan | Phase 4 outputs; `GOVERNANCE.md` §5 P5 | `STATE.md` | Plan merged by Scott; D5-1…D5-4 answered | proposed | this branch |
 | P5.S01 | **Method inventory and deductive frame:** `methods.md` (M1–M17: what each is, citation, how applied, limits); deductive code layers from the gates, SERVQUAL, CIT, means-end, attribution, contact role, lexicon concepts | `design_intent.md`; `asymmetry_lexicon.csv`; question wording | `05_open_ended/methods.md`; `coding_frame.md` (v0, deductive layers) | Every method cited and mapped to the questions it applies to; every deductive code has definition, include/exclude rules | not started | — |
-| P5.S02 | **Corpus and text views (scripted, no judgment):** one corpus file; non-answers flagged; vendor-name and contact-role extraction (M12); sentiment (M13); frequency, keyness, collocations, word networks (M14); topics (M15) | `respondents_open_ended.xml` | `05_open_ended/corpus.csv`; `scripts/p5_*.py`; `05_open_ended/views/…` | Corpus = 1,697 answers, text byte-identical to the schema; every view reproducible | not started | — |
+| P5.S02 | **Corpus and text views (scripted, no judgment):** one corpus file; non-answers flagged; vendor and person-name extraction and contact role (M12) — names kept, not masked (D5-4); a search index by vendor, person and feedback text; sentiment (M13); frequency, keyness, collocations, word networks (M14); topics (M15) | `respondents_open_ended.xml` | `05_open_ended/corpus.csv`; `05_open_ended/index/` (vendor index, people index, searchable answers); `scripts/p5_*.py`; `05_open_ended/views/…` | Corpus = 1,697 answers, text byte-identical to the schema; every named vendor and person indexed to its answers; every view reproducible | not started | — |
 | P5.S03 | **Inductive coding pass (M1–M3):** open coding of a stratified sample; themes; coding frame v1 with ≥1 verbatim example per code | corpus; frame v0 | `coding_frame.md` v1; `codes_sample.csv` | Every code: definition, include/exclude, ≥1 example; inductive codes marked as such | not started | — |
 | P5.S04 | **Scott reviews coding frame v1** | `coding_frame.md` v1 | decisions log; frame v1.x | Every code kept, merged, renamed, or dropped by Scott | not started | — |
 | P5.S05 | **Full coding:** every answer coded on every layer that applies (M4–M8, M10–M11); codes stored separately from verbatims, keyed respid → item → thread | corpus; approved frame | `05_open_ended/codes.csv` | Every answer coded or marked not codable; no code without a definition in the frame; no verbatim altered | not started | — |
@@ -47,7 +47,7 @@ Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer
 | P5.S09 | Cross-check | All P5 outputs | `scripts/p5_crosscheck.py`; `crosscheck_report.md` | Verbatims unchanged vs source; every code has a frame entry; every coded row links respid → thread; no level/stakeholder on any respondent; scripts byte-identical; checksums OK | not started | — |
 | P5.S10 | Draft Phase 5 gate review | All P5 outputs | Gate review block | Every §5 P5 criterion checked; stop for Scott's merge and tag | not started | — |
 
-Candidate batches (each needs Scott's approval by name): **S01–S03** (no input needed), then S04 (Scott), then **S05–S09**.
+Batch **S01–S03** approved by Scott by name ("Run s01-s03 as one batch.") — starts when this plan is merged. Then S04 (Scott), then **S05–S09** (needs approval by name).
 
 ## Step plan — Phase 4 (closed — tag `phase-4-complete` on `046b6ea`)
 
@@ -384,6 +384,11 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: Phase 4 closed. Gate review merged (PR #41, `046b6ea`); Scott created tags `phase-4-complete` and `schema-v1.1.0`, both on `046b6ea`.
 - 2026-10-29: Direction for Phase 5 (Scott, RECALL_DESIGNER): "Let's factor in as many structured published ways to analyze opened feedback as possible so that we create lots of views and associations."
 - 2026-10-29: Phase 5 plan proposed (P5.S00): 17 published methods (M1–M17) across 10 steps; questions D5-1 (who codes and how agreement is checked), D5-2 (agreement threshold), D5-3 (unit and multiplicity of codes), D5-4 (named vendors and people in public outputs).
+- 2026-10-29: D5-1 answered (Scott): "You do." — read as: Claude does the coding and the checking; the blind re-code by a separate agent stays; Scott's review of ~30 coded answers is dropped. (Scott still reviews the coding frame in P5.S04.) Correct on Scott's word.
+- 2026-10-29: D5-2 (Scott): "Agree" — Krippendorff's alpha ≥ 0.80 reliable; 0.67–0.80 usable with caution; below 0.67 revise and re-check.
+- 2026-10-29: D5-3 (Scott): "Yes" — several codes per answer per layer, one marked primary.
+- 2026-10-29: D5-4 (Scott, RECALL_DESIGNER): "I want all names. People and vendors. I want to also search by vendor and feedback." — no masking in any output; P5.S02 adds person-name extraction and a search index by vendor, person and feedback text.
+- 2026-10-29: Batch S01–S03 approved by Scott by name ("Run s01-s03 as one batch.") — BT1; starts after the plan merges.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
@@ -395,10 +400,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - (superseded) D3-3 (P3.S00): Add one clearly marked synthetic test record (not data, not in `examples/`) to prove the individual layer validates?
 - (resolved — see decisions log) D4-1, D4-2, D4-3.
 - (resolved P4.S01 — see decisions log) Q-P3a: attribute the SRC-003 Q21 row-6 answer (blank respid) to respondent 112, by row alignment across the five sheets (INFERRED)? Would change one link weight (Q21∩Q23 318 → 319) via a `fix/` branch.
-- D5-1 (P5.S00): Coding by Claude (INFERRED), checked by an independent blind re-code from a separate agent, plus Scott reviewing a small sample?
-- D5-2 (P5.S00): Agreement threshold per coding layer — Krippendorff's alpha ≥ 0.67 to use a layer, ≥ 0.80 to treat it as reliable (Krippendorff 2004)?
-- D5-3 (P5.S00): Unit of coding — each answer may carry several codes per layer, with one marked primary?
-- D5-4 (P5.S00): Named vendor companies (Q22, Q23) and any personal names — count vendor mentions in public outputs, mask personal names?
+- (resolved — see decisions log) D5-1, D5-2, D5-3, D5-4.
 - Q-P4a (not blocking): review the 9 T04 pairs in `04_analytics_library/pairs.csv` (INFERRED) — keep, change, or drop each.
 - Open inferences: none from Phase 1 (85 of 85 decided — `review_summary.md`).
 - (resolved P4.S01 — see decisions log) Q-P2a: confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
@@ -420,6 +422,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 - (P0.S04) Public-facing derived version of the data (de-identified, cleaned) — Scott's idea for later; not part of the current phase plan.
 
+- (P5.S00) Interactive search page over the vendor / people / feedback index (Scott, D5-4) — the index files come in P5.S02; a page can be built from them with the visualization work.
 - (P4.S00) Visualizing the asymmetry so users can experience it (Scott, 2026-10-29) — concepts to Scott first, then build after the library exists (D4-3). Includes the interactive gate × cohort explorer.
 - (P1.S00) Phase 4 statistical linkages between threads: correlation of group profiles across the ~40 breakout groups, similarity clustering, network/topology maps. Caveat to carry: links computed on group percentages are ecological — they describe groups, not individuals.
 
