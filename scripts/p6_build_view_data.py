@@ -247,6 +247,43 @@ def main() -> int:
           "question_stems": stems, "gates": gates}
     write("v0_context.json", v0)
 
+    # ---- Findings for the argument page: single questions read directly (Scott's review, 2026-10-30) -----------------
+    gp = rd(P4 / "outputs/T01/gate_profile.csv")
+    gp = gp[gp.cohort == ALL]
+    qtype = dict(zip(qm.item_id, qm.question_type))
+    def question(thread, items, choose, keep=None):
+        out = []
+        for it in items:
+            x = gp[gp["item"] == it].copy()
+            x["o"] = pd.to_numeric(x.option, errors="coerce").fillna(0)
+            x = x.sort_values("o")
+            opts = [{"label": r.option_label, "share": f4(r.share)} for r in x.itertuples() if keep is None or keep(r.option_label)]
+            out.append({"item": it, "label": vd.loc[it, "label"] if it in vd.index else it, "gate": x.gate.iloc[0],
+                        "base": int(float(x.base.iloc[0])), "type": qtype.get(it, ""), "options": opts})
+        return {"thread": thread, "stem": stem.get("T-" + thread, ""), "choose": choose, "items": out}
+    q14 = question("Q14", ["Q14"], "one")
+    q18 = question("Q18", ["Q18"], "one")
+    q11 = question("Q11", [f"Q11_{i}" for i in range(1, 7)], "several", keep=lambda l: True)
+    q15 = question("Q15", [f"Q15_{i}" for i in range(1, 7)], "several")
+    q8 = question("Q08", [f"Q8_{i}" for i in range(1, 8)], "frequency")
+    picks = rd(Path("06_visualization/quote_picks.csv"))
+    quotes = [{"finding": r.finding, "why": r.why, **answer_rec(r.answer_id, corpus, idx, codes_by)} for r in picks.itertuples()]
+    kk = rd(P5 / "views/coded/kano.csv")
+    beh_rank = [{"code": r.behaviour, "label": frame[r.behaviour]["label"], "praised_best": int(r._2), "criticised_worst": int(r._3),
+                 "q21": int(r.q21_criterion), "class": r.kano} for r in kk.itertuples()]
+    write("findings.json", {"meta": meta(
+        "F", "Findings: single questions read directly", "What do decision-makers say vendors focus on, what does it cost, and how low is the bar?",
+        "share of all respondents (n = 319) per answer; or number of written answers",
+        ["04_analytics_library/outputs/T01/gate_profile.csv", "01_instrument_reconstruction/question_map.csv", "02_data_inventory/variable_dictionary.csv",
+         "05_open_ended/views/coded/kano.csv", "06_visualization/quote_picks.csv", "05_open_ended/corpus.csv"],
+        ["Each chart reads one question as asked; no result is subtracted from another question's result.",
+         "Shares are of all 319 respondents (group-level); one-answer questions add to 100%, pick-several questions do not.",
+         "Quotes are verbatim; which quotes to show was chosen by Claude (06_visualization/quote_picks.csv).",
+         "Behaviour counts are written answers coded by one coder, checked blind on 200 answers (behaviour alpha 0.87)."],
+        "Question wording VERBATIM; shares RECON_DATA; quote selection and behaviour codes INFERRED."),
+        "respondents": int(coh.loc[ALL, "n"]), "codable_answers": int(codes[codes.layer == "valence"].answer_id.nunique()),
+        "q14": q14, "q11": q11, "q8": q8, "q18": q18, "q15": q15, "behaviours": beh_rank, "quotes": quotes})
+
     print(f"v1 pairs={len(v1)}; v2 {len(clist)}×{len(mlist)}; v3 points={len(v3)}; v4 behaviours={len(v4)}; answers linked={len(sub)}; "
           f"v5 rows={len(v5)}; v6 answers={len(allrec)}; v7 {len(nodes)} nodes / {len(edges)} edges")
     return 0

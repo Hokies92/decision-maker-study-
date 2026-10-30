@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""p6_build_argument_page.py — the argument page "The Silent Gap" (P6.S04; revised after Scott's review, 2026-10-30):
-study context, then V1 valued vs received, V3 felt vs said, V4 what wins / what loses, V5 two vocabularies — each with
-how to read it, what it shows, what it means, and the implication — and a closing list of implications with their evidence.
+"""p6_build_argument_page.py — the argument page (P6.S04; rebuilt after Scott's review, 2026-10-30).
 
-Inputs: 06_visualization/data/v0_context.json, v1_ledger.json, v3_silent_gap.json, v4_wins_loses.json, v5_vocabularies.json.
+Thesis (Scott): vendors should walk away thinking "we are focused on all of the wrong things, and it's horrible — but we
+don't have to do a lot to be very different from our competition."
+Every finding reads one survey question directly, in its own wording, and opens with the same five-part frame Scott asked
+for: scope (gate), items (the question), vantage point (who is speaking), scale (what the number means), stakes (what it
+costs the customer). No result is subtracted from another question's result.
+
+Inputs: 06_visualization/data/findings.json, v0_context.json (P6.S03 data layer).
 Output: 06_visualization/argument.html — committed (public with the repo) and published as a page (D6-2: both).
-Every number on the page is computed in the page from the embedded data; none is typed by hand. The interpretation and
-implications are Claude's reading of those numbers (INFERRED) and are labelled as such on the page.
+Numbers are computed in the page from the embedded data; interpretation is labelled as such.
 Usage: python3 -I scripts/p6_build_argument_page.py [--fragment <path for the publishable copy>]
 """
 import json
@@ -19,498 +22,339 @@ REPO = "https://github.com/Hokies92/decision-maker-study-"
 
 
 def main() -> int:
-    v0, v1, v3, v4, v5 = (json.loads((DATA / f).read_text(encoding="utf-8")) for f in
-                          ("v0_context.json", "v1_ledger.json", "v3_silent_gap.json", "v4_wins_loses.json", "v5_vocabularies.json"))
-    answers = dict(v3.pop("answers"))
-    answers.update(v4.pop("answers"))
-    payload = {"v0": v0, "v1": v1, "v3": v3, "v4": v4, "v5": v5, "answers": dict(sorted(answers.items())), "repo": REPO}
+    f = json.loads((DATA / "findings.json").read_text(encoding="utf-8"))
+    v0 = json.loads((DATA / "v0_context.json").read_text(encoding="utf-8"))
+    payload = {"f": f, "v0": v0, "repo": REPO}
     blob = json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", blob)
-    # The committed file is a full document (opens on its own, standards mode). --fragment writes the same page without
-    # the document wrapper, which is the form the publishing host expects (it adds its own).
     OUT.write_text('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
                    '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
                    + page.replace("<main>", "</head>\n<body>\n<main>", 1) + "</body>\n</html>\n", encoding="utf-8")
     if "--fragment" in sys.argv:
         Path(sys.argv[sys.argv.index("--fragment") + 1]).write_text(page, encoding="utf-8")
-    print(f"{OUT}: {OUT.stat().st_size} bytes; answers embedded {len(answers)}")
+    print(f"{OUT}: {OUT.stat().st_size} bytes")
     return 0
 
 
-TEMPLATE = r"""<title>The Silent Gap</title>
+TEMPLATE = r"""<title>The Wrong Focus</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one reading column. Each view is a band: the finding as a headline, how to read the chart, the chart, then
-   what it shows (data), what it means (interpretation) and the implication. Charts use the validated data palette. */
+/* Layout: one reading column in three acts — what vendors focus on, what it costs, how low the bar is. Every finding
+   opens with the same five-part frame card, then the question's answers as bars, a plain reading, and the customers' words. */
 :root{
-  --bg:#f6f7f8; --panel:#ffffff; --fg:#14181d; --fg2:#4d5560; --muted:#7c8590; --rule:#dde1e6; --axis:#b9c0c8;
-  --valued:#2a78d6; --received:#eb6834; --lose:#e34948; --win:#2a78d6; --said:#6b7480; --ring:#ffffff; --hl:#eef3fb; --note:#fff7e8;
+  --bg:#f6f7f8; --panel:#ffffff; --fg:#14181d; --fg2:#4d5560; --muted:#7c8590; --rule:#dde1e6; --track:#eceff2;
+  --vendor:#eb6834; --vendor-2:#f6b89e; --cust:#2a78d6; --cust-2:#a9c8f0; --neutral:#9aa3ad; --frame:#f1f4f8; --hl:#fff4ec;
   --display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
   --body:"Source Serif 4",Georgia,"Times New Roman",serif;
   --data:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#121417; --panel:#1a1d21; --fg:#eef0f2; --fg2:#b8bfc7; --muted:#8a929b; --rule:#2c3137; --axis:#3d434a;
-  --valued:#3987e5; --received:#d95926; --lose:#e66767; --win:#3987e5; --said:#9aa3ad; --ring:#1a1d21; --hl:#1d2733; --note:#2a2418; color-scheme:dark}}
+  --bg:#121417; --panel:#1a1d21; --fg:#eef0f2; --fg2:#b8bfc7; --muted:#8a929b; --rule:#2c3137; --track:#262a2f;
+  --vendor:#d95926; --vendor-2:#6e3a26; --cust:#3987e5; --cust-2:#244a78; --neutral:#5d656e; --frame:#1d2228; --hl:#2a211b; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#121417; --panel:#1a1d21; --fg:#eef0f2; --fg2:#b8bfc7; --muted:#8a929b; --rule:#2c3137; --axis:#3d434a;
-  --valued:#3987e5; --received:#d95926; --lose:#e66767; --win:#3987e5; --said:#9aa3ad; --ring:#1a1d21; --hl:#1d2733; --note:#2a2418; color-scheme:dark}
+  --bg:#121417; --panel:#1a1d21; --fg:#eef0f2; --fg2:#b8bfc7; --muted:#8a929b; --rule:#2c3137; --track:#262a2f;
+  --vendor:#d95926; --vendor-2:#6e3a26; --cust:#3987e5; --cust-2:#244a78; --neutral:#5d656e; --frame:#1d2228; --hl:#2a211b; color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16.5px;line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-main{max-width:940px;margin:0 auto;padding-block:40px 64px;display:grid;grid-template-columns:minmax(0,1fr);gap:64px}
-.sec>*,header>*{min-width:0}
+main{max-width:900px;margin:0 auto;padding-block:40px 64px;display:grid;grid-template-columns:minmax(0,1fr);gap:56px}
+main>*,.act>*,.finding>*{min-width:0}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
-h1{font-size:clamp(36px,6vw,60px);font-stretch:85%;font-weight:800;line-height:1.02}
-h2{font-size:clamp(23px,3.2vw,31px);font-stretch:90%;font-weight:700;line-height:1.15}
-h3{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(34px,5.6vw,56px);font-stretch:85%;font-weight:800;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,36px);font-stretch:88%;font-weight:800;line-height:1.1}
+h3{font-size:clamp(20px,2.6vw,24px);font-stretch:92%;font-weight:700;line-height:1.2}
+h4{margin:0;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 p{margin:0;max-width:68ch}
 .eyebrow{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.n{font-family:var(--data);font-variant-numeric:tabular-nums;font-size:.92em;white-space:nowrap}
 header{display:grid;gap:18px}
 .lede{font-size:clamp(18px,2.2vw,21px);color:var(--fg2);max-width:62ch}
-.n{font-family:var(--data);font-variant-numeric:tabular-nums;font-size:.9em;white-space:nowrap}
-.short{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.short div{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;display:grid;gap:6px;align-content:start}
-.short b{font-family:var(--display);font-size:16px;line-height:1.3}
-.short span{font-size:15px;color:var(--fg2)}
-.sec{display:grid;gap:18px;scroll-margin-top:16px}
-.block{display:grid;gap:8px;align-content:start}
-.reader[hidden]{display:none}
-.block p,.block li{color:var(--fg2)} .block b{color:var(--fg)}
-.howto{background:var(--note);border-radius:10px;padding:14px 16px;display:grid;gap:8px;font-size:15.5px}
-.howto ul{margin:0;padding-left:20px;display:grid;gap:4px}
-.reading{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.meaning{border-left:3px solid var(--fg);padding-left:14px}
-.implication{border-left:3px solid var(--received);padding-left:14px}
+.tiles{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.tile{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;display:grid;gap:4px;align-content:start}
+.tile .big{font-family:var(--display);font-size:40px;font-weight:800;font-stretch:85%;line-height:1}
+.tile span{font-family:var(--display);font-size:14px;color:var(--fg2);line-height:1.4}
+.howframe{background:var(--frame);border-radius:10px;padding:16px;display:grid;gap:10px}
+.howframe dl,.frame dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:0}
+.howframe dt,.frame dt{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.howframe dd,.frame dd{margin:0;font-size:15px;color:var(--fg2)}
+.frame dd q{color:var(--fg);quotes:"“" "”"}
+@media (max-width:560px){.howframe dl,.frame dl{grid-template-columns:1fr}.frame dt{padding-top:6px}}
+.act{display:grid;gap:40px;padding-top:8px;border-top:3px solid var(--fg)}
+.act-head{display:grid;gap:8px}
+.finding{display:grid;gap:16px}
+.frame{background:var(--frame);border-radius:10px;padding:14px 16px}
+.chart{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:16px;display:grid;gap:12px}
+.chart-title{font-family:var(--display);font-size:14px;font-weight:600;color:var(--fg)}
+.chart-note{font-family:var(--display);font-size:12.5px;color:var(--muted)}
+.rows{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 56px;gap:4px 10px;align-items:center}
+.row .lab{grid-column:1/-1;font-family:var(--display);font-size:14px;line-height:1.35;color:var(--fg)}
+.row .track{height:14px;background:var(--track);border-radius:4px;overflow:hidden;display:flex}
+.row .val{font-family:var(--data);font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+.seg{height:100%}
+.v{background:var(--vendor)} .c{background:var(--cust)} .x{background:var(--neutral)}
+.f4{background:var(--cust)} .f3{background:var(--cust-2)} .f2,.f1{background:transparent}
+.f4.own{background:var(--vendor)} .f3.own{background:var(--vendor-2)}
+.group-lab{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding-top:4px}
+.group-lab.v-t{color:var(--vendor)} .group-lab.c-t{color:var(--cust)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--display);font-size:13px;color:var(--fg2)}
+.key{display:inline-flex;align-items:center;gap:6px}.sw{width:14px;height:10px;border-radius:3px;display:inline-block}
+.two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.plain{border-left:3px solid var(--fg);padding-left:14px;display:grid;gap:8px}
+.plain p{color:var(--fg)}
+.meaning{border-left:3px solid var(--vendor);padding-left:14px;display:grid;gap:6px}
+.meaning p{color:var(--fg2)}
 .tag{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:6px}
-.facts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.facts div{display:grid;gap:2px}
-.facts .big{font-family:var(--display);font-size:30px;font-weight:700;font-stretch:90%;line-height:1}
-.facts .lab{font-family:var(--display);font-size:13.5px;color:var(--fg2)}
-.gates{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
-.gates div{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:10px 12px;display:grid;gap:4px}
-.gates b{font-family:var(--display);font-size:15px}
-.gates span{font-size:13.5px;color:var(--fg2);line-height:1.45}
-.gates em{font-family:var(--display);font-style:normal;font-size:11px;color:var(--muted)}
-.chart{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:16px;min-width:0;overflow-x:auto}
-.chart svg{display:block;width:100%;height:auto;overflow:visible}
-.controls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;font-family:var(--display);font-size:14px}
-select{max-width:100%}
-select,button{font-family:var(--display);font-size:14px;color:var(--fg);background:var(--panel);border:1px solid var(--axis);border-radius:6px;padding:6px 10px}
-button{cursor:pointer}
-select:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--valued);outline-offset:2px}
-.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--display);font-size:13.5px;color:var(--fg2)}
-.legend a{color:var(--fg2)}
-.key{display:inline-flex;align-items:center;gap:6px}
-.dot{width:11px;height:11px;border-radius:50%;display:inline-block}
-.bar{width:16px;height:10px;border-radius:3px;display:inline-block}
-details.about{font-family:var(--display);font-size:13px;color:var(--fg2);border-top:1px solid var(--rule);padding-top:10px}
+.quotes{list-style:none;margin:0;padding:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.quotes li{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--rule);border-radius:8px;padding:10px 12px;font-size:15px;display:grid;gap:4px;align-content:start}
+.quotes li.best{border-left-color:var(--cust)} .quotes li.worst{border-left-color:var(--vendor)}
+.quotes .meta{font-family:var(--display);font-size:12px;color:var(--muted)}
+.bar-list{display:grid;gap:8px}
+.actions{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.actions li{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;display:grid;gap:6px}
+.actions b{font-family:var(--display);font-size:17px;line-height:1.3}
+.actions .ev{font-family:var(--display);font-size:13px;color:var(--muted)}
+.limits{display:grid;gap:4px;padding-left:20px;margin:0;color:var(--fg2)}
+details.about{font-family:var(--display);font-size:13px;color:var(--fg2)}
 details.about summary{cursor:pointer;color:var(--muted);font-weight:600}
 details.about ul{margin:6px 0;padding-left:18px;display:grid;gap:3px}
 details.about code{font-family:var(--data);font-size:12px;overflow-wrap:anywhere}
-.reader{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:16px;display:grid;gap:12px;min-width:0}
-.reader-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
-.reader-head h4{margin:0;font-family:var(--display);font-size:15px}
-.tabs{display:flex;flex-wrap:wrap;gap:6px}
-.tabs button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.quotes{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-height:420px;overflow-y:auto}
-.quotes li{border-left:3px solid var(--rule);padding:2px 0 2px 12px}
-.quotes li.best{border-left-color:var(--win)} .quotes li.worst{border-left-color:var(--lose)}
-.quotes .meta{font-family:var(--data);font-size:11.5px;color:var(--muted);margin-top:2px}
-.tbl{overflow-x:auto;min-width:0;background:var(--panel);border:1px solid var(--rule);border-radius:10px}
-table{border-collapse:collapse;width:100%;font-family:var(--display);font-size:13.5px;min-width:720px}
-th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--rule)}
-th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
-td.gap{color:var(--lose);font-weight:600}
-tr.gaprow{background:var(--hl)}
-td.num{font-family:var(--data);font-variant-numeric:tabular-nums;text-align:right}
-.imps{display:grid;gap:14px;margin:0;padding:0;list-style:none}
-.imps li{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;display:grid;gap:6px}
-.imps b{font-family:var(--display);font-size:17px;line-height:1.3}
-.imps .ev{font-family:var(--display);font-size:13px;color:var(--muted)}
-.limits{display:grid;gap:4px;padding-left:20px;margin:0;color:var(--fg2)}
-.tip{position:fixed;z-index:20;pointer-events:none;max-width:320px;background:var(--fg);color:var(--bg);font-family:var(--display);
-  font-size:12.5px;line-height:1.4;padding:8px 10px;border-radius:6px;opacity:0;transition:opacity .08s}
-.tip.on{opacity:1}
-svg text{font-family:var(--display)}
-.ax{stroke:var(--axis);stroke-width:1} .gr{stroke:var(--rule);stroke-width:1}
-.lab{fill:var(--fg);font-size:13px} .sub{fill:var(--muted);font-size:11px} .val{fill:var(--fg2);font-size:12px;font-family:var(--data)}
-.callout{fill:var(--fg);font-size:12px;font-weight:600}
-.hit{fill:transparent;cursor:pointer} .row-bg{fill:transparent} .sel .row-bg,.key-row .row-bg{fill:var(--hl)}
 footer{font-family:var(--display);font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:16px;display:grid;gap:6px}
-footer a{color:var(--fg2)}
-@media (prefers-reduced-motion: reduce){.tip{transition:none}}
+footer a,nav a{color:var(--fg2)}
+nav{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--display);font-size:13.5px}
+summary:focus-visible,a:focus-visible{outline:2px solid var(--cust);outline-offset:2px}
 </style>
 
 <main>
 <header>
-  <div class="eyebrow">Decision-maker study</div>
-  <h1>The Silent Gap</h1>
+  <div class="eyebrow">What business decision-makers say about vendors' salespeople</div>
+  <h1>Vendors are focused on the wrong things.</h1>
   <p class="lede" id="lede"></p>
-  <div class="short" id="short"></div>
-  <nav class="legend" aria-label="Sections">
-    <a href="#context">The study</a><a href="#ledger">1 · Valued vs received</a><a href="#silent">2 · Felt vs said</a><a href="#wins">3 · What wins, what loses</a><a href="#words">4 · Two vocabularies</a><a href="#implications">What it means</a>
-  </nav>
+  <div class="tiles" id="tiles"></div>
+  <nav aria-label="Sections"><a href="#how">How to read this</a><a href="#act1">1 · What vendors focus on</a><a href="#act2">2 · What it costs</a><a href="#act3">3 · How low the bar is</a><a href="#act4">What to do</a></nav>
 </header>
 
-<section class="sec" id="context">
-  <div class="eyebrow">Before the charts</div>
-  <h2>Who was asked, and what</h2>
-  <div class="facts" id="facts"></div>
-  <div class="block" id="asked"></div>
-  <div class="block"><p>The study is organised around five yes-or-no gates a vendor has to pass, in order, before a customer accepts a business case. A "no" at any gate stops the decision.</p></div>
-  <div class="gates" id="gates"></div>
+<section class="howframe" id="how">
+  <h4>How to read every finding</h4>
+  <p id="who"></p>
+  <dl>
+    <dt>Scope</dt><dd>Which step of the customer's decision the finding covers. The study uses five steps, each a yes or no: <span id="gatesline"></span>.</dd>
+    <dt>Question</dt><dd>The exact question the decision-makers answered, and its answer choices.</dd>
+    <dt>Vantage point</dt><dd>Who is speaking and about what. Here it is always the customer, describing the vendors and salespeople they deal with.</dd>
+    <dt>Scale</dt><dd>What a number means. Unless stated otherwise: the share of all <span class="n" id="n1"></span> decision-makers who chose that answer.</dd>
+    <dt>At stake</dt><dd>What the customer loses when the vendor gets this wrong.</dd>
+  </dl>
 </section>
 
-<section class="sec" id="ledger">
-  <div class="eyebrow">View 1 · Valued vs received</div>
-  <h2 id="h1"></h2>
-  <div class="howto" id="howto1"></div>
-  <div class="controls">
-    <label for="cohort">Show a group</label>
-    <select id="cohort"></select>
-    <span class="legend" id="v1legend"></span>
-  </div>
-  <div class="chart" id="v1chart"></div>
-  <div class="reading" id="read1"></div>
-  <details class="about" data-about="v1"></details>
+<section class="act" id="act1">
+  <div class="act-head"><div class="eyebrow">Act 1</div><h2>What vendors focus on: their product, not the customer's problem</h2></div>
+  <article class="finding" id="f-meeting"></article>
+  <article class="finding" id="f-prep"></article>
+  <article class="finding" id="f-case"></article>
 </section>
 
-<section class="sec" id="silent">
-  <div class="eyebrow">View 2 · Felt vs said</div>
-  <h2 id="h3"></h2>
-  <div class="howto" id="howto3"></div>
-  <div class="chart" id="v3chart"></div>
-  <p class="legend">Select a row to read the written answers behind it.</p>
-  <div class="reader" id="v3reader" hidden></div>
-  <div class="reading" id="read3"></div>
-  <details class="about" data-about="v3"></details>
+<section class="act" id="act2">
+  <div class="act-head"><div class="eyebrow">Act 2</div><h2>What it costs: decisions that stall or go to someone else</h2></div>
+  <article class="finding" id="f-cost"></article>
 </section>
 
-<section class="sec" id="wins">
-  <div class="eyebrow">View 3 · What wins, what loses</div>
-  <h2 id="h4"></h2>
-  <div class="howto" id="howto4"></div>
-  <div class="controls"><span class="legend"><span class="key"><span class="bar" style="background:var(--lose)"></span>done badly, in worst sales teams</span><span class="key"><span class="bar" style="background:var(--win)"></span>done well, in best sales teams</span></span></div>
-  <div class="chart" id="v4chart"></div>
-  <p class="legend">Select a behaviour to read what decision-makers wrote.</p>
-  <div class="reader" id="v4reader" hidden></div>
-  <div class="reading" id="read4"></div>
-  <details class="about" data-about="v4"></details>
+<section class="act" id="act3">
+  <div class="act-head"><div class="eyebrow">Act 3</div><h2>How low the bar is: a little customer focus stands out</h2></div>
+  <article class="finding" id="f-bar"></article>
 </section>
 
-<section class="sec" id="words">
-  <div class="eyebrow">View 4 · Two vocabularies</div>
-  <h2 id="h5"></h2>
-  <div class="howto" id="howto5"></div>
-  <div class="tbl" id="v5table"></div>
-  <div class="reading" id="read5"></div>
-  <details class="about" data-about="v5"></details>
-</section>
-
-<section class="sec" id="implications">
-  <div class="eyebrow">What it means</div>
-  <h2>Implications for vendors and their salespeople</h2>
-  <p>These are interpretations of the evidence above, not findings in themselves. Each names the evidence it rests on.</p>
-  <ul class="imps" id="imps"></ul>
-  <h3>What this evidence cannot tell you</h3>
-  <ul class="limits" id="limits"></ul>
+<section class="act" id="act4">
+  <div class="act-head"><div class="eyebrow">What to do</div><h2>Small changes, large difference</h2>
+  <p>These follow from the findings above. They are interpretation, not data; each names the finding it rests on.</p></div>
+  <ul class="actions" id="actions"></ul>
+  <div class="finding"><h4>What this evidence cannot tell you</h4><ul class="limits" id="limits"></ul>
+  <details class="about" id="about"></details></div>
 </section>
 
 <footer id="foot"></footer>
 </main>
-<div class="tip" id="tip" role="tooltip"></div>
 
 <script type="application/json" id="data">__DATA__</script>
 <script>
 (function(){
-const D = JSON.parse(document.getElementById('data').textContent);
-const NS = 'http://www.w3.org/2000/svg';
+const D = JSON.parse(document.getElementById('data').textContent), F = D.f, C = D.v0;
 const $ = s => document.querySelector(s);
 const pct = v => Math.round(v * 100) + '%';
-const pts = v => Math.round(Math.abs(v) * 100);              // gap in percentage points
-const gapTxt = v => (v < 0 ? pts(v) + ' points less' : v > 0 ? pts(v) + ' points more' : 'no difference');
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const N = s => `<span class="n">${s}</span>`;
 const strip = s => String(s).replace(/<[^>]+>/g, '');
-const QNAME = {Q21:'What differentiates a vendor', Q22:'Most effective sales teams', Q23:'Least effective sales teams', Q24:'Contact in best relationships', Q25:'Contact in worst relationships'};
-function el(tag, attrs, parent){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
-function text(parent, x, y, s, cls, anchor){ const t = el('text', {x, y, class: cls || 'lab', 'text-anchor': anchor || 'start'}, parent); t.textContent = s; return t; }
-const tip = $('#tip');
-function showTip(evt, html){ tip.innerHTML = html; tip.classList.add('on'); const r = tip.getBoundingClientRect();
-  let x = evt.clientX + 14, y = evt.clientY + 14; if (x + r.width > innerWidth - 8) x = evt.clientX - r.width - 14; if (y + r.height > innerHeight - 8) y = evt.clientY - r.height - 14;
-  tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px'; }
-function hideTip(){ tip.classList.remove('on'); }
-function bindHit(hit, html, open){
-  hit.addEventListener('mousemove', e => showTip(e, html)); hit.addEventListener('mouseleave', hideTip);
-  hit.addEventListener('focus', () => { const b = hit.getBoundingClientRect(); showTip({clientX: b.left + 20, clientY: b.bottom}, html); });
-  hit.addEventListener('blur', hideTip);
-  if (open) { hit.addEventListener('click', open); hit.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } }); }
-}
-function reading(host, shows, means, so){
-  host.innerHTML = `<div class="block"><h3>What it shows</h3>${shows}</div>` +
-    `<div class="block meaning"><h3>What it means <span class="tag">interpretation</span></h3>${means}</div>` +
-    `<div class="block implication"><h3>So what <span class="tag">implication</span></h3>${so}</div>`;
-}
+const N = s => `<span class="n">${s}</span>`;
+const oneIn = v => { const k = Math.round(1 / v); return `1 in ${k}`; };
+const opt = (q, i) => q.items[0].options[i];
+const item = (q, id) => q.items.find(x => x.item === id);
+const single = (q, id) => item(q, id).options[0].share;      // pick-several: share who ticked it
+const freq = (q, id) => item(q, id).options.find(o => o.label === 'Frequently').share;
+const QNAME = {Q22: 'about one of their three MOST effective sales teams', Q23: 'about one of their three LEAST effective sales teams',
+  Q24: 'about the main contact in their BEST vendor relationships', Q25: 'about the main contact in their WORST vendor relationships', Q21: 'on what sets a vendor apart'};
 
-// ---------------------------------------------------------------- numbers used in the words, all from the data
-const C = D.v0, ALL = 'C-L-ALL-RESPONDENTS';
-const allRow = p => p.cohorts.find(c => c.cohort === ALL);
-const pair = id => D.v1.pairs.find(p => p.pair === id);
-const vxe = D.v1.pairs.filter(p => p.type === 'value_vs_experience');
-const short = vxe.filter(p => allRow(p).gap < 0).length;
-const worst = vxe.reduce((a, b) => allRow(b).gap < allRow(a).gap ? b : a);
-const over = vxe.reduce((a, b) => allRow(b).gap > allRow(a).gap ? b : a);
-const pt = id => D.v3.points.find(x => x.pair === id);
-const KNOW = ['P01', 'P03', 'C01', 'C02'];
-const knowAns = KNOW.map(k => pt(k).answers), knowGap = KNOW.map(k => allRow(pair(k)).gap);
-const beh = c => D.v4.behaviours.find(b => b.code === c);
-const kb = beh('B-KNOWS-BUSINESS'), cf = beh('B-CUSTOMER-FIRST');
-const cls = k => D.v4.behaviours.filter(b => b.class === k);
-const gaps5 = D.v5.rows.filter(r => r.gap);
-const stem = q => strip(C.question_stems[q]);
-const steady = D.v1.pairs.filter(p => { const u = p.cohorts.filter(c => c.usable && c.cohort !== ALL); return u.every(c => Math.sign(c.gap) === Math.sign(allRow(p).gap)); });
-const steadyNames = steady.map(p => p.concept.toLowerCase());
+// ---------------- numbers used in the words
+const n = F.respondents;
+const q14 = F.q14, pitchShare = opt(q14, 0).share + opt(q14, 1).share, custShare = opt(q14, 3).share + opt(q14, 4).share;
+const q11 = F.q11, demo = single(q11, 'Q11_6'), issues = single(q11, 'Q11_3'), solve = single(q11, 'Q11_1');
+const q8 = F.q8, ownF = freq(q8, 'Q8_1'), bizF = freq(q8, 'Q8_3'), issF = freq(q8, 'Q8_5');
+const q18 = F.q18, simple = opt(q18, 0).share, ownWork = opt(q18, 2).share + opt(q18, 3).share + opt(q18, 4).share, mostAll = opt(q18, 3).share + opt(q18, 4).share;
+const q15 = F.q15, other = single(q15, 'Q15_1'), envision = single(q15, 'Q15_2'), risky = single(q15, 'Q15_3'), board = single(q15, 'Q15_5'), momentum = single(q15, 'Q15_4');
+const B = c => F.behaviours.find(b => b.code === c);
 
-// ---------------------------------------------------------------- header and context
-$('#lede').innerHTML = `${N(C.respondents)} business decision-makers told us what they want from salespeople, what they actually get, and in their own words what their best and worst sales teams do. The two sides do not match, and the biggest mismatch is the one customers never put into words.`;
-$('#short').innerHTML =
-  `<div><b>Customers get the pitch they do not want.</b><span>Product presentations are the one thing customers get more of than they value: ${N(pts(allRow(over).gap) + ' points')} more.</span></div>` +
-  `<div><b>They miss help with the business case.</b><span>${esc(worst.concept)} is valued by ${N(pct(allRow(worst).a))} but received by ${N(pct(allRow(worst).b))}: the largest gap of all.</span></div>` +
-  `<div><b>And they do not say so.</b><span>Only ${N(pt(worst.pair).answers)} of ${N(C.codable_answers)} usable written answers touch it, against ${N(Math.min(...knowAns) + '–' + Math.max(...knowAns))} for each business-knowledge gap.</span></div>`;
-$('#facts').innerHTML =
-  `<div><span class="big n">${C.respondents}</span><span class="lab">decision-makers who take part in their company's IT purchase decisions</span></div>` +
-  `<div><span class="big n">${C.it_decision_makers} / ${C.business_decision_makers}</span><span class="lab">from IT / from the business side</span></div>` +
-  `<div><span class="big n">${C.levels.map(l => l.n).join(' · ')}</span><span class="lab">${C.levels.map(l => l.label).join(' · ')}</span></div>` +
-  `<div><span class="big n">${C.written_answers.toLocaleString('en-US')}</span><span class="lab">written answers, of which ${C.codable_answers} say something that can be coded</span></div>`;
-$('#asked').innerHTML = `<p>Two kinds of question. <b>Survey questions</b> with fixed answers — for example, ${N('Q11')} “${esc(stem('Q11'))}” and ${N('Q8')} “${esc(stem('Q08'))}” Results are reported as the share of decision-makers who chose each answer.</p>` +
-  `<p><b>Open questions</b> answered in their own words — for example, ${N('Q22')} “${esc(stem('Q22'))}” and the same for the ${N('LEAST')} effective (${N('Q23')}). We read and coded every written answer for what it praised or criticised.</p>`;
-const GPLAIN = {TARGET: 'The right message reaches the right people.', ACCESS: 'The salesperson gets in front of them.', AGREE: 'They agree the idea is worth exploring.',
-  VISION: 'They share a picture of what success looks like.', CASE: 'They accept a business case for it.'};
-$('#gates').innerHTML = C.gates.map((g, i) => `<div><em>Gate ${i + 1}</em><b>${esc(g.name)}</b><span>${esc(GPLAIN[g.gate])}</span><em title="${esc(g.scott_definition)}">Definition: Scott Santucci</em></div>`).join('');
+// ---------------- header
+$('#lede').innerHTML = `${N(n)} business decision-makers describe what vendors' salespeople do, what they want instead, and why they walk away. ` +
+  `The picture is bad: most sales effort goes into the vendor's own product, and customers lose deals they wanted because of it. ` +
+  `It is also an opportunity: so few vendors get the basics right that a small shift in focus is enough to stand out.`;
+$('#tiles').innerHTML =
+  `<div class="tile"><span class="big n">${pct(pitchShare)}</span><span>say the typical sales meeting is a product pitch. ${pct(custShare)} say it is about their challenges or success.</span></div>` +
+  `<div class="tile"><span class="big n">${pct(bizF)}</span><span>say salespeople frequently come prepared on their specific business. ${pct(ownF)} say they come prepared on their own products.</span></div>` +
+  `<div class="tile"><span class="big n">${pct(simple)}</span><span>say vendor material makes the business case simple. ${pct(mostAll)} had to build most or all of it themselves.</span></div>`;
+$('#who').innerHTML = `Everyone in this study is a customer: ${N(n)} decision-makers who take part in their company's IT purchases, ${N(C.it_decision_makers)} from IT and ${N(C.business_decision_makers)} from the business side; ` +
+  C.levels.map(l => `${N(l.n)} ${esc(l.label === 'C-level' ? 'C-level executives' : l.label.toLowerCase() + 's')}`).join(', ') + `. They answered fixed-choice survey questions and wrote ${N(C.written_answers.toLocaleString('en-US'))} answers in their own words.`;
+$('#gatesline').innerHTML = C.gates.map(g => `<b>${esc(g.name)}</b>`).join(' → ') + ' (right people reached; meeting won; idea agreed worth exploring; shared picture of success; business case accepted)';
+$('#n1').textContent = n;
 
-// about blocks
-for (const k of ['v1','v3','v4','v5']) {
-  const m = D[k].meta;
-  document.querySelector(`[data-about="${k}"]`).innerHTML = `<summary>About this data: sources, method and limits</summary>` +
-    `<div><b>Unit:</b> ${esc(m.unit)} · <b>Provenance:</b> ${esc(m.provenance)}</div><ul>${m.caveats.map(c => `<li>${esc(c)}</li>`).join('')}</ul>` +
-    `<div><b>Sources:</b> ${m.sources.map(s => `<code>${esc(s)}</code>`).join(', ')} · built by <code>${esc(m.generated_by)}</code></div>`;
+// ---------------- builders
+function frame(o){
+  return `<div class="frame"><dl>` +
+    `<dt>Scope</dt><dd>${o.scope}</dd>` +
+    `<dt>Question</dt><dd>${o.items}</dd>` +
+    `<dt>Vantage point</dt><dd>${o.vantage}</dd>` +
+    `<dt>Scale</dt><dd>${o.scale}</dd>` +
+    `<dt>At stake</dt><dd>${o.stakes}</dd></dl></div>`;
 }
-
-// ---------------------------------------------------------------- V1
-const p7 = allRow(worst), pp = allRow(over);
-$('#h1').textContent = `Customers want help building the case. They get a product pitch.`;
-$('#howto1').innerHTML = `<h3>How to read this chart</h3><ul>` +
-  `<li>Each row is one thing a salesperson can do for a customer.</li>` +
-  `<li><span class="key"><span class="dot" style="background:var(--valued)"></span><b>Blue</b></span> = the share of decision-makers who say it matters (they value it).</li>` +
-  `<li><span class="key"><span class="dot" style="background:var(--received)"></span><b>Orange</b></span> = the share who say they actually get it from salespeople or vendor material.</li>` +
-  `<li>The line between them is the gap. A long line means a big mismatch. Orange to the left of blue means customers get <b>less</b> than they value.</li></ul>` +
-  `<p><b>Example, top row (${esc(worst.concept)}).</b> Blue, ${N(pct(p7.a))}: ${esc(worst.a_label.replace(/^Valued: /, ''))}. Orange, ${N(pct(p7.b))}: ${esc(worst.b_label.replace(/^Received: /, ''))}. Gap: ${N(gapTxt(p7.gap))}.</p>`;
-const sel = $('#cohort');
-const cohorts = D.v1.pairs[0].cohorts, groups = {};
-cohorts.forEach(c => (groups[c.dimension] = groups[c.dimension] || []).push(c));
-for (const dim of Object.keys(groups)) {
-  const og = document.createElement(dim === 'All' ? 'div' : 'optgroup'); if (dim !== 'All') og.label = dim;
-  for (const c of groups[dim]) { const o = document.createElement('option'); o.value = c.cohort; o.disabled = !c.usable;
-    o.textContent = `${c.label === 'All Respondents' ? 'All decision-makers' : c.label} (n = ${c.n})${c.usable ? '' : ' — too few to show'}`; (dim === 'All' ? sel : og).appendChild(o); }
-  if (dim !== 'All') sel.appendChild(og);
-}
-sel.value = ALL;
-$('#v1legend').innerHTML = `<span class="key"><span class="dot" style="background:var(--valued)"></span>value it</span><span class="key"><span class="dot" style="background:var(--received)"></span>get it</span><span class="key" id="refkey" hidden><span class="dot" style="border:1.5px solid var(--muted)"></span>all decision-makers, for comparison</span>`;
-function drawV1(){
-  const host = $('#v1chart'); host.innerHTML = ''; $('#refkey').hidden = sel.value === ALL;
-  const W = Math.max(320, host.clientWidth - 32), narrow = W < 620;
-  const L = narrow ? 8 : Math.min(300, W * 0.36), R = W - 120, rh = narrow ? 64 : 48, top = 34;
-  const order = D.v1.pairs.slice().sort((a, b) => (a.type === b.type ? allRow(a).gap - allRow(b).gap : a.type === 'value_vs_experience' ? -1 : 1));
-  const H = top + rh * order.length + 34 + 26;
-  const svg = el('svg', {viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Share who value each thing against share who get it'}, host);
-  const x = v => L + v * (R - L);
-  for (const v of [0, .25, .5, .75, 1]) { el('line', {x1: x(v), x2: x(v), y1: top - 10, y2: top + rh * order.length + 22, class: 'gr'}, svg); text(svg, x(v), top - 16, pct(v), 'sub', 'middle'); }
-  const cid = sel.value; let y0 = top, lastType = null;
-  order.forEach(p => {
-    if (p.type !== lastType) { if (lastType) y0 += 22; text(svg, 8, y0 + 4, p.type === 'value_vs_experience' ? 'WHAT CUSTOMERS VALUE vs WHAT THEY GET' : (narrow ? 'SALESPEOPLE PREPARED ON: THEMSELVES vs ME' : 'HOW SALESPEOPLE PREPARE: ON THEIR OWN PRODUCTS vs ON THE CUSTOMER'), 'sub'); y0 += 12; lastType = p.type; }
-    const c = p.cohorts.find(z => z.cohort === cid), a0 = allRow(p), yy = y0 + (narrow ? 40 : rh / 2);
-    const g = el('g', {class: p.pair === worst.pair ? 'key-row' : ''}, svg);
-    el('rect', {x: 0, y: y0, width: W, height: rh, class: 'row-bg'}, g);
-    text(g, narrow ? 8 : L - 14, narrow ? y0 + 16 : yy + 1, p.concept, 'lab', narrow ? 'start' : 'end');
-    text(g, narrow ? 8 : L - 14, narrow ? y0 + 30 : yy + 15, `${p.gate.charAt(0) + p.gate.slice(1).toLowerCase()} gate`, 'sub', narrow ? 'start' : 'end');
-    if (cid !== ALL) for (const v of [a0.a, a0.b]) el('circle', {cx: x(v), cy: yy, r: 5, fill: 'none', stroke: 'var(--muted)', 'stroke-width': 1.5}, g);
-    el('line', {x1: x(c.a), x2: x(c.b), y1: yy, y2: yy, stroke: 'var(--fg2)', 'stroke-width': 2}, g);
-    el('circle', {cx: x(c.a), cy: yy, r: 7, fill: 'var(--valued)', stroke: 'var(--ring)', 'stroke-width': 2}, g);
-    el('circle', {cx: x(c.b), cy: yy, r: 7, fill: 'var(--received)', stroke: 'var(--ring)', 'stroke-width': 2}, g);
-    text(g, Math.max(x(c.a), x(c.b)) + 12, yy + 4, (c.gap < 0 ? '−' : '+') + pts(c.gap) + ' pts', 'val');
-    const hit = el('rect', {x: 0, y: y0, width: W, height: rh, class: 'hit', tabindex: 0, 'aria-label': `${p.concept}: ${pct(c.a)} and ${pct(c.b)}`}, svg);
-    bindHit(hit, `<b>${esc(p.concept)}</b><br>${esc(p.a_label)}: <b>${pct(c.a)}</b><br>${esc(p.b_label)}: <b>${pct(c.b)}</b><br>${gapTxt(c.gap)} · ${esc(c.label)} (n = ${c.n})` + (cid !== ALL ? `<br>All decision-makers: ${gapTxt(a0.gap)}` : ''));
-    y0 += rh;
-  });
-}
-sel.addEventListener('change', drawV1);
-reading($('#read1'),
-  `<p>For ${N(short + ' of ' + vxe.length)} things customers value, they get less than they want. The largest shortfall is <b>${esc(worst.concept.toLowerCase())}</b> (${N(gapTxt(p7.gap))}). Three of the shortfalls are about understanding the customer's business, each about ${N(Math.round(-Math.max(...knowGap) * 100) + '–' + Math.round(-Math.min(...knowGap) * 100) + ' points')}.</p>` +
-  `<p>Only <b>${esc(over.concept.toLowerCase())}</b> runs the other way: ${N(pct(pp.a))} value a compelling presentation, but ${N(pct(pp.b))} say presenting products is the typical agenda (${N(gapTxt(pp.gap))}).</p>` +
-  `<p>Salespeople come prepared on their own products far more often than on the customer (bottom rows, about ${N(Math.round(-Math.min(...knowGap) * 100) + ' points')}). Pick a group above to compare. In every group large enough to show, the direction is the same for ${N(steady.length + ' of ' + D.v1.pairs.length)} rows: ${esc(steadyNames.join('; '))}.</p>`,
-  `<p>Salespeople put their effort where customers value it least, and hold back where customers value it most. Because the largest gaps run the same way across roles, levels, industries and countries, they are unlikely to come from a few weak salespeople. It looks like the way selling is set up: what salespeople are trained on, measured on and given to take into meetings.</p>`,
-  `<p>Better pitching will not close this gap. The gain is in shifting time from presenting the product to understanding the customer's business and helping them build the case for change.</p>`);
-
-// ---------------------------------------------------------------- V3 felt vs said (two aligned bar columns)
-$('#h3').textContent = `The biggest gap is the one customers never mention.`;
-$('#howto3').innerHTML = `<h3>How to read this chart</h3><ul>` +
-  `<li>The same nine rows as View 1, ordered from the largest shortfall to the largest surplus.</li>` +
-  `<li><b>Left bars, “felt”:</b> the gap from View 1, in percentage points. <span class="key"><span class="bar" style="background:var(--lose)"></span>red</span> = customers get less than they value; <span class="key"><span class="bar" style="background:var(--win)"></span>blue</span> = more.</li>` +
-  `<li><b>Right bars, “said”:</b> how many of the ${N(C.codable_answers)} usable written answers raise the same topic, unprompted — for example by praising or criticising how well a salesperson knows their business.</li>` +
-  `<li>The two “prepared on” rows compare how often salespeople are prepared on the customer against on their own products; red means less often on the customer.</li>` +
-  `<li>A row with a long left bar and a short right bar is a gap customers feel but do not talk about.</li></ul>`;
-let v3sel = null;
-function drawV3(){
-  const host = $('#v3chart'); host.innerHTML = '';
-  const rows = D.v3.points.slice().sort((a, b) => a.gap - b.gap);
-  const W = Math.max(320, host.clientWidth - 32), narrow = W < 620;
-  const labW = narrow ? 0 : 230, gutter = 26, colW = (W - labW - gutter) / 2, rh = narrow ? 58 : 40, top = 40;
-  const x1 = labW, x2 = labW + colW + gutter;
-  const gmax = Math.max(...rows.map(r => Math.abs(r.gap))), amax = Math.max(...rows.map(r => r.answers));
-  const H = top + rh * rows.length + 10;
-  const svg = el('svg', {viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Gap size against number of written answers, by topic'}, host);
-  text(svg, x1, 14, 'FELT: gap in the survey', 'sub'); text(svg, x1, 28, 'percentage points', 'sub');
-  text(svg, x2, 14, 'SAID: written answers raising it', 'sub'); text(svg, x2, 28, 'number of answers', 'sub');
-  rows.forEach((r, i) => {
-    const y = top + rh * i, by = narrow ? y + 24 : y + 10, bh = 18;
-    const g = el('g', {class: r.pair === worst.pair || v3sel === r.pair ? 'key-row' : ''}, svg);
-    el('rect', {x: 0, y, width: W, height: rh - 4, rx: 6, class: 'row-bg'}, g);
-    text(g, narrow ? 6 : 6, narrow ? y + 16 : y + 24, r.concept, 'lab');
-    const gw = Math.abs(r.gap) / gmax * (colW - 70), aw = r.answers / amax * (colW - 50);
-    el('rect', {x: x1, y: by, width: Math.max(2, gw), height: bh, rx: 3, fill: r.gap < 0 ? 'var(--lose)' : 'var(--win)'}, g);
-    text(g, x1 + gw + 6, by + 14, (r.gap < 0 ? '−' : '+') + pts(r.gap) + ' pts', 'val');
-    el('rect', {x: x2, y: by, width: Math.max(2, aw), height: bh, rx: 3, fill: 'var(--said)'}, g);
-    text(g, x2 + aw + 6, by + 14, r.answers, 'val');
-    const hit = el('rect', {x: 0, y, width: W, height: rh - 4, class: 'hit', tabindex: 0, role: 'button', 'aria-label': `${r.concept}: ${gapTxt(r.gap)}, ${r.answers} written answers`}, svg);
-    bindHit(hit, `<b>${esc(r.concept)}</b> (${esc(r.gate.toLowerCase())} gate)<br>Felt: ${gapTxt(r.gap)} received than valued<br>Said: ${r.answers} written answers — ${r.best_pos} praising it in best sales teams, ${r.worst_neg} criticising it in worst, ${r.q21} naming it as what sets a vendor apart<br>Topics counted: ${esc(r.code_labels.join('; '))}`, () => {
-      v3sel = r.pair; hideTip(); drawV3();
-      reader($('#v3reader'), `${r.concept}: what decision-makers wrote`, [
-        {key: 'best', label: 'Best sales teams', ids: r.answer_ids.filter(i => side(i) === 'best')},
-        {key: 'worst', label: 'Worst sales teams', ids: r.answer_ids.filter(i => side(i) === 'worst')},
-        {key: 'q21', label: 'What sets a vendor apart', ids: r.answer_ids.filter(i => side(i) === 'q21')},
-        {key: 'other', label: 'Other answers', ids: r.answer_ids.filter(i => side(i) === 'other')}]); });
-  });
-  const kr = rows.findIndex(r => r.pair === worst.pair);
-  if (kr >= 0) { const r = rows[kr], y = top + rh * kr; text(svg, x2 + r.answers / amax * (colW - 50) + 40, (narrow ? y + 24 : y + 10) + 14, narrow ? '← fewest' : '← largest gap, fewest mentions', 'callout'); }
-}
-const w3 = pt(worst.pair), o3 = pt(over.pair);
-reading($('#read3'),
-  `<p><b>Business knowledge is felt and said.</b> The four rows about knowing the customer's business have gaps of about ${N(Math.round(-Math.max(...knowGap) * 100) + '–' + Math.round(-Math.min(...knowGap) * 100) + ' points')}, and each comes up in ${N(Math.min(...knowAns) + '–' + Math.max(...knowAns))} written answers.</p>` +
-  `<p><b>The business case is felt but not said.</b> ${esc(worst.concept)} has the largest gap (${N(gapTxt(w3.gap))}) and comes up in only ${N(w3.answers)} answers.</p>` +
-  `<p><b>The pitch is said, mostly as a complaint.</b> Of its ${N(o3.answers)} answers, ${N(o3.worst_neg)} criticise it in worst sales teams and ${N(o3.best_pos)} praise it in best.</p>`,
-  `<p>When customers describe good and bad salespeople, they talk about whether the salesperson knows their business and whether they push product. They almost never talk about being helped to build the case, although the survey shows it is what they lack most. The likely reason is that customers have no ready words for it (View 4 shows no customer-side word for “carrying the idea inside the company”). A need the customer cannot name is a need the salesperson will not hear.</p>`,
-  `<p>Asking customers what they want will not surface this gap: win/loss interviews, satisfaction surveys and discovery questions all rely on the customer naming it. It has to be designed into the sales approach and checked at the Case gate directly.</p>`);
-
-// ---------------------------------------------------------------- reader
-function reader(host, title, groupsDef){
-  host.hidden = false;
-  let cur = (groupsDef.find(g => g.ids.length) || groupsDef[0]).key;
-  function render(){
-    const g = groupsDef.find(z => z.key === cur);
-    host.innerHTML = `<div class="reader-head"><h4>${esc(title)}</h4><div class="tabs">` +
-      groupsDef.map(z => `<button type="button" aria-pressed="${z.key === cur}" data-k="${z.key}">${esc(z.label)} <span class="n">${z.ids.length}</span></button>`).join('') +
-      `</div></div><ul class="quotes">` + (g.ids.length ? g.ids.map(id => { const a = D.answers[id];
-        const s = ['Q22','Q24'].includes(a.item) ? 'best' : ['Q23','Q25'].includes(a.item) ? 'worst' : '';
-        return `<li class="${s}">${esc(a.text)}<div class="meta">${esc(a.item)}${QNAME[a.item] ? ' · ' + esc(QNAME[a.item]) : ''} · respondent ${esc(a.respid)}</div></li>`; }).join('')
-        : '<li>No answers in this group.</li>') + '</ul>';
-    host.querySelectorAll('button[data-k]').forEach(b => b.addEventListener('click', () => { cur = b.dataset.k; render(); }));
+function bars(rows){   // rows: {label, value, cls, group?}
+  let h = '<div class="rows">', g = null;
+  for (const r of rows) {
+    if (r.group && r.group !== g) { g = r.group; h += `<div class="group-lab ${r.gcls || ''}">${esc(g)}</div>`; }
+    h += `<div class="row"><div class="lab">${esc(r.label)}</div><div class="track" role="img" aria-label="${esc(r.label)}: ${pct(r.value)}"><div class="seg ${r.cls}" style="width:${(r.value * 100).toFixed(1)}%"></div></div><div class="val">${pct(r.value)}</div></div>`;
   }
-  render(); host.scrollIntoView({block: 'nearest'});
+  return h + '</div>';
 }
-const side = id => { const it = D.answers[id].item; return ['Q22','Q24'].includes(it) ? 'best' : ['Q23','Q25'].includes(it) ? 'worst' : it === 'Q21' ? 'q21' : 'other'; };
-
-// ---------------------------------------------------------------- V4 wins / loses
-$('#h4').textContent = `Knowing the business wins accounts. How salespeople behave loses them.`;
-$('#howto4').innerHTML = `<h3>How to read this chart</h3><ul>` +
-  `<li>Decision-makers named their three most and three least effective sales teams and said why (${N('Q22')}, ${N('Q23')}), and who their main contact is in their best and worst relationships (${N('Q24')}, ${N('Q25')}).</li>` +
-  `<li>We coded each written reason for the behaviour it describes. Each row is one behaviour.</li>` +
-  `<li><span class="key"><span class="bar" style="background:var(--win)"></span><b>Blue, right</b></span> = how many answers about a <b>best</b> team praise it. <span class="key"><span class="bar" style="background:var(--lose)"></span><b>Red, left</b></span> = how many answers about a <b>worst</b> team criticise it.</li>` +
-  `<li>The label beside each row says which way it decides accounts: <b>satisfier</b> — mostly praised when present; <b>dissatisfier</b> — mostly complained about when missing; <b>critical</b> — decides both ways.</li></ul>`;
-let v4sel = null;
-function drawV4(){
-  const host = $('#v4chart'); host.innerHTML = '';
-  const rows = D.v4.behaviours.filter(b => b.class !== 'too few').sort((a, b) => b.experiential - a.experiential || a.code.localeCompare(b.code));
-  const W = Math.max(320, host.clientWidth - 32), narrow = W < 620;
-  const labW = narrow ? 0 : 280, rh = narrow ? 40 : 24, top = 10;
-  const Cx = labW + (W - labW) / 2, half = (W - labW) / 2 - 34;
-  const mx = Math.max(...rows.map(r => Math.max(r.effective, r.ineffective)));
-  const sc = v => v / mx * half, H = top + rh * rows.length + 8;
-  const svg = el('svg', {viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Behaviours by answers in worst and best sales teams'}, host);
-  el('line', {x1: Cx, x2: Cx, y1: top - 4, y2: H - 4, class: 'ax'}, svg);
-  rows.forEach((r, i) => {
-    const y = top + rh * i, by = narrow ? y + 20 : y + 4, bh = narrow ? 14 : 16;
-    const g = el('g', {class: v4sel === r.code ? 'sel' : ''}, svg);
-    el('rect', {x: 0, y, width: W, height: rh, class: 'row-bg'}, g);
-    text(g, 4, narrow ? y + 13 : y + 16, r.label, 'lab');
-    text(g, narrow ? W - 4 : 214, narrow ? y + 13 : y + 16, r.class, 'sub', narrow ? 'end' : 'start');
-    if (r.ineffective) el('rect', {x: Cx - sc(r.ineffective), y: by, width: sc(r.ineffective), height: bh, rx: 3, fill: 'var(--lose)'}, g);
-    if (r.effective) el('rect', {x: Cx, y: by, width: sc(r.effective), height: bh, rx: 3, fill: 'var(--win)'}, g);
-    text(g, Cx - sc(r.ineffective) - 6, by + bh - 3, r.ineffective, 'val', 'end');
-    text(g, Cx + sc(r.effective) + 6, by + bh - 3, r.effective, 'val');
-    const hit = el('rect', {x: 0, y, width: W, height: rh, class: 'hit', tabindex: 0, role: 'button', 'aria-label': `${r.label}: ${r.ineffective} criticised, ${r.effective} praised, ${r.class}`}, svg);
-    bindHit(hit, `<b>${esc(r.label)}</b> · ${esc(r.class)}<br>${esc(r.definition)}<br>Criticised in worst teams: <b>${r.ineffective}</b> · praised in best: <b>${r.effective}</b><br>Named as what sets a vendor apart (Q21): ${r.q21}`, () => {
-      v4sel = r.code; hideTip(); drawV4();
-      reader($('#v4reader'), `${r.label} (${r.class}): what decision-makers wrote`, [
-        {key: 'worst', label: 'Criticised, worst teams', ids: r.worst_ids}, {key: 'best', label: 'Praised, best teams', ids: r.best_ids}]); });
-  });
-  const few = D.v4.behaviours.filter(b => b.class === 'too few').map(b => b.label);
-  const note = document.createElement('p'); note.className = 'legend'; note.textContent = `Fewer than 10 answers, not shown: ${few.join(', ')}.`; host.appendChild(note);
+function countBars(rows, max, cls){
+  let h = '<div class="rows">';
+  for (const r of rows) h += `<div class="row"><div class="lab">${esc(r.label)}</div><div class="track" role="img" aria-label="${esc(r.label)}: ${r.value} answers"><div class="seg ${cls}" style="width:${(r.value / max * 100).toFixed(1)}%"></div></div><div class="val">${r.value}</div></div>`;
+  return h + '</div>';
 }
-const dis = cls('dissatisfier'), sat = cls('satisfier');
-reading($('#read4'),
-  `<p><b>${esc(kb.label)}</b> is the most praised behaviour in best teams (${N(kb.effective)} answers) and the most common answer to what sets a vendor apart (${N(kb.q21)}).</p>` +
-  `<p><b>${esc(cf.label)}</b> is the most criticised behaviour in worst teams (${N(cf.ineffective)} answers against ${N(cf.effective)} praising it). The other dissatisfiers are about conduct too: ${esc(dis.filter(b => b.code !== cf.code).map(b => b.label.toLowerCase()).join(', '))}.</p>` +
-  `<p>${N(sat.length)} behaviours are satisfiers, ${N(dis.length)} dissatisfiers, ${N(cls('critical').length)} critical.</p>`,
-  `<p>Decision-makers judge salespeople on two separate scales. What wins an account is knowledge and help: knowing the business, solving the problem, knowing the product, bringing ideas. What loses an account is behaviour: pushing the vendor's agenda, disrespect, being hard to deal with, dishonesty. Being polite and responsive does not win the account; it only avoids losing it.</p>`,
-  `<p>Winning and not losing are different investments. Training on conduct (less pushing, more respect) stops losses. Building business knowledge and problem-solving is what wins, and that is exactly where View 1 shows the shortfall.</p>`);
+function quotes(key){
+  const qs = F.quotes.filter(q => q.finding === key);
+  return `<h4>In their own words</h4><ul class="quotes">` + qs.map(q => {
+    const s = ['Q22','Q24'].includes(q.item) ? 'best' : ['Q23','Q25'].includes(q.item) ? 'worst' : '';
+    return `<li class="${s}">“${esc(q.text)}”<span class="meta">Decision-maker ${esc(q.respid)}, ${esc(QNAME[q.item] || q.item)}</span></li>`; }).join('') + `</ul>`;
+}
+const plain = (h, body) => `<div class="plain"><h4>What it shows</h4>${body}</div>`;
+const meaning = body => `<div class="meaning"><h4>What it means <span class="tag">interpretation</span></h4>${body}</div>`;
+const Q = (id, s) => `${N(id)} <q>${esc(strip(s))}</q>`;
 
-// ---------------------------------------------------------------- V5
-$('#h5').textContent = `Vendors have words for steps customers have no words for.`;
-$('#howto5').innerHTML = `<h3>How to read this table</h3><ul>` +
-  `<li>Each row is one moment in a decision, grouped by gate.</li>` +
-  `<li><b>Vendor's word</b>: the term sales teams use for it. <b>Customer's word in the survey</b>: how the survey asked customers about it. <b>Decision-makers' own words</b>: the most frequent words in written answers about it.</li>` +
-  `<li><span style="color:var(--lose);font-weight:600">Highlighted rows</span> are gaps: the vendor has a word, the survey has no customer-side word.</li></ul>`;
-(function(){
-  let h = `<table><thead><tr><th>Gate</th><th>Moment</th><th>Vendor's word</th><th>Customer's word in the survey</th><th>Decision-makers' own words</th><th class="num">Answers</th></tr></thead><tbody>`;
-  for (const r of D.v5.rows) {
-    const cust = r.gap ? `<td class="gap">No word · ${esc(r.gap)}</td>` : `<td>${esc(r.customer_term.split(' | ')[0])}</td>`;
-    h += `<tr class="${r.gap ? 'gaprow' : ''}"><td>${esc(r.gate)}</td><td>${esc(r.concept)}</td><td>${esc(r.vendor_term)}</td>${cust}<td>${esc(r.top_words.slice(0, 5).join(', ') || '—')}</td><td class="num">${r.answers}</td></tr>`;
-  }
-  $('#v5table').innerHTML = h + `</tbody></table>`;
-})();
-const l17 = D.v5.rows.find(r => r.id === 'L17'), l28 = D.v5.rows.find(r => r.id === 'L28');
-reading($('#read5'),
-  `<p>${N(gaps5.length + ' of ' + D.v5.rows.length)} moments have a vendor word and no customer word. Among them: being mis-targeted, being chased, a first meeting that was not worth it, material that never reaches the decision, and <b>${esc(l17.concept.toLowerCase())}</b> (${N(l17.answers)} written answers).</p>` +
-  `<p>Where answers exist, they are vivid: “${esc(l28.top_words.find(w => w === 'arrogant') || l28.top_words[0])}” is the commonest word for <b>${esc(l28.concept.toLowerCase())}</b> (${N(l28.answers)} answers, ${N(l28.worst)} about worst teams).</p>`,
-  `<p>The vendor side has a full vocabulary for its own process (cadence, champion, multithreading, business case). The customer side often has none for the same moments. What has no name is hard to ask for, hard to complain about, and easy for both sides to skip. This is the language behind View 2's silent gap.</p>`,
-  `<p>Salespeople who describe their work in the customer's terms, and give customers words for the steps they lack (for example, how to carry the idea inside their own company), close the gap that customers cannot close for themselves.</p>`);
+// ---------------- Finding 1: the meeting
+$('#f-meeting').innerHTML = `<h3>The typical meeting is a product pitch. Customers value a meeting about their problem.</h3>` +
+  frame({scope: '<b>Agree</b> — the meeting where the customer decides whether the idea is worth exploring.',
+    items: `${Q('Q14', q14.stem)} One answer each. And ${Q('Q11', q11.stem)} As many answers as apply.`,
+    vantage: 'The customer, describing the sales meetings they typically sit through, and what makes one worth their time.',
+    scale: `Left: share of all ${n} who chose each description; adds to 100%. Right: share who ticked each item; adds to more than 100%.`,
+    stakes: `Whether the customer gives the idea a second meeting. Of those who walked away from a vendor they were interested in, ${pct(envision)} say they <q>could not envision how the value would be delivered</q>.`}) +
+  `<div class="two"><div class="chart"><div class="chart-title">What the typical meeting is like (${N('Q14')})</div>` +
+    bars(q14.items[0].options.map((o, i) => ({label: o.label, value: o.share, cls: i < 2 ? 'v' : 'c', group: i < 2 ? 'About the vendor\'s product' : 'About the customer', gcls: i < 2 ? 'v-t' : 'c-t'}))) +
+    `<div class="chart-note">Grouping into “about the product” and “about the customer” is our reading of the answer wording.</div></div>` +
+  `<div class="chart"><div class="chart-title">What makes a meeting valuable (${N('Q11')})</div>` +
+    bars(q11.items.slice().sort((a, b) => b.options[0].share - a.options[0].share).map(x => ({label: x.label, value: x.options[0].share, cls: x.item === 'Q11_6' ? 'v' : 'c'}))) +
+    `<div class="chart-note">The orange bar is the one item about the vendor's presentation.</div></div></div>` +
+  plain('', `<p>${N(pct(pitchShare))} of decision-makers say the typical sales meeting is about the vendor's product: either a straight presentation, or listening for a cue to launch the pitch. Only ${N(pct(custShare))} say it is about understanding their challenges or making their initiative succeed.</p>` +
+    `<p>Yet when asked what makes a meeting valuable, ${N(pct(issues))} pick a salesperson who understands their business issues and can explain how to solve them, and ${N(pct(solve))} a meeting that helps them think about how to solve a business problem. Only ${N(pct(demo))} pick a compelling presentation or demo.</p>`) +
+  meaning(`<p>The meeting customers get is the one they value least. The pitch is not a minor flaw; it is what most meetings are made of.</p>`) +
+  quotes('pitch');
 
-// ---------------------------------------------------------------- implications
-const IMPS = [
-  ['Rebalance the meeting from presenting to understanding.', `Customers get product presentations ${gapTxt(pp.gap)} than they value, and business understanding about ${Math.round(-Math.min(...knowGap) * 100)} points less.`, 'View 1 · rows “The pitch” and the business-knowledge rows'],
-  ['Make the business case a deliverable, not a hope.', `${worst.concept} is the largest gap (${gapTxt(p7.gap)}) and the least mentioned (${w3.answers} answers). It will not come up unless the salesperson brings it.`, 'View 1 top row · View 2 · View 4 gap rows'],
-  ['Do not rely on customers to tell you what is missing.', 'The biggest shortfall barely appears in customers\' own words, so feedback, win/loss reviews and discovery questions will under-report it. Check it at the Case gate directly.', 'View 2'],
-  ['Treat winning and not losing as separate programmes.', `Knowledge wins (${kb.label.toLowerCase()}: ${kb.effective} praised). Conduct loses (${cf.label.toLowerCase()}: ${cf.ineffective} criticised).`, 'View 3'],
-  ['Fix the design before the people.', `The largest gaps (${steadyNames.join('; ')}) run the same way in every group large enough to show, so they point at how selling is organised, trained and equipped, not at individual salespeople.`, 'View 1 group picker · Phase 4 cohort analysis (T04)'],
+// ---------------- Finding 2: preparation
+const q8rows = q8.items.map(x => ({label: x.label, f: x.options.find(o => o.label === 'Frequently').share, o: x.options.find(o => o.label === 'Occasionally').share, own: x.item === 'Q8_1'}));
+$('#f-prep').innerHTML = `<h3>Salespeople prepare on their own products, not on the customer.</h3>` +
+  frame({scope: '<b>Agree</b> — what the salesperson brings into the meeting.',
+    items: `${Q('Q8', q8.stem)} Each item rated Never, Rarely, Occasionally or Frequently.`,
+    vantage: 'The customer, judging how prepared salespeople generally are when they meet.',
+    scale: `For each item, the share of all ${n} who answered “Frequently” (dark) and “Occasionally” (light). The rest answered Rarely or Never.`,
+    stakes: 'Whether the meeting is worth the customer\'s time. A salesperson who does not know the business cannot show how to solve its problems — the top reason a meeting is valuable (Finding 1).'}) +
+  `<div class="chart"><div class="chart-title">How often salespeople come prepared (${N('Q8')})</div><div class="rows">` +
+    q8rows.sort((a, b) => b.f - a.f).map(r => `<div class="row"><div class="lab">${esc(r.label)}</div><div class="track" role="img" aria-label="${esc(r.label)}: ${pct(r.f)} frequently, ${pct(r.o)} occasionally"><div class="seg f4 ${r.own ? 'own' : ''}" style="width:${(r.f * 100).toFixed(1)}%"></div><div class="seg f3 ${r.own ? 'own' : ''}" style="width:${(r.o * 100).toFixed(1)}%"></div></div><div class="val">${pct(r.f)}</div></div>`).join('') +
+    `</div><div class="legend"><span class="key"><span class="sw" style="background:var(--vendor)"></span>about the vendor itself</span><span class="key"><span class="sw" style="background:var(--cust)"></span>about the customer</span><span class="key"><span class="sw" style="background:var(--cust-2)"></span>lighter: occasionally</span><span>Number: share answering “Frequently”.</span></div></div>` +
+  plain('', `<p>${N(pct(ownF))} say salespeople frequently come knowing their own company and products. Only ${N(pct(bizF))} say they frequently come knowing the customer's specific business, and ${N(pct(issF))} that they frequently understand the customer's issues and where they can help.</p>`) +
+  meaning(`<p>Salespeople are prepared to talk about themselves. Preparing on the customer is the exception: about ${N(oneIn(bizF))} decision-makers say it happens frequently.</p>`) +
+  quotes('prepared');
+
+// ---------------- Finding 3: the business case
+$('#f-case').innerHTML = `<h3>Customers build the business case alone.</h3>` +
+  frame({scope: '<b>Case</b> — whether the customer can justify the purchase inside their company.',
+    items: `${Q('Q18', q18.stem)} One answer each.`,
+    vantage: 'The customer, describing the materials vendors typically give them.',
+    scale: `Share of all ${n} who chose each description; adds to 100% (with “Other” and “Don't know”).`,
+    stakes: `Whether the purchase survives inside the customer's company. Of those who walked away, ${pct(board)} <q>struggled to get others on board internally</q> and ${pct(risky)} found it <q>too risky</q>.`}) +
+  `<div class="chart"><div class="chart-title">How well vendor material helps build the case to invest (${N('Q18')})</div>` +
+    bars(q18.items[0].options.filter(o => !/^Other|^Don/.test(o.label)).map((o, i) => ({label: o.label, value: o.share, cls: i === 0 ? 'c' : i === 1 ? 'c' : 'v',
+      group: i < 2 ? 'Vendor material does most of the work' : 'The customer does significant work themselves', gcls: i < 2 ? 'c-t' : 'v-t'}))) +
+    `<div class="chart-note">Grouping is our reading of the answer wording: the bottom three describe significant customization, or doing most or all of the justification themselves.</div></div>` +
+  plain('', `<p>Only ${N(pct(simple))} say vendor material makes building a convincing business case simple. ${N(pct(ownWork))} must do significant work themselves, and ${N(pct(mostAll))} — about ${N(oneIn(mostAll))} — did most or all of the justification on their own.</p>`) +
+  meaning(`<p>The business case is the last step before a yes, and it is the one vendors leave to the customer. The customer has to sell the purchase inside their own company, mostly without the vendor's help.</p>`) +
+  quotes('case');
+
+// ---------------- Finding 4: what it costs
+const reasons = q15.items.map(x => ({label: x.label, value: x.options[0].share})).sort((a, b) => b.value - a.value);
+const worstB = F.behaviours.slice().sort((a, b) => b.criticised_worst - a.criticised_worst).slice(0, 6);
+$('#f-cost').innerHTML = `<h3>Interested customers walk away — to a competitor, or to no decision.</h3>` +
+  frame({scope: 'The end of the decision: a customer who was interested and then said no.',
+    items: `${Q('Q15', q15.stem)} As many reasons as apply. And, in their own words: which three companies have the <b>least</b> effective sales teams, and why (${N('Q23')}), and who the main contact is in their <b>worst</b> relationships, and why (${N('Q25')}).`,
+    vantage: 'The customer, remembering a time they were interested in a vendor and then did not buy.',
+    scale: `Left: share of all ${n} who ticked each reason; adds to more than 100%. Right: number of written answers saying the team fails at each behaviour, out of ${F.codable_answers} written answers that say something specific.`,
+    stakes: 'The deal itself.'}) +
+  `<div class="two"><div class="chart"><div class="chart-title">Why an interested customer did not buy (${N('Q15')})</div>` +
+    bars(reasons.map(r => ({label: r.label, value: r.value, cls: 'v'}))) + `</div>` +
+  `<div class="chart"><div class="chart-title">Where the worst sales teams fall short (written answers)</div>` +
+    countBars(worstB.map(b => ({label: b.label, value: b.criticised_worst})), Math.max(...worstB.map(b => b.criticised_worst)), 'v') +
+    `<div class="chart-note">Each answer was read and coded for what it criticises; a row counts answers saying the team fails at that behaviour.</div></div></div>` +
+  plain('', `<p>When an interested customer walks away, the most common reasons are going with <b>another vendor</b> (${N(pct(other))}) and not being able to <b>see how the value would be delivered</b> (${N(pct(envision))}). About one in four lost it inside their own company: too risky (${N(pct(risky))}), too much effort to keep momentum as others got involved (${N(pct(momentum))}), or unable to get others on board (${N(pct(board))}).</p>` +
+    `<p>In their own words, the most common complaint about the worst sales teams is a failure on <b>“${esc(worstB[0].label)}”</b> (${N(worstB[0].criticised_worst)} answers): they push the vendor's sale over the customer's need. Next comes a failure on <b>“${esc(worstB[1].label)}”</b> (${N(worstB[1].criticised_worst)}).</p>`) +
+  meaning(`<p>The costs line up with the focus. A pitch does not show how value will be delivered; a case left to the customer does not survive inside their company. Both are reasons interested customers give for walking away.</p>`);
+
+// ---------------- Finding 5: how low the bar is
+const bestB = F.behaviours.slice().sort((a, b) => b.praised_best - a.praised_best).slice(0, 6);
+const kb = B('B-KNOWS-BUSINESS');
+$('#f-bar').innerHTML = `<h3>Doing the basics puts a vendor ahead of most of its competitors.</h3>` +
+  frame({scope: 'All steps: what separates the vendors customers rate best from the rest.',
+    items: `In their own words: which three companies have the <b>most</b> effective sales teams, and why (${N('Q22')}); who the main contact is in their <b>best</b> relationships, and why (${N('Q24')}); and ${Q('Q21', C.question_stems.Q21)}`,
+    vantage: 'The customer, describing the vendors they rate best.',
+    scale: `Number of written answers praising each behaviour, out of ${F.codable_answers} written answers that say something specific. The three figures on the left repeat Findings 1–3.`,
+    stakes: 'Being the vendor the customer chooses, rather than the other vendor they went with instead.'}) +
+  `<div class="two"><div class="chart"><div class="chart-title">How rare the basics are today</div><div class="bar-list">` +
+    bars([{label: 'The typical meeting is about the customer\'s challenges or success (Q14)', value: custShare, cls: 'c'},
+          {label: 'Salespeople frequently come prepared on the customer\'s specific business (Q8)', value: bizF, cls: 'c'},
+          {label: 'Vendor material makes the business case simple (Q18)', value: simple, cls: 'c'}]) +
+    `</div><div class="chart-note">Share of all ${n} decision-makers. Everything outside these bars is the room to stand out.</div></div>` +
+  `<div class="chart"><div class="chart-title">What the best sales teams are praised for (written answers)</div>` +
+    countBars(bestB.map(b => ({label: b.label, value: b.praised_best})), Math.max(...bestB.map(b => b.praised_best)), 'c') +
+    `<div class="chart-note">Each answer was read and coded for the behaviour it praises.</div></div></div>` +
+  plain('', `<p>The behaviours that win are basic: <b>${esc(bestB.slice(0, 4).map(b => b.label.toLowerCase()).join(', '))}</b>. Knowing the customer's business is both the most praised behaviour in the best sales teams (${N(kb.praised_best)} answers) and the most common answer to what sets a vendor apart (${N(kb.q21)} answers).</p>` +
+    `<p>Today only ${N(pct(custShare))} of decision-makers say the typical meeting is about them, ${N(pct(bizF))} that salespeople frequently know their business, and ${N(pct(simple))} that vendor material makes the case simple.</p>`) +
+  meaning(`<p>Customers are not asking for anything exotic: know my business, help me solve the problem, help me make the case. Because so few vendors do it, a vendor that does it consistently is different from most of its competition.</p>`) +
+  quotes('different');
+
+// ---------------- what to do
+const ACTIONS = [
+  ['Make the first meeting about their problem, not your product.', `${pct(pitchShare)} of meetings are a pitch; ${pct(demo)} of customers value a compelling demo, ${pct(issues)} value a salesperson who understands their business issues.`, 'Finding 1'],
+  ['Prepare on the customer before you prepare on yourself.', `Preparation on the vendor's own products is frequent for ${pct(ownF)}; on the customer's specific business for ${pct(bizF)}.`, 'Finding 2'],
+  ['Give the customer the business case, built for their company.', `Only ${pct(simple)} find it simple with vendor material; ${pct(mostAll)} build most or all of it themselves; ${pct(board)} of those who walked away could not get others on board.`, 'Findings 3 and 4'],
+  ['Stop pushing the sale.', `It is the behaviour most criticised in the worst sales teams (${worstB[0].criticised_worst} written answers).`, 'Finding 4'],
 ];
-$('#imps').innerHTML = IMPS.map(([t, why, ev]) => `<li><b>${esc(t)}</b><span>${esc(why)}</span><span class="ev">Evidence: ${esc(ev)}</span></li>`).join('');
+$('#actions').innerHTML = ACTIONS.map(([t, why, ev]) => `<li><b>${esc(t)}</b><span>${esc(why)}</span><span class="ev">Rests on: ${esc(ev)}</span></li>`).join('');
 $('#limits').innerHTML = [
-  'All survey results describe groups of decision-makers, not individuals; we cannot say that any one person both valued and missed something.',
-  'Written answers and survey answers are linked by topic, not by person: the written answers carry no role or level.',
-  `The topic coding is one coder's work, checked blind on 200 answers (good agreement on behaviours; usable with caution on vocabulary).`,
-  'The data show the gaps exist and go unspoken. They do not show that closing them raises revenue; that needs separate evidence.',
-  'The pairing of “valued” and “received” questions is an interpretation of the survey, reviewed and confirmed by Scott Santucci.'
+  `All shares describe the ${n} decision-makers as a group; the study does not follow individual deals.`,
+  'Customers describe vendors in general, not one named vendor, except in the written answers about their best and worst sales teams.',
+  'Grouping answers into “about the product” and “about the customer” is our reading of the answer wording, shown on each chart.',
+  'Written answers were coded by one coder and checked blind on 200 of them; the quotes shown were chosen to illustrate, and every answer is in the project data.',
+  'The study shows what customers experience and want. It does not measure whether changing focus raises a vendor\'s revenue.'
 ].map(s => `<li>${esc(s)}</li>`).join('');
+const m = F.meta;
+$('#about').innerHTML = `<summary>Sources and method</summary><ul>${m.caveats.map(c => `<li>${esc(c)}</li>`).join('')}</ul><div><b>Sources:</b> ${m.sources.map(s => `<code>${esc(s)}</code>`).join(', ')} · built by <code>${esc(m.generated_by)}</code></div>`;
 $('#foot').innerHTML = `<div>Built from committed data by scripts in the project repository: <a href="${D.repo}" target="_blank" rel="noopener">${esc(D.repo.replace('https://', ''))}</a> (<code>06_visualization/</code>).</div>` +
-  `<div>Every number on this page is computed from the embedded data; none is typed by hand. Interpretations and implications are marked as such. Respondents appear by anonymous ID only.</div>`;
-
-function drawAll(){ drawV1(); drawV3(); drawV4(); }
-drawAll();
-let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawAll, 120); });
+  `<div>Every number on this page is computed from the embedded data; none is typed by hand. Question wording is quoted exactly. Respondents appear by anonymous ID only.</div>`;
 })();
 </script>
 """
