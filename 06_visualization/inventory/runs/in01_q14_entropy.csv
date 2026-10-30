@@ -1,0 +1,41 @@
+cohort,group,n,entropy_bits,evenness,pitch_share
+C-INDUSTRY7-PUBLIC-SECTOR,Public Sector (Industry — 7 groups),26,1.6573,0.7138,0.7307
+C-LEVEL-IT-MANAGER,Manager (Level — IT decision-makers),44,1.7712,0.7628,0.5228
+C-INDUSTRY7-SERVICES,Services (Industry — 7 groups),60,1.8447,0.7945,0.6667
+C-CONTACTFREQ-ONCE-A-WEEK-OR-MORE-OFTEN,Once a week or more often (Frequency of contact with salespeople),56,1.9067,0.8212,0.7321
+C-REVENUE-750-MILLION-TO-999-9-MILLION,$750 million to $999.9 million (Company revenue),31,1.9174,0.8258,0.5806
+C-INDUSTRY7-UTILITIES-AND-TELECOMMUNICAT,Utilities and Telecommunications (Industry — 7 groups),29,1.9334,0.8327,0.6207
+C-REVENUE-1-BILLION-TO-4-9-BILLION,$1 billion to $4.9 billion (Company revenue),79,1.9467,0.8384,0.6455
+C-LEVEL-MANAGER,Manager (Level — combined),74,1.9488,0.8393,0.5541
+C-LEVEL-IT-DIRECTOR,Director (Level — IT decision-makers),70,1.9572,0.8429,0.6286
+C-EMPLOYEES-1-0000-TO-4-999-EMPLOYEES,"1,0000 to 4,999 employees (Company employees)",96,1.9596,0.8439,0.5938
+C-SELLSTO-EXCLUSIVELY-BUSINESSES,Exclusively businesses (Company's own customers (B2B/B2C)),44,1.971,0.8488,0.6591
+C-INDUSTRY7-RETAIL-AND-WHOLESALE-TRADE,Retail and Wholesale Trade (Industry — 7 groups),33,1.976,0.851,0.5455
+C-SELLSTO-MOSTLY-CONSUMERS-BUT-SOME-BU,"Mostly consumers, but some businesses (Company's own customers (B2B/B2C))",71,1.9779,0.8518,0.6619
+C-REGION-NORTH-AMERICA,North America (Headquarters region),157,1.9782,0.852,0.6433
+C-LEVEL-BUS-VICE-PRESIDENT,Vice president (Level — business decision-makers),30,1.9832,0.8541,0.6
+C-COUNTRY-UNITED-STATES,United States (Headquarters country),150,1.9837,0.8543,0.6467
+C-CONTACTFREQ-BETWEEN-ONCE-A-QUARTER-OR-ON,Between once a quarter or once a month (Frequency of contact with salespeople),148,1.9881,0.8562,0.554
+C-LEVEL-DIRECTOR,Director (Level — combined),151,1.9972,0.8601,0.6159
+C-SELLSTO-MOSTLY-BUSINESSES,Mostly businesses (Company's own customers (B2B/B2C)),64,2.0118,0.8664,0.6094
+C-FUNCTION-ITDM,ITDM (Function (IT vs business)),160,2.0123,0.8666,0.5876
+C-LEVEL-BUS-DIRECTOR,Director (Level — business decision-makers),81,2.0285,0.8736,0.605
+C-COUNTRY-GERMANY,Germany (Headquarters country),54,2.0398,0.8785,0.5741
+C-L-ALL-RESPONDENTS,All respondents,319,2.0405,0.8788,0.5956
+C-EMPLOYEES-5-000-TO-19-999-EMPLOYEES,"5,000 to 19,999 employees (Company employees)",94,2.0426,0.8797,0.617
+C-REVENUE-10-BILLION-OR-GREATER,$10 billion or greater (Company revenue),117,2.0442,0.8804,0.5812
+C-COUNTRY-FRANCE,France (Headquarters country),54,2.0569,0.8859,0.5926
+C-FUNCTION-BDM,BDM (Function (IT vs business)),159,2.0633,0.8886,0.6038
+C-INDUSTRY7-MANUFACTURING-AND-HIGHTECH,Manufacturing and HighTech (Industry — 7 groups),97,2.0645,0.8892,0.5979
+C-SELLSTO-CONSUMERS-AND-BUSINESSES-ROU,Consumers and businesses roughly equally (Company's own customers (B2B/B2C)),112,2.0671,0.8902,0.5268
+C-SELLSTO-EXCLUSIVELY-CONSUMERS,Exclusively consumers (Company's own customers (B2B/B2C)),28,2.067,0.8902,0.5715
+C-LEVEL-VICE-PRESIDENT,Vice president (Level — combined),42,2.0755,0.8939,0.6191
+C-LEVEL-BUS-MANAGER,Manager (Level — business decision-makers),30,2.0778,0.8948,0.6001
+C-REGION-EUROPE,Europe (Headquarters region),162,2.079,0.8954,0.5494
+C-EMPLOYEES-20-000-EMPLOYEES,"20,000+ employees (Company employees)",129,2.0843,0.8977,0.5813
+C-REVENUE-5-BILLION-TO-9-9-BILLION,$5 billion to $9.9 billion (Company revenue),37,2.0848,0.8979,0.5406
+C-CONTACTFREQ-BETWEEN-ONCE-A-MONTH-AND-ONC,Between once a month and once a week (Frequency of contact with salespeople),115,2.0923,0.9011,0.5826
+C-COUNTRY-UNITED-KINGDOM,United Kingdom (Headquarters country),54,2.1023,0.9054,0.4815
+C-LEVEL-IT-C-LEVEL,C-level (Level — IT decision-makers),34,2.119,0.9126,0.5588
+C-INDUSTRY7-FINANCE-AND-INSURANCE,Finance and Insurance (Industry — 7 groups),60,2.1371,0.9204,0.4834
+C-LEVEL-C-LEVEL,C-level (Level — combined),52,2.1502,0.9261,0.5769
