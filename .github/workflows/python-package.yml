@@ -1,7 +1,8 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+# Runs the project's own checks: the phase cross-checks (GOVERNANCE §5), source integrity, schema validation,
+# and a reproducibility gate — every generated report must come out byte-identical to what is committed.
+# Replaces GitHub's starter Python workflow, which ran pytest on a repo with no tests (failed on every push).
 
-name: Python package
+name: Cross-checks
 
 on:
   push:
@@ -10,31 +11,37 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  crosscheck:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+    timeout-minutes: 30
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: "3.13"
+    - name: Install system tools
+      run: sudo apt-get update && sudo apt-get install -y libxml2-utils
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
+        pip install flake8 -r requirements.txt -c .github/ci-constraints.txt
+    - name: Lint — syntax errors and undefined names only
+      run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+    - name: Source integrity
+      run: sha256sum -c 00_source/MANIFEST.sha256
+    - name: Schema validation
+      run: xmllint --noout --schema 03_schema/decision-maker-study.xsd 03_schema/examples/*.xml 03_schema/tests/*.xml
+    - name: Phase cross-checks
       run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+        set -e
+        for p in scripts/p[0-9]_crosscheck.py; do
+          echo "::group::$p"
+          python -I "$p"
+          echo "::endgroup::"
+        done
+    - name: Reproducibility — generated outputs unchanged
       run: |
-        pytest
+        git status --short
+        git diff --exit-code
