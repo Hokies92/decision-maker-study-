@@ -1,0 +1,1059 @@
+{
+ "meta": {
+  "view": "F",
+  "title": "Findings: single questions read directly",
+  "question": "What do decision-makers say vendors focus on, what does it cost, and how low is the bar?",
+  "unit": "share of all respondents (n = 319) per answer; or number of written answers",
+  "sources": [
+   "04_analytics_library/outputs/T01/gate_profile.csv",
+   "01_instrument_reconstruction/question_map.csv",
+   "02_data_inventory/variable_dictionary.csv",
+   "05_open_ended/views/coded/kano.csv",
+   "06_visualization/quote_picks.csv",
+   "05_open_ended/corpus.csv"
+  ],
+  "caveats": [
+   "Each chart reads one question as asked; no result is subtracted from another question's result.",
+   "Shares are of all 319 respondents (group-level); one-answer questions add to 100%, pick-several questions do not.",
+   "Quotes are verbatim; which quotes to show was chosen by Claude (06_visualization/quote_picks.csv).",
+   "Behaviour counts are written answers coded by one coder, checked blind on 200 answers (behaviour alpha 0.87)."
+  ],
+  "provenance": "Question wording VERBATIM; shares RECON_DATA; quote selection and behaviour codes INFERRED.",
+  "generated_by": "scripts/p6_build_view_data.py"
+ },
+ "respondents": 319,
+ "codable_answers": 748,
+ "q14": {
+  "thread": "Q14",
+  "stem": "Thinking of a typical meeting with a vendor sales team (or person), how would you characterize their agenda in your interactions? Please pick the one that best matches your opinion of the majority of sales calls you participate in.",
+  "choose": "one",
+  "items": [
+   {
+    "item": "Q14",
+    "label": "Thinking of a typical meeting with a vendor sales team (or person), how would you characterize their agenda in your interactions? Please pick the one that best matches your opinion of the majority of sales calls you participate in.",
+    "gate": "VISION",
+    "base": 319,
+    "type": "single_select",
+    "options": [
+     {
+      "label": "They only want to tell me about their products and services and present what they do.",
+      "share": 0.2069
+     },
+     {
+      "label": "They listen for a key word or two so they can launch into a prepared pitch about how they relate to that topic.",
+      "share": 0.3887
+     },
+     {
+      "label": "They are legitimately interested in trying to help us understand how their products or services would work...",
+      "share": 0.2571
+     },
+     {
+      "label": "They try to understand our challenges and offer suggestions (even if they don't sell those products and services)...",
+      "share": 0.1034
+     },
+     {
+      "label": "They are genuinely interested in partnering with us to make sure our initiative is successful.",
+      "share": 0.0439
+     }
+    ]
+   }
+  ]
+ },
+ "q11": {
+  "thread": "Q11",
+  "stem": "What would you consider a valuable meeting with a vendor sales person?",
+  "choose": "several",
+  "items": [
+   {
+    "item": "Q11_1",
+    "label": "The meeting helps me think about how to solve a business problem.",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "The meeting helps me think about how to solve a business problem.",
+      "share": 0.5423
+     }
+    ]
+   },
+   {
+    "item": "Q11_2",
+    "label": "The meeting paints a clear picture for a future vision I'd like to achieve.",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "The meeting paints a clear picture for a future vision I'd like to achieve.",
+      "share": 0.4013
+     }
+    ]
+   },
+   {
+    "item": "Q11_3",
+    "label": "The sales person clearly shows they understand my business issues and can clearly articulate to me how to solve them.",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "The sales person clearly shows they understand my business issues and can clearly articulate to me how to solve them.",
+      "share": 0.6144
+     }
+    ]
+   },
+   {
+    "item": "Q11_4",
+    "label": "The sales person shares insights with me that I did not consider before.",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "The sales person shares insights with me that I did not consider before.",
+      "share": 0.4922
+     }
+    ]
+   },
+   {
+    "item": "Q11_5",
+    "label": "It's clear that the sales person understands my role and my problems.",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "It's clear that the sales person understands my role and my problems.",
+      "share": 0.3417
+     }
+    ]
+   },
+   {
+    "item": "Q11_6",
+    "label": "The presentation or demo was compelling.",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "The presentation or demo was compelling.",
+      "share": 0.1599
+     }
+    ]
+   }
+  ]
+ },
+ "q8": {
+  "thread": "Q08",
+  "stem": "When you meet with a vendor sales person, in general how often are they prepared for the meeting with you in the following ways?",
+  "choose": "frequency",
+  "items": [
+   {
+    "item": "Q8_1",
+    "label": "Knowledgeable about their company and products",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "grid_row",
+    "options": [
+     {
+      "label": "Never",
+      "share": 0.0031
+     },
+     {
+      "label": "Rarely",
+      "share": 0.0596
+     },
+     {
+      "label": "Occasionally",
+      "share": 0.3135
+     },
+     {
+      "label": "Frequently",
+      "share": 0.6238
+     }
+    ]
+   },
+   {
+    "item": "Q8_2",
+    "label": "Knowledgeable about my industry",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "grid_row",
+    "options": [
+     {
+      "label": "Never",
+      "share": 0.0031
+     },
+     {
+      "label": "Rarely",
+      "share": 0.1129
+     },
+     {
+      "label": "Occasionally",
+      "share": 0.4639
+     },
+     {
+      "label": "Frequently",
+      "share": 0.4201
+     }
+    ]
+   },
+   {
+    "item": "Q8_3",
+    "label": "Knowledgeable about my specific business",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "grid_row",
+    "options": [
+     {
+      "label": "Never",
+      "share": 0.0125
+     },
+     {
+      "label": "Rarely",
+      "share": 0.1912
+     },
+     {
+      "label": "Occasionally",
+      "share": 0.5517
+     },
+     {
+      "label": "Frequently",
+      "share": 0.2445
+     }
+    ]
+   },
+   {
+    "item": "Q8_4",
+    "label": "Can relate to my role and responsibilities in the organization",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "grid_row",
+    "options": [
+     {
+      "label": "Never",
+      "share": 0.0125
+     },
+     {
+      "label": "Rarely",
+      "share": 0.2038
+     },
+     {
+      "label": "Occasionally",
+      "share": 0.5517
+     },
+     {
+      "label": "Frequently",
+      "share": 0.232
+     }
+    ]
+   },
+   {
+    "item": "Q8_5",
+    "label": "Understands my issues and where they can help",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "grid_row",
+    "options": [
+     {
+      "label": "Never",
+      "share": 0.0031
+     },
+     {
+      "label": "Rarely",
+      "share": 0.1442
+     },
+     {
+      "label": "Occasionally",
+      "share": 0.6301
+     },
+     {
+      "label": "Frequently",
+      "share": 0.2226
+     }
+    ]
+   },
+   {
+    "item": "Q8_6",
+    "label": "Prepared for the questions that I ask",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "grid_row",
+    "options": [
+     {
+      "label": "Never",
+      "share": 0.0063
+     },
+     {
+      "label": "Rarely",
+      "share": 0.1348
+     },
+     {
+      "label": "Occasionally",
+      "share": 0.558
+     },
+     {
+      "label": "Frequently",
+      "share": 0.3009
+     }
+    ]
+   },
+   {
+    "item": "Q8_7",
+    "label": "Has relevant examples or case studies to share with me",
+    "gate": "AGREE",
+    "base": 319,
+    "type": "grid_row",
+    "options": [
+     {
+      "label": "Never",
+      "share": 0.0219
+     },
+     {
+      "label": "Rarely",
+      "share": 0.1944
+     },
+     {
+      "label": "Occasionally",
+      "share": 0.5705
+     },
+     {
+      "label": "Frequently",
+      "share": 0.2132
+     }
+    ]
+   }
+  ]
+ },
+ "q18": {
+  "thread": "Q18",
+  "stem": "Considering the materials that vendors typically provide you with, which of the following best describe how well those materials helps you develop convincing reasons to invest?",
+  "choose": "one",
+  "items": [
+   {
+    "item": "Q18",
+    "label": "Considering the materials that vendors typically provide you with, which of the following best describe how well those materials helps you develop convincing reasons to invest?",
+    "gate": "CASE",
+    "base": 319,
+    "type": "single_select",
+    "options": [
+     {
+      "label": "It would be a simple task for me to develop convincing business justification for the purchase.",
+      "share": 0.0972
+     },
+     {
+      "label": "I can quantify specific impacts and how they change for different environments. Limited customization necessary.",
+      "share": 0.2978
+     },
+     {
+      "label": "I can quantify specific impacts, but not how they change for different environments. Significant customization necessary",
+      "share": 0.3009
+     },
+     {
+      "label": "I can identify potential impact, but not quantify them. We had to do most of the business justification ourselves.",
+      "share": 0.2351
+     },
+     {
+      "label": "Limited materials were provided. We had to do all of the business justification ourselves.",
+      "share": 0.0502
+     },
+     {
+      "label": "Other, please specify:",
+      "share": 0.0031
+     },
+     {
+      "label": "Don't know/Not applicable",
+      "share": 0.0157
+     }
+    ]
+   }
+  ]
+ },
+ "q15": {
+  "thread": "Q15",
+  "stem": "Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons why...",
+  "choose": "several",
+  "items": [
+   {
+    "item": "Q15_1",
+    "label": "I pursued the opportunity with a different vendor.",
+    "gate": "VISION",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "I pursued the opportunity with a different vendor.",
+      "share": 0.4734
+     }
+    ]
+   },
+   {
+    "item": "Q15_2",
+    "label": "I could not envision how the value would be delivered.",
+    "gate": "VISION",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "I could not envision how the value would be delivered.",
+      "share": 0.4232
+     }
+    ]
+   },
+   {
+    "item": "Q15_3",
+    "label": "It became too risky of a purchase.",
+    "gate": "VISION",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "It became too risky of a purchase.",
+      "share": 0.2727
+     }
+    ]
+   },
+   {
+    "item": "Q15_4",
+    "label": "Others internally got involved and the effort to keep the momentum became too great.",
+    "gate": "VISION",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "Others internally got involved and the effort to keep the momentum became too great.",
+      "share": 0.2571
+     }
+    ]
+   },
+   {
+    "item": "Q15_5",
+    "label": "I struggled to get others on board internally.",
+    "gate": "VISION",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "I struggled to get others on board internally.",
+      "share": 0.2382
+     }
+    ]
+   },
+   {
+    "item": "Q15_6",
+    "label": "I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.",
+    "gate": "VISION",
+    "base": 319,
+    "type": "multi_select_option",
+    "options": [
+     {
+      "label": "I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.",
+      "share": 0.1191
+     }
+    ]
+   }
+  ]
+ },
+ "behaviours": [
+  {
+   "code": "B-KNOWS-BUSINESS",
+   "label": "Knows my business",
+   "praised_best": 70,
+   "criticised_worst": 31,
+   "q21": 71,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-RESPONSIVE",
+   "label": "Responsive",
+   "praised_best": 34,
+   "criticised_worst": 21,
+   "q21": 22,
+   "class": "critical"
+  },
+  {
+   "code": "B-RELATIONSHIP",
+   "label": "Continuity and long relationship",
+   "praised_best": 32,
+   "criticised_worst": 6,
+   "q21": 16,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-SOLVES-PROBLEMS",
+   "label": "Solves my problem",
+   "praised_best": 32,
+   "criticised_worst": 3,
+   "q21": 43,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-PRODUCT-EXPERTISE",
+   "label": "Knows the product",
+   "praised_best": 27,
+   "criticised_worst": 5,
+   "q21": 17,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-INSIGHT",
+   "label": "Brings insight and ideas",
+   "praised_best": 22,
+   "criticised_worst": 9,
+   "q21": 18,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-ACCESS-TO-RESOURCES",
+   "label": "Brings the vendor's organisation",
+   "praised_best": 19,
+   "criticised_worst": 6,
+   "q21": 2,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-COMMITTED",
+   "label": "Committed to us",
+   "praised_best": 18,
+   "criticised_worst": 25,
+   "q21": 14,
+   "class": "critical"
+  },
+  {
+   "code": "B-PARTNERSHIP",
+   "label": "Partners with us",
+   "praised_best": 18,
+   "criticised_worst": 4,
+   "q21": 15,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-PRICE",
+   "label": "Price and value for money",
+   "praised_best": 18,
+   "criticised_worst": 17,
+   "q21": 38,
+   "class": "critical"
+  },
+  {
+   "code": "B-PRODUCT-QUALITY",
+   "label": "Product quality",
+   "praised_best": 17,
+   "criticised_worst": 3,
+   "q21": 26,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-COMPETENT",
+   "label": "Competent people",
+   "praised_best": 16,
+   "criticised_worst": 21,
+   "q21": 26,
+   "class": "critical"
+  },
+  {
+   "code": "B-FIT",
+   "label": "Fits our environment",
+   "praised_best": 15,
+   "criticised_worst": 11,
+   "q21": 14,
+   "class": "critical"
+  },
+  {
+   "code": "B-FOLLOW-THROUGH",
+   "label": "Keeps promises; delivers",
+   "praised_best": 15,
+   "criticised_worst": 12,
+   "q21": 21,
+   "class": "critical"
+  },
+  {
+   "code": "B-EMPOWERED",
+   "label": "Empowered to decide",
+   "praised_best": 12,
+   "criticised_worst": 4,
+   "q21": 0,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-PERSONAL",
+   "label": "Personal attention",
+   "praised_best": 11,
+   "criticised_worst": 8,
+   "q21": 15,
+   "class": "critical"
+  },
+  {
+   "code": "B-FLEXIBLE",
+   "label": "Flexible",
+   "praised_best": 10,
+   "criticised_worst": 18,
+   "q21": 25,
+   "class": "critical"
+  },
+  {
+   "code": "B-STABILITY",
+   "label": "A stable, established vendor",
+   "praised_best": 10,
+   "criticised_worst": 2,
+   "q21": 4,
+   "class": "satisfier"
+  },
+  {
+   "code": "B-SUPPORT",
+   "label": "Support after the sale",
+   "praised_best": 10,
+   "criticised_worst": 7,
+   "q21": 10,
+   "class": "critical"
+  },
+  {
+   "code": "B-CUSTOMER-FIRST",
+   "label": "Puts my needs before their sale",
+   "praised_best": 9,
+   "criticised_worst": 52,
+   "q21": 18,
+   "class": "dissatisfier"
+  },
+  {
+   "code": "B-PREPARED",
+   "label": "Prepared",
+   "praised_best": 9,
+   "criticised_worst": 5,
+   "q21": 9,
+   "class": "critical"
+  },
+  {
+   "code": "B-COMMUNICATES",
+   "label": "Communicates clearly",
+   "praised_best": 8,
+   "criticised_worst": 11,
+   "q21": 15,
+   "class": "critical"
+  },
+  {
+   "code": "B-PROFESSIONAL",
+   "label": "Professional",
+   "praised_best": 7,
+   "criticised_worst": 0,
+   "q21": 4,
+   "class": "too few"
+  },
+  {
+   "code": "B-PROVEN",
+   "label": "Proven track record",
+   "praised_best": 7,
+   "criticised_worst": 1,
+   "q21": 17,
+   "class": "too few"
+  },
+  {
+   "code": "B-HONEST",
+   "label": "Honest and trustworthy",
+   "praised_best": 6,
+   "criticised_worst": 12,
+   "q21": 17,
+   "class": "dissatisfier"
+  },
+  {
+   "code": "B-LISTENS",
+   "label": "Listens",
+   "praised_best": 6,
+   "criticised_worst": 11,
+   "q21": 15,
+   "class": "critical"
+  },
+  {
+   "code": "B-EASY",
+   "label": "Easy to deal with",
+   "praised_best": 5,
+   "criticised_worst": 13,
+   "q21": 5,
+   "class": "dissatisfier"
+  },
+  {
+   "code": "B-QUANTIFIES-VALUE",
+   "label": "Quantifies the value",
+   "praised_best": 4,
+   "criticised_worst": 2,
+   "q21": 7,
+   "class": "too few"
+  },
+  {
+   "code": "B-RESPECT",
+   "label": "Treats me with respect",
+   "praised_best": 2,
+   "criticised_worst": 18,
+   "q21": 3,
+   "class": "dissatisfier"
+  },
+  {
+   "code": "B-HELPS-SELL-INTERNALLY",
+   "label": "Helps me sell it internally",
+   "praised_best": 1,
+   "criticised_worst": 0,
+   "q21": 2,
+   "class": "too few"
+  }
+ ],
+ "quotes": [
+  {
+   "finding": "pitch",
+   "why": "worst teams: selling product instead of solving the business problem",
+   "id": "Q23-R198",
+   "respid": "1785",
+   "item": "Q23",
+   "frame": "worst",
+   "text": "too many to mention but they all have same qualities - hard sell their products rather than helping me solve business problems",
+   "vendors": [],
+   "people": [],
+   "roles": [],
+   "codes": [
+    "G-AGREE",
+    "B-CUSTOMER-FIRST-",
+    "B-SOLVES-PROBLEMS-",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "A-SALESPERSON",
+    "V-NEG",
+    "L14"
+   ]
+  },
+  {
+   "finding": "pitch",
+   "why": "worst relationships: more interested in selling than solving business challenges",
+   "id": "Q25-R086",
+   "respid": "812",
+   "item": "Q25",
+   "frame": "worst",
+   "text": "sales reps for certain companies - more interested in selling than solving my business challenges.",
+   "vendors": [],
+   "people": [],
+   "roles": [
+    "sales_rep"
+   ],
+   "codes": [
+    "G-RELATIONSHIP",
+    "B-CUSTOMER-FIRST-",
+    "B-SOLVES-PROBLEMS-",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "A-SALESPERSON",
+    "V-NEG",
+    "L25",
+    "L14"
+   ]
+  },
+  {
+   "finding": "pitch",
+   "why": "worst relationships: closing the sale; not understanding the problem",
+   "id": "Q25-R015",
+   "respid": "220",
+   "item": "Q25",
+   "frame": "worst",
+   "text": "Sales Man/Rep - focused totally on closing a sale.  Don't understand the issues/problems I'm trying to solve.",
+   "vendors": [],
+   "people": [],
+   "roles": [
+    "sales_rep"
+   ],
+   "codes": [
+    "G-AGREE",
+    "B-CUSTOMER-FIRST-",
+    "B-KNOWS-BUSINESS-",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "A-SALESPERSON",
+    "V-NEG",
+    "L25"
+   ]
+  },
+  {
+   "finding": "pitch",
+   "why": "worst teams: not focused on my needs",
+   "id": "Q23-R035",
+   "respid": "550",
+   "item": "Q23",
+   "frame": "worst",
+   "text": "Not focused on my needs.  Intersted more in a sale.",
+   "vendors": [],
+   "people": [],
+   "roles": [],
+   "codes": [
+    "G-AGREE",
+    "B-CUSTOMER-FIRST-",
+    "B-KNOWS-BUSINESS-",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "A-SALESPERSON",
+    "V-NEG"
+   ]
+  },
+  {
+   "finding": "prepared",
+   "why": "worst relationships: no idea how they fit our company",
+   "id": "Q25-R014",
+   "respid": "211",
+   "item": "Q25",
+   "frame": "worst",
+   "text": "acct mgr becuase they dont understand how they fit into our company only what they want to sell",
+   "vendors": [],
+   "people": [],
+   "roles": [
+    "account_manager"
+   ],
+   "codes": [
+    "G-RELATIONSHIP",
+    "B-KNOWS-BUSINESS-",
+    "B-CUSTOMER-FIRST-",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "A-SALESPERSON",
+    "V-NEG",
+    "L25"
+   ]
+  },
+  {
+   "finding": "prepared",
+   "why": "worst teams: knowledgeable but focused on selling more",
+   "id": "Q23-R144",
+   "respid": "1253",
+   "item": "Q23",
+   "frame": "worst",
+   "text": "IBM - knowledgeable but mainly focused on selling more equipment",
+   "vendors": [
+    "IBM"
+   ],
+   "people": [],
+   "roles": [],
+   "codes": [
+    "G-AGREE",
+    "B-CUSTOMER-FIRST-",
+    "B-PRODUCT-EXPERTISE+",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "A-VENDOR",
+    "V-MIXED"
+   ]
+  },
+  {
+   "finding": "prepared",
+   "why": "best teams: did their homework on our company",
+   "id": "Q22-R046",
+   "respid": "597",
+   "item": "Q22",
+   "frame": "best",
+   "text": "They have done their homework on our company, they listen carefully to understand our business problems and suggest best approaches to solving those problems.",
+   "vendors": [],
+   "people": [],
+   "roles": [],
+   "codes": [
+    "G-AGREE",
+    "B-PREPARED+",
+    "B-LISTENS+",
+    "B-KNOWS-BUSINESS+",
+    "B-SOLVES-PROBLEMS+",
+    "S-EMPATHY",
+    "S-ASSURANCE",
+    "M-ATTRIBUTE",
+    "M-CONSEQUENCE",
+    "A-SALESPERSON",
+    "V-POS",
+    "L11",
+    "L14"
+   ]
+  },
+  {
+   "finding": "prepared",
+   "why": "best teams: know my issues before I tell them",
+   "id": "Q22-R004",
+   "respid": "95",
+   "item": "Q22",
+   "frame": "best",
+   "text": "Accenture, IBM, E&Y...they are current on my industry trends and know my issues before I tell them.",
+   "vendors": [
+    "IBM",
+    " Accenture",
+    " EY"
+   ],
+   "people": [],
+   "roles": [],
+   "codes": [
+    "G-AGREE",
+    "B-KNOWS-BUSINESS+",
+    "B-INSIGHT+",
+    "B-PREPARED+",
+    "S-EMPATHY",
+    "S-ASSURANCE",
+    "M-ATTRIBUTE",
+    "A-VENDOR",
+    "V-POS",
+    "L11"
+   ]
+  },
+  {
+   "finding": "case",
+   "why": "worst teams: expected us to complete their business case",
+   "id": "Q23-R018",
+   "respid": "227",
+   "item": "Q23",
+   "frame": "worst",
+   "text": "Merlot - wanted us to work on their schedule  AdOpt - expected us to complete their business case NavTech - partial solutions",
+   "vendors": [
+    "Merlot",
+    " AdOpt",
+    " NavTech"
+   ],
+   "people": [],
+   "roles": [],
+   "codes": [
+    "G-CASE",
+    "B-CUSTOMER-FIRST-",
+    "B-QUANTIFIES-VALUE-",
+    "B-FIT-",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "M-CONSEQUENCE",
+    "A-VENDOR",
+    "V-NEG",
+    "L20"
+   ]
+  },
+  {
+   "finding": "case",
+   "why": "best relationships: helps sell internally",
+   "id": "Q24-R245",
+   "respid": "2217",
+   "item": "Q24",
+   "frame": "best",
+   "text": "KAM: understands how my company works and helps sell internally",
+   "vendors": [],
+   "people": [],
+   "roles": [
+    "account_manager"
+   ],
+   "codes": [
+    "G-VISION",
+    "G-RELATIONSHIP",
+    "B-HELPS-SELL-INTERNALLY+",
+    "B-KNOWS-BUSINESS+",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "M-CONSEQUENCE",
+    "A-SALESPERSON",
+    "V-POS",
+    "L17",
+    "L25"
+   ]
+  },
+  {
+   "finding": "case",
+   "why": "best relationships: benefit in terms of efficiency and ROI",
+   "id": "Q24-R140",
+   "respid": "1218",
+   "item": "Q24",
+   "frame": "best",
+   "text": "product specialist, because he understands our needs and knows how his services can benefit us in terms of efficiency and ROI",
+   "vendors": [],
+   "people": [],
+   "roles": [
+    "product_specialist"
+   ],
+   "codes": [
+    "G-VISION",
+    "G-RELATIONSHIP",
+    "B-KNOWS-BUSINESS+",
+    "B-QUANTIFIES-VALUE+",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "M-CONSEQUENCE",
+    "A-SALESPERSON",
+    "V-POS",
+    "L25",
+    "L20"
+   ]
+  },
+  {
+   "finding": "different",
+   "why": "best teams: know my needs and don't oversell",
+   "id": "Q22-R292",
+   "respid": "2783",
+   "item": "Q22",
+   "frame": "best",
+   "text": "Xerox know my needs and don't oversell IBM know our business and always coming to see us to ensure the products match our needs",
+   "vendors": [
+    "IBM",
+    " Xerox"
+   ],
+   "people": [],
+   "roles": [],
+   "codes": [
+    "G-AGREE",
+    "B-KNOWS-BUSINESS+",
+    "B-CUSTOMER-FIRST+",
+    "B-COMMITTED+",
+    "B-FIT+",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "M-CONSEQUENCE",
+    "A-VENDOR",
+    "V-POS",
+    "L11"
+   ]
+  },
+  {
+   "finding": "different",
+   "why": "best relationships: span the chasm between my problems and their solutions",
+   "id": "Q24-R015",
+   "respid": "220",
+   "item": "Q24",
+   "frame": "best",
+   "text": "Technical Field Engineer/Sales Engineer - they understand my industry, my problems and can span the chasm between my problems and their solutions.",
+   "vendors": [],
+   "people": [],
+   "roles": [
+    "sales_rep",
+    " technical"
+   ],
+   "codes": [
+    "G-RELATIONSHIP",
+    "B-KNOWS-BUSINESS+",
+    "B-SOLVES-PROBLEMS+",
+    "B-FIT+",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "M-CONSEQUENCE",
+    "A-SALESPERSON",
+    "V-POS",
+    "L25",
+    "L15"
+   ]
+  },
+  {
+   "finding": "different",
+   "why": "best teams: step in our shoes",
+   "id": "Q22-R246",
+   "respid": "2222",
+   "item": "Q22",
+   "frame": "best",
+   "text": "NSI, BT, DHL, all step in our shoes",
+   "vendors": [
+    "BT",
+    " DHL",
+    " NSI"
+   ],
+   "people": [],
+   "roles": [],
+   "codes": [
+    "G-AGREE",
+    "B-KNOWS-BUSINESS+",
+    "B-CUSTOMER-FIRST+",
+    "S-EMPATHY",
+    "M-ATTRIBUTE",
+    "A-VENDOR",
+    "V-POS"
+   ]
+  }
+ ]
+}

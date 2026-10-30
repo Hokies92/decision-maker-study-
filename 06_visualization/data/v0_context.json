@@ -1,0 +1,84 @@
+{
+ "meta": {
+  "view": "V0",
+  "title": "Study context",
+  "question": "Who was asked, and what?",
+  "unit": "study",
+  "sources": [
+   "01_instrument_reconstruction/cohorts.csv",
+   "01_instrument_reconstruction/question_map.csv",
+   "01_instrument_reconstruction/design_intent.md",
+   "05_open_ended/corpus.csv",
+   "05_open_ended/codes.csv"
+  ],
+  "caveats": [
+   "The study date is excluded from analysis by design."
+  ],
+  "provenance": "Counts RECON_DATA; question wording VERBATIM; gate definitions RECALL_DESIGNER (Scott).",
+  "generated_by": "scripts/p6_build_view_data.py"
+ },
+ "respondents": 319,
+ "it_decision_makers": 160,
+ "business_decision_makers": 159,
+ "levels": [
+  {
+   "label": "C-level",
+   "n": 52
+  },
+  {
+   "label": "Vice president",
+   "n": 42
+  },
+  {
+   "label": "Director",
+   "n": 151
+  },
+  {
+   "label": "Manager",
+   "n": 74
+  }
+ ],
+ "written_answers": 1697,
+ "codable_answers": 748,
+ "question_stems": {
+  "Q08": "When you meet with a vendor sales person, in general how often are they prepared for the meeting with you in the following ways?",
+  "Q11": "What would you consider a valuable meeting with a vendor sales person?",
+  "Q12": "During a long and complex sales cycle, vendors often provide you with a variety of materials, such as collateral, case studies, data sheets, and ROI calculators, to futher inform you. Considering the material...",
+  "Q13": "How important and differentiating are the following for a meeting with a vendor sales person?",
+  "Q14": "Thinking of a typical meeting with a vendor sales team (or person), how would you characterize their agenda in your interactions? Please pick the one that best matches your opinion of the majority of sales calls you participate in.",
+  "Q18": "Considering the materials that vendors typically provide you with, which of the following best describe how well those materials helps you develop convincing reasons to invest?",
+  "Q19": "How important are the following attributes for shaping a vision into a clear program plan?",
+  "Q21": "What most differentiates a vendor/supplier from their competition?",
+  "Q22": "Thinking about all of your vendors/suppliers, which 3 companies have sales teams you find <u>MOST</u> effective and please share your thoughts on why.",
+  "Q23": "Thinking about all of your vendors/suppliers, which 3 companies have sales teams you find <u>LEAST</u> effective and please share your thoughts on why.",
+  "Q24": "Thinking about your BEST vendor/supplier relationships, who is your primary point of contact – for example, account manager, consultant, product specialist, or executive - and why?",
+  "Q25": "Thinking about your WORST vendor/supplier relationships, who is your primary point of contact – for example, account manager, consultant, product specialist, or executive - and why?"
+ },
+ "gates": [
+  {
+   "gate": "TARGET",
+   "name": "Target",
+   "scott_definition": "Did the vendor and then the salesperson target the right message to the right people (Target 1 or 0)"
+  },
+  {
+   "gate": "ACCESS",
+   "name": "Access",
+   "scott_definition": "Did the vendor and then the salesperson gain access to the right people (Access 1 or 0)"
+  },
+  {
+   "gate": "AGREE",
+   "name": "Agree",
+   "scott_definition": "Did the vendor and then the salesperson gain agreement with the right people to explore the idea further (Agree 1 or 0)"
+  },
+  {
+   "gate": "VISION",
+   "name": "Vision",
+   "scott_definition": "Did the vendor and then the salesperson gain a shared vision of success with the right people (Vision 1 or 0)"
+  },
+  {
+   "gate": "CASE",
+   "name": "Case",
+   "scott_definition": "Did the vendor and then the salesperson provide a business case for the idea the client accepts (case 1 or 0)"
+  }
+ ]
+}

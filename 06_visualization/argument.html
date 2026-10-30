@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Wrong Focus</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column in three acts — what vendors focus on, what it costs, how low the bar is. Every finding
+   opens with the same five-part frame card, then the question's answers as bars, a plain reading, and the customers' words. */
+:root{
+  --bg:#f6f7f8; --panel:#ffffff; --fg:#14181d; --fg2:#4d5560; --muted:#7c8590; --rule:#dde1e6; --track:#eceff2;
+  --vendor:#eb6834; --vendor-2:#f6b89e; --cust:#2a78d6; --cust-2:#a9c8f0; --neutral:#9aa3ad; --frame:#f1f4f8; --hl:#fff4ec;
+  --display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --data:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121417; --panel:#1a1d21; --fg:#eef0f2; --fg2:#b8bfc7; --muted:#8a929b; --rule:#2c3137; --track:#262a2f;
+  --vendor:#d95926; --vendor-2:#6e3a26; --cust:#3987e5; --cust-2:#244a78; --neutral:#5d656e; --frame:#1d2228; --hl:#2a211b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121417; --panel:#1a1d21; --fg:#eef0f2; --fg2:#b8bfc7; --muted:#8a929b; --rule:#2c3137; --track:#262a2f;
+  --vendor:#d95926; --vendor-2:#6e3a26; --cust:#3987e5; --cust-2:#244a78; --neutral:#5d656e; --frame:#1d2228; --hl:#2a211b; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16.5px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:900px;margin:0 auto;padding-block:40px 64px;display:grid;grid-template-columns:minmax(0,1fr);gap:56px}
+main>*,.act>*,.finding>*{min-width:0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(34px,5.6vw,56px);font-stretch:85%;font-weight:800;line-height:1.04}
+h2{font-size:clamp(26px,3.6vw,36px);font-stretch:88%;font-weight:800;line-height:1.1}
+h3{font-size:clamp(20px,2.6vw,24px);font-stretch:92%;font-weight:700;line-height:1.2}
+h4{margin:0;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+p{margin:0;max-width:68ch}
+.eyebrow{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.n{font-family:var(--data);font-variant-numeric:tabular-nums;font-size:.92em;white-space:nowrap}
+header{display:grid;gap:18px}
+.lede{font-size:clamp(18px,2.2vw,21px);color:var(--fg2);max-width:62ch}
+.tiles{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.tile{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;display:grid;gap:4px;align-content:start}
+.tile .big{font-family:var(--display);font-size:40px;font-weight:800;font-stretch:85%;line-height:1}
+.tile span{font-family:var(--display);font-size:14px;color:var(--fg2);line-height:1.4}
+.howframe{background:var(--frame);border-radius:10px;padding:16px;display:grid;gap:10px}
+.howframe dl,.frame dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:0}
+.howframe dt,.frame dt{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.howframe dd,.frame dd{margin:0;font-size:15px;color:var(--fg2)}
+.frame dd q{color:var(--fg);quotes:"“" "”"}
+@media (max-width:560px){.howframe dl,.frame dl{grid-template-columns:1fr}.frame dt{padding-top:6px}}
+.act{display:grid;gap:40px;padding-top:8px;border-top:3px solid var(--fg)}
+.act-head{display:grid;gap:8px}
+.finding{display:grid;gap:16px}
+.frame{background:var(--frame);border-radius:10px;padding:14px 16px}
+.chart{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:16px;display:grid;gap:12px}
+.chart-title{font-family:var(--display);font-size:14px;font-weight:600;color:var(--fg)}
+.chart-note{font-family:var(--display);font-size:12.5px;color:var(--muted)}
+.rows{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 56px;gap:4px 10px;align-items:center}
+.row .lab{grid-column:1/-1;font-family:var(--display);font-size:14px;line-height:1.35;color:var(--fg)}
+.row .track{height:14px;background:var(--track);border-radius:4px;overflow:hidden;display:flex}
+.row .val{font-family:var(--data);font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+.seg{height:100%}
+.v{background:var(--vendor)} .c{background:var(--cust)} .x{background:var(--neutral)}
+.f4{background:var(--cust)} .f3{background:var(--cust-2)} .f2,.f1{background:transparent}
+.f4.own{background:var(--vendor)} .f3.own{background:var(--vendor-2)}
+.group-lab{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding-top:4px}
+.group-lab.v-t{color:var(--vendor)} .group-lab.c-t{color:var(--cust)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--display);font-size:13px;color:var(--fg2)}
+.key{display:inline-flex;align-items:center;gap:6px}.sw{width:14px;height:10px;border-radius:3px;display:inline-block}
+.two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.plain{border-left:3px solid var(--fg);padding-left:14px;display:grid;gap:8px}
+.plain p{color:var(--fg)}
+.meaning{border-left:3px solid var(--vendor);padding-left:14px;display:grid;gap:6px}
+.meaning p{color:var(--fg2)}
+.tag{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:6px}
+.quotes{list-style:none;margin:0;padding:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.quotes li{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--rule);border-radius:8px;padding:10px 12px;font-size:15px;display:grid;gap:4px;align-content:start}
+.quotes li.best{border-left-color:var(--cust)} .quotes li.worst{border-left-color:var(--vendor)}
+.quotes .meta{font-family:var(--display);font-size:12px;color:var(--muted)}
+.bar-list{display:grid;gap:8px}
+.actions{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.actions li{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;display:grid;gap:6px}
+.actions b{font-family:var(--display);font-size:17px;line-height:1.3}
+.actions .ev{font-family:var(--display);font-size:13px;color:var(--muted)}
+.limits{display:grid;gap:4px;padding-left:20px;margin:0;color:var(--fg2)}
+details.about{font-family:var(--display);font-size:13px;color:var(--fg2)}
+details.about summary{cursor:pointer;color:var(--muted);font-weight:600}
+details.about ul{margin:6px 0;padding-left:18px;display:grid;gap:3px}
+details.about code{font-family:var(--data);font-size:12px;overflow-wrap:anywhere}
+footer{font-family:var(--display);font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:16px;display:grid;gap:6px}
+footer a,nav a{color:var(--fg2)}
+nav{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--display);font-size:13.5px}
+summary:focus-visible,a:focus-visible{outline:2px solid var(--cust);outline-offset:2px}
+</style>
+
+</head>
+<body>
+<main>
+<header>
+  <div class="eyebrow">What business decision-makers say about vendors' salespeople</div>
+  <h1>Vendors are focused on the wrong things.</h1>
+  <p class="lede" id="lede"></p>
+  <div class="tiles" id="tiles"></div>
+  <nav aria-label="Sections"><a href="#how">How to read this</a><a href="#act1">1 · What vendors focus on</a><a href="#act2">2 · What it costs</a><a href="#act3">3 · How low the bar is</a><a href="#act4">What to do</a></nav>
+</header>
+
+<section class="howframe" id="how">
+  <h4>How to read every finding</h4>
+  <p id="who"></p>
+  <dl>
+    <dt>Scope</dt><dd>Which step of the customer's decision the finding covers. The study uses five steps, each a yes or no: <span id="gatesline"></span>.</dd>
+    <dt>Question</dt><dd>The exact question the decision-makers answered, and its answer choices.</dd>
+    <dt>Vantage point</dt><dd>Who is speaking and about what. Here it is always the customer, describing the vendors and salespeople they deal with.</dd>
+    <dt>Scale</dt><dd>What a number means. Unless stated otherwise: the share of all <span class="n" id="n1"></span> decision-makers who chose that answer.</dd>
+    <dt>At stake</dt><dd>What the customer loses when the vendor gets this wrong.</dd>
+  </dl>
+</section>
+
+<section class="act" id="act1">
+  <div class="act-head"><div class="eyebrow">Act 1</div><h2>What vendors focus on: their product, not the customer's problem</h2></div>
+  <article class="finding" id="f-meeting"></article>
+  <article class="finding" id="f-prep"></article>
+  <article class="finding" id="f-case"></article>
+</section>
+
+<section class="act" id="act2">
+  <div class="act-head"><div class="eyebrow">Act 2</div><h2>What it costs: decisions that stall or go to someone else</h2></div>
+  <article class="finding" id="f-cost"></article>
+</section>
+
+<section class="act" id="act3">
+  <div class="act-head"><div class="eyebrow">Act 3</div><h2>How low the bar is: a little customer focus stands out</h2></div>
+  <article class="finding" id="f-bar"></article>
+</section>
+
+<section class="act" id="act4">
+  <div class="act-head"><div class="eyebrow">What to do</div><h2>Small changes, large difference</h2>
+  <p>These follow from the findings above. They are interpretation, not data; each names the finding it rests on.</p></div>
+  <ul class="actions" id="actions"></ul>
+  <div class="finding"><h4>What this evidence cannot tell you</h4><ul class="limits" id="limits"></ul>
+  <details class="about" id="about"></details></div>
+</section>
+
+<footer id="foot"></footer>
+</main>
+
+<script type="application/json" id="data">{"f":{"meta":{"view":"F","title":"Findings: single questions read directly","question":"What do decision-makers say vendors focus on, what does it cost, and how low is the bar?","unit":"share of all respondents (n = 319) per answer; or number of written answers","sources":["04_analytics_library/outputs/T01/gate_profile.csv","01_instrument_reconstruction/question_map.csv","02_data_inventory/variable_dictionary.csv","05_open_ended/views/coded/kano.csv","06_visualization/quote_picks.csv","05_open_ended/corpus.csv"],"caveats":["Each chart reads one question as asked; no result is subtracted from another question's result.","Shares are of all 319 respondents (group-level); one-answer questions add to 100%, pick-several questions do not.","Quotes are verbatim; which quotes to show was chosen by Claude (06_visualization/quote_picks.csv).","Behaviour counts are written answers coded by one coder, checked blind on 200 answers (behaviour alpha 0.87)."],"provenance":"Question wording VERBATIM; shares RECON_DATA; quote selection and behaviour codes INFERRED.","generated_by":"scripts/p6_build_view_data.py"},"respondents":319,"codable_answers":748,"q14":{"thread":"Q14","stem":"Thinking of a typical meeting with a vendor sales team (or person), how would you characterize their agenda in your interactions? Please pick the one that best matches your opinion of the majority of sales calls you participate in.","choose":"one","items":[{"item":"Q14","label":"Thinking of a typical meeting with a vendor sales team (or person), how would you characterize their agenda in your interactions? Please pick the one that best matches your opinion of the majority of sales calls you participate in.","gate":"VISION","base":319,"type":"single_select","options":[{"label":"They only want to tell me about their products and services and present what they do.","share":0.2069},{"label":"They listen for a key word or two so they can launch into a prepared pitch about how they relate to that topic.","share":0.3887},{"label":"They are legitimately interested in trying to help us understand how their products or services would work...","share":0.2571},{"label":"They try to understand our challenges and offer suggestions (even if they don't sell those products and services)...","share":0.1034},{"label":"They are genuinely interested in partnering with us to make sure our initiative is successful.","share":0.0439}]}]},"q11":{"thread":"Q11","stem":"What would you consider a valuable meeting with a vendor sales person?","choose":"several","items":[{"item":"Q11_1","label":"The meeting helps me think about how to solve a business problem.","gate":"AGREE","base":319,"type":"multi_select_option","options":[{"label":"The meeting helps me think about how to solve a business problem.","share":0.5423}]},{"item":"Q11_2","label":"The meeting paints a clear picture for a future vision I'd like to achieve.","gate":"AGREE","base":319,"type":"multi_select_option","options":[{"label":"The meeting paints a clear picture for a future vision I'd like to achieve.","share":0.4013}]},{"item":"Q11_3","label":"The sales person clearly shows they understand my business issues and can clearly articulate to me how to solve them.","gate":"AGREE","base":319,"type":"multi_select_option","options":[{"label":"The sales person clearly shows they understand my business issues and can clearly articulate to me how to solve them.","share":0.6144}]},{"item":"Q11_4","label":"The sales person shares insights with me that I did not consider before.","gate":"AGREE","base":319,"type":"multi_select_option","options":[{"label":"The sales person shares insights with me that I did not consider before.","share":0.4922}]},{"item":"Q11_5","label":"It's clear that the sales person understands my role and my problems.","gate":"AGREE","base":319,"type":"multi_select_option","options":[{"label":"It's clear that the sales person understands my role and my problems.","share":0.3417}]},{"item":"Q11_6","label":"The presentation or demo was compelling.","gate":"AGREE","base":319,"type":"multi_select_option","options":[{"label":"The presentation or demo was compelling.","share":0.1599}]}]},"q8":{"thread":"Q08","stem":"When you meet with a vendor sales person, in general how often are they prepared for the meeting with you in the following ways?","choose":"frequency","items":[{"item":"Q8_1","label":"Knowledgeable about their company and products","gate":"AGREE","base":319,"type":"grid_row","options":[{"label":"Never","share":0.0031},{"label":"Rarely","share":0.0596},{"label":"Occasionally","share":0.3135},{"label":"Frequently","share":0.6238}]},{"item":"Q8_2","label":"Knowledgeable about my industry","gate":"AGREE","base":319,"type":"grid_row","options":[{"label":"Never","share":0.0031},{"label":"Rarely","share":0.1129},{"label":"Occasionally","share":0.4639},{"label":"Frequently","share":0.4201}]},{"item":"Q8_3","label":"Knowledgeable about my specific business","gate":"AGREE","base":319,"type":"grid_row","options":[{"label":"Never","share":0.0125},{"label":"Rarely","share":0.1912},{"label":"Occasionally","share":0.5517},{"label":"Frequently","share":0.2445}]},{"item":"Q8_4","label":"Can relate to my role and responsibilities in the organization","gate":"AGREE","base":319,"type":"grid_row","options":[{"label":"Never","share":0.0125},{"label":"Rarely","share":0.2038},{"label":"Occasionally","share":0.5517},{"label":"Frequently","share":0.232}]},{"item":"Q8_5","label":"Understands my issues and where they can help","gate":"AGREE","base":319,"type":"grid_row","options":[{"label":"Never","share":0.0031},{"label":"Rarely","share":0.1442},{"label":"Occasionally","share":0.6301},{"label":"Frequently","share":0.2226}]},{"item":"Q8_6","label":"Prepared for the questions that I ask","gate":"AGREE","base":319,"type":"grid_row","options":[{"label":"Never","share":0.0063},{"label":"Rarely","share":0.1348},{"label":"Occasionally","share":0.558},{"label":"Frequently","share":0.3009}]},{"item":"Q8_7","label":"Has relevant examples or case studies to share with me","gate":"AGREE","base":319,"type":"grid_row","options":[{"label":"Never","share":0.0219},{"label":"Rarely","share":0.1944},{"label":"Occasionally","share":0.5705},{"label":"Frequently","share":0.2132}]}]},"q18":{"thread":"Q18","stem":"Considering the materials that vendors typically provide you with, which of the following best describe how well those materials helps you develop convincing reasons to invest?","choose":"one","items":[{"item":"Q18","label":"Considering the materials that vendors typically provide you with, which of the following best describe how well those materials helps you develop convincing reasons to invest?","gate":"CASE","base":319,"type":"single_select","options":[{"label":"It would be a simple task for me to develop convincing business justification for the purchase.","share":0.0972},{"label":"I can quantify specific impacts and how they change for different environments. Limited customization necessary.","share":0.2978},{"label":"I can quantify specific impacts, but not how they change for different environments. Significant customization necessary","share":0.3009},{"label":"I can identify potential impact, but not quantify them. We had to do most of the business justification ourselves.","share":0.2351},{"label":"Limited materials were provided. We had to do all of the business justification ourselves.","share":0.0502},{"label":"Other, please specify:","share":0.0031},{"label":"Don't know/Not applicable","share":0.0157}]}]},"q15":{"thread":"Q15","stem":"Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons why...","choose":"several","items":[{"item":"Q15_1","label":"I pursued the opportunity with a different vendor.","gate":"VISION","base":319,"type":"multi_select_option","options":[{"label":"I pursued the opportunity with a different vendor.","share":0.4734}]},{"item":"Q15_2","label":"I could not envision how the value would be delivered.","gate":"VISION","base":319,"type":"multi_select_option","options":[{"label":"I could not envision how the value would be delivered.","share":0.4232}]},{"item":"Q15_3","label":"It became too risky of a purchase.","gate":"VISION","base":319,"type":"multi_select_option","options":[{"label":"It became too risky of a purchase.","share":0.2727}]},{"item":"Q15_4","label":"Others internally got involved and the effort to keep the momentum became too great.","gate":"VISION","base":319,"type":"multi_select_option","options":[{"label":"Others internally got involved and the effort to keep the momentum became too great.","share":0.2571}]},{"item":"Q15_5","label":"I struggled to get others on board internally.","gate":"VISION","base":319,"type":"multi_select_option","options":[{"label":"I struggled to get others on board internally.","share":0.2382}]},{"item":"Q15_6","label":"I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.","gate":"VISION","base":319,"type":"multi_select_option","options":[{"label":"I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.","share":0.1191}]}]},"behaviours":[{"code":"B-KNOWS-BUSINESS","label":"Knows my business","praised_best":70,"criticised_worst":31,"q21":71,"class":"satisfier"},{"code":"B-RESPONSIVE","label":"Responsive","praised_best":34,"criticised_worst":21,"q21":22,"class":"critical"},{"code":"B-RELATIONSHIP","label":"Continuity and long relationship","praised_best":32,"criticised_worst":6,"q21":16,"class":"satisfier"},{"code":"B-SOLVES-PROBLEMS","label":"Solves my problem","praised_best":32,"criticised_worst":3,"q21":43,"class":"satisfier"},{"code":"B-PRODUCT-EXPERTISE","label":"Knows the product","praised_best":27,"criticised_worst":5,"q21":17,"class":"satisfier"},{"code":"B-INSIGHT","label":"Brings insight and ideas","praised_best":22,"criticised_worst":9,"q21":18,"class":"satisfier"},{"code":"B-ACCESS-TO-RESOURCES","label":"Brings the vendor's organisation","praised_best":19,"criticised_worst":6,"q21":2,"class":"satisfier"},{"code":"B-COMMITTED","label":"Committed to us","praised_best":18,"criticised_worst":25,"q21":14,"class":"critical"},{"code":"B-PARTNERSHIP","label":"Partners with us","praised_best":18,"criticised_worst":4,"q21":15,"class":"satisfier"},{"code":"B-PRICE","label":"Price and value for money","praised_best":18,"criticised_worst":17,"q21":38,"class":"critical"},{"code":"B-PRODUCT-QUALITY","label":"Product quality","praised_best":17,"criticised_worst":3,"q21":26,"class":"satisfier"},{"code":"B-COMPETENT","label":"Competent people","praised_best":16,"criticised_worst":21,"q21":26,"class":"critical"},{"code":"B-FIT","label":"Fits our environment","praised_best":15,"criticised_worst":11,"q21":14,"class":"critical"},{"code":"B-FOLLOW-THROUGH","label":"Keeps promises; delivers","praised_best":15,"criticised_worst":12,"q21":21,"class":"critical"},{"code":"B-EMPOWERED","label":"Empowered to decide","praised_best":12,"criticised_worst":4,"q21":0,"class":"satisfier"},{"code":"B-PERSONAL","label":"Personal attention","praised_best":11,"criticised_worst":8,"q21":15,"class":"critical"},{"code":"B-FLEXIBLE","label":"Flexible","praised_best":10,"criticised_worst":18,"q21":25,"class":"critical"},{"code":"B-STABILITY","label":"A stable, established vendor","praised_best":10,"criticised_worst":2,"q21":4,"class":"satisfier"},{"code":"B-SUPPORT","label":"Support after the sale","praised_best":10,"criticised_worst":7,"q21":10,"class":"critical"},{"code":"B-CUSTOMER-FIRST","label":"Puts my needs before their sale","praised_best":9,"criticised_worst":52,"q21":18,"class":"dissatisfier"},{"code":"B-PREPARED","label":"Prepared","praised_best":9,"criticised_worst":5,"q21":9,"class":"critical"},{"code":"B-COMMUNICATES","label":"Communicates clearly","praised_best":8,"criticised_worst":11,"q21":15,"class":"critical"},{"code":"B-PROFESSIONAL","label":"Professional","praised_best":7,"criticised_worst":0,"q21":4,"class":"too few"},{"code":"B-PROVEN","label":"Proven track record","praised_best":7,"criticised_worst":1,"q21":17,"class":"too few"},{"code":"B-HONEST","label":"Honest and trustworthy","praised_best":6,"criticised_worst":12,"q21":17,"class":"dissatisfier"},{"code":"B-LISTENS","label":"Listens","praised_best":6,"criticised_worst":11,"q21":15,"class":"critical"},{"code":"B-EASY","label":"Easy to deal with","praised_best":5,"criticised_worst":13,"q21":5,"class":"dissatisfier"},{"code":"B-QUANTIFIES-VALUE","label":"Quantifies the value","praised_best":4,"criticised_worst":2,"q21":7,"class":"too few"},{"code":"B-RESPECT","label":"Treats me with respect","praised_best":2,"criticised_worst":18,"q21":3,"class":"dissatisfier"},{"code":"B-HELPS-SELL-INTERNALLY","label":"Helps me sell it internally","praised_best":1,"criticised_worst":0,"q21":2,"class":"too few"}],"quotes":[{"finding":"pitch","why":"worst teams: selling product instead of solving the business problem","id":"Q23-R198","respid":"1785","item":"Q23","frame":"worst","text":"too many to mention but they all have same qualities - hard sell their products rather than helping me solve business problems","vendors":[],"people":[],"roles":[],"codes":["G-AGREE","B-CUSTOMER-FIRST-","B-SOLVES-PROBLEMS-","S-EMPATHY","M-ATTRIBUTE","A-SALESPERSON","V-NEG","L14"]},{"finding":"pitch","why":"worst relationships: more interested in selling than solving business challenges","id":"Q25-R086","respid":"812","item":"Q25","frame":"worst","text":"sales reps for certain companies - more interested in selling than solving my business challenges.","vendors":[],"people":[],"roles":["sales_rep"],"codes":["G-RELATIONSHIP","B-CUSTOMER-FIRST-","B-SOLVES-PROBLEMS-","S-EMPATHY","M-ATTRIBUTE","A-SALESPERSON","V-NEG","L25","L14"]},{"finding":"pitch","why":"worst relationships: closing the sale; not understanding the problem","id":"Q25-R015","respid":"220","item":"Q25","frame":"worst","text":"Sales Man/Rep - focused totally on closing a sale.  Don't understand the issues/problems I'm trying to solve.","vendors":[],"people":[],"roles":["sales_rep"],"codes":["G-AGREE","B-CUSTOMER-FIRST-","B-KNOWS-BUSINESS-","S-EMPATHY","M-ATTRIBUTE","A-SALESPERSON","V-NEG","L25"]},{"finding":"pitch","why":"worst teams: not focused on my needs","id":"Q23-R035","respid":"550","item":"Q23","frame":"worst","text":"Not focused on my needs.  Intersted more in a sale.","vendors":[],"people":[],"roles":[],"codes":["G-AGREE","B-CUSTOMER-FIRST-","B-KNOWS-BUSINESS-","S-EMPATHY","M-ATTRIBUTE","A-SALESPERSON","V-NEG"]},{"finding":"prepared","why":"worst relationships: no idea how they fit our company","id":"Q25-R014","respid":"211","item":"Q25","frame":"worst","text":"acct mgr becuase they dont understand how they fit into our company only what they want to sell","vendors":[],"people":[],"roles":["account_manager"],"codes":["G-RELATIONSHIP","B-KNOWS-BUSINESS-","B-CUSTOMER-FIRST-","S-EMPATHY","M-ATTRIBUTE","A-SALESPERSON","V-NEG","L25"]},{"finding":"prepared","why":"worst teams: knowledgeable but focused on selling more","id":"Q23-R144","respid":"1253","item":"Q23","frame":"worst","text":"IBM - knowledgeable but mainly focused on selling more equipment","vendors":["IBM"],"people":[],"roles":[],"codes":["G-AGREE","B-CUSTOMER-FIRST-","B-PRODUCT-EXPERTISE+","S-EMPATHY","M-ATTRIBUTE","A-VENDOR","V-MIXED"]},{"finding":"prepared","why":"best teams: did their homework on our company","id":"Q22-R046","respid":"597","item":"Q22","frame":"best","text":"They have done their homework on our company, they listen carefully to understand our business problems and suggest best approaches to solving those problems.","vendors":[],"people":[],"roles":[],"codes":["G-AGREE","B-PREPARED+","B-LISTENS+","B-KNOWS-BUSINESS+","B-SOLVES-PROBLEMS+","S-EMPATHY","S-ASSURANCE","M-ATTRIBUTE","M-CONSEQUENCE","A-SALESPERSON","V-POS","L11","L14"]},{"finding":"prepared","why":"best teams: know my issues before I tell them","id":"Q22-R004","respid":"95","item":"Q22","frame":"best","text":"Accenture, IBM, E&Y...they are current on my industry trends and know my issues before I tell them.","vendors":["IBM"," Accenture"," EY"],"people":[],"roles":[],"codes":["G-AGREE","B-KNOWS-BUSINESS+","B-INSIGHT+","B-PREPARED+","S-EMPATHY","S-ASSURANCE","M-ATTRIBUTE","A-VENDOR","V-POS","L11"]},{"finding":"case","why":"worst teams: expected us to complete their business case","id":"Q23-R018","respid":"227","item":"Q23","frame":"worst","text":"Merlot - wanted us to work on their schedule  AdOpt - expected us to complete their business case NavTech - partial solutions","vendors":["Merlot"," AdOpt"," NavTech"],"people":[],"roles":[],"codes":["G-CASE","B-CUSTOMER-FIRST-","B-QUANTIFIES-VALUE-","B-FIT-","S-EMPATHY","M-ATTRIBUTE","M-CONSEQUENCE","A-VENDOR","V-NEG","L20"]},{"finding":"case","why":"best relationships: helps sell internally","id":"Q24-R245","respid":"2217","item":"Q24","frame":"best","text":"KAM: understands how my company works and helps sell internally","vendors":[],"people":[],"roles":["account_manager"],"codes":["G-VISION","G-RELATIONSHIP","B-HELPS-SELL-INTERNALLY+","B-KNOWS-BUSINESS+","S-EMPATHY","M-ATTRIBUTE","M-CONSEQUENCE","A-SALESPERSON","V-POS","L17","L25"]},{"finding":"case","why":"best relationships: benefit in terms of efficiency and ROI","id":"Q24-R140","respid":"1218","item":"Q24","frame":"best","text":"product specialist, because he understands our needs and knows how his services can benefit us in terms of efficiency and ROI","vendors":[],"people":[],"roles":["product_specialist"],"codes":["G-VISION","G-RELATIONSHIP","B-KNOWS-BUSINESS+","B-QUANTIFIES-VALUE+","S-EMPATHY","M-ATTRIBUTE","M-CONSEQUENCE","A-SALESPERSON","V-POS","L25","L20"]},{"finding":"different","why":"best teams: know my needs and don't oversell","id":"Q22-R292","respid":"2783","item":"Q22","frame":"best","text":"Xerox know my needs and don't oversell IBM know our business and always coming to see us to ensure the products match our needs","vendors":["IBM"," Xerox"],"people":[],"roles":[],"codes":["G-AGREE","B-KNOWS-BUSINESS+","B-CUSTOMER-FIRST+","B-COMMITTED+","B-FIT+","S-EMPATHY","M-ATTRIBUTE","M-CONSEQUENCE","A-VENDOR","V-POS","L11"]},{"finding":"different","why":"best relationships: span the chasm between my problems and their solutions","id":"Q24-R015","respid":"220","item":"Q24","frame":"best","text":"Technical Field Engineer/Sales Engineer - they understand my industry, my problems and can span the chasm between my problems and their solutions.","vendors":[],"people":[],"roles":["sales_rep"," technical"],"codes":["G-RELATIONSHIP","B-KNOWS-BUSINESS+","B-SOLVES-PROBLEMS+","B-FIT+","S-EMPATHY","M-ATTRIBUTE","M-CONSEQUENCE","A-SALESPERSON","V-POS","L25","L15"]},{"finding":"different","why":"best teams: step in our shoes","id":"Q22-R246","respid":"2222","item":"Q22","frame":"best","text":"NSI, BT, DHL, all step in our shoes","vendors":["BT"," DHL"," NSI"],"people":[],"roles":[],"codes":["G-AGREE","B-KNOWS-BUSINESS+","B-CUSTOMER-FIRST+","S-EMPATHY","M-ATTRIBUTE","A-VENDOR","V-POS"]}]},"v0":{"meta":{"view":"V0","title":"Study context","question":"Who was asked, and what?","unit":"study","sources":["01_instrument_reconstruction/cohorts.csv","01_instrument_reconstruction/question_map.csv","01_instrument_reconstruction/design_intent.md","05_open_ended/corpus.csv","05_open_ended/codes.csv"],"caveats":["The study date is excluded from analysis by design."],"provenance":"Counts RECON_DATA; question wording VERBATIM; gate definitions RECALL_DESIGNER (Scott).","generated_by":"scripts/p6_build_view_data.py"},"respondents":319,"it_decision_makers":160,"business_decision_makers":159,"levels":[{"label":"C-level","n":52},{"label":"Vice president","n":42},{"label":"Director","n":151},{"label":"Manager","n":74}],"written_answers":1697,"codable_answers":748,"question_stems":{"Q08":"When you meet with a vendor sales person, in general how often are they prepared for the meeting with you in the following ways?","Q11":"What would you consider a valuable meeting with a vendor sales person?","Q12":"During a long and complex sales cycle, vendors often provide you with a variety of materials, such as collateral, case studies, data sheets, and ROI calculators, to futher inform you. Considering the material...","Q13":"How important and differentiating are the following for a meeting with a vendor sales person?","Q14":"Thinking of a typical meeting with a vendor sales team (or person), how would you characterize their agenda in your interactions? Please pick the one that best matches your opinion of the majority of sales calls you participate in.","Q18":"Considering the materials that vendors typically provide you with, which of the following best describe how well those materials helps you develop convincing reasons to invest?","Q19":"How important are the following attributes for shaping a vision into a clear program plan?","Q21":"What most differentiates a vendor/supplier from their competition?","Q22":"Thinking about all of your vendors/suppliers, which 3 companies have sales teams you find <u>MOST<\/u> effective and please share your thoughts on why.","Q23":"Thinking about all of your vendors/suppliers, which 3 companies have sales teams you find <u>LEAST<\/u> effective and please share your thoughts on why.","Q24":"Thinking about your BEST vendor/supplier relationships, who is your primary point of contact – for example, account manager, consultant, product specialist, or executive - and why?","Q25":"Thinking about your WORST vendor/supplier relationships, who is your primary point of contact – for example, account manager, consultant, product specialist, or executive - and why?"},"gates":[{"gate":"TARGET","name":"Target","scott_definition":"Did the vendor and then the salesperson target the right message to the right people (Target 1 or 0)"},{"gate":"ACCESS","name":"Access","scott_definition":"Did the vendor and then the salesperson gain access to the right people (Access 1 or 0)"},{"gate":"AGREE","name":"Agree","scott_definition":"Did the vendor and then the salesperson gain agreement with the right people to explore the idea further (Agree 1 or 0)"},{"gate":"VISION","name":"Vision","scott_definition":"Did the vendor and then the salesperson gain a shared vision of success with the right people (Vision 1 or 0)"},{"gate":"CASE","name":"Case","scott_definition":"Did the vendor and then the salesperson provide a business case for the idea the client accepts (case 1 or 0)"}]},"repo":"https://github.com/Hokies92/decision-maker-study-"}</script>
+<script>
+(function(){
+const D = JSON.parse(document.getElementById('data').textContent), F = D.f, C = D.v0;
+const $ = s => document.querySelector(s);
+const pct = v => Math.round(v * 100) + '%';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const strip = s => String(s).replace(/<[^>]+>/g, '');
+const N = s => `<span class="n">${s}</span>`;
+const oneIn = v => { const k = Math.round(1 / v); return `1 in ${k}`; };
+const opt = (q, i) => q.items[0].options[i];
+const item = (q, id) => q.items.find(x => x.item === id);
+const single = (q, id) => item(q, id).options[0].share;      // pick-several: share who ticked it
+const freq = (q, id) => item(q, id).options.find(o => o.label === 'Frequently').share;
+const QNAME = {Q22: 'about one of their three MOST effective sales teams', Q23: 'about one of their three LEAST effective sales teams',
+  Q24: 'about the main contact in their BEST vendor relationships', Q25: 'about the main contact in their WORST vendor relationships', Q21: 'on what sets a vendor apart'};
+
+// ---------------- numbers used in the words
+const n = F.respondents;
+const q14 = F.q14, pitchShare = opt(q14, 0).share + opt(q14, 1).share, custShare = opt(q14, 3).share + opt(q14, 4).share;
+const q11 = F.q11, demo = single(q11, 'Q11_6'), issues = single(q11, 'Q11_3'), solve = single(q11, 'Q11_1');
+const q8 = F.q8, ownF = freq(q8, 'Q8_1'), bizF = freq(q8, 'Q8_3'), issF = freq(q8, 'Q8_5');
+const q18 = F.q18, simple = opt(q18, 0).share, ownWork = opt(q18, 2).share + opt(q18, 3).share + opt(q18, 4).share, mostAll = opt(q18, 3).share + opt(q18, 4).share;
+const q15 = F.q15, other = single(q15, 'Q15_1'), envision = single(q15, 'Q15_2'), risky = single(q15, 'Q15_3'), board = single(q15, 'Q15_5'), momentum = single(q15, 'Q15_4');
+const B = c => F.behaviours.find(b => b.code === c);
+
+// ---------------- header
+$('#lede').innerHTML = `${N(n)} business decision-makers describe what vendors' salespeople do, what they want instead, and why they walk away. ` +
+  `The picture is bad: most sales effort goes into the vendor's own product, and customers lose deals they wanted because of it. ` +
+  `It is also an opportunity: so few vendors get the basics right that a small shift in focus is enough to stand out.`;
+$('#tiles').innerHTML =
+  `<div class="tile"><span class="big n">${pct(pitchShare)}</span><span>say the typical sales meeting is a product pitch. ${pct(custShare)} say it is about their challenges or success.</span></div>` +
+  `<div class="tile"><span class="big n">${pct(bizF)}</span><span>say salespeople frequently come prepared on their specific business. ${pct(ownF)} say they come prepared on their own products.</span></div>` +
+  `<div class="tile"><span class="big n">${pct(simple)}</span><span>say vendor material makes the business case simple. ${pct(mostAll)} had to build most or all of it themselves.</span></div>`;
+$('#who').innerHTML = `Everyone in this study is a customer: ${N(n)} decision-makers who take part in their company's IT purchases, ${N(C.it_decision_makers)} from IT and ${N(C.business_decision_makers)} from the business side; ` +
+  C.levels.map(l => `${N(l.n)} ${esc(l.label === 'C-level' ? 'C-level executives' : l.label.toLowerCase() + 's')}`).join(', ') + `. They answered fixed-choice survey questions and wrote ${N(C.written_answers.toLocaleString('en-US'))} answers in their own words.`;
+$('#gatesline').innerHTML = C.gates.map(g => `<b>${esc(g.name)}</b>`).join(' → ') + ' (right people reached; meeting won; idea agreed worth exploring; shared picture of success; business case accepted)';
+$('#n1').textContent = n;
+
+// ---------------- builders
+function frame(o){
+  return `<div class="frame"><dl>` +
+    `<dt>Scope</dt><dd>${o.scope}</dd>` +
+    `<dt>Question</dt><dd>${o.items}</dd>` +
+    `<dt>Vantage point</dt><dd>${o.vantage}</dd>` +
+    `<dt>Scale</dt><dd>${o.scale}</dd>` +
+    `<dt>At stake</dt><dd>${o.stakes}</dd></dl></div>`;
+}
+function bars(rows){   // rows: {label, value, cls, group?}
+  let h = '<div class="rows">', g = null;
+  for (const r of rows) {
+    if (r.group && r.group !== g) { g = r.group; h += `<div class="group-lab ${r.gcls || ''}">${esc(g)}</div>`; }
+    h += `<div class="row"><div class="lab">${esc(r.label)}</div><div class="track" role="img" aria-label="${esc(r.label)}: ${pct(r.value)}"><div class="seg ${r.cls}" style="width:${(r.value * 100).toFixed(1)}%"></div></div><div class="val">${pct(r.value)}</div></div>`;
+  }
+  return h + '</div>';
+}
+function countBars(rows, max, cls){
+  let h = '<div class="rows">';
+  for (const r of rows) h += `<div class="row"><div class="lab">${esc(r.label)}</div><div class="track" role="img" aria-label="${esc(r.label)}: ${r.value} answers"><div class="seg ${cls}" style="width:${(r.value / max * 100).toFixed(1)}%"></div></div><div class="val">${r.value}</div></div>`;
+  return h + '</div>';
+}
+function quotes(key){
+  const qs = F.quotes.filter(q => q.finding === key);
+  return `<h4>In their own words</h4><ul class="quotes">` + qs.map(q => {
+    const s = ['Q22','Q24'].includes(q.item) ? 'best' : ['Q23','Q25'].includes(q.item) ? 'worst' : '';
+    return `<li class="${s}">“${esc(q.text)}”<span class="meta">Decision-maker ${esc(q.respid)}, ${esc(QNAME[q.item] || q.item)}</span></li>`; }).join('') + `</ul>`;
+}
+const plain = (h, body) => `<div class="plain"><h4>What it shows</h4>${body}</div>`;
+const meaning = body => `<div class="meaning"><h4>What it means <span class="tag">interpretation</span></h4>${body}</div>`;
+const Q = (id, s) => `${N(id)} <q>${esc(strip(s))}</q>`;
+
+// ---------------- Finding 1: the meeting
+$('#f-meeting').innerHTML = `<h3>The typical meeting is a product pitch. Customers value a meeting about their problem.</h3>` +
+  frame({scope: '<b>Agree</b> — the meeting where the customer decides whether the idea is worth exploring.',
+    items: `${Q('Q14', q14.stem)} One answer each. And ${Q('Q11', q11.stem)} As many answers as apply.`,
+    vantage: 'The customer, describing the sales meetings they typically sit through, and what makes one worth their time.',
+    scale: `Left: share of all ${n} who chose each description; adds to 100%. Right: share who ticked each item; adds to more than 100%.`,
+    stakes: `Whether the customer gives the idea a second meeting. Of those who walked away from a vendor they were interested in, ${pct(envision)} say they <q>could not envision how the value would be delivered</q>.`}) +
+  `<div class="two"><div class="chart"><div class="chart-title">What the typical meeting is like (${N('Q14')})</div>` +
+    bars(q14.items[0].options.map((o, i) => ({label: o.label, value: o.share, cls: i < 2 ? 'v' : 'c', group: i < 2 ? 'About the vendor\'s product' : 'About the customer', gcls: i < 2 ? 'v-t' : 'c-t'}))) +
+    `<div class="chart-note">Grouping into “about the product” and “about the customer” is our reading of the answer wording.</div></div>` +
+  `<div class="chart"><div class="chart-title">What makes a meeting valuable (${N('Q11')})</div>` +
+    bars(q11.items.slice().sort((a, b) => b.options[0].share - a.options[0].share).map(x => ({label: x.label, value: x.options[0].share, cls: x.item === 'Q11_6' ? 'v' : 'c'}))) +
+    `<div class="chart-note">The orange bar is the one item about the vendor's presentation.</div></div></div>` +
+  plain('', `<p>${N(pct(pitchShare))} of decision-makers say the typical sales meeting is about the vendor's product: either a straight presentation, or listening for a cue to launch the pitch. Only ${N(pct(custShare))} say it is about understanding their challenges or making their initiative succeed.</p>` +
+    `<p>Yet when asked what makes a meeting valuable, ${N(pct(issues))} pick a salesperson who understands their business issues and can explain how to solve them, and ${N(pct(solve))} a meeting that helps them think about how to solve a business problem. Only ${N(pct(demo))} pick a compelling presentation or demo.</p>`) +
+  meaning(`<p>The meeting customers get is the one they value least. The pitch is not a minor flaw; it is what most meetings are made of.</p>`) +
+  quotes('pitch');
+
+// ---------------- Finding 2: preparation
+const q8rows = q8.items.map(x => ({label: x.label, f: x.options.find(o => o.label === 'Frequently').share, o: x.options.find(o => o.label === 'Occasionally').share, own: x.item === 'Q8_1'}));
+$('#f-prep').innerHTML = `<h3>Salespeople prepare on their own products, not on the customer.</h3>` +
+  frame({scope: '<b>Agree</b> — what the salesperson brings into the meeting.',
+    items: `${Q('Q8', q8.stem)} Each item rated Never, Rarely, Occasionally or Frequently.`,
+    vantage: 'The customer, judging how prepared salespeople generally are when they meet.',
+    scale: `For each item, the share of all ${n} who answered “Frequently” (dark) and “Occasionally” (light). The rest answered Rarely or Never.`,
+    stakes: 'Whether the meeting is worth the customer\'s time. A salesperson who does not know the business cannot show how to solve its problems — the top reason a meeting is valuable (Finding 1).'}) +
+  `<div class="chart"><div class="chart-title">How often salespeople come prepared (${N('Q8')})</div><div class="rows">` +
+    q8rows.sort((a, b) => b.f - a.f).map(r => `<div class="row"><div class="lab">${esc(r.label)}</div><div class="track" role="img" aria-label="${esc(r.label)}: ${pct(r.f)} frequently, ${pct(r.o)} occasionally"><div class="seg f4 ${r.own ? 'own' : ''}" style="width:${(r.f * 100).toFixed(1)}%"></div><div class="seg f3 ${r.own ? 'own' : ''}" style="width:${(r.o * 100).toFixed(1)}%"></div></div><div class="val">${pct(r.f)}</div></div>`).join('') +
+    `</div><div class="legend"><span class="key"><span class="sw" style="background:var(--vendor)"></span>about the vendor itself</span><span class="key"><span class="sw" style="background:var(--cust)"></span>about the customer</span><span class="key"><span class="sw" style="background:var(--cust-2)"></span>lighter: occasionally</span><span>Number: share answering “Frequently”.</span></div></div>` +
+  plain('', `<p>${N(pct(ownF))} say salespeople frequently come knowing their own company and products. Only ${N(pct(bizF))} say they frequently come knowing the customer's specific business, and ${N(pct(issF))} that they frequently understand the customer's issues and where they can help.</p>`) +
+  meaning(`<p>Salespeople are prepared to talk about themselves. Preparing on the customer is the exception: about ${N(oneIn(bizF))} decision-makers say it happens frequently.</p>`) +
+  quotes('prepared');
+
+// ---------------- Finding 3: the business case
+$('#f-case').innerHTML = `<h3>Customers build the business case alone.</h3>` +
+  frame({scope: '<b>Case</b> — whether the customer can justify the purchase inside their company.',
+    items: `${Q('Q18', q18.stem)} One answer each.`,
+    vantage: 'The customer, describing the materials vendors typically give them.',
+    scale: `Share of all ${n} who chose each description; adds to 100% (with “Other” and “Don't know”).`,
+    stakes: `Whether the purchase survives inside the customer's company. Of those who walked away, ${pct(board)} <q>struggled to get others on board internally</q> and ${pct(risky)} found it <q>too risky</q>.`}) +
+  `<div class="chart"><div class="chart-title">How well vendor material helps build the case to invest (${N('Q18')})</div>` +
+    bars(q18.items[0].options.filter(o => !/^Other|^Don/.test(o.label)).map((o, i) => ({label: o.label, value: o.share, cls: i === 0 ? 'c' : i === 1 ? 'c' : 'v',
+      group: i < 2 ? 'Vendor material does most of the work' : 'The customer does significant work themselves', gcls: i < 2 ? 'c-t' : 'v-t'}))) +
+    `<div class="chart-note">Grouping is our reading of the answer wording: the bottom three describe significant customization, or doing most or all of the justification themselves.</div></div>` +
+  plain('', `<p>Only ${N(pct(simple))} say vendor material makes building a convincing business case simple. ${N(pct(ownWork))} must do significant work themselves, and ${N(pct(mostAll))} — about ${N(oneIn(mostAll))} — did most or all of the justification on their own.</p>`) +
+  meaning(`<p>The business case is the last step before a yes, and it is the one vendors leave to the customer. The customer has to sell the purchase inside their own company, mostly without the vendor's help.</p>`) +
+  quotes('case');
+
+// ---------------- Finding 4: what it costs
+const reasons = q15.items.map(x => ({label: x.label, value: x.options[0].share})).sort((a, b) => b.value - a.value);
+const worstB = F.behaviours.slice().sort((a, b) => b.criticised_worst - a.criticised_worst).slice(0, 6);
+$('#f-cost').innerHTML = `<h3>Interested customers walk away — to a competitor, or to no decision.</h3>` +
+  frame({scope: 'The end of the decision: a customer who was interested and then said no.',
+    items: `${Q('Q15', q15.stem)} As many reasons as apply. And, in their own words: which three companies have the <b>least</b> effective sales teams, and why (${N('Q23')}), and who the main contact is in their <b>worst</b> relationships, and why (${N('Q25')}).`,
+    vantage: 'The customer, remembering a time they were interested in a vendor and then did not buy.',
+    scale: `Left: share of all ${n} who ticked each reason; adds to more than 100%. Right: number of written answers saying the team fails at each behaviour, out of ${F.codable_answers} written answers that say something specific.`,
+    stakes: 'The deal itself.'}) +
+  `<div class="two"><div class="chart"><div class="chart-title">Why an interested customer did not buy (${N('Q15')})</div>` +
+    bars(reasons.map(r => ({label: r.label, value: r.value, cls: 'v'}))) + `</div>` +
+  `<div class="chart"><div class="chart-title">Where the worst sales teams fall short (written answers)</div>` +
+    countBars(worstB.map(b => ({label: b.label, value: b.criticised_worst})), Math.max(...worstB.map(b => b.criticised_worst)), 'v') +
+    `<div class="chart-note">Each answer was read and coded for what it criticises; a row counts answers saying the team fails at that behaviour.</div></div></div>` +
+  plain('', `<p>When an interested customer walks away, the most common reasons are going with <b>another vendor</b> (${N(pct(other))}) and not being able to <b>see how the value would be delivered</b> (${N(pct(envision))}). About one in four lost it inside their own company: too risky (${N(pct(risky))}), too much effort to keep momentum as others got involved (${N(pct(momentum))}), or unable to get others on board (${N(pct(board))}).</p>` +
+    `<p>In their own words, the most common complaint about the worst sales teams is a failure on <b>“${esc(worstB[0].label)}”</b> (${N(worstB[0].criticised_worst)} answers): they push the vendor's sale over the customer's need. Next comes a failure on <b>“${esc(worstB[1].label)}”</b> (${N(worstB[1].criticised_worst)}).</p>`) +
+  meaning(`<p>The costs line up with the focus. A pitch does not show how value will be delivered; a case left to the customer does not survive inside their company. Both are reasons interested customers give for walking away.</p>`);
+
+// ---------------- Finding 5: how low the bar is
+const bestB = F.behaviours.slice().sort((a, b) => b.praised_best - a.praised_best).slice(0, 6);
+const kb = B('B-KNOWS-BUSINESS');
+$('#f-bar').innerHTML = `<h3>Doing the basics puts a vendor ahead of most of its competitors.</h3>` +
+  frame({scope: 'All steps: what separates the vendors customers rate best from the rest.',
+    items: `In their own words: which three companies have the <b>most</b> effective sales teams, and why (${N('Q22')}); who the main contact is in their <b>best</b> relationships, and why (${N('Q24')}); and ${Q('Q21', C.question_stems.Q21)}`,
+    vantage: 'The customer, describing the vendors they rate best.',
+    scale: `Number of written answers praising each behaviour, out of ${F.codable_answers} written answers that say something specific. The three figures on the left repeat Findings 1–3.`,
+    stakes: 'Being the vendor the customer chooses, rather than the other vendor they went with instead.'}) +
+  `<div class="two"><div class="chart"><div class="chart-title">How rare the basics are today</div><div class="bar-list">` +
+    bars([{label: 'The typical meeting is about the customer\'s challenges or success (Q14)', value: custShare, cls: 'c'},
+          {label: 'Salespeople frequently come prepared on the customer\'s specific business (Q8)', value: bizF, cls: 'c'},
+          {label: 'Vendor material makes the business case simple (Q18)', value: simple, cls: 'c'}]) +
+    `</div><div class="chart-note">Share of all ${n} decision-makers. Everything outside these bars is the room to stand out.</div></div>` +
+  `<div class="chart"><div class="chart-title">What the best sales teams are praised for (written answers)</div>` +
+    countBars(bestB.map(b => ({label: b.label, value: b.praised_best})), Math.max(...bestB.map(b => b.praised_best)), 'c') +
+    `<div class="chart-note">Each answer was read and coded for the behaviour it praises.</div></div></div>` +
+  plain('', `<p>The behaviours that win are basic: <b>${esc(bestB.slice(0, 4).map(b => b.label.toLowerCase()).join(', '))}</b>. Knowing the customer's business is both the most praised behaviour in the best sales teams (${N(kb.praised_best)} answers) and the most common answer to what sets a vendor apart (${N(kb.q21)} answers).</p>` +
+    `<p>Today only ${N(pct(custShare))} of decision-makers say the typical meeting is about them, ${N(pct(bizF))} that salespeople frequently know their business, and ${N(pct(simple))} that vendor material makes the case simple.</p>`) +
+  meaning(`<p>Customers are not asking for anything exotic: know my business, help me solve the problem, help me make the case. Because so few vendors do it, a vendor that does it consistently is different from most of its competition.</p>`) +
+  quotes('different');
+
+// ---------------- what to do
+const ACTIONS = [
+  ['Make the first meeting about their problem, not your product.', `${pct(pitchShare)} of meetings are a pitch; ${pct(demo)} of customers value a compelling demo, ${pct(issues)} value a salesperson who understands their business issues.`, 'Finding 1'],
+  ['Prepare on the customer before you prepare on yourself.', `Preparation on the vendor's own products is frequent for ${pct(ownF)}; on the customer's specific business for ${pct(bizF)}.`, 'Finding 2'],
+  ['Give the customer the business case, built for their company.', `Only ${pct(simple)} find it simple with vendor material; ${pct(mostAll)} build most or all of it themselves; ${pct(board)} of those who walked away could not get others on board.`, 'Findings 3 and 4'],
+  ['Stop pushing the sale.', `It is the behaviour most criticised in the worst sales teams (${worstB[0].criticised_worst} written answers).`, 'Finding 4'],
+];
+$('#actions').innerHTML = ACTIONS.map(([t, why, ev]) => `<li><b>${esc(t)}</b><span>${esc(why)}</span><span class="ev">Rests on: ${esc(ev)}</span></li>`).join('');
+$('#limits').innerHTML = [
+  `All shares describe the ${n} decision-makers as a group; the study does not follow individual deals.`,
+  'Customers describe vendors in general, not one named vendor, except in the written answers about their best and worst sales teams.',
+  'Grouping answers into “about the product” and “about the customer” is our reading of the answer wording, shown on each chart.',
+  'Written answers were coded by one coder and checked blind on 200 of them; the quotes shown were chosen to illustrate, and every answer is in the project data.',
+  'The study shows what customers experience and want. It does not measure whether changing focus raises a vendor\'s revenue.'
+].map(s => `<li>${esc(s)}</li>`).join('');
+const m = F.meta;
+$('#about').innerHTML = `<summary>Sources and method</summary><ul>${m.caveats.map(c => `<li>${esc(c)}</li>`).join('')}</ul><div><b>Sources:</b> ${m.sources.map(s => `<code>${esc(s)}</code>`).join(', ')} · built by <code>${esc(m.generated_by)}</code></div>`;
+$('#foot').innerHTML = `<div>Built from committed data by scripts in the project repository: <a href="${D.repo}" target="_blank" rel="noopener">${esc(D.repo.replace('https://', ''))}</a> (<code>06_visualization/</code>).</div>` +
+  `<div>Every number on this page is computed from the embedded data; none is typed by hand. Question wording is quoted exactly. Respondents appear by anonymous ID only.</div>`;
+})();
+</script>
+</body>
+</html>

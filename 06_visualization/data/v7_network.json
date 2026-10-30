@@ -1,0 +1,2891 @@
+{
+ "meta": {
+  "view": "V7",
+  "title": "Thread network",
+  "question": "Which questions are linked, and how do the links cross the gates?",
+  "unit": "thread (question)",
+  "sources": [
+   "01_instrument_reconstruction/linkages.csv",
+   "04_analytics_library/outputs/T06/thread_metrics.csv",
+   "01_instrument_reconstruction/question_map.csv"
+  ],
+  "caveats": [
+   "Links are defined by the instrument (P1 linkage inventory), not computed from answers.",
+   "Breakout, grouping and same-respondent links describe structure, not content; the view shows them on request.",
+   "Statistical links between threads (T07) are group-level — the ecological caveat applies."
+  ],
+  "provenance": "Links RECON_DATA or INFERRED per edge (provenance field).",
+  "generated_by": "scripts/p6_build_view_data.py"
+ },
+ "nodes": [
+  {
+   "id": "T-Q01",
+   "gate": "baseline",
+   "wording": "What qualities make a vendor a strategic, value-added provider?",
+   "neighbours": 16,
+   "betweenness": 0.0147
+  },
+  {
+   "id": "T-Q02",
+   "gate": "baseline",
+   "wording": "Does your firm generally spend more money with strategic providers than with other vendors?",
+   "neighbours": 11,
+   "betweenness": 0.004
+  },
+  {
+   "id": "T-Q03",
+   "gate": "ACCESS",
+   "wording": "How likely are you to respond to each method of being contacted by a vendor sales person?",
+   "neighbours": 16,
+   "betweenness": 0.004
+  },
+  {
+   "id": "T-Q04",
+   "gate": "ACCESS",
+   "wording": "How often do you initiate a meeting after the following types of referrals?",
+   "neighbours": 17,
+   "betweenness": 0.0089
+  },
+  {
+   "id": "T-Q05",
+   "gate": "ACCESS",
+   "wording": "In your best estimate, what percentage of the requests to meet with you are screened out by a staff member or administrative staff member?",
+   "neighbours": 12,
+   "betweenness": 0.0112
+  },
+  {
+   "id": "T-Q06",
+   "gate": "ACCESS",
+   "wording": "In a typical week, how many vendor sales person appointments do you accept?",
+   "neighbours": 11,
+   "betweenness": 0.004
+  },
+  {
+   "id": "T-Q07",
+   "gate": "ACCESS",
+   "wording": "For what reasons do you to take an appointment?",
+   "neighbours": 16,
+   "betweenness": 0.0147
+  },
+  {
+   "id": "T-Q08",
+   "gate": "AGREE",
+   "wording": "When you meet with a vendor sales person, in general how often are they prepared for the meeting with you in the following ways?",
+   "neighbours": 22,
+   "betweenness": 0.0463
+  },
+  {
+   "id": "T-Q09",
+   "gate": "AGREE",
+   "wording": "How often would you say that your meetings with sales people are valuable and live up to your expectations of the meeting?",
+   "neighbours": 17,
+   "betweenness": 0.0045
+  },
+  {
+   "id": "T-Q10",
+   "gate": "AGREE",
+   "wording": "Only thinking about your initial meeting with a vendor sales person, in general how often do you accept follow-on meetings?",
+   "neighbours": 16,
+   "betweenness": 0.004
+  },
+  {
+   "id": "T-Q11",
+   "gate": "AGREE",
+   "wording": "What would you consider a valuable meeting with a vendor sales person?",
+   "neighbours": 14,
+   "betweenness": 0.0043
+  },
+  {
+   "id": "T-Q12",
+   "gate": "VISION",
+   "wording": "During a long and complex sales cycle, vendors often provide you with a variety of materials, such as collateral, case studies, data sheets, and ROI calculators, to futher inform you. Considering the material...",
+   "neighbours": 17,
+   "betweenness": 0.0147
+  },
+  {
+   "id": "T-Q13",
+   "gate": "VISION",
+   "wording": "How important and differentiating are the following for a meeting with a vendor sales person?",
+   "neighbours": 17,
+   "betweenness": 0.0187
+  },
+  {
+   "id": "T-Q14",
+   "gate": "VISION",
+   "wording": "Thinking of a typical meeting with a vendor sales team (or person), how would you characterize their agenda in your interactions? Please pick the one that best matches your opinion of the majority of sales calls you participate in.",
+   "neighbours": 13,
+   "betweenness": 0.0081
+  },
+  {
+   "id": "T-Q15",
+   "gate": "VISION",
+   "wording": "Think of a situation where you were initially interested in what a vendor was talking to you about, but you changed your mind and did not make a purchase. What were some of the reasons why...",
+   "neighbours": 17,
+   "betweenness": 0.0172
+  },
+  {
+   "id": "T-Q16",
+   "gate": "VISION",
+   "wording": "How often do you choose a vendor who has worked with you to turn a vision into a clear path to value?",
+   "neighbours": 18,
+   "betweenness": 0.0054
+  },
+  {
+   "id": "T-Q17",
+   "gate": "VISION",
+   "wording": "Which of the following best describes the process of developing a business case to justify investment for you/your organization?",
+   "neighbours": 12,
+   "betweenness": 0.004
+  },
+  {
+   "id": "T-Q18",
+   "gate": "CASE",
+   "wording": "Considering the materials that vendors typically provide you with, which of the following best describe how well those materials helps you develop convincing reasons to invest?",
+   "neighbours": 18,
+   "betweenness": 0.0228
+  },
+  {
+   "id": "T-Q19",
+   "gate": "CASE",
+   "wording": "How important are the following attributes for shaping a vision into a clear program plan?",
+   "neighbours": 17,
+   "betweenness": 0.0172
+  },
+  {
+   "id": "T-Q20",
+   "gate": "CASE",
+   "wording": "Do you have a purchase limit? If so, what is it?",
+   "neighbours": 17,
+   "betweenness": 0.0219
+  },
+  {
+   "id": "T-Q21",
+   "gate": "baseline",
+   "wording": "What most differentiates a vendor/supplier from their competition?",
+   "neighbours": 14,
+   "betweenness": 0.0056
+  },
+  {
+   "id": "T-Q22",
+   "gate": "crossGate",
+   "wording": "Thinking about all of your vendors/suppliers, which 3 companies have sales teams you find <u>MOST</u> effective and please share your thoughts on why.",
+   "neighbours": 15,
+   "betweenness": 0.0096
+  },
+  {
+   "id": "T-Q23",
+   "gate": "crossGate",
+   "wording": "Thinking about all of your vendors/suppliers, which 3 companies have sales teams you find <u>LEAST</u> effective and please share your thoughts on why.",
+   "neighbours": 15,
+   "betweenness": 0.0096
+  },
+  {
+   "id": "T-Q24",
+   "gate": "crossGate",
+   "wording": "Thinking about your BEST vendor/supplier relationships, who is your primary point of contact – for example, account manager, consultant, product specialist, or executive - and why?",
+   "neighbours": 15,
+   "betweenness": 0.0106
+  },
+  {
+   "id": "T-Q25",
+   "gate": "crossGate",
+   "wording": "Thinking about your WORST vendor/supplier relationships, who is your primary point of contact – for example, account manager, consultant, product specialist, or executive - and why?",
+   "neighbours": 14,
+   "betweenness": 0.0056
+  },
+  {
+   "id": "T-S01",
+   "gate": "TARGET",
+   "wording": "Which of the following departments do you work in?",
+   "neighbours": 24,
+   "betweenness": 0.0416
+  },
+  {
+   "id": "T-S02",
+   "gate": "TARGET",
+   "wording": "Which of the following most closely describes your position?",
+   "neighbours": 22,
+   "betweenness": 0.0236
+  },
+  {
+   "id": "T-S03",
+   "gate": "TARGET",
+   "wording": "Which title best describes your position at your organization?",
+   "neighbours": 22,
+   "betweenness": 0.0236
+  },
+  {
+   "id": "T-S04",
+   "gate": "TARGET",
+   "wording": "Which of the following titles best describes your role?",
+   "neighbours": 8,
+   "betweenness": 0.009
+  },
+  {
+   "id": "T-S05",
+   "gate": "TARGET",
+   "wording": "In which of the following stages of 'hS5Piping' decision-making are you currently involved?",
+   "neighbours": 20,
+   "betweenness": 0.0236
+  },
+  {
+   "id": "T-S06",
+   "gate": "TARGET",
+   "wording": "We are also interested in your involvement in IT decision-making. In what stages of the IT decision-making process are you involved?",
+   "neighbours": 21,
+   "betweenness": 0.0236
+  },
+  {
+   "id": "T-S07",
+   "gate": "TARGET",
+   "wording": "Using your best estimate, in calendar year 2013, what were your companys worldwide revenues?",
+   "neighbours": 20,
+   "betweenness": 0.0236
+  },
+  {
+   "id": "T-S08",
+   "gate": "TARGET",
+   "wording": "Using your best estimate, how many employees work for your company worldwide?",
+   "neighbours": 20,
+   "betweenness": 0.0236
+  },
+  {
+   "id": "T-S09",
+   "gate": "TARGET",
+   "wording": "In which country is your company headquartered?",
+   "neighbours": 20,
+   "betweenness": 0.0236
+  },
+  {
+   "id": "T-S10",
+   "gate": "TARGET",
+   "wording": "How frequently do you engage with a vendor sales person?",
+   "neighbours": 20,
+   "betweenness": 0.0236
+  },
+  {
+   "id": "T-S11",
+   "gate": "TARGET",
+   "wording": "To whom does your company sell primarily?",
+   "neighbours": 20,
+   "betweenness": 0.0236
+  },
+  {
+   "id": "T-S12",
+   "gate": "TARGET",
+   "wording": "Which of the following best describes your firm’s primary industry?",
+   "neighbours": 20,
+   "betweenness": 0.0236
+  }
+ ],
+ "edges": [
+  {
+   "source": "T-Q03",
+   "target": "T-Q04",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q03",
+   "target": "T-Q08",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q03",
+   "target": "T-Q09",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q03",
+   "target": "T-Q10",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q03",
+   "target": "T-Q16",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q04",
+   "target": "T-Q08",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q04",
+   "target": "T-Q09",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q04",
+   "target": "T-Q10",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q04",
+   "target": "T-Q16",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q08",
+   "target": "T-Q09",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q08",
+   "target": "T-Q10",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q08",
+   "target": "T-Q16",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q09",
+   "target": "T-Q10",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q09",
+   "target": "T-Q16",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q10",
+   "target": "T-Q16",
+   "type": "shared_scale",
+   "weight": 1.0,
+   "evidence": "both use SC-FREQ4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-S02",
+   "type": "routes_to",
+   "weight": 1.0,
+   "evidence": "skip_logic R01: S1 = \"IT or IS department\" → classify ITDM; ASK S2, S4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-S04",
+   "type": "routes_to",
+   "weight": 1.0,
+   "evidence": "skip_logic R01: S1 = \"IT or IS department\" → classify ITDM; ASK S2, S4",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-S03",
+   "type": "routes_to",
+   "weight": 1.0,
+   "evidence": "skip_logic R02: S1 = any other department → classify BDM; ASK S3, S6",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-S06",
+   "type": "routes_to",
+   "weight": 1.0,
+   "evidence": "skip_logic R02: S1 = any other department → classify BDM; ASK S3, S6",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q1 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q2 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q3 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q4 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q5 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q6 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q7 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q8 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q9 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q10 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q11 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q12 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q13 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q14 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q15 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q16 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q17 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q18 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q19 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S01",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-FUNCTION: results for Q20 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q1 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q2 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q3 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q4 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q5 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q6 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q7 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q8 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q9 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q10 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q11 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q12 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q13 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q14 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q15 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q16 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q17 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q18 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q19 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-IT: results for Q20 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q1 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q2 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q3 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q4 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q5 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q6 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q7 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q8 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q9 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q10 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q11 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q12 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q13 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q14 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q15 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q16 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q17 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q18 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q19 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S03",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-LEVEL-BUS: results for Q20 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q1 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q2 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q3 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q4 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q5 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q6 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q7 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q8 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q9 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q10 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q11 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q12 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q13 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q14 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q15 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q16 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q17 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q18 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q19 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S09",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-COUNTRY: results for Q20 are tabulated by this dimension on Main Page",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q1 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q2 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q3 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q4 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q5 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q6 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q7 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q8 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q9 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q10 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q11 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q12 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q13 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q14 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q15 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q16 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q17 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q18 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q19 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S12",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-INDUSTRY7: results for Q20 are tabulated by this dimension on Industry 7",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q1 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q2 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q3 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q4 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q5 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q6 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q7 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q8 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q9 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q10 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q11 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q12 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q13 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q14 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q15 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q16 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q17 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q18 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q19 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S08",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-EMPLOYEES: results for Q20 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q1 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q2 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q3 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q4 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q5 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q6 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q7 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q8 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q9 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q10 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q11 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q12 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q13 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q14 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q15 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q16 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q17 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q18 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q19 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S07",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-REVENUE: results for Q20 are tabulated by this dimension on Company Size & Revenue",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q1 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q2 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q3 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q4 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q5 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q6 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q7 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q8 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q9 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q10 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q11 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q12 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q13 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q14 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q15 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q16 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q17 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q18 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q19 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-CONTACTFREQ: results for Q20 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q1 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q2 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q3 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q4 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q5 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q6 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q7 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q8 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q9 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q10 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q11 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q12 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q13 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q14 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q15 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q16 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q17 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q18 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q19 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-SELLSTO: results for Q20 are tabulated by this dimension on Sales Engagement",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q1 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q2 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q3 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q4 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q5 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q6 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q7 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q8 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q9 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q10 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q11 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q12 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q13 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q14 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q15 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q16 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q17 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q18 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q19 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE: results for Q20 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q01",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q1 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q02",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q2 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q03",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q3 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q04",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q4 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q05",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q5 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q06",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q6 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q07",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q7 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q08",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q8 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q09",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q9 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q10",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q10 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q11",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q11 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q12",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q12 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q13",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q13 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q14",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q14 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q15",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q15 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q16",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q16 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q17",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q17 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q18",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q18 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q19",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q19 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S06",
+   "target": "T-Q20",
+   "type": "breakout_of",
+   "weight": 1.0,
+   "evidence": "via D-STAGE-BUS: results for Q20 are tabulated by this dimension on Decision Making Stages",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q03",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-CONTACTFREQ: How often the decision-maker meets salespeople bears on how they respond to contact channels (Access)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q06",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-CONTACTFREQ: Contact frequency bears on appointments accepted per week (Access)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S10",
+   "target": "T-Q07",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-CONTACTFREQ: Contact frequency bears on reasons for accepting an appointment (Access)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q05",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-LEVEL: Senior decision-makers are more likely to have staff who screen meeting requests (Access)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S02",
+   "target": "T-Q20",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-LEVEL: Seniority bears on purchase authority (Business Case)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q20",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-STAGE:Authorizing purchases: Those who authorize purchases are the ones a purchase limit applies to (Business Case)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q17",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-STAGE:Setting or managing budgets: Budget owners build or judge the business case (Shared Vision)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q01",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-STAGE:Choosing/recommending vendors: Those who choose vendors define what a strategic vendor is (Baseline)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S05",
+   "target": "T-Q16",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-STAGE:Requirements definition: Requirements owners shape the path from vision to value (Shared Vision)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S04",
+   "target": "T-Q05",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-ITROLE:Sourcing and vendor management: Sourcing roles act as gatekeepers for vendor meetings (Access)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S04",
+   "target": "T-Q20",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-ITROLE:Chief information officer: CIOs hold purchase authority (Business Case)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-S11",
+   "target": "T-Q12",
+   "type": "relates_to",
+   "weight": 1.0,
+   "evidence": "D-SELLSTO: Whether the company itself sells B2B or B2C may shape how vendor materials are judged (Shared Vision)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q22",
+   "target": "T-Q23",
+   "type": "mirror",
+   "weight": 1.0,
+   "evidence": "Same wording with MOST vs LEAST effective (VERBATIM)",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q24",
+   "target": "T-Q25",
+   "type": "mirror",
+   "weight": 1.0,
+   "evidence": "Same wording with BEST vs WORST relationships (VERBATIM)",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q01",
+   "target": "T-Q21",
+   "type": "same_construct",
+   "weight": 1.0,
+   "evidence": "What makes a vendor strategic (closed) vs what differentiates a vendor (open); both Baseline (Scott)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q09",
+   "target": "T-Q11",
+   "type": "same_construct",
+   "weight": 1.0,
+   "evidence": "Whether meetings are valuable vs what makes a meeting valuable",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q11",
+   "target": "T-Q13",
+   "type": "same_construct",
+   "weight": 1.0,
+   "evidence": "What makes a meeting valuable vs which meeting attributes are important or differentiating",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q08",
+   "target": "T-Q11",
+   "type": "same_construct",
+   "weight": 1.0,
+   "evidence": "Salesperson preparedness vs what makes a meeting valuable (understanding my business and role appear in both)",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q12",
+   "target": "T-Q18",
+   "type": "same_construct",
+   "weight": 1.0,
+   "evidence": "Attitudes toward vendor materials vs whether materials help build reasons to invest",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q16",
+   "target": "T-Q19",
+   "type": "same_construct",
+   "weight": 1.0,
+   "evidence": "Choosing vendors who turn a vision into a path to value vs what it takes to shape a vision into a plan",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q17",
+   "target": "T-Q18",
+   "type": "same_construct",
+   "weight": 1.0,
+   "evidence": "Difficulty of building a business case vs whether vendor materials help build it",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q15",
+   "target": "T-Q16",
+   "type": "same_construct",
+   "weight": 1.0,
+   "evidence": "Why customers pull back (incl. could not envision value) vs choosing vendors who make the path to value clear",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q09",
+   "target": "T-Q10",
+   "type": "same_construct",
+   "weight": 1.0,
+   "evidence": "Meetings valuable vs accepting follow-on meetings — both measure the Agree gate outcome",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q22",
+   "target": "T-Q14",
+   "type": "topic",
+   "weight": 1.0,
+   "evidence": "Effective sales teams (open) vs how the salesperson's agenda is characterized",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q23",
+   "target": "T-Q14",
+   "type": "topic",
+   "weight": 1.0,
+   "evidence": "Ineffective sales teams (open) vs how the salesperson's agenda is characterized",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q24",
+   "target": "T-Q04",
+   "type": "topic",
+   "weight": 1.0,
+   "evidence": "Primary contact in best relationships vs which referral sources lead to meetings",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q21",
+   "target": "T-Q13",
+   "type": "topic",
+   "weight": 1.0,
+   "evidence": "What differentiates a vendor vs which meeting attributes are differentiators",
+   "provenance": "INFERRED"
+  },
+  {
+   "source": "T-Q21",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 318.0,
+   "evidence": "318 respondents answered both",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q21",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 319.0,
+   "evidence": "319 respondents answered both (includes respid 112, assigned to SRC-003 Q21!A6 by row alignment — INFERRED, approved by Scott; respid_corrections.csv)",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q21",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 318.0,
+   "evidence": "318 respondents answered both",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q21",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 318.0,
+   "evidence": "318 respondents answered both",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q22",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 318.0,
+   "evidence": "318 respondents answered both",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q22",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 318.0,
+   "evidence": "318 respondents answered both",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q22",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 318.0,
+   "evidence": "318 respondents answered both",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q23",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 318.0,
+   "evidence": "318 respondents answered both",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q23",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 318.0,
+   "evidence": "318 respondents answered both",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q24",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 318.0,
+   "evidence": "318 respondents answered both",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S04",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 6.0,
+   "evidence": "6 respondents who wrote a 'please specify' answer in S4 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S04",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 6.0,
+   "evidence": "6 respondents who wrote a 'please specify' answer in S4 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S04",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 6.0,
+   "evidence": "6 respondents who wrote a 'please specify' answer in S4 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S04",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 6.0,
+   "evidence": "6 respondents who wrote a 'please specify' answer in S4 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-S04",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 6.0,
+   "evidence": "6 respondents who wrote a 'please specify' answer in S4 also answered Q25",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q01",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q1 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q01",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q1 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q01",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q1 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q01",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q1 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q01",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q1 also answered Q25",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q07",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 4.0,
+   "evidence": "4 respondents who wrote a 'please specify' answer in Q7 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q07",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 4.0,
+   "evidence": "4 respondents who wrote a 'please specify' answer in Q7 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q07",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 4.0,
+   "evidence": "4 respondents who wrote a 'please specify' answer in Q7 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q07",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 4.0,
+   "evidence": "4 respondents who wrote a 'please specify' answer in Q7 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q07",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 4.0,
+   "evidence": "4 respondents who wrote a 'please specify' answer in Q7 also answered Q25",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q08",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 19.0,
+   "evidence": "19 respondents who wrote a 'please specify' answer in Q8 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q08",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 19.0,
+   "evidence": "19 respondents who wrote a 'please specify' answer in Q8 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q08",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 19.0,
+   "evidence": "19 respondents who wrote a 'please specify' answer in Q8 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q08",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 19.0,
+   "evidence": "19 respondents who wrote a 'please specify' answer in Q8 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q08",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 19.0,
+   "evidence": "19 respondents who wrote a 'please specify' answer in Q8 also answered Q25",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q12",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 11.0,
+   "evidence": "11 respondents who wrote a 'please specify' answer in Q12 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q12",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 11.0,
+   "evidence": "11 respondents who wrote a 'please specify' answer in Q12 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q12",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 11.0,
+   "evidence": "11 respondents who wrote a 'please specify' answer in Q12 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q12",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 11.0,
+   "evidence": "11 respondents who wrote a 'please specify' answer in Q12 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q12",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 11.0,
+   "evidence": "11 respondents who wrote a 'please specify' answer in Q12 also answered Q25",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q13",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 13.0,
+   "evidence": "13 respondents who wrote a 'please specify' answer in Q13 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q13",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 13.0,
+   "evidence": "13 respondents who wrote a 'please specify' answer in Q13 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q13",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 13.0,
+   "evidence": "13 respondents who wrote a 'please specify' answer in Q13 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q13",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 13.0,
+   "evidence": "13 respondents who wrote a 'please specify' answer in Q13 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q13",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 13.0,
+   "evidence": "13 respondents who wrote a 'please specify' answer in Q13 also answered Q25",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q15",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 15.0,
+   "evidence": "15 respondents who wrote a 'please specify' answer in Q15 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q15",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 15.0,
+   "evidence": "15 respondents who wrote a 'please specify' answer in Q15 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q15",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 15.0,
+   "evidence": "15 respondents who wrote a 'please specify' answer in Q15 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q15",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 15.0,
+   "evidence": "15 respondents who wrote a 'please specify' answer in Q15 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q15",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 15.0,
+   "evidence": "15 respondents who wrote a 'please specify' answer in Q15 also answered Q25",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q18",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q18 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q18",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q18 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q18",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q18 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q18",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q18 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q18",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 1.0,
+   "evidence": "1 respondents who wrote a 'please specify' answer in Q18 also answered Q25",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q19",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 12.0,
+   "evidence": "12 respondents who wrote a 'please specify' answer in Q19 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q19",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 12.0,
+   "evidence": "12 respondents who wrote a 'please specify' answer in Q19 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q19",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 12.0,
+   "evidence": "12 respondents who wrote a 'please specify' answer in Q19 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q19",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 12.0,
+   "evidence": "12 respondents who wrote a 'please specify' answer in Q19 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q19",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 12.0,
+   "evidence": "12 respondents who wrote a 'please specify' answer in Q19 also answered Q25",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q20",
+   "target": "T-Q21",
+   "type": "same_respondents",
+   "weight": 23.0,
+   "evidence": "23 respondents who wrote a 'please specify' answer in Q20 also answered Q21",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q20",
+   "target": "T-Q22",
+   "type": "same_respondents",
+   "weight": 23.0,
+   "evidence": "23 respondents who wrote a 'please specify' answer in Q20 also answered Q22",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q20",
+   "target": "T-Q23",
+   "type": "same_respondents",
+   "weight": 23.0,
+   "evidence": "23 respondents who wrote a 'please specify' answer in Q20 also answered Q23",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q20",
+   "target": "T-Q24",
+   "type": "same_respondents",
+   "weight": 23.0,
+   "evidence": "23 respondents who wrote a 'please specify' answer in Q20 also answered Q24",
+   "provenance": "RECON_DATA"
+  },
+  {
+   "source": "T-Q20",
+   "target": "T-Q25",
+   "type": "same_respondents",
+   "weight": 23.0,
+   "evidence": "23 respondents who wrote a 'please specify' answer in Q20 also answered Q25",
+   "provenance": "RECON_DATA"
+  }
+ ]
+}
