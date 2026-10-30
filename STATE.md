@@ -2,8 +2,8 @@
 
 ## Current
 **Phase:** 6 — Visualization   **Gate:** open
-**Step:** P6.S01 — Concept sheet
-**Status:** not started — awaiting Scott's go-ahead
+**Step:** P6.S02 — Scott reviews concepts
+**Status:** not started — S01 done; awaiting Scott's review of the concept sheet
 **Branch:** phase-6/step-01-concept-sheet (base `03b7abb`)
 **Updated:** 2026-10-29 by Claude session
 
@@ -14,7 +14,7 @@ Outputs go to `06_visualization/`. Exit criteria: GOVERNANCE §5 Phase 6 (v1.3.0
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |---|---|---|---|---|---|---|
 | P6.S00 | Phase 6 plan (gov PR) | Scott's direction | GOVERNANCE §5 P6; README row 6; `06_visualization/README.md` | Scott merges | done | `84a7f06` (PR #51) |
-| P6.S01 | **Concept sheet:** for each of V1–V7 — question, data paths, unit, caveats, one static sketch built from committed data | Phase 4–5 outputs | `06_visualization/concepts.md` + sketches; `scripts/p6_build_concept_sketches.py` | All 7 concepts on one sheet; every sketch drawn by script from committed data | not started | — |
+| P6.S01 | **Concept sheet:** for each of V1–V7 — question, data paths, unit, caveats, one static sketch built from committed data | Phase 4–5 outputs | `06_visualization/concepts.md` + sketches; `scripts/p6_build_concept_sketches.py` | All 7 concepts on one sheet; every sketch drawn by script from committed data | done — 7 concepts; 136 numbers listed with sources | this branch |
 | P6.S02 | **Scott reviews concepts:** keep / change / drop each; D6-1 audience, D6-2 delivery, D6-3 scope and order | concept sheet | decisions log | Every concept and D6-1–D6-3 decided | not started | — |
 | P6.S03 | **Data layer:** one JSON per approved view | committed data | `scripts/p6_build_view_data.py`; `06_visualization/data/` | Every number traceable to a source file; byte-identical on re-run | not started | — |
 | P6.S04+ | **Build approved views**, one step each (or an approved batch) | view data | views; `catalog.md` | Each view meets every §5 P6 criterion | not started | — |
@@ -444,6 +444,7 @@ First draft (P5.S10): NOT YET — criterion 1 failed (28 codes without an exampl
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 - 2026-10-29: Phase 5 closed — PR #50 merged; Scott tagged `phase-5-complete` and `schema-v1.2.0` on `03b7abb`.
 - 2026-10-29: Phase 6 opened — GOVERNANCE 1.3.0 adds §5 Phase 6 (PR #51, Scott merged). Scott chose "Phase 6 plan: visualization" over the one-page brief.
+- 2026-10-29: P6.S01 concept sheet (Scott: "Go"). `scripts/p6_build_concept_sketches.py` → `06_visualization/concepts.md`, `concepts/concepts.html`, 5 SVG sketches (V1–V4, V7; light and dark), V5 and V6 as tables; `concepts/sketch_numbers.csv` lists all 136 numbers shown with their source file. Byte-identical on re-run. Palette: reference data-viz palette, two-series pair validated in light and dark (CVD ΔE 24.7). Sketch choices to note: V2 uses T02 headline measures (45; Target has none — screeners), cells below n = 25 outlined, not filled; V7 hides 280 breakout, grouping and same-respondent links to show the content links. Sketches are not the views: no interaction, phone width not yet met (wide figures scroll).
 
 ## Open questions
 <!-- includes all INFERRED items awaiting review -->
