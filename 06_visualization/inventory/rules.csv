@@ -1,0 +1,14 @@
+rule_id,statement,why,source,result
+R01,No arithmetic (difference or ratio) between results from different questions or answer formats,Different stems and scales measure different things on different bases; the difference has no defined meaning. The retired V1 ledger broke this,"Stevens (1946); Scott's review 2026-10-30",rejected
+R02,The field's level of measurement must reach the method's minimum level,Means need equal intervals; ranks need order; shares need only categories,"Stevens (1946)",rejected
+R03,Methods that need a partition (options adding to 100%) only apply to one-answer fields and rating rows,Several-answer options are separate yes/no fields; their shares overlap,"Agresti (2013)",rejected
+R04,Methods that need each person's answers cannot use the structured results,The structured source holds group tables only; respondent slots are reserved in the schema (ADR-009),"P0.S04 data reality; ADR-009",rejected
+R05,A field answered by fewer than 25 people is not analysed statistically,Minimum cohort size n = 25 (Scott 2026-10-28),"GOVERNANCE §5 Phase 4",rejected
+R06,Tests between groups use only groups that do not overlap,Overlapping groups (e.g. decision stages; several-answer screeners) share respondents; tests assume independence,"Agresti (2013)",condition
+R07,Associations computed across groups describe groups and must say so,Ecological fallacy,"Robinson (1950)",condition
+R08,Written-answer counts and survey shares are never put on one axis or differenced,Different units (answers vs share of people) and different questions; join only by concept in a side-by-side display. The retired V3 felt-vs-said broke this,"Fetters et al. (2013); Sandelowski et al. (2009); Scott's review 2026-10-30",rejected
+R09,Money figures need money data,The survey holds no revenue cost or deal-value data,"P0.S04 data reality",needs_data
+R10,The method must accept the field's answer format,A method defined for one format says nothing about another,"method register prerequisites",not_applicable
+R11,Two fields compared on one axis must share stem scale and base,Same people asked the same way is what makes two shares comparable,"Groves et al. (2009)",rejected
+R12,Interpretive lenses state no quantity of their own,An economic or systems lens explains a measured result; it does not measure,"method register (EC01–EC04; CY01)",condition
+R13,An interpretive lens applies only to the gates it speaks to,Search costs belong to Access; transaction costs to Vision and Case; a lens on an unrelated question adds noise not insight,"method register (gates column)",not_applicable
