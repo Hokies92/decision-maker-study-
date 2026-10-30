@@ -1,11 +1,25 @@
 # Project State
 
 ## Current
-**Phase:** 5 — Open-ended responses   **Gate:** open
-**Step:** P5.S12 — Redraft Phase 5 gate review
-**Status:** done — recommendation PASS; stopped for Scott's merge and tag (S6)
-**Branch:** phase-5/step-12-gate-review (on phase-5/step-11-frame-completion)
+**Phase:** 6 — Visualization   **Gate:** open
+**Step:** P6.S02 — Scott reviews concepts
+**Status:** not started — S01 done; awaiting Scott's review of the concept sheet
+**Branch:** phase-6/step-01-concept-sheet (base `03b7abb`)
 **Updated:** 2026-10-29 by Claude session
+
+## Step plan — Phase 6
+
+Outputs go to `06_visualization/`. Exit criteria: GOVERNANCE §5 Phase 6 (v1.3.0, PR #51). Candidate views V1–V7 and first principles: `06_visualization/README.md`. Concepts are approved view by view before any view is built.
+
+| ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
+|---|---|---|---|---|---|---|
+| P6.S00 | Phase 6 plan (gov PR) | Scott's direction | GOVERNANCE §5 P6; README row 6; `06_visualization/README.md` | Scott merges | done | `84a7f06` (PR #51) |
+| P6.S01 | **Concept sheet:** for each of V1–V7 — question, data paths, unit, caveats, one static sketch built from committed data | Phase 4–5 outputs | `06_visualization/concepts.md` + sketches; `scripts/p6_build_concept_sketches.py` | All 7 concepts on one sheet; every sketch drawn by script from committed data | done — 7 concepts; 136 numbers listed with sources | this branch |
+| P6.S02 | **Scott reviews concepts:** keep / change / drop each; D6-1 audience, D6-2 delivery, D6-3 scope and order | concept sheet | decisions log | Every concept and D6-1–D6-3 decided | not started | — |
+| P6.S03 | **Data layer:** one JSON per approved view | committed data | `scripts/p6_build_view_data.py`; `06_visualization/data/` | Every number traceable to a source file; byte-identical on re-run | not started | — |
+| P6.S04+ | **Build approved views**, one step each (or an approved batch) | view data | views; `catalog.md` | Each view meets every §5 P6 criterion | not started | — |
+| P6.Sxx | Cross-check | all P6 outputs | `scripts/p6_crosscheck.py` | Numbers equal source; caveats on page; no level / stakeholder on any respondent; light / dark / phone width; scripts byte-identical | not started | — |
+| P6.Syy | Draft Phase 6 gate review | all P6 outputs | gate review block | Every §5 P6 criterion checked; stop for Scott's merge and tag | not started | — |
 
 ## Step plan — Phase 5
 
@@ -145,7 +159,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 ### Phase 5 — Open-ended responses
 **Drafted:** 2026-10-29 by Claude (P5.S10; redrafted P5.S12) · **Reviewed against:** `phase-5/step-11-frame-completion` @ `c7f331f` (= `main` @ `8b0070f` + P5.S10 + P5.S11)
-**Recommendation:** PASS — close Phase 5 · **Decision:** pending (Scott) · **Tag:** — (`phase-5-complete`; and `schema-v1.2.0` if Scott agrees)
+**Recommendation:** PASS — close Phase 5 · **Decision:** APPROVED by Scott (PR #50 merged 2026-10-29) · **Tag:** `phase-5-complete` and `schema-v1.2.0` on `03b7abb` (created by Scott)
 
 First draft (P5.S10): NOT YET — criterion 1 failed (28 codes without an example, 50 without an exclude rule). Closed by P5.S11 (option 1, Scott: "Ok next").
 
@@ -428,6 +442,9 @@ First draft (P5.S10): NOT YET — criterion 1 failed (28 codes without an exampl
 - 2026-10-29: P5.S11 frame completion → frame v1.2 (documentation only; no code added, removed or redefined; `codes.csv` byte-identical). Exclude rules written for 22 non-lexicon and 28 lexicon codes (INFERRED). Lexicon examples: 22 verbatim answers that carry the code (cited by answer ID); for L01, L04, L06, L07, L24, L26, which no answer carries, the instrument wording the lexicon entry cites (S1, Q2, Q5, Q7_4, Q15_1, Q22 — VERBATIM), marked in the source column as MISSING as an answer example. Builder `--require-examples` now checks example and exclude on every layer (the old frame fails it 78 times: 28 + 50). P5 C02 now verifies instrument examples against `question_map.csv` and covers answer IDs that do not start with Q (N-VALUE's S4_Other example was uncounted). Coded instance regenerated (CodeDef text; frameVersion v1.2, now read from the frame). Agreement and `consistency_report.md` stay as measured on v1.1 — exclude rules and examples changed, codes did not; whether the new exclude rules would raise agreement is unknown until a fresh blind check.
 - 2026-10-29: Frame-gap candidates raised by the coders (coded with the closest code; to weigh after S06): relevance / generic or mis-targeted material (the L02 gap — 'random offers without regard to audience'); respecting the decision-maker's time; energy and enthusiasm; patience / no pressure; vendor size and seniority matched to the customer's size ('too big', 'too small to deliver for an org our size', 'large companies like ours get the top sales individual'); going around the decision-maker; taking lock-in for granted ('assumes we are trapped'); the customer made to build the vendor's case ('expected us to complete their business case' — the Q18 finding in their own words); cultural fit.
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
+- 2026-10-29: Phase 5 closed — PR #50 merged; Scott tagged `phase-5-complete` and `schema-v1.2.0` on `03b7abb`.
+- 2026-10-29: Phase 6 opened — GOVERNANCE 1.3.0 adds §5 Phase 6 (PR #51, Scott merged). Scott chose "Phase 6 plan: visualization" over the one-page brief.
+- 2026-10-29: P6.S01 concept sheet (Scott: "Go"). `scripts/p6_build_concept_sketches.py` → `06_visualization/concepts.md`, `concepts/concepts.html`, 5 SVG sketches (V1–V4, V7; light and dark), V5 and V6 as tables; `concepts/sketch_numbers.csv` lists all 136 numbers shown with their source file. Byte-identical on re-run. Palette: reference data-viz palette, two-series pair validated in light and dark (CVD ΔE 24.7). Sketch choices to note: V2 uses T02 headline measures (45; Target has none — screeners), cells below n = 25 outlined, not filled; V7 hides 280 breakout, grouping and same-respondent links to show the content links. Sketches are not the views: no interaction, phone width not yet met (wide figures scroll).
 
 ## Open questions
 <!-- includes all INFERRED items awaiting review -->
@@ -471,6 +488,7 @@ First draft (P5.S10): NOT YET — criterion 1 failed (28 codes without an exampl
 - (P1.S03) Instrument coverage gap (Vision and Case thinly measured) — re-checked at P3.S06 on Scott's grouping: Vision is the second-heaviest gate (5,394 distinct results); Case is thin (3 questions). Vision part withdrawn.
 
 - (P1.S04 → P1.S07 anomalies) Q6 bucket label and Q6 outlier — handled in P1.S07 (A04, A05).
+- (P6.S00) `.github/workflows/python-package.yml` (Scott, `7e316b4`) fails on every push to main (runs for `84a7f06`, `3e70ccc`, `03b7abb`): it runs `pytest` and the repo has no tests. Option: adapt it to run the phase cross-checks — on a `fix/` branch, on Scott's word.
 
 ## Governance incidents
 <!-- append-only -->
