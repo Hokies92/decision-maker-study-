@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 5 — Open-ended responses   **Gate:** open
-**Step:** P5.S03 — Inductive coding pass (batch S01–S03)
-**Status:** batch done — next P5.S04, Scott reviews coding frame v1
-**Branch:** phase-5/steps-01-03-frame-corpus-sample
+**Step:** P5.S04 — Scott reviews coding frame v1
+**Status:** done — approved; frame v1.1 (with lexicon L27, L28); awaiting merge
+**Branch:** phase-5/step-04-frame-review (on fix/p1-lexicon-l27-l28)
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 5
@@ -36,10 +36,10 @@ Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer
 | ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
 |----|-----------|--------|---------|-----------|--------|--------|
 | P5.S00 | Propose the Phase 5 step plan | Phase 4 outputs; `GOVERNANCE.md` §5 P5 | `STATE.md` | Plan merged by Scott; D5-1…D5-4 answered | done | `1c8296e` (PR #42) |
-| P5.S01 | **Method inventory and deductive frame:** `methods.md` (M1–M17: what each is, citation, how applied, limits); deductive code layers from the gates, SERVQUAL, CIT, means-end, attribution, contact role, lexicon concepts | `design_intent.md`; `asymmetry_lexicon.csv`; question wording | `05_open_ended/methods.md`; `coding_frame.md` (v0, deductive layers) | Every method cited and mapped to the questions it applies to; every deductive code has definition, include/exclude rules | done — 17 methods; frame v0, 70 codes | batch branch |
-| P5.S02 | **Corpus and text views (scripted, no judgment):** one corpus file; non-answers flagged; vendor and person-name extraction and contact role (M12) — names kept, not masked (D5-4); a search index by vendor, person and feedback text; sentiment (M13); frequency, keyness, collocations, word networks (M14); topics (M15) | `respondents_open_ended.xml` | `05_open_ended/corpus.csv`; `05_open_ended/index/` (vendor index, people index, searchable answers); `scripts/p5_*.py`; `05_open_ended/views/…` | Corpus = 1,697 answers, text byte-identical to the schema; every named vendor and person indexed to its answers; every view reproducible | done — corpus, index, views | batch branch |
-| P5.S03 | **Inductive coding pass (M1–M3):** open coding of a stratified sample; themes; coding frame v1 with ≥1 verbatim example per code | corpus; frame v0 | `coding_frame.md` v1; `codes_sample.csv` | Every code: definition, include/exclude, ≥1 example; inductive codes marked as such | done — frame v1, 88 codes; 220 coded | batch branch |
-| P5.S04 | **Scott reviews coding frame v1** | `coding_frame.md` v1 | decisions log; frame v1.x | Every code kept, merged, renamed, or dropped by Scott | not started | — |
+| P5.S01 | **Method inventory and deductive frame:** `methods.md` (M1–M17: what each is, citation, how applied, limits); deductive code layers from the gates, SERVQUAL, CIT, means-end, attribution, contact role, lexicon concepts | `design_intent.md`; `asymmetry_lexicon.csv`; question wording | `05_open_ended/methods.md`; `coding_frame.md` (v0, deductive layers) | Every method cited and mapped to the questions it applies to; every deductive code has definition, include/exclude rules | done — 17 methods; frame v0, 70 codes | PR #43 (`b2e3aec`) |
+| P5.S02 | **Corpus and text views (scripted, no judgment):** one corpus file; non-answers flagged; vendor and person-name extraction and contact role (M12) — names kept, not masked (D5-4); a search index by vendor, person and feedback text; sentiment (M13); frequency, keyness, collocations, word networks (M14); topics (M15) | `respondents_open_ended.xml` | `05_open_ended/corpus.csv`; `05_open_ended/index/` (vendor index, people index, searchable answers); `scripts/p5_*.py`; `05_open_ended/views/…` | Corpus = 1,697 answers, text byte-identical to the schema; every named vendor and person indexed to its answers; every view reproducible | done — corpus, index, views | PR #43 (`b2e3aec`) |
+| P5.S03 | **Inductive coding pass (M1–M3):** open coding of a stratified sample; themes; coding frame v1 with ≥1 verbatim example per code | corpus; frame v0 | `coding_frame.md` v1; `codes_sample.csv` | Every code: definition, include/exclude, ≥1 example; inductive codes marked as such | done — frame v1, 88 codes; 220 coded | PR #43 (`b2e3aec`) |
+| P5.S04 | **Scott reviews coding frame v1** | `coding_frame.md` v1 | decisions log; frame v1.x | Every code kept, merged, renamed, or dropped by Scott | done — v1 approved; v1.1 = v1 + L27, L28 | this branch |
 | P5.S05 | **Full coding:** every answer coded on every layer that applies (M4–M8, M10–M11); codes stored separately from verbatims, keyed respid → item → thread | corpus; approved frame | `05_open_ended/codes.csv` | Every answer coded or marked not codable; no code without a definition in the frame; no verbatim altered | not started | — |
 | P5.S06 | **Consistency check (M17):** independent blind re-code of a stratified random sample by a separate agent; kappa / alpha per layer; disagreements reviewed and frame clarified | codes; frame | `05_open_ended/consistency_report.md`; `recode_sample.csv` | Agreement reported per layer with the sample design; any layer below the threshold (D5-2) revised and re-checked | not started | — |
 | P5.S07 | **Views and associations:** CIT effective vs ineffective; satisfiers / dissatisfiers (Kano-style); SERVQUAL profile; means-end ladders; attribution; contact role best vs worst; vendors named best vs worst; gate distribution of Q22–Q25; framework matrix; code co-occurrence network; respondent typology; topics vs themes; lexicon pass 2; links to the structured gaps (T04) at concept level | codes; corpus; Phase 4 outputs | `05_open_ended/views/…`; `findings.md` | Each view states its method, unit (answer or respondent), and limits; every number reproducible by script | not started | — |
@@ -47,7 +47,7 @@ Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer
 | P5.S09 | Cross-check | All P5 outputs | `scripts/p5_crosscheck.py`; `crosscheck_report.md` | Verbatims unchanged vs source; every code has a frame entry; every coded row links respid → thread; no level/stakeholder on any respondent; scripts byte-identical; checksums OK | not started | — |
 | P5.S10 | Draft Phase 5 gate review | All P5 outputs | Gate review block | Every §5 P5 criterion checked; stop for Scott's merge and tag | not started | — |
 
-Batch **S01–S03** approved by Scott by name ("Run s01-s03 as one batch.") — starts when this plan is merged. Then S04 (Scott), then **S05–S09** (needs approval by name).
+Batch **S01–S03** approved by Scott by name ("Run s01-s03 as one batch.") — starts when this plan is merged. S04 done. **S05–S09** needs approval by name.
 
 ## Step plan — Phase 4 (closed — tag `phase-4-complete` on `046b6ea`)
 
@@ -393,6 +393,9 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P5.S01 methods and frame v0: 17 methods cited in `methods.md`; deductive frame of 70 codes on 8 layers — not codable 4, gate 7 (five gates + 'after the business case' + 'no single gate'), behaviour 15 (CIT seeds), SERVQUAL 6, means-end 3, attribution 5, valence 4, lexicon 26 (generated from the lexicon). Contact role is extracted by script (M12), not hand-coded.
 - 2026-10-29: P5.S02 corpus and text views. 1,697 answers (200 non-answers by the P2 pattern; 136 further refusals or noise flagged by a new, separate scripted pattern — first draft over-matched vendor acronyms and amounts, narrowed before commit). Names (Scott, D5-4): 310 vendors and 2 people in authored gazetteers (INFERRED), 916 vendor mentions; search files by vendor, person and text. Contact role (Q24/Q25, by pattern): account manager 90 best / 40 worst; sales rep 15 / 47; executive 36 / 25; product specialist 35 / 25. Keyness, worst side: 'sales' (G2 36.9), 'sale', 'poor', 'expensive', 'pushy', 'slow'; best side: 'responsive', 'understands', 'expertise', 'knows'. VADER mean compound: Q21 +0.20, Q22 +0.13, Q23 −0.05, Q24 +0.08, Q25 −0.03.
 - 2026-10-29: P5.S03 inductive pass: 220-answer stratified sample coded (114 not codable — names only, role only, non-answers); coding frame v1 = 88 codes on 8 layers, 18 from the text. New behaviour dimensions: insight; brings the vendor's organisation; empowered to decide; respect; stability; proven track record; fits our environment; easy to deal with; personal attention; committed to us; competent people; support after the sale; partnership; helps me sell it internally (the decision-maker's own words for lexicon gap L17: "KAM: understands how my company works and helps sell internally"); quantifies the value. Behaviour codes now carry polarity (+ / −), so effective and ineffective behaviour come from the same code.
+- 2026-10-29: Batch S01–S03 merged (PR #43, `b2e3aec`).
+- 2026-10-29: P5.S04 — Scott: "Approve." Coding frame v1 approved as proposed: all 15 new behaviour codes kept; the four close pairs kept separate (merge first if agreement is low); polarity kept; gate rules for Q22–Q25 kept.
+- 2026-10-29: Scott (RECALL_DESIGNER), on the proposal to add the vendor-side internal sell and being condescended to: "Add this. I like it." Added as lexicon L27 'Selling inside the vendor on the customer's behalf' (the mirror of L17) and L28 'Being condescended to', on `fix/p1-lexicon-l27-l28` (`f77316d`, Phase 1 file — rule B2); coding frame v1.1 = v1 + the two lexicon codes (90 codes). Lexicon gaps for Scott to name: 8 (was 6).
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
@@ -408,7 +411,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - Q-P4a (not blocking): review the 9 T04 pairs in `04_analytics_library/pairs.csv` (INFERRED) — keep, change, or drop each.
 - Open inferences: none from Phase 1 (85 of 85 decided — `review_summary.md`).
 - (resolved P4.S01 — see decisions log) Q-P2a: confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
-- Q-S10a (not blocking): name the 6 lexicon gaps (`asymmetry_lexicon.md`, column `gap_name_by_scott`) — L02 being mis-targeted; L05 the cost of being pursued; L10 the meeting that was not worth it; L16 material that never reaches the decision; L17 the decision-maker selling internally on the vendor's behalf; L18 more people joining the decision than the vendor targeted.
+- Q-S10a (not blocking): name the 8 lexicon gaps (L27, L28 added 2026-10-29) (`asymmetry_lexicon.md`, column `gap_name_by_scott`) — L02 being mis-targeted; L05 the cost of being pursued; L10 the meeting that was not worth it; L16 material that never reaches the decision; L17 the decision-maker selling internally on the vendor's behalf; L18 more people joining the decision than the vendor targeted.
 - (resolved — see decisions log) Q-S03a: Scott grouped Q1–Q25 (2026-10-28).
 - (resolved — see decisions log) Q-S04a, Q-S04b.
 - (resolved — see decisions log) Q-S03b, Q-S03c, Q-S03d; Q-S02d #5.
