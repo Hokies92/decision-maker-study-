@@ -29,7 +29,6 @@ MAP = Path("03_schema/schema_mapping_coding.csv")
 NS = "https://growthenablement.com/ns/dms/v1"
 D = "{%s}" % NS
 VERSION = "1.2.0"
-FRAME_VERSION = "v1.1"
 
 
 def main() -> int:
@@ -58,7 +57,7 @@ def main() -> int:
     if unknown:
         print("ERROR: codes not in the frame:", unknown, file=sys.stderr)
         return 2
-    cod = etree.SubElement(root, D + "Coding", frameVersion=FRAME_VERSION)
+    cod = etree.SubElement(root, D + "Coding", frameVersion=max(r["version"] for r in frame))
     for r in frame:
         cd = etree.SubElement(cod, D + "CodeDef", id=r["code"], layer=r["layer"], label=r["label"],
                               origin=r["origin"] or "deductive", provenance="INFERRED")
