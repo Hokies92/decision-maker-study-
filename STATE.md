@@ -1,13 +1,55 @@
 # Project State
 
 ## Current
-**Phase:** 4 — Analytics library   **Gate:** open
-**Step:** P4.S08 — Draft Phase 4 gate review
-**Status:** drafted — awaiting Scott's merge and tag `phase-4-complete`
-**Branch:** phase-4/step-08-gate-review
+**Phase:** 5 — Open-ended responses   **Gate:** open
+**Step:** P5.S00 — Propose the Phase 5 step plan
+**Status:** proposed — awaiting Scott's approval and answers to D5-1…D5-4
+**Branch:** phase-5/step-00-plan
 **Updated:** 2026-10-29 by Claude session
 
-## Step plan — Phase 4
+## Step plan — Phase 5
+
+Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer in the source: Q21–Q25 (1,592 answers) and the "please specify" fields (105) — 1,697 answers from 319 respondents, keyed by respid, read from `03_schema/examples/respondents_open_ended.xml`. Scott's direction (2026-10-29): "factor in as many structured published ways to analyze open[-ended] feedback as possible so that we create lots of views and associations." Rules (GOVERNANCE §5 P5): raw verbatims untouched, codes stored separately, every code linked respondent → thread, no per-respondent level or stakeholder (none exists), consistency checked by re-coding a sample. Codes assigned by Claude are INFERRED.
+
+**Methods proposed (one coding layer or one view each; all published, cited in `methods.md`):**
+
+| # | Method (source) | What it gives here | Applies to |
+|---|---|---|---|
+| M1 | Qualitative content analysis, deductive + inductive (Mayring 2000/2014; Krippendorff 2004) | The overall coding procedure: frame first, categories refined from the text | all |
+| M2 | Reflexive thematic analysis (Braun & Clarke 2006) | Themes that emerge from the answers, beyond the deductive frame | all |
+| M3 | Grounded-theory open and axial coding (Strauss & Corbin 1990) | Codes linked as condition → action → consequence | Q22–Q25 "why" clauses |
+| M4 | Critical Incident Technique (Flanagan 1954) | Effective vs ineffective salesperson behaviours, from best/worst accounts | Q22 vs Q23, Q24 vs Q25 |
+| M5 | Satisfiers / dissatisfiers, Kano-style classification (Kano et al. 1984; Johnston 1995) | Each attribute as must-be (only in worst when absent), delighter (only in best), or both | Q22–Q25, Q21 |
+| M6 | SERVQUAL dimensions (Parasuraman, Zeithaml & Berry 1988) | Reliability, responsiveness, assurance, empathy, tangibles profile | Q21–Q25 |
+| M7 | Means-end chain / laddering (Gutman 1982) | Attribute → consequence → value levels in each "why" | Q21–Q25 |
+| M8 | Attribution (Weiner 1985) | Who is credited or blamed: the vendor, the salesperson, the product, the decision-maker's own company | Q22–Q25 |
+| M9 | Framework method matrix (Ritchie & Spencer 1994; Gale et al. 2013) | Respondent × theme matrix across all five questions | all, by respondent |
+| M10 | Gate tagging — Scott's five gates (design_intent.md; Scott 2026-10-28) | The gate each answer describes; the cross-gate block Q22–Q25 resolved answer by answer | all |
+| M11 | Asymmetry lexicon, pass 2 (P1.S10a) | Decision-makers' own words for the 26 concepts; candidate names for the 6 gaps | all |
+| M12 | Structured extraction | Vendor companies named (Q22, Q23); primary-contact role (Q24, Q25: account manager, consultant, product specialist, executive …) | Q22–Q25 |
+| M13 | Lexicon-based sentiment (VADER — Hutto & Gilbert 2014) | Valence and intensity of each answer; checks that best/worst framing holds | all |
+| M14 | Corpus linguistics: frequency, keyness by log-likelihood (Dunning 1993), collocations, co-occurrence networks | Words that distinguish best from worst; word networks | all; Q22 vs Q23, Q24 vs Q25 |
+| M15 | Topic modelling — NMF on TF-IDF (Lee & Seung 1999) | Data-driven topics, compared with the hand-built themes as a cross-check | all |
+| M16 | Code co-occurrence network and respondent typology (semantic network analysis — Carley 1993; clustering of respondent code profiles) | Which codes travel together; types of decision-maker by what they write | by respondent |
+| M17 | Reliability: Cohen's kappa and Krippendorff's alpha (Cohen 1960; Krippendorff 2004) | Agreement between Claude's coding and an independent blind re-code | sample |
+
+| ID | Objective | Inputs | Outputs | Done-when | Status | Commit |
+|----|-----------|--------|---------|-----------|--------|--------|
+| P5.S00 | Propose the Phase 5 step plan | Phase 4 outputs; `GOVERNANCE.md` §5 P5 | `STATE.md` | Plan merged by Scott; D5-1…D5-4 answered | proposed | this branch |
+| P5.S01 | **Method inventory and deductive frame:** `methods.md` (M1–M17: what each is, citation, how applied, limits); deductive code layers from the gates, SERVQUAL, CIT, means-end, attribution, contact role, lexicon concepts | `design_intent.md`; `asymmetry_lexicon.csv`; question wording | `05_open_ended/methods.md`; `coding_frame.md` (v0, deductive layers) | Every method cited and mapped to the questions it applies to; every deductive code has definition, include/exclude rules | not started | — |
+| P5.S02 | **Corpus and text views (scripted, no judgment):** one corpus file; non-answers flagged; vendor-name and contact-role extraction (M12); sentiment (M13); frequency, keyness, collocations, word networks (M14); topics (M15) | `respondents_open_ended.xml` | `05_open_ended/corpus.csv`; `scripts/p5_*.py`; `05_open_ended/views/…` | Corpus = 1,697 answers, text byte-identical to the schema; every view reproducible | not started | — |
+| P5.S03 | **Inductive coding pass (M1–M3):** open coding of a stratified sample; themes; coding frame v1 with ≥1 verbatim example per code | corpus; frame v0 | `coding_frame.md` v1; `codes_sample.csv` | Every code: definition, include/exclude, ≥1 example; inductive codes marked as such | not started | — |
+| P5.S04 | **Scott reviews coding frame v1** | `coding_frame.md` v1 | decisions log; frame v1.x | Every code kept, merged, renamed, or dropped by Scott | not started | — |
+| P5.S05 | **Full coding:** every answer coded on every layer that applies (M4–M8, M10–M11); codes stored separately from verbatims, keyed respid → item → thread | corpus; approved frame | `05_open_ended/codes.csv` | Every answer coded or marked not codable; no code without a definition in the frame; no verbatim altered | not started | — |
+| P5.S06 | **Consistency check (M17):** independent blind re-code of a stratified random sample by a separate agent; kappa / alpha per layer; disagreements reviewed and frame clarified | codes; frame | `05_open_ended/consistency_report.md`; `recode_sample.csv` | Agreement reported per layer with the sample design; any layer below the threshold (D5-2) revised and re-checked | not started | — |
+| P5.S07 | **Views and associations:** CIT effective vs ineffective; satisfiers / dissatisfiers (Kano-style); SERVQUAL profile; means-end ladders; attribution; contact role best vs worst; vendors named best vs worst; gate distribution of Q22–Q25; framework matrix; code co-occurrence network; respondent typology; topics vs themes; lexicon pass 2; links to the structured gaps (T04) at concept level | codes; corpus; Phase 4 outputs | `05_open_ended/views/…`; `findings.md` | Each view states its method, unit (answer or respondent), and limits; every number reproducible by script | not started | — |
+| P5.S08 | **Schema 1.2.0:** codes as a separate, optional layer referencing each text answer; regenerated instances; mapping | codes; XSD | XSD 1.2.0; examples; `CHANGELOG.md` | Additive minor version; all 1.1.0 instances still validate; codes reference answers by key | not started | — |
+| P5.S09 | Cross-check | All P5 outputs | `scripts/p5_crosscheck.py`; `crosscheck_report.md` | Verbatims unchanged vs source; every code has a frame entry; every coded row links respid → thread; no level/stakeholder on any respondent; scripts byte-identical; checksums OK | not started | — |
+| P5.S10 | Draft Phase 5 gate review | All P5 outputs | Gate review block | Every §5 P5 criterion checked; stop for Scott's merge and tag | not started | — |
+
+Candidate batches (each needs Scott's approval by name): **S01–S03** (no input needed), then S04 (Scott), then **S05–S09**.
+
+## Step plan — Phase 4 (closed — tag `phase-4-complete` on `046b6ea`)
 
 Outputs go to `04_analytics_library/`. A technique is one file that states the question it answers, the schema fields it reads (XPaths), its assumptions, its minimum n, and its output form (GOVERNANCE §5 P4). Every technique works on group-level percentages, or states the respondent-level data it would need. Techniques that link threads statistically carry the ecological caveat: they describe groups, not individuals. Cohorts below n = 25 are shown but never used for comparisons. Approved (D4-1): each technique also has a reference script that runs on `03_schema/examples/full_study.xml` and commits its output, so every specification is proven on real data.
 
@@ -21,7 +63,7 @@ Outputs go to `04_analytics_library/`. A technique is one file that states the q
 | P4.S05 | **Network techniques:** T06 thread network (degree, centrality, communities on the structural links); T07 statistical thread links (correlation of answer profiles across cohorts — new link type, ecological) | `full_study.xml` Graph and Results | T06, T07 files; scripts; outputs (incl. GraphML) | Ecological caveat stated in T07 and in its output; only cohorts with n ≥ 25 enter correlations | done — T06–T07 | PR #40 (`67ee188`) |
 | P4.S06 | **Topology techniques:** T08 cohort similarity and clusters; T09 map of cohorts × items (correspondence analysis or equivalent) | `full_study.xml` | T08, T09 files; scripts; outputs | Method and its limits stated; reproducible with fixed seeds | done — T08–T09 | PR #40 (`67ee188`) |
 | P4.S07 | Cross-check | All P4 outputs | `scripts/p4_crosscheck.py`; `04_analytics_library/crosscheck_report.md` | Every referenced XPath exists in the XSD; every technique has all fields; n = 25 never breached in a comparison; scripts byte-identical; source checksums OK | done — 9/9 pass | PR #40 (`67ee188`) |
-| P4.S08 | Draft Phase 4 gate review | All P4 outputs | Gate review block | Every §5 P4 criterion checked with evidence; stop for Scott's merge and tag | done — recommendation PASS | this branch |
+| P4.S08 | Draft Phase 4 gate review | All P4 outputs | Gate review block | Every §5 P4 criterion checked with evidence; stop for Scott's merge and tag | done — recommendation PASS | `e295be0` (PR #41) |
 
 Batch **S03–S07** approved by Scott by name ("Run S03–S07 as one batch") — branch `phase-4/steps-03-07-techniques`. S02 ran alone (PR #39).
 
@@ -101,7 +143,7 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 
 ### Phase 4 — Analytics library
 **Drafted:** 2026-10-29 by Claude (P4.S08) · **Reviewed against:** `main` @ `67ee188`
-**Recommendation:** PASS — close Phase 4 · **Decision:** pending Scott · **Tag:** `phase-4-complete` (Scott creates)
+**Recommendation:** PASS — close Phase 4 · **Decision:** APPROVED by Scott (PR #41 merged 2026-10-29) · **Tag:** `phase-4-complete` on `046b6ea` (created by Scott)
 
 | # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
 |---|---|---|---|
@@ -339,6 +381,9 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - 2026-10-29: P4.S07 cross-check: 9 of 9 pass — 9 technique files complete, 45 XPaths all in the XSD; 37 declared outputs, none undeclared; n = 25 never breached (584 headline values excluded as below minimum); ecological caveat wherever cohorts are compared statistically; T02 equals a direct recomputation from the instance (3,626 values); every script byte-identical; every third-party import listed (new check after the dependency incident).
 - 2026-10-29: Batch S03–S07 merged (PR #40, `67ee188`).
 - 2026-10-29: P4.S08 Phase 4 gate review drafted — all five §5 P4 criteria PASS. Recommendation: close Phase 4.
+- 2026-10-29: Phase 4 closed. Gate review merged (PR #41, `046b6ea`); Scott created tags `phase-4-complete` and `schema-v1.1.0`, both on `046b6ea`.
+- 2026-10-29: Direction for Phase 5 (Scott, RECALL_DESIGNER): "Let's factor in as many structured published ways to analyze opened feedback as possible so that we create lots of views and associations."
+- 2026-10-29: Phase 5 plan proposed (P5.S00): 17 published methods (M1–M17) across 10 steps; questions D5-1 (who codes and how agreement is checked), D5-2 (agreement threshold), D5-3 (unit and multiplicity of codes), D5-4 (named vendors and people in public outputs).
 - 2026-10-27: Step ID `P0.S00` was used for the governance commit, so the Phase 0 plan lives in `P0.S01` on `phase-0/step-01-plan` rather than a `step-00-plan` branch (GOVERNANCE §4.2).
 
 ## Open questions
@@ -350,6 +395,10 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 - (superseded) D3-3 (P3.S00): Add one clearly marked synthetic test record (not data, not in `examples/`) to prove the individual layer validates?
 - (resolved — see decisions log) D4-1, D4-2, D4-3.
 - (resolved P4.S01 — see decisions log) Q-P3a: attribute the SRC-003 Q21 row-6 answer (blank respid) to respondent 112, by row alignment across the five sheets (INFERRED)? Would change one link weight (Q21∩Q23 318 → 319) via a `fix/` branch.
+- D5-1 (P5.S00): Coding by Claude (INFERRED), checked by an independent blind re-code from a separate agent, plus Scott reviewing a small sample?
+- D5-2 (P5.S00): Agreement threshold per coding layer — Krippendorff's alpha ≥ 0.67 to use a layer, ≥ 0.80 to treat it as reliable (Krippendorff 2004)?
+- D5-3 (P5.S00): Unit of coding — each answer may carry several codes per layer, with one marked primary?
+- D5-4 (P5.S00): Named vendor companies (Q22, Q23) and any personal names — count vendor mentions in public outputs, mask personal names?
 - Q-P4a (not blocking): review the 9 T04 pairs in `04_analytics_library/pairs.csv` (INFERRED) — keep, change, or drop each.
 - Open inferences: none from Phase 1 (85 of 85 decided — `review_summary.md`).
 - (resolved P4.S01 — see decisions log) Q-P2a: confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
