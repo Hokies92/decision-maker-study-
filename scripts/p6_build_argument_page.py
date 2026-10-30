@@ -250,7 +250,7 @@ const Q = (id, s) => `${N(id)} <q>${esc(strip(s))}</q>`;
 
 // ---------------- Finding 1: the meeting
 $('#f-meeting').innerHTML = `<h3>The typical meeting is a product pitch. Customers value a meeting about their problem.</h3>` +
-  frame({scope: '<b>Agree</b> — the meeting where the customer decides whether the idea is worth exploring.',
+  frame({scope: '<b>Agree</b> and <b>Vision</b> — the meeting where the customer decides whether the idea is worth exploring. In the study\'s grouping, what makes a meeting valuable (Q11) is an Agree question; the typical agenda (Q14) is a Vision question.',
     items: `${Q('Q14', q14.stem)} One answer each. And ${Q('Q11', q11.stem)} As many answers as apply.`,
     vantage: 'The customer, describing the sales meetings they typically sit through, and what makes one worth their time.',
     scale: `Left: share of all ${n} who chose each description; adds to 100%. Right: share who ticked each item; adds to more than 100%.`,
@@ -300,7 +300,7 @@ $('#f-case').innerHTML = `<h3>Customers build the business case alone.</h3>` +
 const reasons = q15.items.map(x => ({label: x.label, value: x.options[0].share})).sort((a, b) => b.value - a.value);
 const worstB = F.behaviours.slice().sort((a, b) => b.criticised_worst - a.criticised_worst).slice(0, 6);
 $('#f-cost').innerHTML = `<h3>Interested customers walk away — to a competitor, or to no decision.</h3>` +
-  frame({scope: 'The end of the decision: a customer who was interested and then said no.',
+  frame({scope: 'A customer who was interested and then pulled back. In the study\'s grouping the reasons (Q15) sit under <b>Vision</b>, where the customer stops seeing a path to value.',
     items: `${Q('Q15', q15.stem)} As many reasons as apply. And, in their own words: which three companies have the <b>least</b> effective sales teams, and why (${N('Q23')}), and who the main contact is in their <b>worst</b> relationships, and why (${N('Q25')}).`,
     vantage: 'The customer, remembering a time they were interested in a vendor and then did not buy.',
     scale: `Left: share of all ${n} who ticked each reason; adds to more than 100%. Right: number of written answers saying the team fails at each behaviour, out of ${F.codable_answers} written answers that say something specific.`,
