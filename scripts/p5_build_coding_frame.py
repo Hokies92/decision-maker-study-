@@ -64,6 +64,17 @@ def main() -> int:
     for k, name in LAYERS.items():
         lr = [r for r in rs if r["layer"] == k]
         L.append(f"| {name} | {len(lr)} | {sum(r['origin'] == 'deductive' for r in lr)} | {sum(r['origin'] == 'inductive' for r in lr)} |")
+    L += ["", "## Coding rules", "",
+          "1. Check not-codable first. A not-codable answer gets one N- code and nothing else.",
+          "2. Every codable answer gets at least one gate and one valence; the other layers where they apply.",
+          "3. Several codes per layer are allowed; the first is primary — the most central idea of the answer.",
+          "4. Behaviour codes are dimensions with a polarity: + when the decision-maker experienced it well (or names it as what they want), − when badly (e.g. 'pushy' = B-CUSTOMER-FIRST −; 'doesn't listen' = B-LISTENS −).",
+          "5. Gate by stage: outreach and contact → ACCESS; right message to the right person → TARGET; the meeting and the salesperson's conduct in it → AGREE; the solution, fit and path to value → VISION; price, ROI, risk, justification → CASE; delivery, support and the account after the decision → RELATIONSHIP; general traits with no stage → NONE.",
+          "6. Q21 (what differentiates a vendor) gives criteria: valence V-NEUTRAL unless the answer itself praises or criticises vendors; always lexicon L03, plus any specific concept.",
+          "7. Q22 and Q24 describe the best; Q23 and Q25 the worst. Code what the answer says — valence is usually + for best and − for worst, but not always.",
+          "8. Q24 and Q25 (primary contact): gate RELATIONSHIP and lexicon L25, unless the reason is about a selling stage. A role with no reason is N-ROLE-ONLY; vendor names with no reason are N-NAMES-ONLY.",
+          "9. 'Please specify' answers are coded in the context of their parent question (Q8 preparation, Q12 material, Q13 meeting, Q15 pulling back, Q19 shaping a plan, Q7 taking a meeting, Q1 strategic qualities, Q18 case materials). Amounts and role descriptions are N-VALUE.",
+          "10. Attribution: whom the answer credits or blames. Means-end: every level the answer reaches (attribute, consequence, value)."]
     for k, name in LAYERS.items():
         L += ["", f"## {name}", "", "| Code | Label | Definition | Include | Exclude | Example | Origin |", "|---|---|---|---|---|---|---|"]
         for r in [r for r in rs if r["layer"] == k]:
