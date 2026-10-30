@@ -1,0 +1,315 @@
+vendor,pattern,case_sensitive,note,provenance
+IBM,\bibm\b,no,,INFERRED
+HP,\bhp\b|hewlett,no,,INFERRED
+Oracle,\boracle\b,no,,INFERRED
+Microsoft,\bmicrosoft\b|\bwindows\b,no,'windows' read as Microsoft,INFERRED
+Microsoft,\bMS\b,yes,'MS' read as Microsoft,INFERRED
+SAP,\bsap\b,no,,INFERRED
+Cisco,\bcisco\b|\bsisco\b,no,'Sisco' read as Cisco,INFERRED
+Accenture,\baccenture\b,no,,INFERRED
+Dell,\bdell\b,no,,INFERRED
+AT&T,\bat\s?&\s?t\b|\batt\b,no,,INFERRED
+Xerox,\bxerox\b|\bzerox\b|\branxerox\b,no,"'zerox', 'ranxerox' read as Xerox",INFERRED
+PwC,\bpwc\b,no,,INFERRED
+Apple,\bapple\b,no,,INFERRED
+Siemens,\bsiemens\b,no,,INFERRED
+Verizon,\bverizon\b|\bvzw\b,no,VZW read as Verizon,INFERRED
+Canon,\bcanon\b,no,,INFERRED
+EMC,\bemc\b|\bemc²,no,,INFERRED
+Symantec,\bsymantec\b,no,,INFERRED
+Vodafone,\bvodafone\b,no,,INFERRED
+Avaya,\bavaya\b,no,,INFERRED
+CA Technologies,\bCA\b,yes,'CA' read as CA Technologies,INFERRED
+EY,\be\s?&\s?y\b|ernst,no,"E&Y, Ernst and Young",INFERRED
+Infosys,\binfosys\b,no,,INFERRED
+KPMG,\bkpmg\b,no,,INFERRED
+Lenovo,\blenovo\b|\blenova\b,no,,INFERRED
+McKinsey,\bmckinsey\b,no,,INFERRED
+Deutsche Telekom,\btelekom\b|\bt-com\b,no,,INFERRED
+AIG,\baig\b,no,,INFERRED
+Atos,\batos\b,no,,INFERRED
+BT,\bBT\b|\bbt\s+-,yes,,INFERRED
+Bull,\bbull\b,no,,INFERRED
+Business Objects,\bbusiness objects\b,no,,INFERRED
+CSC,\bcsc\b,no,,INFERRED
+Comtrex,\bcomtrex\b,no,,INFERRED
+Deloitte,\bdeloitte\b|\bdeloite\b|\bdeliotte\b,no,,INFERRED
+DHL,\bdhl\b,no,,INFERRED
+Fitch,\bfitch\b,no,,INFERRED
+Grainger,\bgrainger\b,no,,INFERRED
+HCL,\bhcl\b,no,,INFERRED
+Ingram Micro,\bingram\b,no,,INFERRED
+Micros,\bmicros\b,no,,INFERRED
+Opel,\bopel\b,no,,INFERRED
+SAS,\bSAS\b|\bsas\b,no,,INFERRED
+SFR,\bsfr\b,no,,INFERRED
+Salesforce,\bsales\s?force\b|\bsaleforce\b|\bsalesfoe\b,no,,INFERRED
+Sprint,\bsprint\b,no,,INFERRED
+Veolia,\bveolia\b,no,,INFERRED
+VMware,\bvmware\b,no,,INFERRED
+Wipro,\bwipro\b|\bwiprow\b,no,,INFERRED
+Huawei,\bhuawei\b,no,,INFERRED
+Ericsson,\bericsson\b|\bericcson\b,no,,INFERRED
+Intel,\bintel\b,no,,INFERRED
+Google,\bgoogle\b,no,,INFERRED
+Samsung,\bsamsung\b,no,,INFERRED
+Sony,\bsony\b,no,,INFERRED
+Philips,\bphillips\b|\bphilips\b,no,,INFERRED
+Nokia,\bnokia\b,no,,INFERRED
+Motorola,\bmotorola\b,no,,INFERRED
+Acer,\bacer\b,no,,INFERRED
+Tata,\btata\b,no,,INFERRED
+Genpact,\bgenpact\b,no,,INFERRED
+Mercer,\bmercer\b,no,,INFERRED
+BCG,\bbcg\b,no,,INFERRED
+Roland Berger,\broland berger\b,no,,INFERRED
+Oliver Wyman,\boliver wyman\b,no,,INFERRED
+Gartner,\bgartner\b,no,,INFERRED
+Capgemini,\bcap\s?gemini\b,no,,INFERRED
+Capgemini,\bCAP\b,yes,'CAP' read as Capgemini,INFERRED
+Steria,\bsteria\b,no,,INFERRED
+Sogeti,\bsogeti\b,no,,INFERRED
+GFI,\bgfi\b,no,,INFERRED
+CGI,\bcgi\b,no,,INFERRED
+Neurones,\bneurones\b,no,,INFERRED
+Orange Business Services,\bOBS\b,yes,,INFERRED
+Orange,\borange(?=:),no,,INFERRED
+Free,\bFree(?=:),yes,French ISP,INFERRED
+CRTC,\bcrtc\b,no,,INFERRED
+APX,\bapx\b,no,,INFERRED
+NEC,\bNEC\b,yes,,INFERRED
+Thales,\bthales\b,no,,INFERRED
+Alcatel-Lucent,\balcatel\b,no,,INFERRED
+Airelec,\bairelec\b,no,,INFERRED
+Sligos,\bsligos\b,no,,INFERRED
+Gateway,\bgateway\b,no,,INFERRED
+Time Warner Cable,\bTWC\b,yes,,INFERRED
+Windstream,\bwindstream\b,no,,INFERRED
+ICON,\bICON\b,yes,,INFERRED
+CDC,\bCDC\b,yes,,INFERRED
+Staples,\bstaples\b,no,,INFERRED
+OfficeMax,\boffice\s?max\b,no,,INFERRED
+Kronos,\bkronos\b,no,,INFERRED
+Tangoe,\btangoe\b,no,,INFERRED
+Taleo,\btaleo\b,no,,INFERRED
+Costco,\bcostco\b,no,,INFERRED
+Synnex,\bsynnex\b,no,,INFERRED
+Sysco,\bsysco\b,no,,INFERRED
+Lexmark,\blexmark\b,no,,INFERRED
+Camera Corner Connecting Point,\bcamera corner\b,no,,INFERRED
+Computacenter,\bcomputacenter\b,no,,INFERRED
+CrunchTime,\bcrunchtime\b,no,,INFERRED
+Jonas,\bJonas\b,yes,software vendor,INFERRED
+Blackboard,\bblackboard\b,no,,INFERRED
+Brainshark,\bbrainshark\b,no,,INFERRED
+Cornerstone,\bcornerstone\b,no,,INFERRED
+Kofax,\bkofax\b,no,,INFERRED
+J&B Software,\bj\s?&\s?b software\b,no,,INFERRED
+Relativity,\brelativity\b,no,,INFERRED
+kCura,\bkcura\b,no,,INFERRED
+Accuvant,\baccuvant\b,no,,INFERRED
+CDW,\bcdw\b,no,,INFERRED
+Whaley,\bwhaley\b,no,,INFERRED
+Volt Marketing,\bvolt marketing\b,no,,INFERRED
+Schlabaugh & Sons,\bschlabaugh\b,no,,INFERRED
+Strategic Sourcing,\bStrategic Sourcing\b,yes,,INFERRED
+Sound Engineering,\bsound engineering\b,no,,INFERRED
+Futuretech,\bfuturetech\b,no,,INFERRED
+SDM Metro,\bsdm metro\b,no,,INFERRED
+Bent River Machining,\bbent river\b,no,,INFERRED
+FDI,\bFDI\b,yes,,INFERRED
+Process Logic,\bprocess logic\b,no,,INFERRED
+Thomas Industrial Network,\bthomas industrial\b,no,,INFERRED
+Broniac,\bbroniac\b,no,,INFERRED
+Experian,\bexperian\b,no,,INFERRED
+US Bank,\bus bank\b,no,,INFERRED
+Jeppesen,\bjeppesen\b,no,,INFERRED
+Passur,\bpassur\b,no,,INFERRED
+Sabre,\bsabre\b,no,,INFERRED
+Marsh McLennan,\bmarsh\b,no,,INFERRED
+HyAA,\bhyaa\b,no,,INFERRED
+Hughes Network Systems,\bhughes network\b,no,,INFERRED
+Medtronic,\bmedtronic\b,no,,INFERRED
+Covidien,\bcovidien\b,no,,INFERRED
+W. L. Gore,\bGore\b,yes,,INFERRED
+Texas Instruments,\btexas instruments\b,no,'TI' read as Texas Instruments,INFERRED
+Texas Instruments,\bTI\b,yes,'TI' read as Texas Instruments,INFERRED
+LSI Logic,\blsi logic\b,no,,INFERRED
+Lear,\bLear\b,yes,,INFERRED
+Federal-Mogul,\bfederal mogul\b,no,,INFERRED
+Cummins,\bcummins\b,no,,INFERRED
+Skillsoft,\bskillsoft\b,no,,INFERRED
+Ceridian,\bceridian\b,no,,INFERRED
+Allegis Group,\ballegis\b,no,,INFERRED
+Computing Devices,\bcomputing devices\b,no,,INFERRED
+Terremark,\bterremark\b,no,,INFERRED
+JDA,\bjda\b,no,,INFERRED
+ICI,\bICI\b,yes,,INFERRED
+Genesys,\bgenesys\b,no,,INFERRED
+OneSource,\bonesource\b,no,,INFERRED
+OneStream,\bonestream\b,no,,INFERRED
+CMI,\bCMI\b,yes,,INFERRED
+Liberty Mutual,\bliberty mutual\b,no,,INFERRED
+Travelers,\btravelers\b,no,,INFERRED
+Chubb,\bchubb\b,no,,INFERRED
+Arch,\bArch\b,yes,insurer,INFERRED
+Lloyds,\blloyds\b,no,,INFERRED
+Rackspace,\brackspace\b,no,,INFERRED
+Kurt Salmon,\bkurt salmon\b,no,,INFERRED
+Manhattan Associates,\bmanhattan\b,no,,INFERRED
+Acxiom,\bacxiom\b,no,,INFERRED
+RPM,\bRPM\b,yes,,INFERRED
+Printus,\bprintus\b,no,,INFERRED
+Volkswagen,\bVW\b,yes,,INFERRED
+Douwe Egberts,\bdougeegberts\b|\bdouwe egberts\b,no,as written 'DougeEgberts',INFERRED
+Coca-Cola,\bcoca[\s-]?cola\b,no,,INFERRED
+McDonald's,\bmcdonald'?s\b,no,,INFERRED
+Nivea,\bnivea\b,no,,INFERRED
+WebMD,\bwebmd\b,no,,INFERRED
+IMS,\bIMS\b,yes,,INFERRED
+Publicis Healthcare Group,\bpublicis\b,no,,INFERRED
+Havas Health,\bhavas\b,no,,INFERRED
+ROI2,\bROI2\b,yes,,INFERRED
+nhk,\bnhk\b,no,,INFERRED
+TDK,\btdk\b,no,,INFERRED
+Websense,\bwebsense\b,no,,INFERRED
+iGate,\bigate\b,no,,INFERRED
+GDF Suez,\bgdf suez\b,no,,INFERRED
+BMW,\bbmw\b,no,,INFERRED
+TIBCO,\btibco\b,no,,INFERRED
+webMethods,\bwebmethods\b,no,,INFERRED
+RS Components,\bRS\s+-,yes,,INFERRED
+Maint Supplies,\bmaint suppl,no,as written 'Maint Suppliles',INFERRED
+Sun Microsystems,\bSun\b,yes,,INFERRED
+NetApp,\bnetapps?\b,no,,INFERRED
+Red Hat,\bred hat\b,no,,INFERRED
+Colt,\bcolt\b,no,,INFERRED
+Hyperion,\bhyperion\b,no,,INFERRED
+OU Campus,\bou campus\b,no,,INFERRED
+Ellucian,\belucian\b|\bellucian\b,no,,INFERRED
+Lee Supply,\blee supply\b,no,,INFERRED
+Cork Supply,\bcork supply\b,no,,INFERRED
+Mercury,\bmercury\b,no,,INFERRED
+PC Helps,\bpc helps\b,no,,INFERRED
+Merlot,\bmerlot\b,no,,INFERRED
+AdOpt,\bAdOpt\b,yes,,INFERRED
+NavTech,\bnavtech\b,no,,INFERRED
+National Grid,\bnational grid\b,no,,INFERRED
+Johnson Controls,\bJCI\b,yes,,INFERRED
+Honeywell,\bhoneywell\b,no,,INFERRED
+Schneider Electric,\bschneider\b,no,,INFERRED
+Vascular Solutions,\bvascular solutions\b,no,,INFERRED
+Cordis,\bcordis\b,no,,INFERRED
+Johnson & Johnson,\bJ&J\b,yes,,INFERRED
+Volcano,\bvolcano\b,no,,INFERRED
+Marvell,\bmarvell\b,no,,INFERRED
+RIM (BlackBerry),\bRIM\b,yes,,INFERRED
+GE,\bGE\b,yes,,INFERRED
+Tooling Mold West,\btooling mold west\b,no,,INFERRED
+Elf Aquitaine,\belf aquitaine\b,no,,INFERRED
+BP,\bBP\b,yes,,INFERRED
+SolarWorld,\bsolarworld\b,no,,INFERRED
+Kostal,\bkostal\b,no,,INFERRED
+Bosch,\bbosch\b,no,,INFERRED
+Hassia,\bhassia\b,no,,INFERRED
+Mercedes-Benz,\bmercedes\b,no,,INFERRED
+Iveco,\biveco\b,no,,INFERRED
+Hyundai,\bhyundai\b,no,,INFERRED
+Hannspree,\bhansspree\b|\bhannspree\b,no,,INFERRED
+Vauxhall,\bvauxhall\b,no,,INFERRED
+Bluestar,\bbluestar\b,no,,INFERRED
+Wind River,\bwindriver\b|\bwind river\b,no,,INFERRED
+Intex,\bintex\b,no,,INFERRED
+Logitech,\blogitech\b,no,,INFERRED
+IEX,\bIEX\b,yes,,INFERRED
+Verint,\bverint\b,no,,INFERRED
+Agilent,\bagilent\b,no,,INFERRED
+Saba,\bsaba\b,no,,INFERRED
+Tin Can,\btin can\b,no,,INFERRED
+Annodata,\bannodata\b,no,,INFERRED
+Kelly Services,\bkelly services\b,no,,INFERRED
+SumTotal,\bsumtotal\b,no,,INFERRED
+Intrepid,\bintrepid\b,no,,INFERRED
+Rapid7,\brapid7\b,no,,INFERRED
+Cognizant,\bcognizant\b,no,,INFERRED
+FireEye,\bfireeye\b,no,,INFERRED
+Focal Point,\bfocal point\b,no,,INFERRED
+ADP,\badp\b,no,,INFERRED
+PG&E,\bpge\b|\bpg&e\b,no,'pge' read as PG&E,INFERRED
+DTC,\bDTC\b,yes,,INFERRED
+Weber,\bweber\b,no,,INFERRED
+Optris,\boptris\b,no,,INFERRED
+Castorama,\bcastorama\b,no,,INFERRED
+Carrefour,\bcarrefour\b,no,,INFERRED
+Vallée Bureau,\bvallée bureau\b,no,,INFERRED
+Mercateo,\bmercateo\b,no,,INFERRED
+Hoffmann Group,\bhoffmann\b,no,,INFERRED
+Stihl,\bstihl\b,no,,INFERRED
+Dulux Valentine,\bdulux\b,no,,INFERRED
+Black & Decker,\bblack (et|&|and) decker\b,no,,INFERRED
+Leroy Merlin,\bleroy merlin\b,no,,INFERRED
+ERDF,\berdf\b,no,,INFERRED
+Air France,\bair france\b,no,,INFERRED
+Heppner,\bheppner\b,no,,INFERRED
+CMA CGM,\bcma-?cgm\b,no,,INFERRED
+Adecco,\badecco\b,no,,INFERRED
+Bayer,\bbayer\b,no,,INFERRED
+Ricoh,\bricoh\b,no,,INFERRED
+Ikon,\bikon\b,no,,INFERRED
+Compaq,\bcompaq\b,no,,INFERRED
+3M,\b3m\b,no,,INFERRED
+DuPont,\bdupont\b,no,,INFERRED
+Air Products,\bair products\b,no,,INFERRED
+GlaxoSmithKline,\bgalaxo smithline\b|\bglaxo,no,as written 'Galaxo Smithline',INFERRED
+Warburtons,\bwarburtons\b,no,,INFERRED
+P&G,\bp\s?&\s?g\b,no,,INFERRED
+Greeting UK,\bUK Greeting\b,yes,as written 'UK Greeting',INFERRED
+WH Smith,\bwh smith\b,no,,INFERRED
+JML,\bJML\b,yes,,INFERRED
+Purley,\bpurley\b,no,,INFERRED
+Goodyear,\bgoodyear\b,no,,INFERRED
+Dunlop,\bdunlop\b,no,,INFERRED
+Bridgestone,\bbridgestone\b,no,,INFERRED
+ConXpert,\bconxpert\b,no,,INFERRED
+M&I,\bm&i\b,no,,INFERRED
+Hitachi,\bhitachi\b,no,,INFERRED
+Xilinx,\bxilinx\b,no,,INFERRED
+Kontron,\bkontron\b,no,,INFERRED
+Qlikview,\bqlikview\b,no,,INFERRED
+Tableau,\btableau\b,no,,INFERRED
+McAfee,\bmcafee\b,no,,INFERRED
+Workday,\bworkday\b,no,,INFERRED
+SuccessFactors,\bsuccess ?factors?\b,no,,INFERRED
+UMT,\bUMT\b,yes,,INFERRED
+Spectrum,\bspectrum\b,no,,INFERRED
+TIS,\bTIS\b,yes,,INFERRED
+Abreon,\babreon\b,no,,INFERRED
+Interrel,\binterrel\b,no,,INFERRED
+Yash,\byash\b,no,,INFERRED
+Briggs,\bbriggs\b,no,,INFERRED
+TSI,\bTSI\b,yes,,INFERRED
+Luxoft,\bluxoft\b,no,,INFERRED
+GFT,\bGFT\b,yes,,INFERRED
+BMC,\bBMC\b,yes,,INFERRED
+NTT,\bNTT\b,yes,,INFERRED
+NICE,\bNICE\b|\bNice\b(?=\s*$),yes,vendor NICE Systems,INFERRED
+SPI,\bSPI\b,yes,,INFERRED
+Gartner,\bgartner group\b,no,,INFERRED
+KForce,\bkforce\b,no,,INFERRED
+Advanced Converting,\badvanced converting\b,no,,INFERRED
+Fleet Repairs,\bfleet repairs\b,no,,INFERRED
+State Seal,\bstate seal\b,no,,INFERRED
+Atlantic,\bAtlantic\b,yes,"Q24 R258, with a named person",INFERRED
+Twitter,\btwitter\b,no,,INFERRED
+Percussion,\bpercussion\b,no,,INFERRED
+Access,"\bAccess\b(?=,)",yes,"Q22 R151: 'IBM, HR, Access, Oracle' — vendor unclear",INFERRED
+BridgePoint,\bbridgepoint\b,no,,INFERRED
+Continental,\bconti\b,no,'Conti' read as Continental,INFERRED
+Hager,\bhager\b,no,,INFERRED
+Toshiba,\btoshiba\b,no,,INFERRED
+NSI,\bNSI\b,yes,,INFERRED
+TEKsystems,\bteksystems\b,no,,INFERRED
+Paylogix,\bpaylogix\b,no,,INFERRED
+Wexford,\bwexford\b,no,,INFERRED
+Lapor Tax Services,\blapor tax\b,no,,INFERRED
+Dun & Bradstreet,\bdunn? & bradstreet\b|\bdunn & broadstreet\b,no,as written 'Dunn & Broadstreet',INFERRED

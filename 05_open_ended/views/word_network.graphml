@@ -1,0 +1,1021 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="answers" attr.type="long"/>
+<key id="d0" for="node" attr.name="count" attr.type="long"/>
+<graph edgedefault="undirected"><node id="account">
+  <data key="d0">129</data>
+</node>
+<node id="manager">
+  <data key="d0">126</data>
+</node>
+<node id="ibm">
+  <data key="d0">119</data>
+</node>
+<node id="product">
+  <data key="d0">117</data>
+</node>
+<node id="business">
+  <data key="d0">105</data>
+</node>
+<node id="sales">
+  <data key="d0">93</data>
+</node>
+<node id="hp">
+  <data key="d0">65</data>
+</node>
+<node id="specialist">
+  <data key="d0">51</data>
+</node>
+<node id="needs">
+  <data key="d0">48</data>
+</node>
+<node id="knowledge">
+  <data key="d0">47</data>
+</node>
+<node id="know">
+  <data key="d0">44</data>
+</node>
+<node id="cisco">
+  <data key="d0">43</data>
+</node>
+<node id="oracle">
+  <data key="d0">43</data>
+</node>
+<node id="microsoft">
+  <data key="d0">38</data>
+</node>
+<node id="executive">
+  <data key="d0">38</data>
+</node>
+<node id="good">
+  <data key="d0">37</data>
+</node>
+<node id="understanding">
+  <data key="d0">36</data>
+</node>
+<node id="customer">
+  <data key="d0">34</data>
+</node>
+<node id="ability">
+  <data key="d0">33</data>
+</node>
+<node id="service">
+  <data key="d0">33</data>
+</node>
+<node id="products">
+  <data key="d0">33</data>
+</node>
+<node id="understand">
+  <data key="d0">31</data>
+</node>
+<node id="solutions">
+  <data key="d0">31</data>
+</node>
+<node id="company">
+  <data key="d0">31</data>
+</node>
+<node id="problems">
+  <data key="d0">30</data>
+</node>
+<node id="dell">
+  <data key="d0">30</data>
+</node>
+<node id="sap">
+  <data key="d0">29</data>
+</node>
+<node id="consultant">
+  <data key="d0">29</data>
+</node>
+<node id="price">
+  <data key="d0">28</data>
+</node>
+<node id="knows">
+  <data key="d0">27</data>
+</node>
+<node id="quality">
+  <data key="d0">27</data>
+</node>
+<node id="representative">
+  <data key="d0">27</data>
+</node>
+<node id="listen">
+  <data key="d0">25</data>
+</node>
+<node id="work">
+  <data key="d0">25</data>
+</node>
+<node id="value">
+  <data key="d0">24</data>
+</node>
+<node id="issues">
+  <data key="d0">24</data>
+</node>
+<node id="industry">
+  <data key="d0">23</data>
+</node>
+<node id="accenture">
+  <data key="d0">22</data>
+</node>
+<node id="time">
+  <data key="d0">21</data>
+</node>
+<node id="technical">
+  <data key="d0">21</data>
+</node>
+<node id="services">
+  <data key="d0">20</data>
+</node>
+<node id="relationship">
+  <data key="d0">20</data>
+</node>
+<node id="best">
+  <data key="d0">20</data>
+</node>
+<node id="prepared">
+  <data key="d0">19</data>
+</node>
+<node id="point">
+  <data key="d0">19</data>
+</node>
+<node id="contact">
+  <data key="d0">17</data>
+</node>
+<node id="responsive">
+  <data key="d0">17</data>
+</node>
+<node id="sell">
+  <data key="d0">16</data>
+</node>
+<node id="say">
+  <data key="d0">16</data>
+</node>
+<node id="director">
+  <data key="d0">16</data>
+</node>
+<node id="solve">
+  <data key="d0">15</data>
+</node>
+<node id="people">
+  <data key="d0">15</data>
+</node>
+<node id="problem">
+  <data key="d0">14</data>
+</node>
+<node id="experience">
+  <data key="d0">14</data>
+</node>
+<node id="deliver">
+  <data key="d0">14</data>
+</node>
+<node id="team">
+  <data key="d0">14</data>
+</node>
+<node id="person">
+  <data key="d0">14</data>
+</node>
+<node id="companies">
+  <data key="d0">13</data>
+</node>
+<node id="understands">
+  <data key="d0">13</data>
+</node>
+<node id="partner">
+  <data key="d0">13</data>
+</node>
+<node id="like">
+  <data key="d0">13</data>
+</node>
+<node id="help">
+  <data key="d0">13</data>
+</node>
+<node id="use">
+  <data key="d0">13</data>
+</node>
+<node id="cost">
+  <data key="d0">12</data>
+</node>
+<node id="need">
+  <data key="d0">12</data>
+</node>
+<node id="approach">
+  <data key="d0">12</data>
+</node>
+<node id="support">
+  <data key="d0">12</data>
+</node>
+<node id="focused">
+  <data key="d0">12</data>
+</node>
+<node id="at&amp;t">
+  <data key="d0">12</data>
+</node>
+<node id="does">
+  <data key="d0">12</data>
+</node>
+<node id="specific">
+  <data key="d0">11</data>
+</node>
+<node id="sale">
+  <data key="d0">11</data>
+</node>
+<node id="quickly">
+  <data key="d0">11</data>
+</node>
+<node id="personal">
+  <data key="d0">11</data>
+</node>
+<node id="xerox">
+  <data key="d0">11</data>
+</node>
+<node id="emc">
+  <data key="d0">11</data>
+</node>
+<node id="make">
+  <data key="d0">10</data>
+</node>
+<node id="long">
+  <data key="d0">10</data>
+</node>
+<node id="vendors">
+  <data key="d0">10</data>
+</node>
+<node id="provider">
+  <data key="d0">10</data>
+</node>
+<edge source="account" target="best">
+  <data key="d1">3</data>
+</edge>
+<edge source="account" target="business">
+  <data key="d1">10</data>
+</edge>
+<edge source="account" target="company">
+  <data key="d1">5</data>
+</edge>
+<edge source="account" target="contact">
+  <data key="d1">10</data>
+</edge>
+<edge source="account" target="director">
+  <data key="d1">3</data>
+</edge>
+<edge source="account" target="executive">
+  <data key="d1">9</data>
+</edge>
+<edge source="account" target="ibm">
+  <data key="d1">3</data>
+</edge>
+<edge source="account" target="know">
+  <data key="d1">4</data>
+</edge>
+<edge source="account" target="knows">
+  <data key="d1">6</data>
+</edge>
+<edge source="account" target="manager">
+  <data key="d1">99</data>
+</edge>
+<edge source="account" target="needs">
+  <data key="d1">7</data>
+</edge>
+<edge source="account" target="point">
+  <data key="d1">9</data>
+</edge>
+<edge source="account" target="product">
+  <data key="d1">7</data>
+</edge>
+<edge source="account" target="products">
+  <data key="d1">3</data>
+</edge>
+<edge source="account" target="quickly">
+  <data key="d1">3</data>
+</edge>
+<edge source="account" target="relationship">
+  <data key="d1">5</data>
+</edge>
+<edge source="account" target="sales">
+  <data key="d1">3</data>
+</edge>
+<edge source="account" target="specialist">
+  <data key="d1">3</data>
+</edge>
+<edge source="account" target="technical">
+  <data key="d1">3</data>
+</edge>
+<edge source="account" target="time">
+  <data key="d1">3</data>
+</edge>
+<edge source="account" target="work">
+  <data key="d1">3</data>
+</edge>
+<edge source="manager" target="best">
+  <data key="d1">3</data>
+</edge>
+<edge source="manager" target="business">
+  <data key="d1">9</data>
+</edge>
+<edge source="manager" target="contact">
+  <data key="d1">7</data>
+</edge>
+<edge source="manager" target="executive">
+  <data key="d1">3</data>
+</edge>
+<edge source="manager" target="good">
+  <data key="d1">3</data>
+</edge>
+<edge source="manager" target="ibm">
+  <data key="d1">3</data>
+</edge>
+<edge source="manager" target="knows">
+  <data key="d1">6</data>
+</edge>
+<edge source="manager" target="needs">
+  <data key="d1">5</data>
+</edge>
+<edge source="manager" target="point">
+  <data key="d1">6</data>
+</edge>
+<edge source="manager" target="product">
+  <data key="d1">6</data>
+</edge>
+<edge source="manager" target="products">
+  <data key="d1">3</data>
+</edge>
+<edge source="manager" target="quickly">
+  <data key="d1">3</data>
+</edge>
+<edge source="manager" target="relationship">
+  <data key="d1">7</data>
+</edge>
+<edge source="manager" target="sales">
+  <data key="d1">8</data>
+</edge>
+<edge source="manager" target="specialist">
+  <data key="d1">3</data>
+</edge>
+<edge source="manager" target="time">
+  <data key="d1">3</data>
+</edge>
+<edge source="manager" target="work">
+  <data key="d1">3</data>
+</edge>
+<edge source="ibm" target="accenture">
+  <data key="d1">10</data>
+</edge>
+<edge source="ibm" target="at&amp;t">
+  <data key="d1">5</data>
+</edge>
+<edge source="ibm" target="business">
+  <data key="d1">9</data>
+</edge>
+<edge source="ibm" target="cisco">
+  <data key="d1">14</data>
+</edge>
+<edge source="ibm" target="dell">
+  <data key="d1">8</data>
+</edge>
+<edge source="ibm" target="experience">
+  <data key="d1">3</data>
+</edge>
+<edge source="ibm" target="focused">
+  <data key="d1">3</data>
+</edge>
+<edge source="ibm" target="good">
+  <data key="d1">10</data>
+</edge>
+<edge source="ibm" target="hp">
+  <data key="d1">20</data>
+</edge>
+<edge source="ibm" target="industry">
+  <data key="d1">5</data>
+</edge>
+<edge source="ibm" target="issues">
+  <data key="d1">4</data>
+</edge>
+<edge source="ibm" target="know">
+  <data key="d1">3</data>
+</edge>
+<edge source="ibm" target="knowledge">
+  <data key="d1">4</data>
+</edge>
+<edge source="ibm" target="listen">
+  <data key="d1">3</data>
+</edge>
+<edge source="ibm" target="microsoft">
+  <data key="d1">8</data>
+</edge>
+<edge source="ibm" target="needs">
+  <data key="d1">4</data>
+</edge>
+<edge source="ibm" target="oracle">
+  <data key="d1">17</data>
+</edge>
+<edge source="ibm" target="prepared">
+  <data key="d1">4</data>
+</edge>
+<edge source="ibm" target="products">
+  <data key="d1">6</data>
+</edge>
+<edge source="ibm" target="responsive">
+  <data key="d1">3</data>
+</edge>
+<edge source="ibm" target="sap">
+  <data key="d1">15</data>
+</edge>
+<edge source="ibm" target="solutions">
+  <data key="d1">7</data>
+</edge>
+<edge source="ibm" target="work">
+  <data key="d1">3</data>
+</edge>
+<edge source="ibm" target="xerox">
+  <data key="d1">5</data>
+</edge>
+<edge source="product" target="ability">
+  <data key="d1">5</data>
+</edge>
+<edge source="product" target="best">
+  <data key="d1">3</data>
+</edge>
+<edge source="product" target="business">
+  <data key="d1">12</data>
+</edge>
+<edge source="product" target="company">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="consultant">
+  <data key="d1">3</data>
+</edge>
+<edge source="product" target="director">
+  <data key="d1">3</data>
+</edge>
+<edge source="product" target="hp">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="industry">
+  <data key="d1">6</data>
+</edge>
+<edge source="product" target="know">
+  <data key="d1">6</data>
+</edge>
+<edge source="product" target="knowledge">
+  <data key="d1">8</data>
+</edge>
+<edge source="product" target="knows">
+  <data key="d1">7</data>
+</edge>
+<edge source="product" target="listen">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="needs">
+  <data key="d1">5</data>
+</edge>
+<edge source="product" target="problems">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="products">
+  <data key="d1">5</data>
+</edge>
+<edge source="product" target="quality">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="sales">
+  <data key="d1">8</data>
+</edge>
+<edge source="product" target="sell">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="service">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="services">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="specialist">
+  <data key="d1">45</data>
+</edge>
+<edge source="product" target="specific">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="technical">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="understand">
+  <data key="d1">4</data>
+</edge>
+<edge source="product" target="understanding">
+  <data key="d1">3</data>
+</edge>
+<edge source="product" target="use">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="ability">
+  <data key="d1">5</data>
+</edge>
+<edge source="business" target="accenture">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="approach">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="companies">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="company">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="cost">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="executive">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="good">
+  <data key="d1">6</data>
+</edge>
+<edge source="business" target="help">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="hp">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="industry">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="know">
+  <data key="d1">11</data>
+</edge>
+<edge source="business" target="knowledge">
+  <data key="d1">14</data>
+</edge>
+<edge source="business" target="knows">
+  <data key="d1">6</data>
+</edge>
+<edge source="business" target="microsoft">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="need">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="needs">
+  <data key="d1">14</data>
+</edge>
+<edge source="business" target="oracle">
+  <data key="d1">5</data>
+</edge>
+<edge source="business" target="prepared">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="price">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="problems">
+  <data key="d1">6</data>
+</edge>
+<edge source="business" target="products">
+  <data key="d1">7</data>
+</edge>
+<edge source="business" target="responsive">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="sales">
+  <data key="d1">8</data>
+</edge>
+<edge source="business" target="sell">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="solutions">
+  <data key="d1">7</data>
+</edge>
+<edge source="business" target="solve">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="team">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="time">
+  <data key="d1">5</data>
+</edge>
+<edge source="business" target="understand">
+  <data key="d1">12</data>
+</edge>
+<edge source="business" target="understanding">
+  <data key="d1">19</data>
+</edge>
+<edge source="business" target="understands">
+  <data key="d1">4</data>
+</edge>
+<edge source="business" target="use">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="value">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="vendors">
+  <data key="d1">3</data>
+</edge>
+<edge source="business" target="work">
+  <data key="d1">4</data>
+</edge>
+<edge source="sales" target="companies">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="deliver">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="director">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="executive">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="hp">
+  <data key="d1">7</data>
+</edge>
+<edge source="sales" target="issues">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="know">
+  <data key="d1">4</data>
+</edge>
+<edge source="sales" target="listen">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="make">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="people">
+  <data key="d1">9</data>
+</edge>
+<edge source="sales" target="person">
+  <data key="d1">4</data>
+</edge>
+<edge source="sales" target="problems">
+  <data key="d1">4</data>
+</edge>
+<edge source="sales" target="products">
+  <data key="d1">4</data>
+</edge>
+<edge source="sales" target="quality">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="representative">
+  <data key="d1">9</data>
+</edge>
+<edge source="sales" target="sale">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="services">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="solutions">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="team">
+  <data key="d1">6</data>
+</edge>
+<edge source="sales" target="technical">
+  <data key="d1">5</data>
+</edge>
+<edge source="sales" target="understand">
+  <data key="d1">7</data>
+</edge>
+<edge source="sales" target="use">
+  <data key="d1">3</data>
+</edge>
+<edge source="sales" target="work">
+  <data key="d1">4</data>
+</edge>
+<edge source="hp" target="accenture">
+  <data key="d1">4</data>
+</edge>
+<edge source="hp" target="cisco">
+  <data key="d1">4</data>
+</edge>
+<edge source="hp" target="company">
+  <data key="d1">4</data>
+</edge>
+<edge source="hp" target="dell">
+  <data key="d1">11</data>
+</edge>
+<edge source="hp" target="good">
+  <data key="d1">4</data>
+</edge>
+<edge source="hp" target="microsoft">
+  <data key="d1">9</data>
+</edge>
+<edge source="hp" target="oracle">
+  <data key="d1">6</data>
+</edge>
+<edge source="hp" target="point">
+  <data key="d1">3</data>
+</edge>
+<edge source="hp" target="products">
+  <data key="d1">4</data>
+</edge>
+<edge source="hp" target="sap">
+  <data key="d1">3</data>
+</edge>
+<edge source="hp" target="solutions">
+  <data key="d1">3</data>
+</edge>
+<edge source="hp" target="time">
+  <data key="d1">3</data>
+</edge>
+<edge source="hp" target="work">
+  <data key="d1">4</data>
+</edge>
+<edge source="specialist" target="knows">
+  <data key="d1">4</data>
+</edge>
+<edge source="needs" target="ability">
+  <data key="d1">6</data>
+</edge>
+<edge source="needs" target="know">
+  <data key="d1">5</data>
+</edge>
+<edge source="needs" target="knows">
+  <data key="d1">4</data>
+</edge>
+<edge source="needs" target="listen">
+  <data key="d1">5</data>
+</edge>
+<edge source="needs" target="products">
+  <data key="d1">5</data>
+</edge>
+<edge source="needs" target="quickly">
+  <data key="d1">3</data>
+</edge>
+<edge source="needs" target="understand">
+  <data key="d1">3</data>
+</edge>
+<edge source="needs" target="understanding">
+  <data key="d1">9</data>
+</edge>
+<edge source="needs" target="understands">
+  <data key="d1">4</data>
+</edge>
+<edge source="needs" target="xerox">
+  <data key="d1">3</data>
+</edge>
+<edge source="knowledge" target="company">
+  <data key="d1">3</data>
+</edge>
+<edge source="knowledge" target="good">
+  <data key="d1">3</data>
+</edge>
+<edge source="knowledge" target="industry">
+  <data key="d1">8</data>
+</edge>
+<edge source="knowledge" target="price">
+  <data key="d1">3</data>
+</edge>
+<edge source="knowledge" target="products">
+  <data key="d1">3</data>
+</edge>
+<edge source="know" target="accenture">
+  <data key="d1">3</data>
+</edge>
+<edge source="know" target="companies">
+  <data key="d1">3</data>
+</edge>
+<edge source="know" target="executive">
+  <data key="d1">5</data>
+</edge>
+<edge source="know" target="products">
+  <data key="d1">3</data>
+</edge>
+<edge source="know" target="say">
+  <data key="d1">4</data>
+</edge>
+<edge source="know" target="vendors">
+  <data key="d1">3</data>
+</edge>
+<edge source="cisco" target="dell">
+  <data key="d1">3</data>
+</edge>
+<edge source="cisco" target="microsoft">
+  <data key="d1">6</data>
+</edge>
+<edge source="cisco" target="oracle">
+  <data key="d1">3</data>
+</edge>
+<edge source="oracle" target="accenture">
+  <data key="d1">3</data>
+</edge>
+<edge source="oracle" target="microsoft">
+  <data key="d1">3</data>
+</edge>
+<edge source="oracle" target="sap">
+  <data key="d1">5</data>
+</edge>
+<edge source="microsoft" target="does">
+  <data key="d1">3</data>
+</edge>
+<edge source="microsoft" target="like">
+  <data key="d1">3</data>
+</edge>
+<edge source="executive" target="make">
+  <data key="d1">3</data>
+</edge>
+<edge source="executive" target="responsive">
+  <data key="d1">3</data>
+</edge>
+<edge source="good" target="dell">
+  <data key="d1">4</data>
+</edge>
+<edge source="good" target="industry">
+  <data key="d1">3</data>
+</edge>
+<edge source="good" target="personal">
+  <data key="d1">3</data>
+</edge>
+<edge source="good" target="products">
+  <data key="d1">3</data>
+</edge>
+<edge source="good" target="relationship">
+  <data key="d1">4</data>
+</edge>
+<edge source="good" target="responsive">
+  <data key="d1">4</data>
+</edge>
+<edge source="good" target="sap">
+  <data key="d1">3</data>
+</edge>
+<edge source="good" target="understanding">
+  <data key="d1">4</data>
+</edge>
+<edge source="understanding" target="industry">
+  <data key="d1">3</data>
+</edge>
+<edge source="understanding" target="problems">
+  <data key="d1">4</data>
+</edge>
+<edge source="understanding" target="solutions">
+  <data key="d1">4</data>
+</edge>
+<edge source="customer" target="need">
+  <data key="d1">3</data>
+</edge>
+<edge source="customer" target="products">
+  <data key="d1">3</data>
+</edge>
+<edge source="customer" target="representative">
+  <data key="d1">17</data>
+</edge>
+<edge source="customer" target="service">
+  <data key="d1">21</data>
+</edge>
+<edge source="ability" target="deliver">
+  <data key="d1">6</data>
+</edge>
+<edge source="ability" target="listen">
+  <data key="d1">5</data>
+</edge>
+<edge source="ability" target="need">
+  <data key="d1">3</data>
+</edge>
+<edge source="ability" target="price">
+  <data key="d1">3</data>
+</edge>
+<edge source="ability" target="problems">
+  <data key="d1">3</data>
+</edge>
+<edge source="ability" target="solutions">
+  <data key="d1">4</data>
+</edge>
+<edge source="ability" target="solve">
+  <data key="d1">4</data>
+</edge>
+<edge source="ability" target="understand">
+  <data key="d1">5</data>
+</edge>
+<edge source="ability" target="work">
+  <data key="d1">3</data>
+</edge>
+<edge source="service" target="representative">
+  <data key="d1">15</data>
+</edge>
+<edge source="products" target="knows">
+  <data key="d1">3</data>
+</edge>
+<edge source="products" target="problems">
+  <data key="d1">3</data>
+</edge>
+<edge source="products" target="quality">
+  <data key="d1">7</data>
+</edge>
+<edge source="products" target="services">
+  <data key="d1">3</data>
+</edge>
+<edge source="products" target="work">
+  <data key="d1">3</data>
+</edge>
+<edge source="understand" target="approach">
+  <data key="d1">3</data>
+</edge>
+<edge source="understand" target="company">
+  <data key="d1">3</data>
+</edge>
+<edge source="understand" target="issues">
+  <data key="d1">4</data>
+</edge>
+<edge source="understand" target="listen">
+  <data key="d1">3</data>
+</edge>
+<edge source="understand" target="need">
+  <data key="d1">4</data>
+</edge>
+<edge source="understand" target="problems">
+  <data key="d1">5</data>
+</edge>
+<edge source="understand" target="solutions">
+  <data key="d1">4</data>
+</edge>
+<edge source="understand" target="solve">
+  <data key="d1">3</data>
+</edge>
+<edge source="solutions" target="focused">
+  <data key="d1">3</data>
+</edge>
+<edge source="solutions" target="issues">
+  <data key="d1">4</data>
+</edge>
+<edge source="solutions" target="problems">
+  <data key="d1">6</data>
+</edge>
+<edge source="solutions" target="work">
+  <data key="d1">6</data>
+</edge>
+<edge source="company" target="best">
+  <data key="d1">3</data>
+</edge>
+<edge source="company" target="help">
+  <data key="d1">3</data>
+</edge>
+<edge source="company" target="knows">
+  <data key="d1">3</data>
+</edge>
+<edge source="company" target="listen">
+  <data key="d1">3</data>
+</edge>
+<edge source="company" target="problems">
+  <data key="d1">3</data>
+</edge>
+<edge source="company" target="sell">
+  <data key="d1">3</data>
+</edge>
+<edge source="company" target="understands">
+  <data key="d1">3</data>
+</edge>
+<edge source="problems" target="solve">
+  <data key="d1">6</data>
+</edge>
+<edge source="problems" target="technical">
+  <data key="d1">3</data>
+</edge>
+<edge source="price" target="quality">
+  <data key="d1">5</data>
+</edge>
+<edge source="knows" target="services">
+  <data key="d1">3</data>
+</edge>
+<edge source="knows" target="understands">
+  <data key="d1">3</data>
+</edge>
+<edge source="quality" target="relationship">
+  <data key="d1">4</data>
+</edge>
+<edge source="quality" target="services">
+  <data key="d1">3</data>
+</edge>
+<edge source="listen" target="best">
+  <data key="d1">3</data>
+</edge>
+<edge source="listen" target="prepared">
+  <data key="d1">3</data>
+</edge>
+<edge source="work" target="partner">
+  <data key="d1">3</data>
+</edge>
+<edge source="issues" target="solve">
+  <data key="d1">3</data>
+</edge>
+<edge source="relationship" target="personal">
+  <data key="d1">3</data>
+</edge>
+<edge source="best" target="contact">
+  <data key="d1">3</data>
+</edge>
+<edge source="best" target="point">
+  <data key="d1">4</data>
+</edge>
+<edge source="point" target="contact">
+  <data key="d1">10</data>
+</edge>
+<edge source="solve" target="problem">
+  <data key="d1">5</data>
+</edge>
+<edge source="companies" target="vendors">
+  <data key="d1">3</data>
+</edge>
+<edge source="focused" target="sale">
+  <data key="d1">4</data>
+</edge>
+</graph></graphml>
