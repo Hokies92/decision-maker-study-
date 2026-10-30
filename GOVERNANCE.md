@@ -2,7 +2,7 @@
 
 **Status:** Binding. Applies to every Claude session (claude.ai, Claude Code, any agent) that reads or writes this repository.
 **Owner:** Scott Santucci. Only Scott may amend this file (see §12).
-**Version:** 1.2.0 — 2026-10-29 (batched steps §3.4; minimum n = 25 in §5 Phase 4)
+**Version:** 1.3.0 — 2026-10-29 (Phase 6 — visualization, §5) · *proposed on `gov/phase-6-visualization`; in force only when Scott merges*
 
 ---
 
@@ -183,6 +183,15 @@ A phase closes only when **every** criterion passes, the gate review is recorded
 - [ ] Coded output links respondent ID → question thread. (No per-respondent level or stakeholder exists in source; do not infer one.)
 - [ ] Raw verbatims untouched; codes stored separately.
 - [ ] Consistency check documented (re-code a sample; report agreement).
+
+### Phase 6 — Visualization (`06_visualization/`)
+- [ ] Concepts before build: a concept sheet (question each view answers, data it reads, sketch) is approved by Scott, view by view, before any view is built.
+- [ ] Every view reads only committed data — schema instances or Phase 4–5 outputs — through a committed build script. No number is typed into a page by hand.
+- [ ] Automated check: every number a view shows equals its source file.
+- [ ] Every view states its question, its data source paths, its unit (cohort, answer or respondent), and its caveats on the page itself: the n = 25 rule (cohorts below it shown but never compared), the ecological caveat for cross-cohort links, and the concept-level-only link between open-ended and structured data.
+- [ ] No view assigns a role level or stakeholder type to a respondent. Respondents appear by `respid` only.
+- [ ] Every view is legible in light and dark themes, does not rely on colour alone, and works at phone width.
+- [ ] `catalog.md` index of views, with where each is published.
 
 ---
 
