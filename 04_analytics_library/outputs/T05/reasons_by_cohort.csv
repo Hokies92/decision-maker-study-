@@ -1,0 +1,465 @@
+item,label,where,where_provenance,cohort,dimension,value,base,n,usable,rank_in_cohort
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-MONTH-AND-ONC,D-CONTACTFREQ,0.5217,115.0000,115,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-MONTH-AND-ONC,D-CONTACTFREQ,0.4087,115.0000,115,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-MONTH-AND-ONC,D-CONTACTFREQ,0.2783,115.0000,115,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-MONTH-AND-ONC,D-CONTACTFREQ,0.2696,115.0000,115,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-MONTH-AND-ONC,D-CONTACTFREQ,0.2870,115.0000,115,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-MONTH-AND-ONC,D-CONTACTFREQ,0.1391,115.0000,115,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-MONTH-AND-ONC,D-CONTACTFREQ,0.0522,115.0000,115,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-MONTH-AND-ONC,D-CONTACTFREQ,0.0348,115.0000,115,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-QUARTER-OR-ON,D-CONTACTFREQ,0.4324,148.0000,148,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-QUARTER-OR-ON,D-CONTACTFREQ,0.4189,148.0000,148,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-QUARTER-OR-ON,D-CONTACTFREQ,0.2770,148.0000,148,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-QUARTER-OR-ON,D-CONTACTFREQ,0.2297,148.0000,148,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-QUARTER-OR-ON,D-CONTACTFREQ,0.2095,148.0000,148,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-QUARTER-OR-ON,D-CONTACTFREQ,0.1149,148.0000,148,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-QUARTER-OR-ON,D-CONTACTFREQ,0.0405,148.0000,148,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-CONTACTFREQ-BETWEEN-ONCE-A-QUARTER-OR-ON,D-CONTACTFREQ,0.0270,148.0000,148,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-CONTACTFREQ-ONCE-A-WEEK-OR-MORE-OFTEN,D-CONTACTFREQ,0.4821,56.0000,56,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-CONTACTFREQ-ONCE-A-WEEK-OR-MORE-OFTEN,D-CONTACTFREQ,0.4643,56.0000,56,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-CONTACTFREQ-ONCE-A-WEEK-OR-MORE-OFTEN,D-CONTACTFREQ,0.2500,56.0000,56,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-CONTACTFREQ-ONCE-A-WEEK-OR-MORE-OFTEN,D-CONTACTFREQ,0.3036,56.0000,56,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-CONTACTFREQ-ONCE-A-WEEK-OR-MORE-OFTEN,D-CONTACTFREQ,0.2143,56.0000,56,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-CONTACTFREQ-ONCE-A-WEEK-OR-MORE-OFTEN,D-CONTACTFREQ,0.0893,56.0000,56,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-CONTACTFREQ-ONCE-A-WEEK-OR-MORE-OFTEN,D-CONTACTFREQ,0.0536,56.0000,56,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-CONTACTFREQ-ONCE-A-WEEK-OR-MORE-OFTEN,D-CONTACTFREQ,0.0179,56.0000,56,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-COUNTRY-CANADA,D-COUNTRY,0.0000,7.0000,7,False,6
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-COUNTRY-CANADA,D-COUNTRY,0.4286,7.0000,7,False,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-COUNTRY-CANADA,D-COUNTRY,0.1429,7.0000,7,False,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-COUNTRY-CANADA,D-COUNTRY,0.2857,7.0000,7,False,2
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-COUNTRY-CANADA,D-COUNTRY,0.1429,7.0000,7,False,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-COUNTRY-CANADA,D-COUNTRY,0.2857,7.0000,7,False,2
+Q15_7,Other (Please specify),other,INFERRED,C-COUNTRY-CANADA,D-COUNTRY,0.0000,7.0000,7,False,6
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-COUNTRY-CANADA,D-COUNTRY,0.0000,7.0000,7,False,6
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-COUNTRY-FRANCE,D-COUNTRY,0.5370,54.0000,54,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-COUNTRY-FRANCE,D-COUNTRY,0.3519,54.0000,54,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-COUNTRY-FRANCE,D-COUNTRY,0.2037,54.0000,54,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-COUNTRY-FRANCE,D-COUNTRY,0.3148,54.0000,54,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-COUNTRY-FRANCE,D-COUNTRY,0.1852,54.0000,54,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-COUNTRY-FRANCE,D-COUNTRY,0.0370,54.0000,54,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-COUNTRY-FRANCE,D-COUNTRY,0.0370,54.0000,54,True,6
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-COUNTRY-FRANCE,D-COUNTRY,0.0185,54.0000,54,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-COUNTRY-GERMANY,D-COUNTRY,0.3704,54.0000,54,True,2
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-COUNTRY-GERMANY,D-COUNTRY,0.4259,54.0000,54,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-COUNTRY-GERMANY,D-COUNTRY,0.2593,54.0000,54,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-COUNTRY-GERMANY,D-COUNTRY,0.2407,54.0000,54,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-COUNTRY-GERMANY,D-COUNTRY,0.1852,54.0000,54,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-COUNTRY-GERMANY,D-COUNTRY,0.1296,54.0000,54,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-COUNTRY-GERMANY,D-COUNTRY,0.0370,54.0000,54,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-COUNTRY-GERMANY,D-COUNTRY,0.0556,54.0000,54,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-COUNTRY-UNITED-KINGDOM,D-COUNTRY,0.3704,54.0000,54,True,2
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-KINGDOM,D-COUNTRY,0.4630,54.0000,54,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-KINGDOM,D-COUNTRY,0.3704,54.0000,54,True,2
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-KINGDOM,D-COUNTRY,0.2222,54.0000,54,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-KINGDOM,D-COUNTRY,0.1852,54.0000,54,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-KINGDOM,D-COUNTRY,0.1111,54.0000,54,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-COUNTRY-UNITED-KINGDOM,D-COUNTRY,0.0000,54.0000,54,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-COUNTRY-UNITED-KINGDOM,D-COUNTRY,0.0370,54.0000,54,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-COUNTRY-UNITED-STATES,D-COUNTRY,0.5467,150.0000,150,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-STATES,D-COUNTRY,0.4333,150.0000,150,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-STATES,D-COUNTRY,0.2733,150.0000,150,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-STATES,D-COUNTRY,0.2533,150.0000,150,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-STATES,D-COUNTRY,0.3000,150.0000,150,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-COUNTRY-UNITED-STATES,D-COUNTRY,0.1400,150.0000,150,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-COUNTRY-UNITED-STATES,D-COUNTRY,0.0733,150.0000,150,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-COUNTRY-UNITED-STATES,D-COUNTRY,0.0200,150.0000,150,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-EMPLOYEES-1-0000-TO-4-999-EMPLOYEES,D-EMPLOYEES,0.4583,96.0000,96,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-EMPLOYEES-1-0000-TO-4-999-EMPLOYEES,D-EMPLOYEES,0.3750,96.0000,96,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-EMPLOYEES-1-0000-TO-4-999-EMPLOYEES,D-EMPLOYEES,0.2708,96.0000,96,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-EMPLOYEES-1-0000-TO-4-999-EMPLOYEES,D-EMPLOYEES,0.2396,96.0000,96,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-EMPLOYEES-1-0000-TO-4-999-EMPLOYEES,D-EMPLOYEES,0.2083,96.0000,96,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-EMPLOYEES-1-0000-TO-4-999-EMPLOYEES,D-EMPLOYEES,0.0938,96.0000,96,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-EMPLOYEES-1-0000-TO-4-999-EMPLOYEES,D-EMPLOYEES,0.0312,96.0000,96,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-EMPLOYEES-1-0000-TO-4-999-EMPLOYEES,D-EMPLOYEES,0.0312,96.0000,96,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-EMPLOYEES-20-000-EMPLOYEES,D-EMPLOYEES,0.5039,129.0000,129,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-EMPLOYEES-20-000-EMPLOYEES,D-EMPLOYEES,0.4574,129.0000,129,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-EMPLOYEES-20-000-EMPLOYEES,D-EMPLOYEES,0.2636,129.0000,129,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-EMPLOYEES-20-000-EMPLOYEES,D-EMPLOYEES,0.2636,129.0000,129,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-EMPLOYEES-20-000-EMPLOYEES,D-EMPLOYEES,0.2403,129.0000,129,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-EMPLOYEES-20-000-EMPLOYEES,D-EMPLOYEES,0.1395,129.0000,129,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-EMPLOYEES-20-000-EMPLOYEES,D-EMPLOYEES,0.0698,129.0000,129,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-EMPLOYEES-20-000-EMPLOYEES,D-EMPLOYEES,0.0078,129.0000,129,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-EMPLOYEES-5-000-TO-19-999-EMPLOYEES,D-EMPLOYEES,0.4468,94.0000,94,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-EMPLOYEES-5-000-TO-19-999-EMPLOYEES,D-EMPLOYEES,0.4255,94.0000,94,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-EMPLOYEES-5-000-TO-19-999-EMPLOYEES,D-EMPLOYEES,0.2872,94.0000,94,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-EMPLOYEES-5-000-TO-19-999-EMPLOYEES,D-EMPLOYEES,0.2660,94.0000,94,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-EMPLOYEES-5-000-TO-19-999-EMPLOYEES,D-EMPLOYEES,0.2660,94.0000,94,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-EMPLOYEES-5-000-TO-19-999-EMPLOYEES,D-EMPLOYEES,0.1170,94.0000,94,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-EMPLOYEES-5-000-TO-19-999-EMPLOYEES,D-EMPLOYEES,0.0319,94.0000,94,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-EMPLOYEES-5-000-TO-19-999-EMPLOYEES,D-EMPLOYEES,0.0532,94.0000,94,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-FUNCTION-BDM,D-FUNCTION,0.5220,159.0000,159,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-FUNCTION-BDM,D-FUNCTION,0.4591,159.0000,159,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-FUNCTION-BDM,D-FUNCTION,0.2264,159.0000,159,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-FUNCTION-BDM,D-FUNCTION,0.2516,159.0000,159,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-FUNCTION-BDM,D-FUNCTION,0.2264,159.0000,159,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-FUNCTION-BDM,D-FUNCTION,0.0881,159.0000,159,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-FUNCTION-BDM,D-FUNCTION,0.0503,159.0000,159,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-FUNCTION-BDM,D-FUNCTION,0.0126,159.0000,159,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-FUNCTION-ITDM,D-FUNCTION,0.4250,160.0000,160,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-FUNCTION-ITDM,D-FUNCTION,0.3875,160.0000,160,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-FUNCTION-ITDM,D-FUNCTION,0.3187,160.0000,160,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-FUNCTION-ITDM,D-FUNCTION,0.2625,160.0000,160,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-FUNCTION-ITDM,D-FUNCTION,0.2500,160.0000,160,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-FUNCTION-ITDM,D-FUNCTION,0.1500,160.0000,160,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-FUNCTION-ITDM,D-FUNCTION,0.0437,160.0000,160,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-FUNCTION-ITDM,D-FUNCTION,0.0437,160.0000,160,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-INDUSTRY7-FINANCE-AND-INSURANCE,D-INDUSTRY7,0.4500,60.0000,60,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-INDUSTRY7-FINANCE-AND-INSURANCE,D-INDUSTRY7,0.4333,60.0000,60,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-INDUSTRY7-FINANCE-AND-INSURANCE,D-INDUSTRY7,0.3000,60.0000,60,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-INDUSTRY7-FINANCE-AND-INSURANCE,D-INDUSTRY7,0.3333,60.0000,60,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-INDUSTRY7-FINANCE-AND-INSURANCE,D-INDUSTRY7,0.2667,60.0000,60,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-INDUSTRY7-FINANCE-AND-INSURANCE,D-INDUSTRY7,0.1000,60.0000,60,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-INDUSTRY7-FINANCE-AND-INSURANCE,D-INDUSTRY7,0.0500,60.0000,60,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-INDUSTRY7-FINANCE-AND-INSURANCE,D-INDUSTRY7,0.0167,60.0000,60,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-INDUSTRY7-MANUFACTURING-AND-HIGHTECH,D-INDUSTRY7,0.5670,97.0000,97,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-INDUSTRY7-MANUFACTURING-AND-HIGHTECH,D-INDUSTRY7,0.4124,97.0000,97,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-INDUSTRY7-MANUFACTURING-AND-HIGHTECH,D-INDUSTRY7,0.2474,97.0000,97,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-INDUSTRY7-MANUFACTURING-AND-HIGHTECH,D-INDUSTRY7,0.2371,97.0000,97,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-INDUSTRY7-MANUFACTURING-AND-HIGHTECH,D-INDUSTRY7,0.1856,97.0000,97,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-INDUSTRY7-MANUFACTURING-AND-HIGHTECH,D-INDUSTRY7,0.1134,97.0000,97,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-INDUSTRY7-MANUFACTURING-AND-HIGHTECH,D-INDUSTRY7,0.0515,97.0000,97,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-INDUSTRY7-MANUFACTURING-AND-HIGHTECH,D-INDUSTRY7,0.0309,97.0000,97,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-INDUSTRY7-MEDIA-ENTERTAINMENT-AND-LEIS,D-INDUSTRY7,0.2857,14.0000,14,False,3
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-INDUSTRY7-MEDIA-ENTERTAINMENT-AND-LEIS,D-INDUSTRY7,0.5714,14.0000,14,False,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-INDUSTRY7-MEDIA-ENTERTAINMENT-AND-LEIS,D-INDUSTRY7,0.2143,14.0000,14,False,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-INDUSTRY7-MEDIA-ENTERTAINMENT-AND-LEIS,D-INDUSTRY7,0.3571,14.0000,14,False,2
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-INDUSTRY7-MEDIA-ENTERTAINMENT-AND-LEIS,D-INDUSTRY7,0.2143,14.0000,14,False,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-INDUSTRY7-MEDIA-ENTERTAINMENT-AND-LEIS,D-INDUSTRY7,0.0000,14.0000,14,False,6
+Q15_7,Other (Please specify),other,INFERRED,C-INDUSTRY7-MEDIA-ENTERTAINMENT-AND-LEIS,D-INDUSTRY7,0.0000,14.0000,14,False,6
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-INDUSTRY7-MEDIA-ENTERTAINMENT-AND-LEIS,D-INDUSTRY7,0.0000,14.0000,14,False,6
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-INDUSTRY7-PUBLIC-SECTOR,D-INDUSTRY7,0.5769,26.0000,26,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-INDUSTRY7-PUBLIC-SECTOR,D-INDUSTRY7,0.3462,26.0000,26,True,4
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-INDUSTRY7-PUBLIC-SECTOR,D-INDUSTRY7,0.1923,26.0000,26,True,5
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-INDUSTRY7-PUBLIC-SECTOR,D-INDUSTRY7,0.3846,26.0000,26,True,2
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-INDUSTRY7-PUBLIC-SECTOR,D-INDUSTRY7,0.3846,26.0000,26,True,2
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-INDUSTRY7-PUBLIC-SECTOR,D-INDUSTRY7,0.1154,26.0000,26,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-INDUSTRY7-PUBLIC-SECTOR,D-INDUSTRY7,0.1154,26.0000,26,True,6
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-INDUSTRY7-PUBLIC-SECTOR,D-INDUSTRY7,0.0385,26.0000,26,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-INDUSTRY7-RETAIL-AND-WHOLESALE-TRADE,D-INDUSTRY7,0.5455,33.0000,33,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-INDUSTRY7-RETAIL-AND-WHOLESALE-TRADE,D-INDUSTRY7,0.3939,33.0000,33,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-INDUSTRY7-RETAIL-AND-WHOLESALE-TRADE,D-INDUSTRY7,0.2424,33.0000,33,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-INDUSTRY7-RETAIL-AND-WHOLESALE-TRADE,D-INDUSTRY7,0.1818,33.0000,33,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-INDUSTRY7-RETAIL-AND-WHOLESALE-TRADE,D-INDUSTRY7,0.1818,33.0000,33,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-INDUSTRY7-RETAIL-AND-WHOLESALE-TRADE,D-INDUSTRY7,0.1212,33.0000,33,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-INDUSTRY7-RETAIL-AND-WHOLESALE-TRADE,D-INDUSTRY7,0.0303,33.0000,33,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-INDUSTRY7-RETAIL-AND-WHOLESALE-TRADE,D-INDUSTRY7,0.0303,33.0000,33,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-INDUSTRY7-SERVICES,D-INDUSTRY7,0.3833,60.0000,60,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-INDUSTRY7-SERVICES,D-INDUSTRY7,0.3667,60.0000,60,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-INDUSTRY7-SERVICES,D-INDUSTRY7,0.3333,60.0000,60,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-INDUSTRY7-SERVICES,D-INDUSTRY7,0.2167,60.0000,60,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-INDUSTRY7-SERVICES,D-INDUSTRY7,0.2333,60.0000,60,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-INDUSTRY7-SERVICES,D-INDUSTRY7,0.1833,60.0000,60,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-INDUSTRY7-SERVICES,D-INDUSTRY7,0.0333,60.0000,60,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-INDUSTRY7-SERVICES,D-INDUSTRY7,0.0500,60.0000,60,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-INDUSTRY7-UTILITIES-AND-TELECOMMUNICAT,D-INDUSTRY7,0.3103,29.0000,29,True,2
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-INDUSTRY7-UTILITIES-AND-TELECOMMUNICAT,D-INDUSTRY7,0.5862,29.0000,29,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-INDUSTRY7-UTILITIES-AND-TELECOMMUNICAT,D-INDUSTRY7,0.3103,29.0000,29,True,2
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-INDUSTRY7-UTILITIES-AND-TELECOMMUNICAT,D-INDUSTRY7,0.1724,29.0000,29,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-INDUSTRY7-UTILITIES-AND-TELECOMMUNICAT,D-INDUSTRY7,0.3103,29.0000,29,True,2
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-INDUSTRY7-UTILITIES-AND-TELECOMMUNICAT,D-INDUSTRY7,0.1034,29.0000,29,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-INDUSTRY7-UTILITIES-AND-TELECOMMUNICAT,D-INDUSTRY7,0.0345,29.0000,29,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-INDUSTRY7-UTILITIES-AND-TELECOMMUNICAT,D-INDUSTRY7,0.0000,29.0000,29,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-L-ALL-RESPONDENTS,ALL,0.4734,319.0000,319,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-L-ALL-RESPONDENTS,ALL,0.4232,319.0000,319,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-L-ALL-RESPONDENTS,ALL,0.2727,319.0000,319,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-L-ALL-RESPONDENTS,ALL,0.2571,319.0000,319,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-L-ALL-RESPONDENTS,ALL,0.2382,319.0000,319,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-L-ALL-RESPONDENTS,ALL,0.1191,319.0000,319,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-L-ALL-RESPONDENTS,ALL,0.0470,319.0000,319,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-L-ALL-RESPONDENTS,ALL,0.0282,319.0000,319,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-BUS-C-LEVEL,D-LEVEL-BUS,0.5000,18.0000,18,False,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-BUS-C-LEVEL,D-LEVEL-BUS,0.4444,18.0000,18,False,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-BUS-C-LEVEL,D-LEVEL-BUS,0.2222,18.0000,18,False,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-BUS-C-LEVEL,D-LEVEL-BUS,0.1667,18.0000,18,False,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-BUS-C-LEVEL,D-LEVEL-BUS,0.0556,18.0000,18,False,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-BUS-C-LEVEL,D-LEVEL-BUS,0.0556,18.0000,18,False,5
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-BUS-C-LEVEL,D-LEVEL-BUS,0.0000,18.0000,18,False,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-BUS-C-LEVEL,D-LEVEL-BUS,0.0000,18.0000,18,False,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-BUS-DIRECTOR,D-LEVEL-BUS,0.5432,81.0000,81,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-BUS-DIRECTOR,D-LEVEL-BUS,0.4444,81.0000,81,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-BUS-DIRECTOR,D-LEVEL-BUS,0.2840,81.0000,81,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-BUS-DIRECTOR,D-LEVEL-BUS,0.2840,81.0000,81,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-BUS-DIRECTOR,D-LEVEL-BUS,0.3086,81.0000,81,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-BUS-DIRECTOR,D-LEVEL-BUS,0.0741,81.0000,81,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-BUS-DIRECTOR,D-LEVEL-BUS,0.0617,81.0000,81,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-BUS-DIRECTOR,D-LEVEL-BUS,0.0123,81.0000,81,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-BUS-MANAGER,D-LEVEL-BUS,0.3667,30.0000,30,True,2
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-BUS-MANAGER,D-LEVEL-BUS,0.4333,30.0000,30,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-BUS-MANAGER,D-LEVEL-BUS,0.1667,30.0000,30,True,6
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-BUS-MANAGER,D-LEVEL-BUS,0.3333,30.0000,30,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-BUS-MANAGER,D-LEVEL-BUS,0.2667,30.0000,30,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-BUS-MANAGER,D-LEVEL-BUS,0.2000,30.0000,30,True,5
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-BUS-MANAGER,D-LEVEL-BUS,0.0667,30.0000,30,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-BUS-MANAGER,D-LEVEL-BUS,0.0000,30.0000,30,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-BUS-VICE-PRESIDENT,D-LEVEL-BUS,0.6333,30.0000,30,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-BUS-VICE-PRESIDENT,D-LEVEL-BUS,0.5333,30.0000,30,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-BUS-VICE-PRESIDENT,D-LEVEL-BUS,0.1333,30.0000,30,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-BUS-VICE-PRESIDENT,D-LEVEL-BUS,0.1333,30.0000,30,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-BUS-VICE-PRESIDENT,D-LEVEL-BUS,0.0667,30.0000,30,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-BUS-VICE-PRESIDENT,D-LEVEL-BUS,0.0333,30.0000,30,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-BUS-VICE-PRESIDENT,D-LEVEL-BUS,0.0333,30.0000,30,True,6
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-BUS-VICE-PRESIDENT,D-LEVEL-BUS,0.0333,30.0000,30,True,6
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-C-LEVEL,D-LEVEL,0.5000,52.0000,52,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-C-LEVEL,D-LEVEL,0.4808,52.0000,52,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-C-LEVEL,D-LEVEL,0.2692,52.0000,52,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-C-LEVEL,D-LEVEL,0.2308,52.0000,52,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-C-LEVEL,D-LEVEL,0.2115,52.0000,52,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-C-LEVEL,D-LEVEL,0.0962,52.0000,52,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-C-LEVEL,D-LEVEL,0.0000,52.0000,52,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-C-LEVEL,D-LEVEL,0.0192,52.0000,52,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-DIRECTOR,D-LEVEL,0.5033,151.0000,151,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-DIRECTOR,D-LEVEL,0.4371,151.0000,151,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-DIRECTOR,D-LEVEL,0.2848,151.0000,151,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-DIRECTOR,D-LEVEL,0.2781,151.0000,151,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-DIRECTOR,D-LEVEL,0.2781,151.0000,151,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-DIRECTOR,D-LEVEL,0.1258,151.0000,151,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-DIRECTOR,D-LEVEL,0.0596,151.0000,151,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-DIRECTOR,D-LEVEL,0.0132,151.0000,151,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-IT-C-LEVEL,D-LEVEL-IT,0.5000,34.0000,34,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-IT-C-LEVEL,D-LEVEL-IT,0.5000,34.0000,34,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-IT-C-LEVEL,D-LEVEL-IT,0.2941,34.0000,34,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-IT-C-LEVEL,D-LEVEL-IT,0.2647,34.0000,34,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-IT-C-LEVEL,D-LEVEL-IT,0.2941,34.0000,34,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-IT-C-LEVEL,D-LEVEL-IT,0.1176,34.0000,34,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-IT-C-LEVEL,D-LEVEL-IT,0.0000,34.0000,34,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-IT-C-LEVEL,D-LEVEL-IT,0.0294,34.0000,34,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-IT-DIRECTOR,D-LEVEL-IT,0.4571,70.0000,70,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-IT-DIRECTOR,D-LEVEL-IT,0.4286,70.0000,70,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-IT-DIRECTOR,D-LEVEL-IT,0.2857,70.0000,70,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-IT-DIRECTOR,D-LEVEL-IT,0.2714,70.0000,70,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-IT-DIRECTOR,D-LEVEL-IT,0.2429,70.0000,70,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-IT-DIRECTOR,D-LEVEL-IT,0.1857,70.0000,70,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-IT-DIRECTOR,D-LEVEL-IT,0.0571,70.0000,70,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-IT-DIRECTOR,D-LEVEL-IT,0.0143,70.0000,70,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-IT-MANAGER,D-LEVEL-IT,0.3636,44.0000,44,True,2
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-IT-MANAGER,D-LEVEL-IT,0.2955,44.0000,44,True,3
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-IT-MANAGER,D-LEVEL-IT,0.3864,44.0000,44,True,1
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-IT-MANAGER,D-LEVEL-IT,0.2727,44.0000,44,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-IT-MANAGER,D-LEVEL-IT,0.2955,44.0000,44,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-IT-MANAGER,D-LEVEL-IT,0.0909,44.0000,44,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-IT-MANAGER,D-LEVEL-IT,0.0682,44.0000,44,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-IT-MANAGER,D-LEVEL-IT,0.0682,44.0000,44,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-IT-VICE-PRESIDENT,D-LEVEL-IT,0.2500,12.0000,12,False,2
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-IT-VICE-PRESIDENT,D-LEVEL-IT,0.1667,12.0000,12,False,4
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-IT-VICE-PRESIDENT,D-LEVEL-IT,0.3333,12.0000,12,False,1
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-IT-VICE-PRESIDENT,D-LEVEL-IT,0.1667,12.0000,12,False,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-IT-VICE-PRESIDENT,D-LEVEL-IT,0.0000,12.0000,12,False,7
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-IT-VICE-PRESIDENT,D-LEVEL-IT,0.2500,12.0000,12,False,2
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-IT-VICE-PRESIDENT,D-LEVEL-IT,0.0000,12.0000,12,False,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-IT-VICE-PRESIDENT,D-LEVEL-IT,0.1667,12.0000,12,False,4
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-MANAGER,D-LEVEL,0.3649,74.0000,74,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-MANAGER,D-LEVEL,0.3514,74.0000,74,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-MANAGER,D-LEVEL,0.2973,74.0000,74,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-MANAGER,D-LEVEL,0.2973,74.0000,74,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-MANAGER,D-LEVEL,0.2838,74.0000,74,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-MANAGER,D-LEVEL,0.1351,74.0000,74,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-MANAGER,D-LEVEL,0.0676,74.0000,74,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-MANAGER,D-LEVEL,0.0405,74.0000,74,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-LEVEL-VICE-PRESIDENT,D-LEVEL,0.5238,42.0000,42,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-LEVEL-VICE-PRESIDENT,D-LEVEL,0.4286,42.0000,42,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-LEVEL-VICE-PRESIDENT,D-LEVEL,0.1905,42.0000,42,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-LEVEL-VICE-PRESIDENT,D-LEVEL,0.1429,42.0000,42,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-LEVEL-VICE-PRESIDENT,D-LEVEL,0.0476,42.0000,42,True,7
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-LEVEL-VICE-PRESIDENT,D-LEVEL,0.0952,42.0000,42,True,5
+Q15_7,Other (Please specify),other,INFERRED,C-LEVEL-VICE-PRESIDENT,D-LEVEL,0.0238,42.0000,42,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-LEVEL-VICE-PRESIDENT,D-LEVEL,0.0714,42.0000,42,True,6
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REGION-EUROPE,D-REGION,0.4259,162.0000,162,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REGION-EUROPE,D-REGION,0.4136,162.0000,162,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REGION-EUROPE,D-REGION,0.2778,162.0000,162,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REGION-EUROPE,D-REGION,0.2593,162.0000,162,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REGION-EUROPE,D-REGION,0.1852,162.0000,162,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REGION-EUROPE,D-REGION,0.0926,162.0000,162,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-REGION-EUROPE,D-REGION,0.0247,162.0000,162,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REGION-EUROPE,D-REGION,0.0370,162.0000,162,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REGION-NORTH-AMERICA,D-REGION,0.5223,157.0000,157,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REGION-NORTH-AMERICA,D-REGION,0.4331,157.0000,157,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REGION-NORTH-AMERICA,D-REGION,0.2675,157.0000,157,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REGION-NORTH-AMERICA,D-REGION,0.2548,157.0000,157,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REGION-NORTH-AMERICA,D-REGION,0.2930,157.0000,157,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REGION-NORTH-AMERICA,D-REGION,0.1465,157.0000,157,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-REGION-NORTH-AMERICA,D-REGION,0.0701,157.0000,157,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REGION-NORTH-AMERICA,D-REGION,0.0191,157.0000,157,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REVENUE-1-BILLION-TO-4-9-BILLION,D-REVENUE,0.4684,79.0000,79,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REVENUE-1-BILLION-TO-4-9-BILLION,D-REVENUE,0.3165,79.0000,79,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REVENUE-1-BILLION-TO-4-9-BILLION,D-REVENUE,0.3038,79.0000,79,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REVENUE-1-BILLION-TO-4-9-BILLION,D-REVENUE,0.2152,79.0000,79,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REVENUE-1-BILLION-TO-4-9-BILLION,D-REVENUE,0.2405,79.0000,79,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REVENUE-1-BILLION-TO-4-9-BILLION,D-REVENUE,0.1519,79.0000,79,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-REVENUE-1-BILLION-TO-4-9-BILLION,D-REVENUE,0.0759,79.0000,79,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REVENUE-1-BILLION-TO-4-9-BILLION,D-REVENUE,0.0253,79.0000,79,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REVENUE-10-BILLION-OR-GREATER,D-REVENUE,0.5128,117.0000,117,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REVENUE-10-BILLION-OR-GREATER,D-REVENUE,0.4786,117.0000,117,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REVENUE-10-BILLION-OR-GREATER,D-REVENUE,0.2308,117.0000,117,True,5
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REVENUE-10-BILLION-OR-GREATER,D-REVENUE,0.2821,117.0000,117,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REVENUE-10-BILLION-OR-GREATER,D-REVENUE,0.2650,117.0000,117,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REVENUE-10-BILLION-OR-GREATER,D-REVENUE,0.1197,117.0000,117,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-REVENUE-10-BILLION-OR-GREATER,D-REVENUE,0.0427,117.0000,117,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REVENUE-10-BILLION-OR-GREATER,D-REVENUE,0.0085,117.0000,117,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REVENUE-100-MILLION-TO-499-9-MILLION,D-REVENUE,0.4000,15.0000,15,False,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REVENUE-100-MILLION-TO-499-9-MILLION,D-REVENUE,0.3333,15.0000,15,False,3
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REVENUE-100-MILLION-TO-499-9-MILLION,D-REVENUE,0.1333,15.0000,15,False,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REVENUE-100-MILLION-TO-499-9-MILLION,D-REVENUE,0.4000,15.0000,15,False,1
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REVENUE-100-MILLION-TO-499-9-MILLION,D-REVENUE,0.0667,15.0000,15,False,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REVENUE-100-MILLION-TO-499-9-MILLION,D-REVENUE,0.0667,15.0000,15,False,5
+Q15_7,Other (Please specify),other,INFERRED,C-REVENUE-100-MILLION-TO-499-9-MILLION,D-REVENUE,0.0000,15.0000,15,False,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REVENUE-100-MILLION-TO-499-9-MILLION,D-REVENUE,0.0667,15.0000,15,False,5
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REVENUE-5-BILLION-TO-9-9-BILLION,D-REVENUE,0.5676,37.0000,37,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REVENUE-5-BILLION-TO-9-9-BILLION,D-REVENUE,0.4865,37.0000,37,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REVENUE-5-BILLION-TO-9-9-BILLION,D-REVENUE,0.3243,37.0000,37,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REVENUE-5-BILLION-TO-9-9-BILLION,D-REVENUE,0.2703,37.0000,37,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REVENUE-5-BILLION-TO-9-9-BILLION,D-REVENUE,0.2973,37.0000,37,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REVENUE-5-BILLION-TO-9-9-BILLION,D-REVENUE,0.0811,37.0000,37,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-REVENUE-5-BILLION-TO-9-9-BILLION,D-REVENUE,0.0270,37.0000,37,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REVENUE-5-BILLION-TO-9-9-BILLION,D-REVENUE,0.0000,37.0000,37,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REVENUE-50-MILLION-TO-99-9-MILLION,D-REVENUE,0.3750,8.0000,8,False,3
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REVENUE-50-MILLION-TO-99-9-MILLION,D-REVENUE,0.5000,8.0000,8,False,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REVENUE-50-MILLION-TO-99-9-MILLION,D-REVENUE,0.1250,8.0000,8,False,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REVENUE-50-MILLION-TO-99-9-MILLION,D-REVENUE,0.5000,8.0000,8,False,1
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REVENUE-50-MILLION-TO-99-9-MILLION,D-REVENUE,0.0000,8.0000,8,False,8
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REVENUE-50-MILLION-TO-99-9-MILLION,D-REVENUE,0.1250,8.0000,8,False,4
+Q15_7,Other (Please specify),other,INFERRED,C-REVENUE-50-MILLION-TO-99-9-MILLION,D-REVENUE,0.1250,8.0000,8,False,4
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REVENUE-50-MILLION-TO-99-9-MILLION,D-REVENUE,0.1250,8.0000,8,False,4
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REVENUE-500-MILLION-TO-749-9-MILLION,D-REVENUE,0.3750,24.0000,24,False,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REVENUE-500-MILLION-TO-749-9-MILLION,D-REVENUE,0.3750,24.0000,24,False,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REVENUE-500-MILLION-TO-749-9-MILLION,D-REVENUE,0.3750,24.0000,24,False,1
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REVENUE-500-MILLION-TO-749-9-MILLION,D-REVENUE,0.1667,24.0000,24,False,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REVENUE-500-MILLION-TO-749-9-MILLION,D-REVENUE,0.3750,24.0000,24,False,1
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REVENUE-500-MILLION-TO-749-9-MILLION,D-REVENUE,0.1250,24.0000,24,False,6
+Q15_7,Other (Please specify),other,INFERRED,C-REVENUE-500-MILLION-TO-749-9-MILLION,D-REVENUE,0.0417,24.0000,24,False,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REVENUE-500-MILLION-TO-749-9-MILLION,D-REVENUE,0.0000,24.0000,24,False,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REVENUE-750-MILLION-TO-999-9-MILLION,D-REVENUE,0.3226,31.0000,31,True,2
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REVENUE-750-MILLION-TO-999-9-MILLION,D-REVENUE,0.4839,31.0000,31,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REVENUE-750-MILLION-TO-999-9-MILLION,D-REVENUE,0.3226,31.0000,31,True,2
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REVENUE-750-MILLION-TO-999-9-MILLION,D-REVENUE,0.2258,31.0000,31,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REVENUE-750-MILLION-TO-999-9-MILLION,D-REVENUE,0.0968,31.0000,31,True,7
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REVENUE-750-MILLION-TO-999-9-MILLION,D-REVENUE,0.1290,31.0000,31,True,5
+Q15_7,Other (Please specify),other,INFERRED,C-REVENUE-750-MILLION-TO-999-9-MILLION,D-REVENUE,0.0323,31.0000,31,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REVENUE-750-MILLION-TO-999-9-MILLION,D-REVENUE,0.1290,31.0000,31,True,5
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-REVENUE-LESS-THAN-50-MILLION,D-REVENUE,0.6250,8.0000,8,False,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-REVENUE-LESS-THAN-50-MILLION,D-REVENUE,0.3750,8.0000,8,False,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-REVENUE-LESS-THAN-50-MILLION,D-REVENUE,0.2500,8.0000,8,False,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-REVENUE-LESS-THAN-50-MILLION,D-REVENUE,0.1250,8.0000,8,False,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-REVENUE-LESS-THAN-50-MILLION,D-REVENUE,0.2500,8.0000,8,False,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-REVENUE-LESS-THAN-50-MILLION,D-REVENUE,0.0000,8.0000,8,False,6
+Q15_7,Other (Please specify),other,INFERRED,C-REVENUE-LESS-THAN-50-MILLION,D-REVENUE,0.0000,8.0000,8,False,6
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-REVENUE-LESS-THAN-50-MILLION,D-REVENUE,0.0000,8.0000,8,False,6
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-SELLSTO-CONSUMERS-AND-BUSINESSES-ROU,D-SELLSTO,0.4018,112.0000,112,True,2
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-SELLSTO-CONSUMERS-AND-BUSINESSES-ROU,D-SELLSTO,0.4554,112.0000,112,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-SELLSTO-CONSUMERS-AND-BUSINESSES-ROU,D-SELLSTO,0.3304,112.0000,112,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-SELLSTO-CONSUMERS-AND-BUSINESSES-ROU,D-SELLSTO,0.2321,112.0000,112,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-SELLSTO-CONSUMERS-AND-BUSINESSES-ROU,D-SELLSTO,0.2411,112.0000,112,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-SELLSTO-CONSUMERS-AND-BUSINESSES-ROU,D-SELLSTO,0.1339,112.0000,112,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-SELLSTO-CONSUMERS-AND-BUSINESSES-ROU,D-SELLSTO,0.0268,112.0000,112,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-SELLSTO-CONSUMERS-AND-BUSINESSES-ROU,D-SELLSTO,0.0446,112.0000,112,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-SELLSTO-EXCLUSIVELY-BUSINESSES,D-SELLSTO,0.5227,44.0000,44,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-BUSINESSES,D-SELLSTO,0.3409,44.0000,44,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-BUSINESSES,D-SELLSTO,0.2045,44.0000,44,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-BUSINESSES,D-SELLSTO,0.2727,44.0000,44,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-BUSINESSES,D-SELLSTO,0.2045,44.0000,44,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-BUSINESSES,D-SELLSTO,0.1591,44.0000,44,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-SELLSTO-EXCLUSIVELY-BUSINESSES,D-SELLSTO,0.0909,44.0000,44,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-SELLSTO-EXCLUSIVELY-BUSINESSES,D-SELLSTO,0.0000,44.0000,44,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-SELLSTO-EXCLUSIVELY-CONSUMERS,D-SELLSTO,0.6071,28.0000,28,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-CONSUMERS,D-SELLSTO,0.6071,28.0000,28,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-CONSUMERS,D-SELLSTO,0.2500,28.0000,28,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-CONSUMERS,D-SELLSTO,0.2143,28.0000,28,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-CONSUMERS,D-SELLSTO,0.2500,28.0000,28,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-SELLSTO-EXCLUSIVELY-CONSUMERS,D-SELLSTO,0.1429,28.0000,28,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-SELLSTO-EXCLUSIVELY-CONSUMERS,D-SELLSTO,0.1071,28.0000,28,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-SELLSTO-EXCLUSIVELY-CONSUMERS,D-SELLSTO,0.0357,28.0000,28,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-SELLSTO-MOSTLY-BUSINESSES,D-SELLSTO,0.5312,64.0000,64,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-BUSINESSES,D-SELLSTO,0.3750,64.0000,64,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-BUSINESSES,D-SELLSTO,0.1875,64.0000,64,True,5
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-BUSINESSES,D-SELLSTO,0.2656,64.0000,64,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-BUSINESSES,D-SELLSTO,0.2656,64.0000,64,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-BUSINESSES,D-SELLSTO,0.0781,64.0000,64,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-SELLSTO-MOSTLY-BUSINESSES,D-SELLSTO,0.0156,64.0000,64,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-SELLSTO-MOSTLY-BUSINESSES,D-SELLSTO,0.0312,64.0000,64,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-SELLSTO-MOSTLY-CONSUMERS-BUT-SOME-BU,D-SELLSTO,0.4507,71.0000,71,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-CONSUMERS-BUT-SOME-BU,D-SELLSTO,0.3944,71.0000,71,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-CONSUMERS-BUT-SOME-BU,D-SELLSTO,0.3099,71.0000,71,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-CONSUMERS-BUT-SOME-BU,D-SELLSTO,0.2958,71.0000,71,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-CONSUMERS-BUT-SOME-BU,D-SELLSTO,0.2254,71.0000,71,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-SELLSTO-MOSTLY-CONSUMERS-BUT-SOME-BU,D-SELLSTO,0.0986,71.0000,71,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-SELLSTO-MOSTLY-CONSUMERS-BUT-SOME-BU,D-SELLSTO,0.0563,71.0000,71,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-SELLSTO-MOSTLY-CONSUMERS-BUT-SOME-BU,D-SELLSTO,0.0141,71.0000,71,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-AUTHORIZING-PURCHASES,D-STAGE,0.4541,207.0000,207,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-AUTHORIZING-PURCHASES,D-STAGE,0.4444,207.0000,207,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-AUTHORIZING-PURCHASES,D-STAGE,0.2947,207.0000,207,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-AUTHORIZING-PURCHASES,D-STAGE,0.2705,207.0000,207,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-AUTHORIZING-PURCHASES,D-STAGE,0.2222,207.0000,207,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-AUTHORIZING-PURCHASES,D-STAGE,0.1159,207.0000,207,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-AUTHORIZING-PURCHASES,D-STAGE,0.0531,207.0000,207,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-AUTHORIZING-PURCHASES,D-STAGE,0.0290,207.0000,207,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-BUS-AUTHORIZING-PURCHASES,D-STAGE-BUS,0.4615,78.0000,78,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-BUS-AUTHORIZING-PURCHASES,D-STAGE-BUS,0.4615,78.0000,78,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-BUS-AUTHORIZING-PURCHASES,D-STAGE-BUS,0.2692,78.0000,78,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-BUS-AUTHORIZING-PURCHASES,D-STAGE-BUS,0.2821,78.0000,78,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-BUS-AUTHORIZING-PURCHASES,D-STAGE-BUS,0.2179,78.0000,78,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-BUS-AUTHORIZING-PURCHASES,D-STAGE-BUS,0.0769,78.0000,78,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-BUS-AUTHORIZING-PURCHASES,D-STAGE-BUS,0.0385,78.0000,78,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-BUS-AUTHORIZING-PURCHASES,D-STAGE-BUS,0.0256,78.0000,78,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-BUS-CHOOSING-VENDORS,D-STAGE-BUS,0.4792,96.0000,96,True,2
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-BUS-CHOOSING-VENDORS,D-STAGE-BUS,0.4896,96.0000,96,True,1
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-BUS-CHOOSING-VENDORS,D-STAGE-BUS,0.1979,96.0000,96,True,5
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-BUS-CHOOSING-VENDORS,D-STAGE-BUS,0.2292,96.0000,96,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-BUS-CHOOSING-VENDORS,D-STAGE-BUS,0.2188,96.0000,96,True,4
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-BUS-CHOOSING-VENDORS,D-STAGE-BUS,0.0625,96.0000,96,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-BUS-CHOOSING-VENDORS,D-STAGE-BUS,0.0625,96.0000,96,True,6
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-BUS-CHOOSING-VENDORS,D-STAGE-BUS,0.0208,96.0000,96,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-BUS-PROJECT-MANAGEMENT,D-STAGE-BUS,0.5067,75.0000,75,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-BUS-PROJECT-MANAGEMENT,D-STAGE-BUS,0.4133,75.0000,75,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-BUS-PROJECT-MANAGEMENT,D-STAGE-BUS,0.2400,75.0000,75,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-BUS-PROJECT-MANAGEMENT,D-STAGE-BUS,0.2133,75.0000,75,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-BUS-PROJECT-MANAGEMENT,D-STAGE-BUS,0.3200,75.0000,75,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-BUS-PROJECT-MANAGEMENT,D-STAGE-BUS,0.0800,75.0000,75,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-BUS-PROJECT-MANAGEMENT,D-STAGE-BUS,0.0533,75.0000,75,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-BUS-PROJECT-MANAGEMENT,D-STAGE-BUS,0.0267,75.0000,75,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-BUS-SETTING-BUDGETS,D-STAGE-BUS,0.4865,74.0000,74,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-BUDGETS,D-STAGE-BUS,0.4595,74.0000,74,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-BUDGETS,D-STAGE-BUS,0.2703,74.0000,74,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-BUDGETS,D-STAGE-BUS,0.2568,74.0000,74,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-BUDGETS,D-STAGE-BUS,0.2162,74.0000,74,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-BUDGETS,D-STAGE-BUS,0.0946,74.0000,74,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-BUS-SETTING-BUDGETS,D-STAGE-BUS,0.0135,74.0000,74,True,8
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-BUS-SETTING-BUDGETS,D-STAGE-BUS,0.0270,74.0000,74,True,7
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-BUS-SETTING-STRATEGY,D-STAGE-BUS,0.4878,82.0000,82,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-STRATEGY,D-STAGE-BUS,0.4756,82.0000,82,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-STRATEGY,D-STAGE-BUS,0.2561,82.0000,82,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-STRATEGY,D-STAGE-BUS,0.2927,82.0000,82,True,3
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-STRATEGY,D-STAGE-BUS,0.2317,82.0000,82,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-BUS-SETTING-STRATEGY,D-STAGE-BUS,0.0732,82.0000,82,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-BUS-SETTING-STRATEGY,D-STAGE-BUS,0.0366,82.0000,82,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-BUS-SETTING-STRATEGY,D-STAGE-BUS,0.0122,82.0000,82,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-CHOOSING-RECOMMENDING-VENDOR,D-STAGE,0.5000,256.0000,256,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-CHOOSING-RECOMMENDING-VENDOR,D-STAGE,0.4336,256.0000,256,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-CHOOSING-RECOMMENDING-VENDOR,D-STAGE,0.2734,256.0000,256,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-CHOOSING-RECOMMENDING-VENDOR,D-STAGE,0.2617,256.0000,256,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-CHOOSING-RECOMMENDING-VENDOR,D-STAGE,0.2734,256.0000,256,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-CHOOSING-RECOMMENDING-VENDOR,D-STAGE,0.1250,256.0000,256,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-CHOOSING-RECOMMENDING-VENDOR,D-STAGE,0.0469,256.0000,256,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-CHOOSING-RECOMMENDING-VENDOR,D-STAGE,0.0273,256.0000,256,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-REQUIREMENTS-DEFINITION,D-STAGE,0.4646,226.0000,226,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-REQUIREMENTS-DEFINITION,D-STAGE,0.4469,226.0000,226,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-REQUIREMENTS-DEFINITION,D-STAGE,0.2788,226.0000,226,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-REQUIREMENTS-DEFINITION,D-STAGE,0.2566,226.0000,226,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-REQUIREMENTS-DEFINITION,D-STAGE,0.2522,226.0000,226,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-REQUIREMENTS-DEFINITION,D-STAGE,0.1283,226.0000,226,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-REQUIREMENTS-DEFINITION,D-STAGE,0.0619,226.0000,226,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-REQUIREMENTS-DEFINITION,D-STAGE,0.0310,226.0000,226,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-RFP-MANAGEMENT,D-STAGE,0.5068,148.0000,148,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-RFP-MANAGEMENT,D-STAGE,0.3919,148.0000,148,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-RFP-MANAGEMENT,D-STAGE,0.2770,148.0000,148,True,4
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-RFP-MANAGEMENT,D-STAGE,0.2568,148.0000,148,True,5
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-RFP-MANAGEMENT,D-STAGE,0.3108,148.0000,148,True,3
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-RFP-MANAGEMENT,D-STAGE,0.1081,148.0000,148,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-RFP-MANAGEMENT,D-STAGE,0.0608,148.0000,148,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-RFP-MANAGEMENT,D-STAGE,0.0473,148.0000,148,True,8
+Q15_1,I pursued the opportunity with a different vendor.,visible to the vendor,INFERRED,C-STAGE-SETTING-OR-MANAGING-BUDGETS,D-STAGE,0.4745,255.0000,255,True,1
+Q15_2,I could not envision how the value would be delivered.,inside the customer's company,INFERRED,C-STAGE-SETTING-OR-MANAGING-BUDGETS,D-STAGE,0.4235,255.0000,255,True,2
+Q15_3,It became too risky of a purchase.,inside the customer's company,INFERRED,C-STAGE-SETTING-OR-MANAGING-BUDGETS,D-STAGE,0.2706,255.0000,255,True,3
+Q15_4,Others internally got involved and the effort to keep the momentum became too great.,inside the customer's company,INFERRED,C-STAGE-SETTING-OR-MANAGING-BUDGETS,D-STAGE,0.2588,255.0000,255,True,4
+Q15_5,I struggled to get others on board internally.,inside the customer's company,INFERRED,C-STAGE-SETTING-OR-MANAGING-BUDGETS,D-STAGE,0.2431,255.0000,255,True,5
+Q15_6,I didn't have a clear path in my mind on who I'd delegate this assignment to for successful execution.,inside the customer's company,INFERRED,C-STAGE-SETTING-OR-MANAGING-BUDGETS,D-STAGE,0.0980,255.0000,255,True,6
+Q15_7,Other (Please specify),other,INFERRED,C-STAGE-SETTING-OR-MANAGING-BUDGETS,D-STAGE,0.0510,255.0000,255,True,7
+Q15_8,Don’t know/Not applicable,don't know,INFERRED,C-STAGE-SETTING-OR-MANAGING-BUDGETS,D-STAGE,0.0235,255.0000,255,True,8

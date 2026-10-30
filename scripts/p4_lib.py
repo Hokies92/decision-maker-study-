@@ -146,3 +146,138 @@ def write_csv(df, path):
     path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(path, index=False, lineterminator="\n", float_format="%.4f")
     return path
+
+
+# ---------------------------------------------------------------- measures
+# Option labels counted by each approved summary definition (variable_review_decisions.csv, P4.S01).
+# measures() checks every label against the Variable/Rule text in the instance and stops on a mismatch.
+SUMMARY_OPTIONS = {
+    ("SC-FREQ4", "topbox"): ["Frequently"],
+    ("SC-FREQ4", "top2"): ["Occasionally", "Frequently"],
+    ("SC-AGREE4", "top2"): ["Agree", "Strongly agree"],
+    ("SC-IMPORT4", "top2"): ["Very important", "Somewhat important"],
+    ("SC-DIFF3", "differentiator"): ["Important, and a differentiator"],
+    ("SC-MATERIALS7", "self_built"): [4, 5],          # option seqs; labels quoted in the rule
+}
+
+
+@lru_cache(maxsize=1)
+def _measures_cached():
+    return _build_measures(load())
+
+
+def measures(doc=None):
+    """Long table of measures per cohort.
+
+    kind = summary    an approved summary variable (role headline / secondary)
+           selection  share selecting a multi-select item
+           option     share choosing one option of a single-choice item (measure id 'ITEM=seq')
+    Columns: measure, kind, role, item, thread, gate, cohort, dimension, value, base, n, usable, label
+    A measure is computed only where every result it needs is a value (not 'notAsked').
+    """
+    return _measures_cached() if doc is None else _build_measures(doc)
+
+
+def _build_measures(doc):
+    r = results(doc)
+    it = items(doc).set_index("item")
+    opts = options(doc)
+    v = variables(doc)
+    rows = []
+    key = ["item", "cohort"]
+    by = {k: g for k, g in r.groupby(key, sort=False)}
+    for s in v[v.kind == "summary"].itertuples():
+        item, suffix = s.id.split("__")
+        spec = SUMMARY_OPTIONS[(s.scale, suffix)]
+        labels = [opts[s.scale][o - 1] if isinstance(o, int) else o for o in spec]
+        for lab, o in zip(labels, spec):
+            probe = f"options {o}" if isinstance(o, int) else lab
+            if probe not in s.rule and not (isinstance(o, int) and str(o) in s.rule):
+                raise SystemExit(f"{s.id}: rule text does not name {lab!r}")
+        seqs = [opts[s.scale].index(l) + 1 for l in labels]
+        for (i, c), g in by.items():
+            if i != item:
+                continue
+            g2 = g[g.option.isin(seqs)]
+            if len(g2) != len(seqs) or (g2.status != "value").any():
+                continue
+            rows.append({"measure": s.id, "kind": "summary", "role": s.role, "item": item, "label": s.id,
+                         "values": g2.share.sum(), "first": g2.iloc[0]})
+    for (i, c), g in by.items():
+        t = it.loc[i, "type"]
+        if t == "multi_select_option":
+            x = g.iloc[0]
+            if x.status == "value":
+                rows.append({"measure": i, "kind": "selection", "role": "", "item": i, "label": x.option_label,
+                             "values": x.share, "first": x})
+        elif t == "single_select":
+            for x in g.itertuples():
+                if x.status == "value":
+                    rows.append({"measure": f"{i}={int(x.option)}", "kind": "option", "role": "", "item": i,
+                                 "label": x.option_label, "values": x.share, "first": pd.Series(x._asdict())})
+    out = []
+    for m in rows:
+        f = m["first"]
+        out.append({"measure": m["measure"], "kind": m["kind"], "role": m["role"], "item": m["item"],
+                    "thread": f["thread"], "gate": f["gate"], "cohort": f["cohort"], "dimension": f["dimension"],
+                    "value": round(float(m["values"]), 6), "base": f["base"], "n": f["n"], "usable": bool(f["usable"]),
+                    "label": m["label"]})
+    return pd.DataFrame(out)
+
+
+# ------------------------------------------------------- headline measures
+# One number per substantive question per cohort, for techniques that compare questions across cohorts
+# (T07–T09). Rules (INFERRED where noted):
+#   grid rows with a summary measure     → the approved headline summary measure
+#   multi-select options                 → the share selecting the option
+#   Q9, Q10, Q16 (single frequency items)→ share answering "Frequently" (extends the approved headline; INFERRED)
+#   Q18                                  → Q18__self_built (approved)
+#   Q14                                  → options 3–5, "the typical agenda helps" (INFERRED)
+# Excluded: screener threads (they define the cohorts), the attention check, "Other" and "Don't know" rows.
+HEADLINE_SINGLE = {"Q9": ["Q9=4"], "Q10": ["Q10=4"], "Q16": ["Q16=4"], "Q14": ["Q14=3", "Q14=4", "Q14=5"]}
+EXCLUDE_LABEL = ("Other", "Don’t know", "Don't know")
+
+
+def headline_measures():
+    m = measures()
+    it = items(load()).set_index("item")
+    keep = []
+    for item, g in m.groupby("item", sort=False):
+        if it.loc[item, "thread"].startswith("T-S") or it.loc[item, "role"] == "attention_check":
+            continue
+        label = (it.loc[item, "label"] or "")
+        if label.startswith(EXCLUDE_LABEL):
+            continue
+        h = g[(g.kind == "summary") & (g.role == "headline")]
+        if item in HEADLINE_SINGLE:
+            parts = g[g.measure.isin(HEADLINE_SINGLE[item])]
+            agg = parts.groupby("cohort", sort=False).agg(value=("value", "sum"), k=("value", "size"),
+                                                          base=("base", "first"), n=("n", "first"),
+                                                          usable=("usable", "all"), dimension=("dimension", "first"),
+                                                          thread=("thread", "first"), gate=("gate", "first")).reset_index()
+            agg = agg[agg.k == len(HEADLINE_SINGLE[item])].drop(columns="k")
+            agg["measure"] = item + ("__help" if item == "Q14" else "__frequently")
+            agg["item"] = item
+            agg["rule"] = " + ".join(HEADLINE_SINGLE[item])
+            agg["provenance"] = "INFERRED"
+            keep.append(agg)
+        elif not h.empty:
+            x = h.copy(); x["rule"] = "approved headline"; x["provenance"] = "INFERRED (confirmed by Scott)"
+            keep.append(x)
+        elif (g.kind == "selection").any():
+            x = g[g.kind == "selection"].copy(); x["rule"] = "share selecting"; x["provenance"] = "RECON_DATA"
+            keep.append(x)
+    cols = ["measure", "item", "thread", "gate", "cohort", "dimension", "value", "base", "n", "usable", "rule", "provenance"]
+    out = pd.concat([k[cols] for k in keep], ignore_index=True)
+    out["value"] = out.value.round(6)
+    return out
+
+
+def cohort_matrix(min_cohorts=20):
+    """Usable cohorts (excluding All respondents) × headline measures, values only where usable.
+    Returns (wide DataFrame cohorts × measures, long headline table)."""
+    h = headline_measures()
+    u = h[h.usable & (h.cohort != "C-L-ALL-RESPONDENTS")]
+    wide = u.pivot(index="cohort", columns="measure", values="value")
+    wide = wide.loc[:, wide.notna().sum() >= min_cohorts]
+    return wide.sort_index().reindex(sorted(wide.columns), axis=1), h
