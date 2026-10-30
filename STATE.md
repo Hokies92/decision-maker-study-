@@ -2,9 +2,9 @@
 
 ## Current
 **Phase:** 6 — Visualization   **Gate:** open
-**Step:** P6.S02 — Scott reviews concepts
-**Status:** not started — S01 done; awaiting Scott's review of the concept sheet
-**Branch:** phase-6/step-01-concept-sheet (base `03b7abb`)
+**Step:** P6.S03 — Data layer
+**Status:** not started — S02 done (all decided)
+**Branch:** phase-6/step-02-concept-review (on phase-6/step-01-concept-sheet)
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 6
@@ -15,9 +15,12 @@ Outputs go to `06_visualization/`. Exit criteria: GOVERNANCE §5 Phase 6 (v1.3.0
 |---|---|---|---|---|---|---|
 | P6.S00 | Phase 6 plan (gov PR) | Scott's direction | GOVERNANCE §5 P6; README row 6; `06_visualization/README.md` | Scott merges | done | `84a7f06` (PR #51) |
 | P6.S01 | **Concept sheet:** for each of V1–V7 — question, data paths, unit, caveats, one static sketch built from committed data | Phase 4–5 outputs | `06_visualization/concepts.md` + sketches; `scripts/p6_build_concept_sketches.py` | All 7 concepts on one sheet; every sketch drawn by script from committed data | done — 7 concepts; 136 numbers listed with sources | this branch |
-| P6.S02 | **Scott reviews concepts:** keep / change / drop each; D6-1 audience, D6-2 delivery, D6-3 scope and order | concept sheet | decisions log | Every concept and D6-1–D6-3 decided | not started | — |
+| P6.S02 | **Scott reviews concepts:** keep / change / drop each; D6-1 audience, D6-2 delivery, D6-3 scope and order | concept sheet | decisions log | Every concept and D6-1–D6-3 decided | done — all 7 kept; public; both; Q-P4a confirmed | this branch |
 | P6.S03 | **Data layer:** one JSON per approved view | committed data | `scripts/p6_build_view_data.py`; `06_visualization/data/` | Every number traceable to a source file; byte-identical on re-run | not started | — |
-| P6.S04+ | **Build approved views**, one step each (or an approved batch) | view data | views; `catalog.md` | Each view meets every §5 P6 criterion | not started | — |
+| P6.S04 | **Build the argument page:** V1 ledger, V3 silent gap, V4 wins / loses, with V5 vocabularies as a reference table (D6-3) | view data | page in `06_visualization/`; published page | Meets every §5 P6 criterion | not started | — |
+| P6.S05 | **Build V2** gate × cohort explorer | view data | page; published page | Meets every §5 P6 criterion | not started | — |
+| P6.S06 | **Build V6** search the customers' words (public: D6-1) | view data | page; published page | Meets every §5 P6 criterion | not started | — |
+| P6.S07 | **Build V7** thread network | view data | page; published page; `catalog.md` | Meets every §5 P6 criterion | not started | — |
 | P6.Sxx | Cross-check | all P6 outputs | `scripts/p6_crosscheck.py` | Numbers equal source; caveats on page; no level / stakeholder on any respondent; light / dark / phone width; scripts byte-identical | not started | — |
 | P6.Syy | Draft Phase 6 gate review | all P6 outputs | gate review block | Every §5 P6 criterion checked; stop for Scott's merge and tag | not started | — |
 
@@ -445,6 +448,8 @@ First draft (P5.S10): NOT YET — criterion 1 failed (28 codes without an exampl
 - 2026-10-29: Phase 5 closed — PR #50 merged; Scott tagged `phase-5-complete` and `schema-v1.2.0` on `03b7abb`.
 - 2026-10-29: Phase 6 opened — GOVERNANCE 1.3.0 adds §5 Phase 6 (PR #51, Scott merged). Scott chose "Phase 6 plan: visualization" over the one-page brief.
 - 2026-10-29: P6.S01 concept sheet (Scott: "Go"). `scripts/p6_build_concept_sketches.py` → `06_visualization/concepts.md`, `concepts/concepts.html`, 5 SVG sketches (V1–V4, V7; light and dark), V5 and V6 as tables; `concepts/sketch_numbers.csv` lists all 136 numbers shown with their source file. Byte-identical on re-run. Palette: reference data-viz palette, two-series pair validated in light and dark (CVD ΔE 24.7). Sketch choices to note: V2 uses T02 headline measures (45; Target has none — screeners), cells below n = 25 outlined, not filled; V7 hides 280 breakout, grouping and same-respondent links to show the content links. Sketches are not the views: no interaction, phone width not yet met (wide figures scroll).
+- 2026-10-30: P6.S02 concept review (Scott). (1) "Keep." — read as: all seven views kept (V1–V7); built in the recommended order, V1 + V3 + V4 first with V5 as their reference table, then V2, V6, V7. Correct on Scott's word. (2) D6-1 audience: "Public". (3) D6-2 delivery: "Both" — published pages and HTML committed to `06_visualization/`. (4) Q-P4a: "Comfirm" — the 9 T04 pairs (`04_analytics_library/pairs.csv`) and the concept map (`05_open_ended/t04_concept_links.csv`) confirmed by Scott; files keep their INFERRED tag (Claude's inference), now reviewed — views say "confirmed by Scott". (5) CI: "Fix" — `fix/ci-run-crosschecks` (`8685c2e`).
+- 2026-10-30: Consequence of D6-1 (public) stated to Scott: V6 shows verbatims naming vendors in worst accounts, and respondent IDs, to anyone. Respondent IDs are anonymous codes (SRC-002 register); vendor names are kept by D5-4. Published pages start private and become public when Scott shares them; the committed HTML is public with the repo.
 
 ## Open questions
 <!-- includes all INFERRED items awaiting review -->
@@ -456,7 +461,7 @@ First draft (P5.S10): NOT YET — criterion 1 failed (28 codes without an exampl
 - (resolved — see decisions log) D4-1, D4-2, D4-3.
 - (resolved P4.S01 — see decisions log) Q-P3a: attribute the SRC-003 Q21 row-6 answer (blank respid) to respondent 112, by row alignment across the five sheets (INFERRED)? Would change one link weight (Q21∩Q23 318 → 319) via a `fix/` branch.
 - (resolved — see decisions log) D5-1, D5-2, D5-3, D5-4.
-- Q-P4a (not blocking): review the 9 T04 pairs in `04_analytics_library/pairs.csv` (INFERRED) — keep, change, or drop each.
+- (resolved P6.S02 — see decisions log) Q-P4a: the 9 T04 pairs and the concept map — confirmed by Scott.
 - Open inferences: none from Phase 1 (85 of 85 decided — `review_summary.md`).
 - (resolved P4.S01 — see decisions log) Q-P2a: confirm or change the 47 INFERRED variable definitions in `02_data_inventory/variable_dictionary.csv` (45 summary measures, 2 recodes).
 - Q-S10a (not blocking): name the 8 lexicon gaps (L27, L28 added 2026-10-29) (`asymmetry_lexicon.md`, column `gap_name_by_scott`) — L02 being mis-targeted; L05 the cost of being pursued; L10 the meeting that was not worth it; L16 material that never reaches the decision; L17 the decision-maker selling internally on the vendor's behalf; L18 more people joining the decision than the vendor targeted.
