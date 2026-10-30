@@ -8,7 +8,7 @@ You are working in a gated, stepwise reconstruction project. **`GOVERNANCE.md` i
 - **Goal:** Reverse-engineer the instrument, inventory its data, and rebuild it on an XML schema in which every result is tied to **role level** and **stakeholder type** through its breakout group, and every question is a **thread** linkable to others for network and topology analysis.
 - **Data reality:** group-level tables plus respondent-level open-ended text; no per-respondent level or stakeholder. Never infer one.
 - **Exclusion:** The study date is deliberately ignored. Do not analyze, weight, or comment on recency.
-- **Order:** Structured data first (Phases 1–4); open-ended data last (Phase 5).
+- **Order:** Structured data first (Phases 1–4); open-ended data next (Phase 5); visualization last (Phase 6).
 
 ## Session start — do these in order, every time
 
@@ -43,6 +43,7 @@ Run the verification checklist (GOVERNANCE §6.3), update `STATE.md`, commit, pu
 | `03_schema/` | 3 | XSD, `examples/`, mapping, `decisions/` ADRs |
 | `04_analytics_library/` | 4 | One file per technique + `catalog.md` |
 | `05_open_ended/` | 5 | Coding frame, coded output |
+| `06_visualization/` | 6 | Concept sheet, view build scripts' outputs, `catalog.md` |
 | `scripts/` | any | Generators and checks (name: `p<N>_<verb>_<object>.py`) |
 
 ## Standard commands

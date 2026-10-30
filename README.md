@@ -14,8 +14,9 @@ Reverse-engineer a Forrester decision-maker survey, inventory its data, and rebu
 | 3 | Design the new schema | XSD storing results as cells (question × option × breakout group), level and stakeholder on the group, thread links as first-class edges, respondent-level slots reserved; sample instances | `03_schema/` |
 | 4 | Analytics library | Techniques valid on group percentages, incl. thread networks and topology maps; each tied to schema fields | `04_analytics_library/` |
 | 5 | Open-ended responses | Coding frame per respondent, linked to question threads (not to level/stakeholder — not in source) | `05_open_ended/` |
+| 6 | Visualization | Views that let users see and work through the asymmetry — value vs experience, gate × cohort, the customers' own words — each built by script from committed data | `06_visualization/` |
 
-Structured data is handled first (phases 1–4); open-ended data follows (phase 5).
+Structured data is handled first (phases 1–4); open-ended data follows (phase 5); visualization last (phase 6).
 
 ## Session continuity
 `STATE.md` is the single source of truth for where work stands. Every session reads it first and updates it last.
