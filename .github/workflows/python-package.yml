@@ -6,7 +6,7 @@ name: Cross-checks
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "fix/ci-**" ]
   pull_request:
     branches: [ "main" ]
 
@@ -35,13 +35,25 @@ jobs:
       run: xmllint --noout --schema 03_schema/decision-maker-study.xsd 03_schema/examples/*.xml 03_schema/tests/*.xml
     - name: Phase cross-checks
       run: |
-        set -e
+        fail=0
         for p in scripts/p[0-9]_crosscheck.py; do
           echo "::group::$p"
-          python -I "$p"
+          if ! python -I "$p" > "/tmp/$(basename $p).log" 2>&1; then
+            fail=1
+            # Annotations are readable without signing in, so each failing check is reported as one.
+            grep -E " FAIL |Error|Traceback" "/tmp/$(basename $p).log" | head -20 | while IFS= read -r line; do
+              echo "::error title=$(basename $p)::${line:0:900}"
+            done
+          fi
+          cat "/tmp/$(basename $p).log"
           echo "::endgroup::"
         done
+        exit $fail
     - name: Reproducibility — generated outputs unchanged
+      if: always()
       run: |
         git status --short
-        git diff --exit-code
+        if ! git diff --quiet; then
+          git diff --stat | head -30 | while IFS= read -r line; do echo "::error title=changed output::$line"; done
+          exit 1
+        fi
