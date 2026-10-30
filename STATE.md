@@ -3,8 +3,8 @@
 ## Current
 **Phase:** 5 — Open-ended responses   **Gate:** open
 **Step:** P5.S12 — Redraft Phase 5 gate review
-**Status:** not started — S11 done
-**Branch:** phase-5/step-11-frame-completion (on phase-5/step-10-gate-review)
+**Status:** done — recommendation PASS; stopped for Scott's merge and tag (S6)
+**Branch:** phase-5/step-12-gate-review (on phase-5/step-11-frame-completion)
 **Updated:** 2026-10-29 by Claude session
 
 ## Step plan — Phase 5
@@ -47,7 +47,7 @@ Outputs go to `05_open_ended/`. The corpus is every respondent-level text answer
 | P5.S09 | Cross-check | All P5 outputs | `scripts/p5_crosscheck.py`; `crosscheck_report.md` | Verbatims unchanged vs source; every code has a frame entry; every coded row links respid → thread; no level/stakeholder on any respondent; scripts byte-identical; checksums OK | done — 10 of 10 pass | batch branch |
 | P5.S10 | Draft Phase 5 gate review | All P5 outputs | Gate review block | Every §5 P5 criterion checked; stop for Scott's merge and tag | done — recommendation NOT YET (criterion 1) | this branch |
 | P5.S11 | **Frame completion** (gate review option 1; Scott, "Ok next"): an exclude rule on every code; a verbatim example on every lexicon code — from an answer carrying it, or for the 6 codes no answer carries, the instrument wording, marked MISSING as an answer example; builder checks every layer | `coding_frame.csv`; `codes.csv`; `question_map.csv` | frame v1.2; stricter builder; P5 C02 extended | 90 of 90 codes with definition, include, exclude, example; codes unchanged; P5 cross-check passes | done — 90 of 90; codes unchanged | this branch |
-| P5.S12 | Redraft Phase 5 gate review | All P5 outputs | Gate review block | Every §5 P5 criterion re-checked; stop for Scott's merge and tag | not started | — |
+| P5.S12 | Redraft Phase 5 gate review | All P5 outputs | Gate review block | Every §5 P5 criterion re-checked; stop for Scott's merge and tag | done — recommendation PASS | this branch |
 
 Batch **S01–S03** approved by Scott by name ("Run s01-s03 as one batch.") — starts when this plan is merged. S04 done. Batch **S05–S09** approved by Scott by name ("Run S05–S09 as one batch.") — branch `phase-5/steps-05-09-code-check-views`, stacked on the S04 branch.
 
@@ -144,26 +144,23 @@ Outputs go to `01_instrument_reconstruction/`. Every item carries a provenance t
 <!-- one dated block per closed phase, with criteria checklist and tag -->
 
 ### Phase 5 — Open-ended responses
-**Drafted:** 2026-10-29 by Claude (P5.S10) · **Reviewed against:** `main` @ `8b0070f`
-**Recommendation:** NOT YET — criteria 2–4 pass; criterion 1 fails. Close after a frame-completion step · **Decision:** pending (Scott) · **Tag:** —
+**Drafted:** 2026-10-29 by Claude (P5.S10; redrafted P5.S12) · **Reviewed against:** `phase-5/step-11-frame-completion` @ `c7f331f` (= `main` @ `8b0070f` + P5.S10 + P5.S11)
+**Recommendation:** PASS — close Phase 5 · **Decision:** pending (Scott) · **Tag:** — (`phase-5-complete`; and `schema-v1.2.0` if Scott agrees)
+
+First draft (P5.S10): NOT YET — criterion 1 failed (28 codes without an example, 50 without an exclude rule). Closed by P5.S11 (option 1, Scott: "Ok next").
 
 | # | Exit criterion (GOVERNANCE §5) | Result | Evidence |
 |---|---|---|---|
-| 1 | `coding_frame.md`: each code with definition, include/exclude rules, ≥1 example | **FAIL** | 90 codes. Definition 90 of 90; include 90 of 90; **exclude 40 of 90** (missing on 22 non-lexicon codes, e.g. B-HONEST, B-PRICE, V-POS, A-OWN, N-VALUE, and all 28 lexicon codes); **example 62 of 90** (missing on all 28 lexicon codes L01–L28). Cause: `p5_build_coding_frame.py --require-examples` exempts the lexicon layer and never checked exclude rules, so the P5.S03 done-when ("every code … ≥1 example") was reported met when it was not (incident below). 6 lexicon codes (L01, L04, L06, L07, L24, L26) carry no answer in the main coding, so no verbatim answer example exists for them |
+| 1 | `coding_frame.md`: each code with definition, include/exclude rules, ≥1 example | PASS | Frame v1.2, 90 codes: definition, include, exclude and example 90 of 90 (builder `--require-examples` checks every layer; P5 C02). 84 examples are verbatim answers cited by answer ID and checked against the answer; 6 lexicon codes no answer carries (L01, L04, L06, L07, L24, L26) take the instrument wording the lexicon cites, checked against `question_map.csv` and marked MISSING as an answer example. Codes unchanged from v1.1 |
 | 2 | Coded output links respondent ID → question thread; no per-respondent level or stakeholder | PASS | `codes.csv`: 7,156 rows, each with answer_id, respid, item, thread; 0 link mismatches against the corpus (P5 C03). No level, stakeholder, function or seniority field anywhere; 0 Respondent/Attributes (P5 C05) |
 | 3 | Raw verbatims untouched; codes stored separately | PASS | 1,697 answers equal the source cells (SRC-002 / SRC-003), the corpus and both instances (P5 C01). Codes live in `codes.csv` and in the separate `Coding` section of schema 1.2.0, referencing answers by `@id` (ADR-014; P5 C06) |
 | 4 | Consistency check documented (re-code a sample; report agreement) | PASS | `consistency_report.md`: 200-answer stratified sample, blind second coder; Krippendorff's alpha and Cohen's kappa per layer; no layer below 0.67 (D5-2); lowest: lexicon 0.71 / 0.72, attribution primary 0.75, SERVQUAL primary 0.79; coder notes in `coding/recode_notes.md` |
 
-**Cross-check (P5.S09):** 10 of 10 pass on `main`. Phase 3 cross-check 13 of 13 and Phase 4 9 of 9 on `main`. The committed Phase 3 report is stale since 1.2.0 (it shows 3 examples; there are 4) — a Phase 3 file, so its refresh needs a `fix/` branch.
+**Cross-check:** P5 10 of 10 on the reviewed head (C02 now also requires an exclude rule and an example on every code). Phase 3 13 of 13 and Phase 4 9 of 9 on `main`. Stale Phase 3 report refreshed on `fix/p3-crosscheck-report-refresh` (`0963298`).
 
-**Options to close criterion 1 (Scott to choose):**
-1. **Frame-completion step (recommended):** add exclude rules to the 50 codes and a verbatim example to each lexicon code, drawn by script from the answers carrying it; for the 6 lexicon codes no answer expresses, record the example as `MISSING` with the reason and cite the instrument wording instead. Codes unchanged, so agreement and findings stand; re-run S09.
-2. As option 1, plus settle the L26 rule and re-run the blind check on a fresh sample (frame v1.2).
-3. Accept the lexicon layer as exempt (its codes are defined by `asymmetry_lexicon.md`) and record that as a decision; still add the 22 missing non-lexicon exclude rules.
+**Also delivered:** 17 published methods (`methods.md`); corpus, vendor / person / feedback search index (D5-4); text views; frame v1.2 (90 codes, 18 inductive; v1.1 applied, v1.2 = v1.1 + exclude rules and lexicon examples); 15 coded views and `findings.md`; schema dms 1.2.0 (ADR-014).
 
-**Also delivered:** 17 published methods (`methods.md`); corpus, vendor / person / feedback search index (D5-4); text views; frame v1.1 (90 codes, 18 inductive); 15 coded views and `findings.md`; schema dms 1.2.0 (ADR-014).
-
-**Carried forward (not blockers):** L26 rule; frame candidates from the coders (time, relevance, energy, size match, going around the decision-maker, lock-in, customer building the vendor's case, cultural fit); Q-S10a gap names (candidate words in `views/coded/lexicon_pass2.csv`); Q-P4a and `t04_concept_links.csv` review; tag `schema-v1.2.0`; visualization concepts and search page (parking lot).
+**Carried forward (not blockers):** agreement was measured on v1.1 — whether v1.2's exclude rules raise it is unknown until a fresh blind check; L26 rule; frame candidates from the coders (time, relevance, energy, size match, going around the decision-maker, lock-in, customer building the vendor's case, cultural fit); Q-S10a gap names (candidate words in `views/coded/lexicon_pass2.csv`); Q-P4a and `t04_concept_links.csv` review; tag `schema-v1.2.0`; visualization concepts and search page (parking lot).
 
 ### Phase 4 — Analytics library
 **Drafted:** 2026-10-29 by Claude (P4.S08) · **Reviewed against:** `main` @ `67ee188`
