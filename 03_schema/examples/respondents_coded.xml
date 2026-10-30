@@ -3070,7 +3070,7 @@
       <TextAnswer item="Q25" cite="SRC-003 Q25!C320" provenance="VERBATIM" id="Q25-R320">product specialist                                                                                                                                                                                                                                             </TextAnswer>
     </Respondent>
   </Respondents>
-  <Coding frameVersion="v1.1">
+  <Coding frameVersion="v1.2">
     <CodeDef id="G-TARGET" layer="gate" label="Target" origin="deductive" provenance="INFERRED">
       <Definition>The answer is about whether the vendor reached the right people with the right message</Definition>
       <Include>who the vendor approaches; relevance of the message to the person or role; being the wrong audience</Include>
@@ -3146,6 +3146,7 @@
     <CodeDef id="S-NONE" layer="servqual" label="No SERVQUAL dimension" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses none of the five dimensions</Definition>
       <Include>price; brand; product category only</Include>
+      <Exclude>any answer that names reliability, responsiveness, assurance, empathy or tangibles</Exclude>
       <Example>price</Example>
     </CodeDef>
     <CodeDef id="M-ATTRIBUTE" layer="meansend" label="Attribute" origin="deductive" provenance="INFERRED">
@@ -3163,6 +3164,7 @@
     <CodeDef id="M-VALUE" layer="meansend" label="Value" origin="deductive" provenance="INFERRED">
       <Definition>The end the decision-maker cares about — personal or organisational</Definition>
       <Include>'trust', 'success of the initiative', 'peace of mind', 'partnership', 'our business grows'</Include>
+      <Exclude>a consequence for the project or task (M-CONSEQUENCE)</Exclude>
       <Example>how they can best help me and the team achieve the required results</Example>
     </CodeDef>
     <CodeDef id="A-VENDOR" layer="attribution" label="The vendor organisation" origin="deductive" provenance="INFERRED">
@@ -3180,36 +3182,43 @@
     <CodeDef id="A-PRODUCT" layer="attribution" label="The product or service" origin="deductive" provenance="INFERRED">
       <Definition>Credit or blame placed on what is sold</Definition>
       <Include>quality, features, price of the offering</Include>
+      <Exclude>the salesperson's knowledge of the product (A-SALESPERSON)</Exclude>
       <Example>The quality of their offering</Example>
     </CodeDef>
     <CodeDef id="A-OWN" layer="attribution" label="The decision-maker's own company" origin="deductive" provenance="INFERRED">
       <Definition>Credit or blame placed on the respondent's own organisation or self</Definition>
       <Include>'we did not have the capability', 'our processes'</Include>
+      <Exclude>the vendor failing the respondent's company (A-VENDOR)</Exclude>
       <Example>funding</Example>
     </CodeDef>
     <CodeDef id="A-NONE" layer="attribution" label="No attribution" origin="deductive" provenance="INFERRED">
       <Definition>No one is credited or blamed</Definition>
       <Include>names only; general statements</Include>
+      <Exclude>any answer that credits or blames the vendor, the salesperson, the product or the respondent's own company</Exclude>
       <Example>Cisco n/a n/a</Example>
     </CodeDef>
     <CodeDef id="V-POS" layer="valence" label="Positive" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses approval</Definition>
       <Include>praise; 'good', 'best', 'responsive'</Include>
+      <Exclude>a criterion stated without praising anyone (V-NEUTRAL)</Exclude>
       <Example>xerox - understood our needs</Example>
     </CodeDef>
     <CodeDef id="V-NEG" layer="valence" label="Negative" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses disapproval</Definition>
       <Include>criticism; 'pushy', 'worthless', 'unprepared'</Include>
+      <Exclude>a criterion stated without criticising anyone (V-NEUTRAL)</Exclude>
       <Example>Conti-to long response times</Example>
     </CodeDef>
     <CodeDef id="V-MIXED" layer="valence" label="Mixed" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses both</Definition>
       <Include>'good product but pushy'</Include>
+      <Exclude>one evaluation with a qualifier that does not reverse it (V-POS or V-NEG)</Exclude>
       <Example>Huawei: low price, poor reliability</Example>
     </CodeDef>
     <CodeDef id="V-NEUTRAL" layer="valence" label="Neutral" origin="deductive" provenance="INFERRED">
       <Definition>No evaluation</Definition>
       <Include>a role or names only; a description</Include>
+      <Exclude>any praise or criticism, however mild</Exclude>
       <Example>knowledge of my industry</Example>
     </CodeDef>
     <CodeDef id="N-NONANSWER" layer="notcodable" label="Non-answer" origin="deductive" provenance="INFERRED">
@@ -3233,21 +3242,25 @@
     <CodeDef id="N-UNINTELLIGIBLE" layer="notcodable" label="Unintelligible" origin="deductive" provenance="INFERRED">
       <Definition>Text that cannot be read as an answer</Definition>
       <Include>'aze', 'A B C', keyboard strings</Include>
+      <Exclude>a readable non-answer such as 'none' or 'n/a' (N-NONANSWER)</Exclude>
       <Example>[unintelligible]</Example>
     </CodeDef>
     <CodeDef id="N-REFERENCE" layer="notcodable" label="Refers to another answer" origin="inductive" provenance="INFERRED">
       <Definition>Points to an earlier answer without content</Definition>
       <Include>'same answer', 'see previous response'</Include>
+      <Exclude>an answer that restates content, however briefly (code the content)</Exclude>
       <Example>same answer</Example>
     </CodeDef>
     <CodeDef id="N-OFF-TOPIC" layer="notcodable" label="Off topic" origin="inductive" provenance="INFERRED">
       <Definition>A deliberate joke or unrelated text</Definition>
       <Include>'Pickles Onions Mustard'</Include>
+      <Exclude>an unusual but relevant answer (code it)</Exclude>
       <Example>Anchovies are ALWAYS a bad choice.</Example>
     </CodeDef>
     <CodeDef id="N-VALUE" layer="notcodable" label="A value, not an evaluation" origin="inductive" provenance="INFERRED">
       <Definition>An amount or factual description with nothing to code (Q20_2 amounts, S4 role descriptions)</Definition>
       <Include>'250000', 'Desktop Support'</Include>
+      <Exclude>an amount or role description with a reason attached (code the reason)</Exclude>
       <Example>Desktop Support</Example>
     </CodeDef>
     <CodeDef id="B-KNOWS-BUSINESS" layer="behaviour" label="Knows my business" origin="deductive" provenance="INFERRED">
@@ -3277,11 +3290,13 @@
     <CodeDef id="B-PREPARED" layer="behaviour" label="Prepared" origin="deductive" provenance="INFERRED">
       <Definition>Comes prepared to the meeting. Polarity: + experienced well, − badly</Definition>
       <Include>prepared; did their homework; organised</Include>
+      <Exclude>knowing the business with no sign of preparation for the meeting (B-KNOWS-BUSINESS)</Exclude>
       <Example>Preparedness and understanding of our company and our problems</Example>
     </CodeDef>
     <CodeDef id="B-HONEST" layer="behaviour" label="Honest and trustworthy" origin="deductive" provenance="INFERRED">
       <Definition>Honest, transparent, keeps their word; can be trusted. Polarity: + experienced well, − badly</Definition>
       <Include>honest; trustworthy; transparent; integrity</Include>
+      <Exclude>arrogance or condescension (B-RESPECT; lexicon L28)</Exclude>
       <Example>Accenture as they cannot be trusted for what they say</Example>
     </CodeDef>
     <CodeDef id="B-CUSTOMER-FIRST" layer="behaviour" label="Puts my needs before their sale" origin="deductive" provenance="INFERRED">
@@ -3389,149 +3404,212 @@
     <CodeDef id="B-SOLVES-PROBLEMS" layer="behaviour" label="Solves my problem" origin="deductive" provenance="INFERRED">
       <Definition>Helps the decision-maker solve a problem or reach a result; consultative. Polarity: + experienced well, − badly</Definition>
       <Include>solutions; helps us; problem solving; advice; consultative</Include>
+      <Exclude>knowing the business without helping (B-KNOWS-BUSINESS); new ideas alone (B-INSIGHT)</Exclude>
       <Example>Understands my needs and knows how to help me.</Example>
     </CodeDef>
     <CodeDef id="B-RELATIONSHIP" layer="behaviour" label="Continuity and long relationship" origin="deductive" provenance="INFERRED">
       <Definition>A relationship built over time with the same people; − : turnover, inconsistency, no relationship. Polarity: + experienced well, − badly</Definition>
       <Include>known them for years; long-term; same contact</Include>
+      <Exclude>personal attention within a single interaction (B-PERSONAL)</Exclude>
       <Example>IBM ACCOUNT EXECUTIVE HAVE KNOWN FOR 8 YEARS</Example>
     </CodeDef>
     <CodeDef id="B-COMMUNICATES" layer="behaviour" label="Communicates clearly" origin="deductive" provenance="INFERRED">
       <Definition>Clear, relevant communication. Polarity: + experienced well, − badly</Definition>
       <Include>clear; to the point; explains well</Include>
+      <Exclude>listening (B-LISTENS); speed of reply (B-RESPONSIVE)</Exclude>
       <Example>IBM (short and to the point)</Example>
     </CodeDef>
     <CodeDef id="B-FLEXIBLE" layer="behaviour" label="Flexible" origin="deductive" provenance="INFERRED">
       <Definition>Adapts offering, terms or approach to the customer. Polarity: + experienced well, − badly</Definition>
       <Include>flexible; customised; willing to adapt</Include>
+      <Exclude>price discounts alone (B-PRICE)</Exclude>
       <Example>CEO =&gt; very flexible in all matters</Example>
     </CodeDef>
     <CodeDef id="B-PRICE" layer="behaviour" label="Price and value for money" origin="deductive" provenance="INFERRED">
       <Definition>Price, cost, or value for money. Polarity: + experienced well, − badly</Definition>
       <Include>price; cost; cheap; expensive; value for money</Include>
+      <Exclude>building or quantifying the business case (B-QUANTIFIES-VALUE)</Exclude>
       <Example>TOO EXPENSIVE</Example>
     </CodeDef>
     <CodeDef id="B-PRODUCT-QUALITY" layer="behaviour" label="Product quality" origin="deductive" provenance="INFERRED">
       <Definition>Quality or performance of what is sold. Polarity: + experienced well, − badly</Definition>
       <Include>quality; reliability of product; innovation; best product</Include>
+      <Exclude>the salesperson's knowledge of the product (B-PRODUCT-EXPERTISE)</Exclude>
       <Example>The quality of their offering</Example>
     </CodeDef>
     <CodeDef id="B-PROFESSIONAL" layer="behaviour" label="Professional" origin="deductive" provenance="INFERRED">
       <Definition>Professional conduct and image. Polarity: + experienced well, − badly</Definition>
       <Include>professional; courteous; polite</Include>
+      <Exclude>competence or skill (B-COMPETENT)</Exclude>
       <Example>IBM - responsive and professional</Example>
     </CodeDef>
     <CodeDef id="L01" layer="lexicon" label="Who the right people are" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Who the right people are' (Target)</Definition>
       <Include>decision-maker wording for: who the right people are</Include>
+      <Exclude>the right person reached with the wrong message (L02)</Exclude>
+      <Example>Which of the following departments do you work in?</Example>
     </CodeDef>
     <CodeDef id="L02" layer="lexicon" label="Message fit" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Message fit' (Target); gap: Being mis-targeted — receiving a message meant for someone else</Definition>
       <Include>decision-maker wording for: message fit</Include>
+      <Exclude>who is approached (L01); how or how often (L05)</Exclude>
+      <Example>understanding of needs versus pitching same to all</Example>
     </CodeDef>
     <CodeDef id="L03" layer="lexicon" label="What makes a vendor worth it" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'What makes a vendor worth it' (Baseline)</Definition>
       <Include>decision-maker wording for: what makes a vendor worth it</Include>
+      <Exclude>an experience of a specific vendor in Q22–Q25 with no general criterion (code the specific concept)</Exclude>
+      <Example>Knows my business. Pleasant personality. Past history.</Example>
     </CodeDef>
     <CodeDef id="L04" layer="lexicon" label="Spending concentrates with strategic vendors" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Spending concentrates with strategic vendors' (Baseline)</Definition>
       <Include>decision-maker wording for: spending concentrates with strategic vendors</Include>
+      <Exclude>the quality of a single vendor (L03)</Exclude>
+      <Example>Does your firm generally spend more money with strategic providers than with other vendors?</Example>
     </CodeDef>
     <CodeDef id="L05" layer="lexicon" label="Being contacted" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Being contacted' (Access); gap: The cost of being pursued — the time and attention spent on unsolicited vendor contact</Definition>
       <Include>decision-maker wording for: being contacted</Include>
+      <Exclude>being screened by staff (L06); a referral (L07)</Exclude>
+      <Example>cold calling vendors because they don't do their homework.</Example>
     </CodeDef>
     <CodeDef id="L06" layer="lexicon" label="Being screened" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Being screened' (Access)</Definition>
       <Include>decision-maker wording for: being screened</Include>
+      <Exclude>the respondent's own rule for taking a meeting (L09)</Exclude>
+      <Example>what percentage of the requests to meet with you are screened out by a staff member or administrative staff member?</Example>
     </CodeDef>
     <CodeDef id="L07" layer="lexicon" label="Introductions" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Introductions' (Access)</Definition>
       <Include>decision-maker wording for: introductions</Include>
+      <Exclude>cold contact (L05)</Exclude>
+      <Example>The appointment was made through a referral from a trusted colleague.</Example>
     </CodeDef>
     <CodeDef id="L08" layer="lexicon" label="The moment of need" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'The moment of need' (Access)</Definition>
       <Include>decision-maker wording for: the moment of need</Include>
+      <Exclude>responsiveness unrelated to the timing of the need (B-RESPONSIVE)</Exclude>
+      <Example>their ability to always anticipate their customers’ needs</Example>
     </CodeDef>
     <CodeDef id="L09" layer="lexicon" label="Meeting granted" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Meeting granted' (Access)</Definition>
       <Include>decision-maker wording for: meeting granted</Include>
+      <Exclude>what happens once the meeting starts (L10)</Exclude>
+      <Example>Only a current preferred vendor</Example>
     </CodeDef>
     <CodeDef id="L10" layer="lexicon" label="The first meeting" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'The first meeting' (Agree); gap: The meeting that was not worth it</Definition>
       <Include>decision-maker wording for: the first meeting</Include>
+      <Exclude>preparation before it (L11); the presentation itself (L12)</Exclude>
+      <Example>Broniac - AP Audits.  They asked for a half an hour of my time and changed my mind from skeptic to believer.  They not only offered to sell their service...but to add value along the way.</Example>
     </CodeDef>
     <CodeDef id="L11" layer="lexicon" label="Preparation" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Preparation' (Agree)</Definition>
       <Include>decision-maker wording for: preparation</Include>
+      <Exclude>knowledge of their own product with no preparation on the customer (B-PRODUCT-EXPERTISE)</Exclude>
+      <Example>thoroughly prepared</Example>
     </CodeDef>
     <CodeDef id="L12" layer="lexicon" label="Being presented to" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Being presented to' (Agree)</Definition>
       <Include>decision-maker wording for: being presented to</Include>
+      <Exclude>being taught something new (L13)</Exclude>
+      <Example>cork supply- bland powerpoints drone on for ages intolerable presentations</Example>
     </CodeDef>
     <CodeDef id="L13" layer="lexicon" label="Being taught something" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Being taught something' (Agree)</Definition>
       <Include>decision-maker wording for: being taught something</Include>
+      <Exclude>a product presentation (L12)</Exclude>
+      <Example>Marsh Mcclenan for their ability to share insight and expertise,</Example>
     </CodeDef>
     <CodeDef id="L14" layer="lexicon" label="Being helped" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Being helped' (Agree)</Definition>
       <Include>decision-maker wording for: being helped</Include>
+      <Exclude>seeing the path to value without help with the problem (L15)</Exclude>
+      <Example>IBM, CA, EMC.  Partners in solving my problems.</Example>
     </CodeDef>
     <CodeDef id="L15" layer="lexicon" label="Seeing the path to value" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Seeing the path to value' (Vision)</Definition>
       <Include>decision-maker wording for: seeing the path to value</Include>
+      <Exclude>vendor material as such (L16)</Exclude>
+      <Example>Cisco.  Good end to end vision.</Example>
     </CodeDef>
     <CodeDef id="L16" layer="lexicon" label="Vendor material" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Vendor material' (Vision); gap: Material that never reaches the decision</Definition>
       <Include>decision-maker wording for: vendor material</Include>
+      <Exclude>the presentation in the meeting (L12)</Exclude>
+      <Example>to much information is presented before they know what my needs are</Example>
     </CodeDef>
     <CodeDef id="L17" layer="lexicon" label="Carrying the idea inside the company" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Carrying the idea inside the company' (Vision); gap: The decision-maker selling internally on the vendor's behalf</Definition>
       <Include>decision-maker wording for: carrying the idea inside the company</Include>
+      <Exclude>the vendor's people selling inside the vendor's company (L27)</Exclude>
+      <Example>Their capacity to be a partner and work with internal teams</Example>
     </CodeDef>
     <CodeDef id="L18" layer="lexicon" label="The agreement network widens" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'The agreement network widens' (Vision); gap: More people joining the decision than the vendor targeted</Definition>
       <Include>decision-maker wording for: the agreement network widens</Include>
+      <Exclude>carrying the idea inside the company with the decision-maker (L17)</Exclude>
+      <Example>PC Helps - went around me and didn't take my well vetted No for an answer.  The sales rep got No from the people he went around me to, and then those people asked me to make sure he heard their No, too.</Example>
     </CodeDef>
     <CodeDef id="L19" layer="lexicon" label="Who will carry it out" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Who will carry it out' (Vision)</Definition>
       <Include>decision-maker wording for: who will carry it out</Include>
+      <Exclude>building the case (L20)</Exclude>
+      <Example>ability to execute</Example>
     </CodeDef>
     <CodeDef id="L20" layer="lexicon" label="Building the case" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Building the case' (Case)</Definition>
       <Include>decision-maker wording for: building the case</Include>
+      <Exclude>the risk that the vendor will not deliver (L21)</Exclude>
+      <Example>ROI clear articulated</Example>
     </CodeDef>
     <CodeDef id="L21" layer="lexicon" label="Risk" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Risk' (Case)</Definition>
       <Include>decision-maker wording for: risk</Include>
+      <Exclude>price alone (B-PRICE; L20)</Exclude>
+      <Example>did not believe they vendor could deliver on promises</Example>
     </CodeDef>
     <CodeDef id="L22" layer="lexicon" label="Authority" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Authority' (Case)</Definition>
       <Include>decision-maker wording for: authority</Include>
+      <Exclude>risk (L21); another vendor chosen (L24)</Exclude>
+      <Example>lack of available budget</Example>
     </CodeDef>
     <CodeDef id="L23" layer="lexicon" label="Not yes" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Not yes' (Not yes)</Definition>
       <Include>decision-maker wording for: not yes</Include>
+      <Exclude>another vendor chosen (L24)</Exclude>
+      <Example>Did not suit the required solutions</Example>
     </CodeDef>
     <CodeDef id="L24" layer="lexicon" label="Another vendor earned the yes" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Another vendor earned the yes' (Not yes)</Definition>
       <Include>decision-maker wording for: another vendor earned the yes</Include>
+      <Exclude>a decision not to buy at all (L23)</Exclude>
+      <Example>I pursued the opportunity with a different vendor.</Example>
     </CodeDef>
     <CodeDef id="L25" layer="lexicon" label="Who carries the relationship" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Who carries the relationship' (Relationship)</Definition>
       <Include>decision-maker wording for: who carries the relationship</Include>
+      <Exclude>judging a sales team as a whole (L26)</Exclude>
+      <Example>Ernst and Young-- long record of working with us. BridgePoint-- 403b expertise.</Example>
     </CodeDef>
     <CodeDef id="L26" layer="lexicon" label="Judging sales teams" origin="deductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Judging sales teams' (Relationship)</Definition>
       <Include>decision-maker wording for: judging sales teams</Include>
+      <Exclude>the primary contact and why (L25)</Exclude>
+      <Example>which 3 companies have sales teams you find</Example>
     </CodeDef>
-    <CodeDef id="L27" layer="lexicon" label="Selling inside the vendor on the customer's behalf" origin="deductive" provenance="INFERRED">
+    <CodeDef id="L27" layer="lexicon" label="Selling inside the vendor on the customer's behalf" origin="inductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Selling inside the vendor on the customer's behalf' (Vision); gap: The salesperson working their own company for the customer — the mirror of L17</Definition>
       <Include>decision-maker wording for: selling inside the vendor on the customer's behalf</Include>
+      <Exclude>carrying the idea inside the customer's company (L17)</Exclude>
+      <Example>regional sales manager - close enough to the issues to understand yet global in comnnection to resources</Example>
     </CodeDef>
-    <CodeDef id="L28" layer="lexicon" label="Being condescended to" origin="deductive" provenance="INFERRED">
+    <CodeDef id="L28" layer="lexicon" label="Being condescended to" origin="inductive" provenance="INFERRED">
       <Definition>The answer expresses the lexicon concept 'Being condescended to' (Agree); gap: Being treated as if one does not know one's own business</Definition>
       <Include>decision-maker wording for: being condescended to</Include>
+      <Exclude>dishonesty (B-HONEST); pushiness (B-CUSTOMER-FIRST)</Exclude>
+      <Example>oracle is too expensive and arrogant</Example>
     </CodeDef>
     <Applied answer="Q21-R002" code="G-AGREE" primary="true" coder="claude-s05" provenance="INFERRED"/>
     <Applied answer="Q21-R002" code="G-RELATIONSHIP" primary="false" coder="claude-s05" provenance="INFERRED"/>

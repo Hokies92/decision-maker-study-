@@ -5,8 +5,8 @@ about respondents, numbers traceable, everything reproducible.
 Checks:
     C01 Verbatims unchanged: corpus.csv text = the source cell it cites (SRC-002 / SRC-003, read with openpyxl)
         = the TextAnswer in respondents_open_ended.xml = the TextAnswer in respondents_coded.xml
-    C02 Every code used (main and blind re-code) has an entry in the coding frame; every frame example occurs verbatim
-        in the answer it cites
+    C02 Every code used (main and blind re-code) has an entry in the coding frame; every code has an exclude rule and an
+        example; every example occurs verbatim in the answer or instrument item it cites
     C03 Every answer is covered exactly once (one not-codable code, or coded), and every coded row links
         answer → respid → item → thread exactly as the corpus does
     C04 Coding rules hold: not-codable answers carry nothing else; every codable answer has a gate and a valence;
@@ -63,6 +63,10 @@ RUNS = [
 ]
 
 
+def r_example(frame, code):
+    return next(r["example"] for r in frame if r["code"] == code)
+
+
 def check(cid, name, ok, detail):
     results.append((cid, name, "PASS" if ok else "FAIL", detail))
     print(f"{cid} {'PASS' if ok else 'FAIL'} — {name} | {detail}")
@@ -114,15 +118,22 @@ def main() -> int:
     undefined = sorted(used - set(fcodes))
     bad_ex = []
     for r in frame:
-        m = re.search(r"example (Q[\w]+-R\d{3})", r.get("source", ""))
+        m = re.search(r"example ([A-Z][\w]+-R\d{3})", r.get("source", ""))
         if r.get("example") and m:
             if r["example"].strip() not in cmap.get(m.group(1), ""):
                 bad_ex.append(r["code"])
-    n_ex = sum(1 for r in frame if r.get("example") and re.search(r"example (Q[\w]+-R\d{3})", r.get("source", "")))
-    check("C02", "Every code used has a frame entry; every cited frame example occurs verbatim in its answer",
-          not undefined and not bad_ex,
+    n_ex = sum(1 for r in frame if r.get("example") and re.search(r"example ([A-Z][\w]+-R\d{3})", r.get("source", "")))
+    qm = rd(Path("01_instrument_reconstruction/question_map.csv")).set_index("item_id")
+    inst = [(r["code"], re.search(r"example instrument (\S+) (stem|item_label)", r["source"])) for r in frame
+            if "example instrument" in r.get("source", "")]
+    bad_ex += [c for c, m in inst if not m or r_example(frame, c) not in qm.loc[m.group(1), m.group(2)]]
+    no_ex = [r["code"] for r in frame if not r.get("example") or not r.get("exclude")]
+    n_ex += len(inst)
+    check("C02", "Every code used is defined; every code has an exclude rule and an example; every example verbatim at its citation",
+          not undefined and not bad_ex and not no_ex,
           f"{len(used)} codes used (main + re-code) of {len(fcodes)} defined; undefined {undefined or 'none'}; "
-          f"{n_ex} cited examples, not found {bad_ex or 'none'}")
+          f"{n_ex} cited examples ({len(inst)} from the instrument, for codes no answer carries), not found {bad_ex or 'none'}; "
+          f"codes without an example or exclude rule: {no_ex or 'none'}")
 
     # C03 — coverage and links
     per = codes.groupby("answer_id")
