@@ -7,3 +7,8 @@ EC03:Q18,combo,useful,Scott (approved as recommended),2026-10-30,Economic readin
 BY02:Q14,combo,duplicate,Scott (approved as recommended),2026-10-30,Overlaps the chi-square test for this purpose,not run; keep in inventory
 DC02,fix,wrong,Scott (approved as recommended),2026-10-30,Passed on frequency grids (Q3; Q8) that do not measure importance,fixed by new rule R14 (scale family)
 CY02,fix,misleading,Scott (approved as recommended),2026-10-30,Duplicated the within-question difference (DS07),dropped from the method register
+IN01:Q14,run,useful,Scott (approved as recommended),2026-11-10,First run: evenness 0.88; pitch share 48%–73% in every usable group,keep; candidate finding
+DS07:Q8_1+Q8_3,run,useful,Scott (approved as recommended),2026-11-10,First run: +38 points; higher in 39 of 39 usable groups; the sound replacement for the retired ledger,keep; candidate finding
+IS04:Q18,run,useful,Scott (approved as recommended),2026-11-10,First run: no dimension differs after adjustment; the business-case problem is common to every group,keep; candidate finding
+CM01:Q14,run,valid_not_useful,Scott (approved as recommended),2026-11-10,"Valid, but its first axis is set by the 'partnering' answer, not pitch versus customer; the plain pitch share by group (IN01) answers the same question more clearly",keep in inventory; not for a page
+EC03:Q18,run,useful,Scott (approved as recommended),2026-11-10,Transaction-cost reading of the business case; interpretation only (R12),keep; candidate finding

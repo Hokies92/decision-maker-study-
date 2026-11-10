@@ -10,7 +10,9 @@ Runs (combination → method):
     CM01:Q14        correspondence analysis of typical-meeting answers × usable groups of non-overlapping dimensions (R07)
     EC03:Q18        transaction-cost reading of the business-case answers (interpretation only, R12)
 Inputs: 04_analytics_library/outputs/T01/gate_profile.csv; 01_instrument_reconstruction/cohorts.csv, cohort_dimensions.csv;
-        06_visualization/inventory/valid.csv, verdicts.csv.
+        06_visualization/inventory/valid.csv, verdicts.csv, rules.csv.
+Rules applied in this step: R15 (a test is reported only when every expected cell count is at least 5).
+Scott's verdicts on each run (verdicts.csv, level 'run') are written to the run log.
 Outputs: 06_visualization/inventory/runs/*.csv, runs/report.md, run_log.csv.
 Every number is computed here from committed data; group-level only — no statement about an individual.
 Usage: python3 -I scripts/p6_run_inventory.py
@@ -56,6 +58,9 @@ def main() -> int:
     valid = rd(INV / "valid.csv").set_index("combo_id")
     verdicts = rd(INV / "verdicts.csv")
     to_run = verdicts[(verdicts.level == "combo") & (verdicts.verdict == "useful")].target.tolist()
+    run_verdict = dict(zip(verdicts[verdicts.level == "run"].target, verdicts[verdicts.level == "run"].verdict))
+    rules = rd(INV / "rules.csv").set_index("rule_id")
+    r15 = "R15" in rules.index
     for c in to_run:
         if c not in valid.index:
             print(f"ERROR: {c} marked useful but not valid in the inventory", file=sys.stderr)
@@ -119,6 +124,10 @@ def main() -> int:
         tests.append({"dimension": dims.loc[d, "name"], "groups": len(cs), "n": int(nn), "chi2": round(chi2, 3), "dof": dof, "p": p,
                       "cramers_v": round(v, 3), "min_expected": round(float(exp.min()), 2), "expected_ok": bool(exp.min() >= 5)})
     T18 = pd.DataFrame(tests)
+    # R15: a test whose smallest expected count is below 5 is not reported, and is left out of the adjustment
+    T18["reported"] = T18.expected_ok if r15 else True
+    held = T18[~T18.reported]
+    T18 = T18[T18.reported].drop(columns="reported").reset_index(drop=True)
     T18["p_bh"] = bh(T18.p.values).round(4)
     T18["p"] = T18.p.round(4)
     T18["differs_at_5pct"] = T18.p_bh < 0.05
@@ -172,6 +181,9 @@ def main() -> int:
          "| Dimension | Groups | n | Chi-square | p (adjusted) | Cramér's V | Smallest expected count |", "|---|---|---|---|---|---|---|"]
     for r in T18.sort_values(["p", "dimension"]).itertuples():
         L.append(f"| {r.dimension} | {r.groups} | {r.n} | {r.chi2} | {r.p_bh} | {r.cramers_v} | {r.min_expected}{'' if r.expected_ok else ' (below 5: read with care)'} |")
+    if r15:
+        L += ["", f"- R15: every test is reported only when its smallest expected count is at least 5. "
+              + (f"Not reported: {', '.join(held.dimension)}." if len(held) else "All {} tests meet it.".format(len(T18)))]
     L += ["", f"- Reading: {'the answers differ by ' + ', '.join(sig.dimension) if len(sig) else 'no dimension shows a difference that survives adjustment'}. "
           + ("The business-case problem is shared across levels, functions, regions and company sizes: it is not one group's problem." if len(sig) == 0 else
              "Elsewhere the business-case problem is shared."), "",
@@ -187,12 +199,15 @@ def main() -> int:
           "- Reading (Williamson 1985): the business case is a cost of completing the purchase. Vendors leave most of it with the customer, inside the customer's "
           "company, where the effort competes with every other priority. A purchase that costs the customer more to complete is more likely to stall — "
           "consistent with the pull-back reasons in Q15. The lens explains; it measures nothing of its own (R12).", ""]
-    L += ["## What this run taught the inventory (for Scott's verdicts)", "",
-          "- **Proposed rule R15:** a test is reported only when its expected counts are at least 5. The five-answer chi-square looked significant for "
+    L += ["## What this run taught the inventory" + ("" if run_verdict else " (for Scott's verdicts)"), "",
+          ("- **Rule R15 (adopted, Scott 2026-11-10):**" if r15 else "- **Proposed rule R15:**")
+          + " a test is reported only when its expected counts are at least 5. The five-answer chi-square looked significant for "
           "three dimensions; with sound counts none survives. The method register states this caveat, but the engine cannot see counts until a run — "
           "so the check belongs in the run step.",
           "- **CM01 on Q14 explains little to a reader:** its main axis is set by the 'partnering' answer, not by pitch versus customer. The plain pitch "
-          "share by group (section 1) answers the same question more clearly. Suggested verdict: valid but not useful for communication.",
+          "share by group (section 1) answers the same question more clearly. "
+          + ("Verdict (Scott): valid but not useful for communication." if run_verdict.get("CM01:Q14") == "valid_not_useful"
+             else "Suggested verdict: valid but not useful for communication."),
           f"- **DS07 is the strongest result:** own-products preparation exceeds preparation on the customer's business in {int((wg.difference_pts > 0).sum())} of {len(wg)} groups. "
           "It is the sound replacement for the retired ledger.",
           "- **The business-case problem is common to every group tested** (no difference survives) — evidence for 'fix the design, not the people'.", ""]
@@ -202,7 +217,7 @@ def main() -> int:
             ("IS04:Q18", "runs/is04_q18_by_group.csv", f"{len(sig)} of {len(T18)} dimensions differ after adjustment"),
             ("CM01:Q14", "runs/cm01_q14_groups.csv; runs/cm01_q14_options.csv", f"axis 1 {share1:.0%} of variation"),
             ("EC03:Q18", "runs/report.md §5", f"{own_work:.0%} carry significant case work themselves")]
-    pd.DataFrame([{"combo_id": c, "script": "scripts/p6_run_inventory.py", "outputs": o, "result": r, "verdict": "pending (Scott)"} for c, o, r in runs]) \
+    pd.DataFrame([{"combo_id": c, "script": "scripts/p6_run_inventory.py", "outputs": o, "result": r, "verdict": run_verdict.get(c, "pending (Scott)")} for c, o, r in runs]) \
         .to_csv(INV / "run_log.csv", index=False, lineterminator="\n")
     print(f"runs={len(runs)}; dimensions tested={len(T18)}; differ={len(sig)}")
     return 0

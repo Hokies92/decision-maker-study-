@@ -33,6 +33,8 @@ Tested within 11 dimensions whose groups do not overlap; groups below n = 25 lef
 | Level — business decision-makers | 3 | 140 | 1.97 | 0.8155 | 0.084 | 8.7 |
 | Company revenue | 4 | 259 | 1.307 | 0.9712 | 0.05 | 8.22 |
 
+- R15: every test is reported only when its smallest expected count is at least 5. All 11 tests meet it.
+
 - Reading: no dimension shows a difference that survives adjustment. The business-case problem is shared across levels, functions, regions and company sizes: it is not one group's problem.
 
 ## 4 · Which groups get the most pitching? (CM01 correspondence analysis, Q14)
@@ -48,9 +50,9 @@ Tested within 11 dimensions whose groups do not overlap; groups below n = 25 lef
 - Data: 10% find building the case simple with vendor material; 59% need significant customization or do most or all of it themselves.
 - Reading (Williamson 1985): the business case is a cost of completing the purchase. Vendors leave most of it with the customer, inside the customer's company, where the effort competes with every other priority. A purchase that costs the customer more to complete is more likely to stall — consistent with the pull-back reasons in Q15. The lens explains; it measures nothing of its own (R12).
 
-## What this run taught the inventory (for Scott's verdicts)
+## What this run taught the inventory
 
-- **Proposed rule R15:** a test is reported only when its expected counts are at least 5. The five-answer chi-square looked significant for three dimensions; with sound counts none survives. The method register states this caveat, but the engine cannot see counts until a run — so the check belongs in the run step.
-- **CM01 on Q14 explains little to a reader:** its main axis is set by the 'partnering' answer, not by pitch versus customer. The plain pitch share by group (section 1) answers the same question more clearly. Suggested verdict: valid but not useful for communication.
+- **Rule R15 (adopted, Scott 2026-11-10):** a test is reported only when its expected counts are at least 5. The five-answer chi-square looked significant for three dimensions; with sound counts none survives. The method register states this caveat, but the engine cannot see counts until a run — so the check belongs in the run step.
+- **CM01 on Q14 explains little to a reader:** its main axis is set by the 'partnering' answer, not by pitch versus customer. The plain pitch share by group (section 1) answers the same question more clearly. Verdict (Scott): valid but not useful for communication.
 - **DS07 is the strongest result:** own-products preparation exceeds preparation on the customer's business in 39 of 39 groups. It is the sound replacement for the retired ledger.
 - **The business-case problem is common to every group tested** (no difference survives) — evidence for 'fix the design, not the people'.
