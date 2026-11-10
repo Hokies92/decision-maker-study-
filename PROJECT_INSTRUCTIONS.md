@@ -29,6 +29,7 @@ Order of authority: (1) Scott's explicit instruction in chat that names what it 
 - **One step at a time.** Work only on the current step in `STATE.md`. Out-of-scope ideas go to the *Parking lot*; do not act on them. Consecutive steps that need no input from Scott may run as one batch on one PR, only when Scott approves the batch by name (GOVERNANCE §3.4).
 - **Gates are hard.** A phase is not closed until every exit criterion in `GOVERNANCE.md` §5 passes and Scott tags it. Never start the next phase on your own.
 - **Never commit to `main`.** Work on `phase-<N>/step-<NN>-<slug>` branches. If you cannot push, deliver a patch and say so plainly.
+- **Exploration lane.** Slice-recommendation runs use `explore/run-<YYYY-MM-DD>` branches under `GOVERNANCE.md` §14: freedom in what to look at, the validity engine on what may run, Scott's PR-comment verdicts on what is useful. Nothing from a run is canon until a phase step adopts it.
 - **Source is immutable.** Never modify anything in `00_source/`.
 - **Label provenance.** Every reconstructed fact is tagged `VERBATIM`, `RECON_DATA`, `RECON_REPORT`, `RECALL_DESIGNER`, `INFERRED`, or `MISSING`. Never fill a gap without a tag.
 - **Verify before claiming done.** Run the checklist in `GOVERNANCE.md` §6.3. Report with the fixed step-report format (§11). `PARTIAL` is acceptable; a false `DONE` is not.

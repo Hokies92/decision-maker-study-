@@ -23,6 +23,7 @@ You are working in a gated, stepwise reconstruction project. **`GOVERNANCE.md` i
 - One step → one branch `phase-<N>/step-<NN>-<slug>` → one PR — or an approved batch of consecutive no-input steps on `phase-<N>/steps-<NN>-<MM>-<slug>` (GOVERNANCE §3.4). Never commit to `main`.
 - Tag every reconstructed fact: `VERBATIM` · `RECON_DATA` · `RECON_REPORT` · `RECALL_DESIGNER` · `INFERRED` · `MISSING`. Never fill a gap silently.
 - Anything out of scope → `STATE.md` *Parking lot*. Do not act on it.
+- Exploration runs (`explore/run-<date>` branches) follow GOVERNANCE §14, not the step plan: they write only to `exploration/`, run only slices the validity engine passes, and never make a slice canon.
 - Artifacts derived from data are produced by committed scripts. Never hand-edit generated output.
 - `00_source/` is evidence. Read it; never change it.
 
@@ -44,7 +45,8 @@ Run the verification checklist (GOVERNANCE §6.3), update `STATE.md`, commit, pu
 | `04_analytics_library/` | 4 | One file per technique + `catalog.md` |
 | `05_open_ended/` | 5 | Coding frame, coded output |
 | `06_visualization/` | 6 | Concept sheet, view build scripts' outputs, `catalog.md` |
-| `scripts/` | any | Generators and checks (name: `p<N>_<verb>_<object>.py`) |
+| `exploration/` | lane (§14) | Exploration runs, slice verdicts, analysis contract — never canon |
+| `scripts/` | any | Generators and checks (name: `p<N>_<verb>_<object>.py`; lane scripts `explore_<verb>_<object>.py`) |
 
 ## Standard commands
 
