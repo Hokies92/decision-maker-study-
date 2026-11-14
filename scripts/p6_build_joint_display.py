@@ -21,8 +21,8 @@ Rules kept here:
 
 Readings (INFERRED rules; Scott reviews them in P6.S12):
   survey   valued items (what decision-makers say they want: vendor qualities Q1, appointment reasons Q7, meeting value
-           Q11, differentiators Q13, importance Q19) read 'most' when the share is at least 50%, else 'a minority';
-           received items (what they say they get: every other question) read 'common' at 50% or more, else 'uncommon'.
+           Q11, differentiators Q13, importance Q19) read 'most' when the share is at least MAJORITY, else 'a minority';
+           received items (what they say they get: every other question) read 'common' at MAJORITY or more, else 'uncommon'.
            A stem (whole question) has no single result and is not read.
   written  behaviour codes take their class from the P5 satisfier / dissatisfier rule (cit_behaviours.csv: satisfier,
            dissatisfier, critical, neutral, too few); lexicon codes carry no direction.
@@ -38,7 +38,8 @@ Judgement per linked item (the item's own reading against the code's written cla
 Concept judgement: silent when one side is absent — no survey link (silent: survey), or fewer than MIN_WRITTEN answers
 carry the code (silent: written); otherwise disagree if any item disagrees, agree if agreeing items are at least as many
 as expanding ones, else expand. A concept linked only to whole questions is expand (question-level link). An option set
-of one question counts once (its single options are listed, not counted). A share within NEAR of 50% is flagged.
+of one question counts once (its single options are listed, not counted). A share within NEAR of MAJORITY is flagged.
+MAJORITY is 55% (Scott, P6.S12 decision 2, 2026-11-14: "55%, minimum 10"); MIN_WRITTEN stays 10.
 
 Quote: the coding frame's own example answer for the code (chosen in Phase 5), shown verbatim from the corpus.
 Every link, judgement and pillar statement is INFERRED until Scott reviews it (P6.S12).
@@ -57,9 +58,9 @@ import pandas as pd
 
 OUT = Path("06_visualization/joint")
 ALL = "C-L-ALL-RESPONDENTS"
-MAJORITY = 0.5
-MIN_WRITTEN = 10  # the P5 satisfier / dissatisfier rule's minimum (MIN_KANO)
-NEAR = 0.05  # a share within 5 points of 50% is flagged for Scott: its reading could tip either way
+MAJORITY = 0.55  # Scott, P6.S12 decision 2 (2026-11-14): "55%, minimum 10"; was 0.50 in S11
+MIN_WRITTEN = 10  # the P5 satisfier / dissatisfier rule's minimum (MIN_KANO); kept by Scott in P6.S12 decision 2
+NEAR = 0.05  # a share within 5 points of the MAJORITY line is flagged for Scott: its reading could tip either way
 VALUED = {"vendor qualities", "appointment reasons", "meeting value", "importance-differentiation", "importance"}
 DIRECTED_ROUTES = {"frame_source", "t04_pair"}  # routes on which the code and the item share a pole
 WRITTEN_ORDER = ["Q21", "Q22", "Q23", "Q24", "Q25"]
@@ -207,7 +208,7 @@ def main() -> int:
             conv = "disagree" if nd else ("agree" if na >= ne else "expand")
             basis = f"items: {na} agree, {ne} expand, {nd} disagree"
             if near:
-                basis += f"; near the 50% line: {', '.join(near)}"
+                basis += f"; near the {MAJORITY:.0%} line: {', '.join(near)}"
 
         # ---- pillar statement ----------------------------------------------------------------------------------------
         if f.layer == "behaviour" and cls not in ("not coded",):
@@ -255,18 +256,18 @@ def write_md(J, links):
          "in the behaviour or lexicon layer of the coding frame.", "",
          f"**{len(J)} concepts:** " + ", ".join(f"{k} {int(cnt.get(k, 0))}" for k in ORDER if cnt.get(k, 0)) + ".", "",
          "## How each concept is judged", "",
-         "- **Survey reading.** Valued items (Q1, Q7, Q11, Q13, Q19: what decision-makers say they want) read *most* at 50% "
-         "or more, else *a minority*. Received items (every other question: what they say they get) read *common* at 50% or "
-         "more, else *uncommon*. A whole question has no single result and is not read.",
+         f"- **Survey reading.** Valued items (Q1, Q7, Q11, Q13, Q19: what decision-makers say they want) read *most* at {MAJORITY:.0%} "
+         f"or more, else *a minority*. Received items (every other question: what they say they get) read *common* at {MAJORITY:.0%} or "
+         "more, else *uncommon*. The line is Scott's (P6.S12). A whole question has no single result and is not read.",
          f"- **Written reading.** Behaviour codes take their P5 class from best and worst accounts (satisfier, dissatisfier, "
          f"critical, neutral, too few). Lexicon codes carry no direction. Fewer than {MIN_WRITTEN} answers = silent.",
          "- **Per item.** Valued and most → agree; valued and a minority → expand. Received, where the code and the item share "
          "a pole: common + satisfier → agree; common + dissatisfier → disagree; uncommon + dissatisfier or critical → agree; "
-         "uncommon + satisfier → expand; otherwise expand. Lexicon codes and links that come only through a lexicon entry → "
-         "expand. An item that measures the other pole (the pitch, for *puts my needs first*) has its reading flipped.",
+         "uncommon + satisfier → expand; otherwise expand. A received item linked to a lexicon code, or only through a lexicon "
+         "entry, → expand (no direction to compare); a valued item is read the same way for every code. An item that measures the other pole (the pitch, for *puts my needs first*) has its reading flipped.",
          "- **Per concept.** Disagree if any item disagrees; agree if agreeing items are at least as many as expanding ones; "
          "else expand. Silent when one side is absent. An option set of one question (e.g. Q14 options 3 + 4 + 5) counts "
-         "once; a share within 5 points of 50% is flagged in the judgement, because its reading could tip either way.", ""]
+         f"once; a share within 5 points of the {MAJORITY:.0%} line is flagged in the judgement, because its reading could tip either way.", ""]
     M += ["## The display", "", "| Concept | Survey (all respondents) | Written answers | Quote | Judgement |", "|---|---|---|---|---|"]
     for r in J.itertuples():
         sv = r.survey_result.replace(" | ", "<br>") if r.survey_result else "—"
